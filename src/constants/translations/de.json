@@ -1,0 +1,48 @@
+{
+  "common": {
+    "sourceChecker": "Quellenchecker",
+    "back": "zurück"
+  },
+  "auth": {
+    "question": "Welchen Online-Quellen traust du?",
+    "teacherButton": "Ich bin Lehrer:in",
+    "studentButton": "Ich bin Schüler:in",
+    "mainText": "Quellenchecker ist ein Online-Tool für den Unterricht, bei dem die Schüler:innen über die Glaubwürdigkeit von realen Internet-Inhalten abstimmen. Ein YouTube-Video, ein Instagram-Post oder ein Artikel einer unbekannten Nachrichtenseite - welchen Quellen vertrauen die Jugendlichen, welchen weniger? Das lässt sich mit Quellenchecker spielerisch abfragen. Ziel ist ein leichter Einstieg ins Thema Informations- und Nachrichtenkompetenz und die Auseinandersetzung mit der Glaubwürdigkeit unterschiedlicher Internet-Quellen."
+  },
+  "input": {
+    "button": "senden"
+  },
+  "footer": {
+    "header": "Der Quellenchecker ist ein Projekt von",
+    "public": "Der Quelltext ist öffentlich.",
+    "imprint": "Impressum",
+    "datapolice": "Datenschutz",
+    "license": "Lizenz"
+  },
+  "survey": {
+    "createSurvey": "Umfrage Management",
+    "stepOne": "Schritt 1",
+    "stepTwo": "Schritt 2",
+    "stepThree": "Schritt 3",
+    "stepFour": "Schritt 4",
+    "stepFive": "Schritt 5",
+    "stepOneText": "Aktion auswählen",
+    "stepTwoText": "Umfrage auswählen",
+    "stepThreeText": "Umfrageeinstellung",
+    "stepFourText": "Umfrage speichern",
+    "stepFiveText": "Seiten auswählen"
+  },
+  "chooseAction": {
+    "header": "Was möchtest du machen?",
+    "newSurvey": "Neue Umfrage anlegen",
+    "existingSurvey": "Bestehende Umfrage öffnen"
+  },
+  "chooseSurvey": {
+    "surveyData": "Umfragedaten eingeben",
+    "surveyID": "Umfrage-ID",
+    "surveyPIN": "Umfrage-PIN"
+  },
+  "newSurvey": {
+    "header": "Umfrageeinstellung"
+  }
+}

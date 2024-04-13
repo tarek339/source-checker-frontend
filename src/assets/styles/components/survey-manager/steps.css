@@ -1,0 +1,16 @@
+.steps-description {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+
+.steps-description span:last-child {
+  color: #111827;
+}
+
+@media screen and (max-width: 767px) {
+  .steps-description {
+    padding-left: 15px;
+  }
+}

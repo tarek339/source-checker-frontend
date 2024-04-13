@@ -1,0 +1,129 @@
+.authentication {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.auth-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.teacher-button {
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 12px 32px;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: #00000033 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
+    #0000001f 0px 1px 5px 0px;
+  background-color: #16a34a;
+}
+.teacher-button:hover {
+  background-color: #22bb33;
+  transition: background-color 0.25s;
+}
+
+.student-button {
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 11px 32px;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  color: #fff;
+  box-shadow: #00000033 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px,
+    #0000001f 0px 1px 5px 0px;
+  background-color: #2834c2;
+}
+.student-button:hover {
+  background-color: #1420ae;
+  transition: background-color 0.25s;
+}
+
+.divider {
+  border-top: 5px solid #d3d3d3;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.footer-section {
+  line-height: 1.6;
+  padding: 10px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .auth-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .auth-section {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .auth-section {
+    max-width: 500px;
+    margin: 2em auto;
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .auth-section {
+    max-width: initial;
+    margin: auto;
+    width: 550px;
+    margin-top: 180px;
+    margin-bottom: 180px;
+  }
+  .auth-section p {
+    font-size: 18px;
+  }
+
+  .student-button {
+    padding: 16px 36px;
+  }
+
+  .teacher-button {
+    padding: 16px 36px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

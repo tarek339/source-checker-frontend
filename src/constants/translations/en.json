@@ -1,0 +1,48 @@
+{
+  "common": {
+    "sourceChecker": "Source checker",
+    "back": "back"
+  },
+  "auth": {
+    "question": "Which online sources do you trust?",
+    "teacherButton": "I am a teacher",
+    "studentButton": "I am a student",
+    "mainText": "Source Checker is an online tool for lessons in which students vote on the credibility of real Internet content. A YouTube video, an Instagram post or an article from an unknown news site - which sources do young people trust and which do they trust less? Source checkers are a fun way to find out. The aim is to provide an easy introduction to the topic of information and news literacy and to examine the credibility of different internet sources."
+  },
+  "input": {
+    "button": "submit"
+  },
+  "footer": {
+    "header": "The source checker is a project by",
+    "public": "The source code is public.",
+    "imprint": "Imprint",
+    "datapolice": "Data police",
+    "license": "License"
+  },
+  "survey": {
+    "createSurvey": "Survey management",
+    "stepOne": "Step 1",
+    "stepTwo": "Step 2",
+    "stepThree": "Step 3",
+    "stepFour": "Step 4",
+    "stepFive": "Step 5",
+    "stepOneText": "Choose action",
+    "stepTwoText": "Choose survey",
+    "stepThreeText": "Survey settings",
+    "stepFourText": "Save survey",
+    "stepFiveText": "Choose sites"
+  },
+  "chooseAction": {
+    "header": "What would you like to do?",
+    "newSurvey": "Create new survey",
+    "existingSurvey": "Open existing survey"
+  },
+  "chooseSurvey": {
+    "surveyData": "Type in survey data",
+    "surveyID": "Survey-ID",
+    "surveyPIN": "Survey-PIN"
+  },
+  "newSurvey": {
+    "header": "Survey settings"
+  }
+}
