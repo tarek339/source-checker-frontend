@@ -5,7 +5,6 @@ const pagesSlice = createSlice({
   name: "pages",
   initialState: {
     page: 0,
-    index: 0,
     stepDone: false,
   },
   reducers: {

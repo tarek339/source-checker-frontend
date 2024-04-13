@@ -1,4 +1,4 @@
 import { handleTranslation } from "./translations";
-import { handlePages, handleIndexes, handleSteps } from "./pages";
+import { handlePages, handleSteps } from "./pages";
 
-export { handleTranslation, handlePages, handleIndexes, handleSteps };
+export { handleTranslation, handlePages, handleSteps };

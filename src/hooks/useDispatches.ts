@@ -1,10 +1,5 @@
 import { useDispatch } from "react-redux";
-import {
-  handleIndexes,
-  handlePages,
-  handleSteps,
-  handleTranslation,
-} from "./redux/slices";
+import { handlePages, handleSteps, handleTranslation } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
 
 const useDispatches = () => {
@@ -15,8 +10,6 @@ const useDispatches = () => {
 
   const handlePage = (addPage: number) =>
     dispatch(handlePages({ page: 0 + addPage }));
-  const handleIndex = (addIndex: number) =>
-    dispatch(handleIndexes({ index: 0 + addIndex }));
   const finishStep = () => dispatch(handleSteps(true));
   const resetStep = () => dispatch(handleSteps(false));
 
@@ -24,7 +17,6 @@ const useDispatches = () => {
     enableEN,
     enableGE,
     handlePage,
-    handleIndex,
     finishStep,
     resetStep,
   };
