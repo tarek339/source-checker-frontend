@@ -7,7 +7,7 @@ import { useTranslations } from "../../hooks";
 const ChooseAction = () => {
   const [ishHoveredNew, setIshHoveredNew] = useState(false);
   const [isHoveredAdd, setIsHoveredAdd] = useState(false);
-  const { handlePage, handleIndex, finishStep } = useDispatches();
+  const { handlePage, finishStep } = useDispatches();
   const { t } = useTranslations();
 
   return (
@@ -17,7 +17,6 @@ const ChooseAction = () => {
         <div
           onClick={() => {
             handlePage(+2);
-            handleIndex(+2);
             finishStep();
           }}
           onMouseEnter={() => setIsHoveredAdd(true)}
@@ -32,7 +31,6 @@ const ChooseAction = () => {
         <div
           onClick={() => {
             handlePage(+1);
-            handleIndex(+1);
             finishStep();
           }}
           onMouseEnter={() => setIshHoveredNew(true)}
