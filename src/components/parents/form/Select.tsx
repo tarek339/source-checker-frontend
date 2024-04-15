@@ -1,27 +1,40 @@
+import { useEffect, useState } from "react";
 import { ISelect } from "../../../types/interfaces/components";
 
 const Select = ({
   label,
-  name,
-  htmlFor,
   error,
   inputErrorStyle,
   option,
+  selectedItem,
 }: ISelect) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleDropdownClick = () => {
+    setIsActive(!isActive);
+  };
+
+  useEffect(() => {
+    console.log(isActive);
+  }, [isActive]);
+
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-      <label style={{ fontSize: "14px" }} htmlFor="">
-        {label}
-      </label>
-      <select
+    <div className="input-holder">
+      <label htmlFor="">{label}</label>
+      <div
+        className={`select ${isActive ? "active" : ""}`}
+        onClick={handleDropdownClick}
         style={{
           borderColor: inputErrorStyle ? "#f44336" : "",
           boxShadow: inputErrorStyle ? "0px 0px 0px 1px #f44336 inset" : "",
-        }}
-        name={name}
-        id={htmlFor}>
-        {option}
-      </select>
+        }}>
+        <div
+          style={{ color: inputErrorStyle ? "#f44336" : "" }}
+          className="textBox">
+          {selectedItem}
+        </div>
+        <div className="option">{option}</div>
+      </div>
       {error}
     </div>
   );

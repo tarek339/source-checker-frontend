@@ -14,11 +14,14 @@ export interface IInput {
 
 export interface ISelect {
   label: string;
-  name: string;
-  htmlFor: string;
   error: JSX.Element | null;
   inputErrorStyle?: JSX.Element | null;
-  option: JSX.Element | undefined;
+  selectedItem: JSX.Element | string | undefined;
+  option: JSX.Element[] | JSX.Element | string | undefined;
+}
+
+export interface IInputErrorContainer {
+  children: React.ReactNode;
 }
 
 export interface IBackButton {

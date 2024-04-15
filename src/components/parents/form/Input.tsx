@@ -2,10 +2,8 @@ import { IInput } from "../../../types/interfaces/components";
 
 const Input = ({ label, name, htmlFor, error, inputErrorStyle }: IInput) => {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-      <label style={{ fontSize: "14px" }} htmlFor={htmlFor}>
-        {label}
-      </label>
+    <div className="input-holder">
+      <label htmlFor={htmlFor}>{label}</label>
       <input
         type="text"
         name={name}

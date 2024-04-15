@@ -100,9 +100,23 @@ const useCompArray = () => {
       comp: <NewSurvey />,
     },
   ];
+
+  const options = [
+    {
+      comp: "One",
+    },
+    {
+      comp: "Two",
+    },
+    {
+      comp: "Three",
+    },
+  ];
+
   return {
     steps,
     actionsHolder,
+    options,
   };
 };
 

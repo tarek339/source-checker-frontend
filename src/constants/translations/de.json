@@ -10,7 +10,10 @@
     "mainText": "Quellenchecker ist ein Online-Tool für den Unterricht, bei dem die Schüler:innen über die Glaubwürdigkeit von realen Internet-Inhalten abstimmen. Ein YouTube-Video, ein Instagram-Post oder ein Artikel einer unbekannten Nachrichtenseite - welchen Quellen vertrauen die Jugendlichen, welchen weniger? Das lässt sich mit Quellenchecker spielerisch abfragen. Ziel ist ein leichter Einstieg ins Thema Informations- und Nachrichtenkompetenz und die Auseinandersetzung mit der Glaubwürdigkeit unterschiedlicher Internet-Quellen."
   },
   "input": {
-    "button": "senden"
+    "button": "senden",
+    "select": "Bitte auswählen",
+    "inputError": "Pflichtfeld",
+    "surveyType": "Umfragetyp"
   },
   "footer": {
     "header": "Der Quellenchecker ist ein Projekt von",

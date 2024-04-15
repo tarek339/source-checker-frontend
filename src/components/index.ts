@@ -8,6 +8,8 @@ import Input from "./parents/form/Input";
 import FormButton from "./parents/form/FormButton";
 import BackButton from "./BackButton";
 import Select from "./parents/form/Select";
+import useCompArray from "./surveys-manager/useCompArray";
+import InputErrorContainer from "./parents/form/InputErrorContainer";
 
 export {
   Footer,
@@ -20,4 +22,6 @@ export {
   FormButton,
   BackButton,
   Select,
+  useCompArray,
+  InputErrorContainer,
 };

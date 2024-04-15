@@ -1,13 +1,25 @@
-import { BackButton, FormButton, Select } from "..";
+import { useState } from "react";
+import {
+  BackButton,
+  FormButton,
+  InputErrorContainer,
+  Select,
+  useCompArray,
+} from "..";
 import { useTranslations } from "../../hooks";
 import useDispatches from "../../hooks/useDispatches";
 
 const NewSurvey = () => {
   const { t } = useTranslations();
   const { handlePage } = useDispatches();
+  const { options } = useCompArray();
+  const [selectedOption, setSelectedOption] = useState("");
+  const [selectErrorMessage, setSelectErrorMessage] =
+    useState<JSX.Element | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    !selectedOption ? setSelectErrorMessage(<InputErrorContainer />) : null;
   };
 
   return (
@@ -28,18 +40,25 @@ const NewSurvey = () => {
           gap: "15px",
         }}>
         <Select
-          label={""}
-          name={""}
-          htmlFor={""}
-          error={null}
-          option={undefined}
-        />
-        <Select
-          label={""}
-          name={""}
-          htmlFor={""}
-          error={null}
-          option={undefined}
+          label={t("input.surveyType")}
+          error={selectErrorMessage}
+          selectedItem={!selectedOption ? t("input.select") : selectedOption}
+          inputErrorStyle={selectErrorMessage}
+          option={options
+            .filter((opt) => opt.comp !== selectedOption)
+            .map((opt, i) => {
+              return (
+                <div
+                  onClick={() => {
+                    setSelectedOption(opt.comp);
+                    setSelectErrorMessage(null);
+                  }}
+                  className="options-style"
+                  key={i}>
+                  <span className="opt-span">{opt.comp}</span>
+                </div>
+              );
+            })}
         />
         <FormButton />
         <div

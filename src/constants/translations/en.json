@@ -10,7 +10,10 @@
     "mainText": "Source Checker is an online tool for lessons in which students vote on the credibility of real Internet content. A YouTube video, an Instagram post or an article from an unknown news site - which sources do young people trust and which do they trust less? Source checkers are a fun way to find out. The aim is to provide an easy introduction to the topic of information and news literacy and to examine the credibility of different internet sources."
   },
   "input": {
-    "button": "submit"
+    "button": "submit",
+    "select": "Please select",
+    "inputError": "Required field",
+    "surveyType": "Survey type"
   },
   "footer": {
     "header": "The source checker is a project by",

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BackButton, FormButton, Input } from "..";
+import { BackButton, FormButton, Input, InputErrorContainer } from "..";
 import { useTranslations } from "../../hooks";
 import useDispatches from "../../hooks/useDispatches";
 
@@ -18,14 +18,8 @@ const ChooseSurvey = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    !surveyId
-      ? setIDErrorMessage(<div className="input-error">field is required </div>)
-      : null;
-    !surveyPin
-      ? setPINErrorMessage(
-          <div className="input-error">field is required </div>
-        )
-      : null;
+    !surveyId ? setIDErrorMessage(<InputErrorContainer />) : null;
+    !surveyPin ? setPINErrorMessage(<InputErrorContainer />) : null;
   };
 
   return (

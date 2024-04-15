@@ -50,6 +50,12 @@ p {
   margin: 0;
 }
 
+.input-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
 input,
 select {
   padding: 8px 12px;
@@ -69,6 +75,15 @@ input:focus,
 select:focus {
   border: 1px solid #2835c3;
   box-shadow: 0px 0px 0px 1px #2835c3 inset;
+}
+
+select {
+  cursor: pointer;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .form-button {
@@ -107,6 +122,7 @@ select:focus {
   font-size: 15px;
   text-transform: uppercase;
 }
+
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 60px;
