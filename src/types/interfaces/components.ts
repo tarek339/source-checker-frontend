@@ -9,7 +9,7 @@ export interface IInput {
   name: string;
   htmlFor: string;
   error: JSX.Element | null;
-  inputErrorStyle?: JSX.Element | null;
+  inputErrorStyle: JSX.Element | null;
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }

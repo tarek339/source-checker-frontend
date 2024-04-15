@@ -103,14 +103,18 @@ const NewSurvey = () => {
           ifOnText={t("newSurvey.yes")}
           ifOffText={t("newSurvey.no")}
         />
-        <Input
-          label={""}
-          name={"userName"}
-          htmlFor={"userName"}
-          error={inputError}
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        />
+        {!toggleOn && (
+          <Input
+            label={t("newSurvey.userName")}
+            name={"userName"}
+            htmlFor={"userName"}
+            error={inputError}
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            inputErrorStyle={inputError}
+          />
+        )}
+
         <FormButton />
         <div
           style={{

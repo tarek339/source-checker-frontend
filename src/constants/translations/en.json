@@ -52,6 +52,7 @@
     "afterSurvey": "Afer survey",
     "anonymous": "Stay anonymous?",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "userName": "User name"
   }
 }
