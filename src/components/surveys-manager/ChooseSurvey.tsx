@@ -45,6 +45,8 @@ const ChooseSurvey = () => {
           htmlFor={"survey-id"}
           error={IDErrorMessage}
           inputErrorStyle={IDErrorMessage}
+          value={surveyId}
+          onChange={(e) => setSurveyId(e.target.value)}
         />
         <Input
           label={t("chooseSurvey.surveyPIN")}
@@ -52,6 +54,8 @@ const ChooseSurvey = () => {
           htmlFor={"survey-pin"}
           error={PINErrorMessage}
           inputErrorStyle={PINErrorMessage}
+          value={surveyPin}
+          onChange={(e) => setSurveyPin(e.target.value)}
         />
         <FormButton />
         <div

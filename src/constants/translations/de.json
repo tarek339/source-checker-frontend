@@ -46,6 +46,12 @@
     "surveyPIN": "Umfrage-PIN"
   },
   "newSurvey": {
-    "header": "Umfrageeinstellung"
+    "header": "Umfrageeinstellung",
+    "resultsType": "Ergbnistyp",
+    "rating": "Bewertung",
+    "afterSurvey": "Nach Umfrage",
+    "anonymous": "Anonym bleiben?",
+    "yes": "Ja",
+    "no": "Nein"
   }
 }

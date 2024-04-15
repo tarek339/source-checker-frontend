@@ -101,22 +101,22 @@ const useCompArray = () => {
     },
   ];
 
-  const options = [
+  const surveysOptions = [
     {
-      comp: "One",
+      option: t("newSurvey.rating"),
     },
+  ];
+  const resultsOptions = [
     {
-      comp: "Two",
-    },
-    {
-      comp: "Three",
+      option: t("newSurvey.afterSurvey"),
     },
   ];
 
   return {
     steps,
     actionsHolder,
-    options,
+    surveysOptions,
+    resultsOptions,
   };
 };
 

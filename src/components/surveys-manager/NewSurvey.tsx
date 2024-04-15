@@ -2,8 +2,10 @@ import { useState } from "react";
 import {
   BackButton,
   FormButton,
+  Input,
   InputErrorContainer,
   Select,
+  ToggleButton,
   useCompArray,
 } from "..";
 import { useTranslations } from "../../hooks";
@@ -12,14 +14,23 @@ import useDispatches from "../../hooks/useDispatches";
 const NewSurvey = () => {
   const { t } = useTranslations();
   const { handlePage } = useDispatches();
-  const { options } = useCompArray();
-  const [selectedOption, setSelectedOption] = useState("");
+  const { surveysOptions, resultsOptions } = useCompArray();
+
+  const [surveysSelectedOptions, setSurveysSelectedOptions] = useState("");
+  const [resultsSelectedOptions, setResultsSelectedOptions] = useState("");
+  const [toggleOn, setToggleOn] = useState(false);
+  const [userName, setUserName] = useState("");
+
   const [selectErrorMessage, setSelectErrorMessage] =
     useState<JSX.Element | null>(null);
+  const [inputError, setInputError] = useState<JSX.Element | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    !selectedOption ? setSelectErrorMessage(<InputErrorContainer />) : null;
+    !surveysSelectedOptions
+      ? setSelectErrorMessage(<InputErrorContainer />)
+      : null;
+    !userName ? setInputError(<InputErrorContainer />) : null;
   };
 
   return (
@@ -42,23 +53,63 @@ const NewSurvey = () => {
         <Select
           label={t("input.surveyType")}
           error={selectErrorMessage}
-          selectedItem={!selectedOption ? t("input.select") : selectedOption}
+          selectedItem={
+            !surveysSelectedOptions ? t("input.select") : surveysSelectedOptions
+          }
           inputErrorStyle={selectErrorMessage}
-          option={options
-            .filter((opt) => opt.comp !== selectedOption)
+          option={surveysOptions
+            .filter((opt) => opt.option !== surveysSelectedOptions)
             .map((opt, i) => {
               return (
                 <div
                   onClick={() => {
-                    setSelectedOption(opt.comp);
+                    setSurveysSelectedOptions(opt.option);
                     setSelectErrorMessage(null);
                   }}
                   className="options-style"
                   key={i}>
-                  <span className="opt-span">{opt.comp}</span>
+                  <span className="opt-span">{opt.option}</span>
                 </div>
               );
             })}
+        />
+        <Select
+          label={t("newSurvey.resultsType")}
+          error={selectErrorMessage}
+          selectedItem={
+            !resultsSelectedOptions ? t("input.select") : resultsSelectedOptions
+          }
+          inputErrorStyle={selectErrorMessage}
+          option={resultsOptions
+            .filter((opt) => opt.option !== resultsSelectedOptions)
+            .map((opt, i) => {
+              return (
+                <div
+                  onClick={() => {
+                    setResultsSelectedOptions(opt.option);
+                    setSelectErrorMessage(null);
+                  }}
+                  className="options-style"
+                  key={i}>
+                  <span className="opt-span">{opt.option}</span>
+                </div>
+              );
+            })}
+        />
+        <ToggleButton
+          label={t("newSurvey.anonymous")}
+          isOn={toggleOn}
+          handleToggle={() => setToggleOn(!toggleOn)}
+          ifOnText={t("newSurvey.yes")}
+          ifOffText={t("newSurvey.no")}
+        />
+        <Input
+          label={""}
+          name={"userName"}
+          htmlFor={"userName"}
+          error={inputError}
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
         />
         <FormButton />
         <div

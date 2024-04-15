@@ -46,6 +46,12 @@
     "surveyPIN": "Survey-PIN"
   },
   "newSurvey": {
-    "header": "Survey settings"
+    "header": "Survey settings",
+    "resultsType": "Results type",
+    "rating": "Rating",
+    "afterSurvey": "Afer survey",
+    "anonymous": "Stay anonymous?",
+    "yes": "Yes",
+    "no": "No"
   }
 }

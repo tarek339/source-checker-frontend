@@ -10,6 +10,7 @@ import BackButton from "./BackButton";
 import Select from "./parents/form/Select";
 import useCompArray from "./surveys-manager/useCompArray";
 import InputErrorContainer from "./parents/form/InputErrorContainer";
+import ToggleButton from "./parents/form/ToggleButton";
 
 export {
   Footer,
@@ -24,4 +25,5 @@ export {
   Select,
   useCompArray,
   InputErrorContainer,
+  ToggleButton,
 };

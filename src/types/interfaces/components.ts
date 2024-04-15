@@ -10,6 +10,8 @@ export interface IInput {
   htmlFor: string;
   error: JSX.Element | null;
   inputErrorStyle?: JSX.Element | null;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
 
 export interface ISelect {
