@@ -11,6 +11,10 @@ import Select from "./parents/form/Select";
 import useCompArray from "./surveys-manager/useCompArray";
 import InputErrorContainer from "./parents/form/InputErrorContainer";
 import ToggleButton from "./parents/form/ToggleButton";
+import SaveSurvey from "./surveys-manager/SaveSurvey";
+import DividerHorizontal from "./DividerHorizontal";
+import Modal from "./parents/containers/Modal";
+import ModalContent from "./parents/containers/ModalContent";
 
 export {
   Footer,
@@ -26,4 +30,8 @@ export {
   useCompArray,
   InputErrorContainer,
   ToggleButton,
+  SaveSurvey,
+  DividerHorizontal,
+  Modal,
+  ModalContent,
 };

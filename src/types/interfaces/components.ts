@@ -29,3 +29,17 @@ export interface IInputErrorContainer {
 export interface IBackButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
+
+export interface IModal {
+  children: JSX.Element | JSX.Element[];
+  isVisible?: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  style?: React.CSSProperties;
+}
+
+export interface IModalContent {
+  url: string;
+  header: string;
+  localeStorage: string;
+  id: string;
+}

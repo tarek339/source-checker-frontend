@@ -30,6 +30,7 @@ const ChooseAction = () => {
         </div>
         <div
           onClick={() => {
+            localStorage.removeItem("surveyData");
             handlePage(+1);
             finishStep();
           }}

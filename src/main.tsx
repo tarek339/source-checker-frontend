@@ -4,6 +4,9 @@ import "./assets/styles/index.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./hooks/redux/store.ts";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:4000";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>

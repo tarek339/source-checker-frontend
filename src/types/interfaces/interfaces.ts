@@ -9,3 +9,9 @@ export interface IUseTranslation {
   locale: string;
   setLocale: (text: string) => void;
 }
+
+export interface ISurvey {
+  anunomys: boolean;
+  surveyId: string;
+  surveyPin: string;
+}

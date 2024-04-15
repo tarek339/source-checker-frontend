@@ -1,4 +1,4 @@
-import { ChooseAction, ChooseSurvey, NewSurvey, Steps } from "..";
+import { ChooseAction, ChooseSurvey, NewSurvey, SaveSurvey, Steps } from "..";
 import { useTranslations } from "../../hooks";
 import useSelectors from "../../hooks/useSelectors";
 
@@ -66,7 +66,12 @@ const useCompArray = () => {
           counter={t("survey.stepFour")}
           text={t("survey.stepFourText")}
           style={{
-            color: page === 3 ? "#2834c2" : "darkgray",
+            color:
+              page === 3
+                ? "#2834c2"
+                : stepDone && page === 4
+                ? "#16a34a"
+                : "darkgray",
           }}
         />
       ),
@@ -98,6 +103,9 @@ const useCompArray = () => {
     },
     {
       comp: <NewSurvey />,
+    },
+    {
+      comp: <SaveSurvey />,
     },
   ];
 

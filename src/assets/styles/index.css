@@ -123,6 +123,22 @@ label {
   text-transform: uppercase;
 }
 
+.continue-button {
+  background-color: #16a34a;
+  color: #fff;
+  border-color: transparent;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+    rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.continue-button:hover {
+  background-color: #22bb33;
+}
+
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 60px;

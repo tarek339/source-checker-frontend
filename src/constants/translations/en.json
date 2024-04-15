@@ -1,7 +1,13 @@
 {
   "common": {
     "sourceChecker": "Source checker",
-    "back": "back"
+    "back": "back",
+    "cancel": "cancel",
+    "continue": "weiter",
+    "delete": "löschen",
+    "surveyID": "Survey-ID",
+    "surveyPIN": "Survey-PIN",
+    "survey": "Umfrage"
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -41,9 +47,7 @@
     "existingSurvey": "Open existing survey"
   },
   "chooseSurvey": {
-    "surveyData": "Type in survey data",
-    "surveyID": "Survey-ID",
-    "surveyPIN": "Survey-PIN"
+    "surveyData": "Type in survey data"
   },
   "newSurvey": {
     "header": "Survey settings",
@@ -54,5 +58,9 @@
     "yes": "Yes",
     "no": "No",
     "userName": "User name"
+  },
+  "saveSurvey": {
+    "saveSurvey": "Save survey",
+    "chooseName": "Students choose name?"
   }
 }

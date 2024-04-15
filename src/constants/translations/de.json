@@ -1,7 +1,13 @@
 {
   "common": {
     "sourceChecker": "Quellenchecker",
-    "back": "zurück"
+    "continue": "Weiter",
+    "back": "zurück",
+    "cancel": "abbrechen",
+    "delete": "löschen",
+    "surveyID": "Umfrage-ID",
+    "surveyPIN": "Umfrage-PIN",
+    "survey": "Umfrage"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -41,9 +47,7 @@
     "existingSurvey": "Bestehende Umfrage öffnen"
   },
   "chooseSurvey": {
-    "surveyData": "Umfragedaten eingeben",
-    "surveyID": "Umfrage-ID",
-    "surveyPIN": "Umfrage-PIN"
+    "surveyData": "Umfragedaten eingeben"
   },
   "newSurvey": {
     "header": "Umfrageeinstellung",
@@ -54,5 +58,9 @@
     "yes": "Ja",
     "no": "Nein",
     "userName": "Benutzernamen"
+  },
+  "saveSurvey": {
+    "saveSurvey": "Umfrage speichern",
+    "chooseName": "Schüler wählen einen Namen?"
   }
 }

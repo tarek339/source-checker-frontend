@@ -20,6 +20,7 @@ const ChooseSurvey = () => {
     e.preventDefault();
     !surveyId ? setIDErrorMessage(<InputErrorContainer />) : null;
     !surveyPin ? setPINErrorMessage(<InputErrorContainer />) : null;
+    // send ID/Name and PIN and log in
   };
 
   return (
@@ -40,7 +41,7 @@ const ChooseSurvey = () => {
         }}
         onSubmit={handleSubmit}>
         <Input
-          label={t("chooseSurvey.surveyID")}
+          label={t("common.surveyID")}
           name={surveyId}
           htmlFor={"survey-id"}
           error={IDErrorMessage}
@@ -49,7 +50,7 @@ const ChooseSurvey = () => {
           onChange={(e) => setSurveyId(e.target.value)}
         />
         <Input
-          label={t("chooseSurvey.surveyPIN")}
+          label={t("common.surveyPIN")}
           name={surveyPin}
           htmlFor={"survey-pin"}
           error={PINErrorMessage}

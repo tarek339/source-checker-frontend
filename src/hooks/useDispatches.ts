@@ -1,6 +1,13 @@
 import { useDispatch } from "react-redux";
-import { handlePages, handleSteps, handleTranslation } from "./redux/slices";
+import {
+  addSurvey,
+  handleModal,
+  handlePages,
+  handleSteps,
+  handleTranslation,
+} from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
+import { AxiosResponse } from "axios";
 
 const useDispatches = () => {
   const dispatch = useDispatch();
@@ -13,12 +20,21 @@ const useDispatches = () => {
   const finishStep = () => dispatch(handleSteps(true));
   const resetStep = () => dispatch(handleSteps(false));
 
+  const dispatchSurvey = (res: AxiosResponse<any, any>) =>
+    dispatch(addSurvey(res));
+
+  const openModal = () => dispatch(handleModal({ isVisible: true }));
+  const closeModal = () => dispatch(handleModal({ isVisible: false }));
+
   return {
     enableEN,
     enableGE,
     handlePage,
     finishStep,
     resetStep,
+    dispatchSurvey,
+    openModal,
+    closeModal,
   };
 };
 

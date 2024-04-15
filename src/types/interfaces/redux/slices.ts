@@ -13,3 +13,7 @@ export interface HandlePage {
 export interface HandleSteps {
   stepDone: boolean;
 }
+
+export interface HandleModal {
+  isVisible: boolean;
+}
