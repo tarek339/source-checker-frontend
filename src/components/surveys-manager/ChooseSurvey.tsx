@@ -1,11 +1,18 @@
 import { useState } from "react";
-import { BackButton, FormButton, Input, InputErrorContainer } from "..";
+import {
+  BackButton,
+  DividerHorizontal,
+  FormButton,
+  Input,
+  InputErrorContainer,
+} from "..";
 import { useTranslations } from "../../hooks";
 import useDispatches from "../../hooks/useDispatches";
+import axios from "axios";
 
 const ChooseSurvey = () => {
   const { t } = useTranslations();
-  const { handlePage } = useDispatches();
+  const { handlePage, dispatchSurvey } = useDispatches();
 
   const [surveyId, setSurveyId] = useState("");
   const [surveyPin, setSurveyPin] = useState("");
@@ -16,11 +23,17 @@ const ChooseSurvey = () => {
     null
   );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     !surveyId ? setIDErrorMessage(<InputErrorContainer />) : null;
     !surveyPin ? setPINErrorMessage(<InputErrorContainer />) : null;
-    // send ID/Name and PIN and log in
+
+    const res = await axios.post("/survey/fetch", { surveyId, surveyPin });
+    localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
+    const surveyDataString = localStorage.getItem("surveyData");
+    const surveyData = JSON.parse(surveyDataString!);
+    dispatchSurvey(surveyData);
+    handlePage(+3);
   };
 
   return (
@@ -59,11 +72,7 @@ const ChooseSurvey = () => {
           onChange={(e) => setSurveyPin(e.target.value)}
         />
         <FormButton />
-        <div
-          style={{
-            width: "100%",
-            borderBottom: "1px solid lightgrey",
-          }}></div>
+        <DividerHorizontal />
         <BackButton onClick={() => handlePage(0)} />
       </form>
     </div>

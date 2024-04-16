@@ -1,10 +1,4 @@
-export interface IToggleButton {
-  label: string;
-  isOn: boolean;
-  handleToggle: React.ChangeEventHandler<HTMLInputElement> | undefined;
-  ifOnText: string;
-  ifOffText: string;
-}
+import { IToggleButton } from "../../../types/interfaces/components";
 
 const ToggleButton = ({
   label,
@@ -12,6 +6,7 @@ const ToggleButton = ({
   handleToggle,
   ifOnText,
   ifOffText,
+  htmlFor,
 }: IToggleButton) => {
   return (
     <div className="toggle-holder">
@@ -19,7 +14,7 @@ const ToggleButton = ({
       <input
         checked={isOn}
         onChange={handleToggle}
-        id="switch"
+        id={htmlFor}
         className="toogle-button"
         type="checkbox"
       />
@@ -27,7 +22,7 @@ const ToggleButton = ({
         <label
           style={{ background: isOn ? "#16a34a" : "lightgrey" }}
           className="switch-label"
-          htmlFor="switch">
+          htmlFor={htmlFor}>
           <span className="switch-button" />
         </label>
         <span className="text">{isOn ? ifOnText : ifOffText}</span>

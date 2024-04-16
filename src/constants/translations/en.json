@@ -18,8 +18,7 @@
   "input": {
     "button": "submit",
     "select": "Please select",
-    "inputError": "Required field",
-    "surveyType": "Survey type"
+    "inputError": "Required field"
   },
   "footer": {
     "header": "The source checker is a project by",
@@ -38,7 +37,7 @@
     "stepOneText": "Choose action",
     "stepTwoText": "Choose survey",
     "stepThreeText": "Survey settings",
-    "stepFourText": "Save survey",
+    "stepFourText": "Save overview",
     "stepFiveText": "Choose sites"
   },
   "chooseAction": {
@@ -54,13 +53,15 @@
     "resultsType": "Results type",
     "rating": "Rating",
     "afterSurvey": "Afer survey",
-    "anonymous": "Stay anonymous?",
+    "anonymous": "Anonymous results",
     "yes": "Yes",
     "no": "No",
-    "userName": "User name"
+    "userName": "User name",
+    "freeNames": "Free user names?",
+    "surveyType": "Survey type"
   },
   "saveSurvey": {
-    "saveSurvey": "Save survey",
-    "chooseName": "Students choose name?"
+    "saveSurvey": "Save overview",
+    "chooseName": "Free user names"
   }
 }

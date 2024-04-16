@@ -1,10 +1,19 @@
-import { ChooseAction, ChooseSurvey, NewSurvey, SaveSurvey, Steps } from "..";
+import {
+  AddPages,
+  ChooseAction,
+  ChooseSurvey,
+  NewSurvey,
+  SaveSurvey,
+  Steps,
+  SurveyProp,
+} from "..";
 import { useTranslations } from "../../hooks";
 import useSelectors from "../../hooks/useSelectors";
+import { Cancel, Check } from "../icons";
 
 const useCompArray = () => {
   const { t } = useTranslations();
-  const { page, stepDone } = useSelectors();
+  const { page, stepDone, survey } = useSelectors();
 
   const steps = [
     {
@@ -107,6 +116,9 @@ const useCompArray = () => {
     {
       comp: <SaveSurvey />,
     },
+    {
+      comp: <AddPages />,
+    },
   ];
 
   const surveysOptions = [
@@ -120,11 +132,65 @@ const useCompArray = () => {
     },
   ];
 
+  const surveyArray = [
+    {
+      comp: (
+        <SurveyProp
+          header={t("newSurvey.anonymous")}
+          child={
+            <span style={{ display: "flex", alignItems: "center" }}>
+              {survey?.anonymousResults ? <Check /> : <Cancel />}
+            </span>
+          }
+        />
+      ),
+    },
+    {
+      comp: (
+        <SurveyProp
+          header={t("saveSurvey.chooseName")}
+          child={
+            <span style={{ display: "flex", alignItems: "center" }}>
+              {survey?.freeUserNames ? <Check /> : <Cancel />}
+            </span>
+          }
+        />
+      ),
+    },
+    {
+      comp: (
+        <SurveyProp
+          header={t("newSurvey.surveyType")}
+          child={survey?.selectedSurveysOption}
+        />
+      ),
+    },
+    {
+      comp: (
+        <SurveyProp
+          header={t("newSurvey.resultsType")}
+          child={survey?.selectedResultsOption}
+        />
+      ),
+    },
+    {
+      comp: (
+        <SurveyProp header={t("common.surveyID")} child={survey?.surveyId} />
+      ),
+    },
+    {
+      comp: (
+        <SurveyProp header={t("common.surveyPIN")} child={survey?.surveyPin} />
+      ),
+    },
+  ];
+
   return {
     steps,
     actionsHolder,
     surveysOptions,
     resultsOptions,
+    surveyArray,
   };
 };
 

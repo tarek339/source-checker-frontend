@@ -18,8 +18,7 @@
   "input": {
     "button": "senden",
     "select": "Bitte auswählen",
-    "inputError": "Pflichtfeld",
-    "surveyType": "Umfragetyp"
+    "inputError": "Pflichtfeld"
   },
   "footer": {
     "header": "Der Quellenchecker ist ein Projekt von",
@@ -38,7 +37,7 @@
     "stepOneText": "Aktion auswählen",
     "stepTwoText": "Umfrage auswählen",
     "stepThreeText": "Umfrageeinstellung",
-    "stepFourText": "Umfrage speichern",
+    "stepFourText": "Umfrage Übersicht",
     "stepFiveText": "Seiten auswählen"
   },
   "chooseAction": {
@@ -54,13 +53,15 @@
     "resultsType": "Ergbnistyp",
     "rating": "Bewertung",
     "afterSurvey": "Nach Umfrage",
-    "anonymous": "Anonym bleiben?",
+    "anonymous": "Anonyme Egebnisse",
     "yes": "Ja",
     "no": "Nein",
-    "userName": "Benutzernamen"
+    "userName": "Benutzernamen",
+    "freeNames": "Freie Usernamen?",
+    "surveyType": "Umfragetyp"
   },
   "saveSurvey": {
-    "saveSurvey": "Umfrage speichern",
-    "chooseName": "Schüler wählen einen Namen?"
+    "saveSurvey": "Umfrage Übersicht",
+    "chooseName": "Freie Nutzernamen"
   }
 }

@@ -2,14 +2,15 @@ import { useTranslations } from "../../hooks";
 import useDispatches from "../../hooks/useDispatches";
 import useSelectors from "../../hooks/useSelectors";
 import DividerHorizontal from "../DividerHorizontal";
-import { Cancel, Check } from "../icons";
 import Modal from "../parents/containers/Modal";
 import ModalContent from "../parents/containers/ModalContent";
+import useCompArray from "./useCompArray";
 
 const SaveSurvey = () => {
   const { t } = useTranslations();
   const { survey, modal } = useSelectors();
   const { closeModal, openModal, handlePage } = useDispatches();
+  const { surveyArray } = useCompArray();
 
   return (
     <>
@@ -25,31 +26,33 @@ const SaveSurvey = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "15px",
+          gap: "20px",
           margin: "0 auto",
-          maxWidth: "400px",
         }}>
         <h3>{t("saveSurvey.saveSurvey")}</h3>
+        <div className="warning-message">
+          <p>Umfrage wird nach 7 Tagen automatisch gelöscht.</p>
+          <p>ID und PIN sicher aufbewahren. Zurücksetzen nicht möglich.</p>
+        </div>
+        {surveyArray.map((survey, index) => {
+          return (
+            <div key={index}>
+              {survey.comp}
+              <div style={{ paddingTop: "21px" }}>
+                {index !== surveyArray.length - 1 && <DividerHorizontal />}
+              </div>
+            </div>
+          );
+        })}
 
-        <div className="survey-props">
-          <h4>{t("saveSurvey.chooseName")}</h4>
-          {survey?.anunomys ? <Check /> : <Cancel />}
+        <div className="button-container">
+          <button onClick={openModal} className="back-button">
+            {t("common.delete")}
+          </button>
+          <button className="continue-button" onClick={() => handlePage(+4)}>
+            {t("common.continue")}
+          </button>
         </div>
-        <div className="survey-props">
-          <h4>{t("common.surveyID")}</h4>
-          <h4>{survey?.surveyId}</h4>
-        </div>
-        <div className="survey-props">
-          <h4>{t("common.surveyPIN")}</h4>
-          <h4>{survey?.surveyPin}</h4>
-        </div>
-        <button className="continue-button" onClick={() => handlePage(+4)}>
-          {t("common.continue")}
-        </button>
-        <DividerHorizontal />
-        <button onClick={openModal} className="back-button">
-          {t("common.delete")}
-        </button>
       </div>
     </>
   );

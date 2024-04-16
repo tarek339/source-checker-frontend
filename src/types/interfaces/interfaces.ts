@@ -11,7 +11,15 @@ export interface IUseTranslation {
 }
 
 export interface ISurvey {
-  anunomys: boolean;
+  anonymousResults: boolean;
+  freeUserNames: boolean;
   surveyId: string;
   surveyPin: string;
+  selectedSurveysOption: string;
+  selectedResultsOption: string;
+}
+
+export interface ISurveyProp {
+  header: string;
+  child: string | number | boolean | JSX.Element | undefined;
 }

@@ -15,6 +15,8 @@ import SaveSurvey from "./surveys-manager/SaveSurvey";
 import DividerHorizontal from "./DividerHorizontal";
 import Modal from "./parents/containers/Modal";
 import ModalContent from "./parents/containers/ModalContent";
+import AddPages from "./surveys-manager/AddPages";
+import SurveyProp from "./surveys-manager/SurveyProp";
 
 export {
   Footer,
@@ -34,4 +36,6 @@ export {
   DividerHorizontal,
   Modal,
   ModalContent,
+  AddPages,
+  SurveyProp,
 };

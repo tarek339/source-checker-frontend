@@ -25,7 +25,7 @@ const Modal = ({ children, isVisible, setIsVisible, style }: IModal) => {
         background: "rgba(255, 255, 255, 0.25)",
         backdropFilter: "blur(2px)",
         WebkitBackdropFilter: "blur(2px)",
-        top: 0,
+        top: 10,
         left: 0,
         animationName: "fadeIn",
         animationDuration: "0.2s",

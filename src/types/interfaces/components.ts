@@ -43,3 +43,12 @@ export interface IModalContent {
   localeStorage: string;
   id: string;
 }
+
+export interface IToggleButton {
+  label: string;
+  isOn: boolean;
+  handleToggle: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  ifOnText: string;
+  ifOffText: string;
+  htmlFor: string;
+}

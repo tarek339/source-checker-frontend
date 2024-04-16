@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { BackButton, DividerHorizontal, FormButton, ToggleButton } from "..";
+import {
+  BackButton,
+  DividerHorizontal,
+  FormButton,
+  InputErrorContainer,
+  Select,
+  ToggleButton,
+  useCompArray,
+} from "..";
 import { useTranslations } from "../../hooks";
 import useDispatches from "../../hooks/useDispatches";
 import axios from "axios";
@@ -7,13 +15,30 @@ import axios from "axios";
 const NewSurvey = () => {
   const { t } = useTranslations();
   const { handlePage, dispatchSurvey } = useDispatches();
+  const { surveysOptions, resultsOptions } = useCompArray();
 
-  const [anunomys, setAnunomys] = useState(false);
+  const [anonymousResults, setAnonymousResults] = useState(false);
+  const [freeUserNames, setFreeUserNames] = useState(false);
+  const [selectedSurveysOption, setselectedSurveysOption] = useState("");
+  const [selectedResultsOption, setselectedResultsOption] = useState("");
+  const [surveyOptError, setSurveyOptError] = useState<JSX.Element | null>(
+    null
+  );
+  const [resultOptError, setResultOptError] = useState<JSX.Element | null>(
+    null
+  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    !selectedSurveysOption ? setSurveyOptError(<InputErrorContainer />) : null;
+    !selectedResultsOption ? setResultOptError(<InputErrorContainer />) : null;
+    if (!selectedSurveysOption || !selectedResultsOption) return;
+
     const res = await axios.post("/survey/create", {
-      anunomys,
+      anonymousResults,
+      freeUserNames,
+      selectedSurveysOption,
+      selectedResultsOption,
     });
     localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
     const surveyDataString = localStorage.getItem("surveyData");
@@ -39,12 +64,61 @@ const NewSurvey = () => {
           flexDirection: "column",
           gap: "15px",
         }}>
+        <Select
+          label={t("newSurvey.surveyType")}
+          error={surveyOptError}
+          inputErrorStyle={surveyOptError}
+          selectedItem={
+            !selectedSurveysOption ? t("input.select") : selectedSurveysOption
+          }
+          option={surveysOptions
+            .filter((opt) => opt.option !== selectedSurveysOption)
+            .map((opt, i) => {
+              return (
+                <div
+                  key={i}
+                  className="options-style"
+                  onClick={() => setselectedSurveysOption(opt.option)}>
+                  <span className="opt-span">{opt.option}</span>
+                </div>
+              );
+            })}
+        />
+        <Select
+          label={t("newSurvey.resultsType")}
+          error={resultOptError}
+          inputErrorStyle={resultOptError}
+          selectedItem={
+            !selectedResultsOption ? t("input.select") : selectedResultsOption
+          }
+          option={resultsOptions
+            .filter((opt) => opt.option !== selectedResultsOption)
+            .map((opt, i) => {
+              return (
+                <div
+                  key={i}
+                  className="options-style"
+                  onClick={() => setselectedResultsOption(opt.option)}>
+                  <span className="opt-span">{opt.option}</span>
+                </div>
+              );
+            })}
+        />
         <ToggleButton
           label={t("newSurvey.anonymous")}
-          isOn={anunomys}
-          handleToggle={() => setAnunomys(!anunomys)}
+          isOn={anonymousResults}
+          handleToggle={() => setAnonymousResults(!anonymousResults)}
           ifOnText={t("newSurvey.yes")}
           ifOffText={t("newSurvey.no")}
+          htmlFor={"anonymous"}
+        />
+        <ToggleButton
+          label={t("newSurvey.freeNames")}
+          isOn={freeUserNames}
+          handleToggle={() => setFreeUserNames(!freeUserNames)}
+          ifOnText={t("newSurvey.yes")}
+          ifOffText={t("newSurvey.no")}
+          htmlFor={"user-names"}
         />
 
         <FormButton />
