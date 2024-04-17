@@ -29,22 +29,30 @@ const NewSurvey = () => {
   );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    !selectedSurveysOption ? setSurveyOptError(<InputErrorContainer />) : null;
-    !selectedResultsOption ? setResultOptError(<InputErrorContainer />) : null;
-    if (!selectedSurveysOption || !selectedResultsOption) return;
+    try {
+      e.preventDefault();
+      !selectedSurveysOption
+        ? setSurveyOptError(<InputErrorContainer />)
+        : null;
+      !selectedResultsOption
+        ? setResultOptError(<InputErrorContainer />)
+        : null;
+      if (surveyOptError || resultOptError) return;
 
-    const res = await axios.post("/survey/create", {
-      anonymousResults,
-      freeUserNames,
-      selectedSurveysOption,
-      selectedResultsOption,
-    });
-    localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
-    const surveyDataString = localStorage.getItem("surveyData");
-    const surveyData = JSON.parse(surveyDataString!);
-    dispatchSurvey(surveyData);
-    handlePage(+3);
+      const res = await axios.post("/survey/create", {
+        anonymousResults,
+        freeUserNames,
+        selectedSurveysOption,
+        selectedResultsOption,
+      });
+      localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
+      const surveyDataString = localStorage.getItem("surveyData");
+      const surveyData = JSON.parse(surveyDataString!);
+      dispatchSurvey(surveyData);
+      handlePage(+3);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -123,7 +131,7 @@ const NewSurvey = () => {
 
         <FormButton />
         <DividerHorizontal />
-        <BackButton onClick={() => handlePage(0)} />
+        <BackButton page={0} />
       </form>
     </div>
   );

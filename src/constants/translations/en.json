@@ -3,11 +3,14 @@
     "sourceChecker": "Source checker",
     "back": "back",
     "cancel": "cancel",
-    "continue": "weiter",
-    "delete": "löschen",
+    "continue": "continue",
+    "delete": "delete",
     "surveyID": "Survey-ID",
     "surveyPIN": "Survey-PIN",
-    "survey": "Umfrage"
+    "survey": "Survey",
+    "title": "Title",
+    "url": "Url",
+    "note": "Note (not displayed)"
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -63,5 +66,14 @@
   "saveSurvey": {
     "saveSurvey": "Save overview",
     "chooseName": "Free user names"
+  },
+  "addPages": {
+    "header": "Choose pages",
+    "notiHeader": "No pages have been added to this survey yet.",
+    "notiText": "Add a link from any source to be able to start a survey.",
+    "addPages": "Add new page?",
+    "addPagesXs": "New page?",
+    "button": "new page",
+    "createPage": "Create new page"
   }
 }

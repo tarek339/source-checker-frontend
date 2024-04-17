@@ -5,3 +5,5 @@
 @import "./components/survey-manager/steps.css";
 @import "./select.css";
 @import "./toggle.css";
+@import "./components/survey-manager/add-pages/no-pages.css";
+@import "./components/survey-manager/add-pages/add-pages.css";

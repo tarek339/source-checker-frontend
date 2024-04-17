@@ -15,8 +15,14 @@ import SaveSurvey from "./surveys-manager/SaveSurvey";
 import DividerHorizontal from "./DividerHorizontal";
 import Modal from "./parents/containers/Modal";
 import ModalContent from "./parents/containers/ModalContent";
-import AddPages from "./surveys-manager/AddPages";
+import AddPages from "./surveys-manager/add-pages/AddPages";
 import SurveyProp from "./surveys-manager/SurveyProp";
+import Table from "./Table";
+import NoPages from "./surveys-manager/add-pages/NoPages";
+import PagesHolder from "./surveys-manager/add-pages/PagesHolder";
+import ContinueButton from "./ContinueButton";
+import ModalHolder from "./surveys-manager/add-pages/ModalHolder";
+import InputMessage from "./parents/form/InputMessage";
 
 export {
   Footer,
@@ -38,4 +44,10 @@ export {
   ModalContent,
   AddPages,
   SurveyProp,
+  Table,
+  NoPages,
+  PagesHolder,
+  ContinueButton,
+  ModalHolder,
+  InputMessage,
 };

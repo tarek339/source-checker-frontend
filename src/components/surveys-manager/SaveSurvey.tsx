@@ -1,6 +1,7 @@
 import { useTranslations } from "../../hooks";
 import useDispatches from "../../hooks/useDispatches";
 import useSelectors from "../../hooks/useSelectors";
+import ContinueButton from "../ContinueButton";
 import DividerHorizontal from "../DividerHorizontal";
 import Modal from "../parents/containers/Modal";
 import ModalContent from "../parents/containers/ModalContent";
@@ -9,7 +10,7 @@ import useCompArray from "./useCompArray";
 const SaveSurvey = () => {
   const { t } = useTranslations();
   const { survey, modal } = useSelectors();
-  const { closeModal, openModal, handlePage } = useDispatches();
+  const { closeModal, openModal } = useDispatches();
   const { surveyArray } = useCompArray();
 
   return (
@@ -49,9 +50,7 @@ const SaveSurvey = () => {
           <button onClick={openModal} className="back-button">
             {t("common.delete")}
           </button>
-          <button className="continue-button" onClick={() => handlePage(+4)}>
-            {t("common.continue")}
-          </button>
+          <ContinueButton page={+4} />
         </div>
       </div>
     </>

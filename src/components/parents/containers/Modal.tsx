@@ -25,20 +25,19 @@ const Modal = ({ children, isVisible, setIsVisible, style }: IModal) => {
         background: "rgba(255, 255, 255, 0.25)",
         backdropFilter: "blur(2px)",
         WebkitBackdropFilter: "blur(2px)",
-        top: 10,
+        top: 0,
         left: 0,
         animationName: "fadeIn",
         animationDuration: "0.2s",
         display: isVisible ? "flex" : "none",
-        ...style,
       }}>
       <div
         style={{
           backgroundColor: "#FFF",
           padding: "30px",
           borderRadius: "8px",
-          marginBottom: "4rem",
           boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+          ...style,
         }}>
         {children}
       </div>

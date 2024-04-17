@@ -24,16 +24,21 @@ const ChooseSurvey = () => {
   );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    !surveyId ? setIDErrorMessage(<InputErrorContainer />) : null;
-    !surveyPin ? setPINErrorMessage(<InputErrorContainer />) : null;
+    try {
+      e.preventDefault();
+      !surveyId ? setIDErrorMessage(<InputErrorContainer />) : null;
+      !surveyPin ? setPINErrorMessage(<InputErrorContainer />) : null;
+      if (IDErrorMessage || PINErrorMessage) return;
 
-    const res = await axios.post("/survey/fetch", { surveyId, surveyPin });
-    localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
-    const surveyDataString = localStorage.getItem("surveyData");
-    const surveyData = JSON.parse(surveyDataString!);
-    dispatchSurvey(surveyData);
-    handlePage(+3);
+      const res = await axios.post("/survey/fetch", { surveyId, surveyPin });
+      localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
+      const surveyDataString = localStorage.getItem("surveyData");
+      const surveyData = JSON.parse(surveyDataString!);
+      dispatchSurvey(surveyData);
+      handlePage(+3);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -73,7 +78,7 @@ const ChooseSurvey = () => {
         />
         <FormButton />
         <DividerHorizontal />
-        <BackButton onClick={() => handlePage(0)} />
+        <BackButton page={0} />
       </form>
     </div>
   );

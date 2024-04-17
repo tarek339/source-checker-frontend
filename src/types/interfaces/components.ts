@@ -13,6 +13,15 @@ export interface IInput {
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
+export interface ITextArea {
+  label: string;
+  name: string;
+  htmlFor: string;
+  error: JSX.Element | null;
+  inputErrorStyle: JSX.Element | null;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
+}
 
 export interface ISelect {
   label: string;
@@ -26,8 +35,8 @@ export interface IInputErrorContainer {
   children: React.ReactNode;
 }
 
-export interface IBackButton {
-  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+export interface IBackContinueButton {
+  page: number;
 }
 
 export interface IModal {

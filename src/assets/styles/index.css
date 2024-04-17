@@ -57,7 +57,8 @@ p {
 }
 
 input,
-select {
+select,
+textarea {
   padding: 8px 12px;
   border-radius: 4px;
   border-width: 1px;
@@ -66,13 +67,15 @@ select {
 }
 
 input:hover,
-select:hover {
+select:hover,
+textarea:hover {
   border: 1px solid lightgrey;
   background-color: #f8f8f8;
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   border: 1px solid #2835c3;
   box-shadow: 0px 0px 0px 1px #2835c3 inset;
 }

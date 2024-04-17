@@ -1,0 +1,9 @@
+.no-pages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 1em;
+}

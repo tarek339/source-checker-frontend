@@ -7,7 +7,10 @@
     "delete": "löschen",
     "surveyID": "Umfrage-ID",
     "surveyPIN": "Umfrage-PIN",
-    "survey": "Umfrage"
+    "survey": "Umfrage",
+    "title": "Title",
+    "url": "Url",
+    "note": "Notiz (wird nicht angezeigt)"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -63,5 +66,14 @@
   "saveSurvey": {
     "saveSurvey": "Umfrage Übersicht",
     "chooseName": "Freie Nutzernamen"
+  },
+  "addPages": {
+    "header": "Seiten auswählen",
+    "notiHeader": "Es wurden noch keine Seiten zu dieser Umfrage hinzugfügt.",
+    "notiText": "Füge einen Link aus einer beliebigen Quelle hinzu, um eine Umfragemstarten zu können.",
+    "addPages": "Neue Seite hinzügfen?",
+    "addPagesXs": "Neue Seite?",
+    "button": "neue seite",
+    "createPage": "Neue Seite anlegen"
   }
 }
