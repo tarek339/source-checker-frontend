@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import {
   addSurvey,
+  addSurveyPages,
   handleModal,
   handlePages,
   handleSteps,
@@ -8,6 +9,8 @@ import {
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
 import { AxiosResponse } from "axios";
+
+import { IPages } from "../types/interfaces/interfaces";
 
 const useDispatches = () => {
   const dispatch = useDispatch();
@@ -22,6 +25,8 @@ const useDispatches = () => {
 
   const dispatchSurvey = (res: AxiosResponse<any, any>) =>
     dispatch(addSurvey(res));
+  const dispatchSurveys = (pages: IPages[]) =>
+    dispatch(addSurveyPages({ pages: pages }));
 
   const openModal = () => dispatch(handleModal({ isVisible: true }));
   const closeModal = () => dispatch(handleModal({ isVisible: false }));
@@ -35,6 +40,7 @@ const useDispatches = () => {
     dispatchSurvey,
     openModal,
     closeModal,
+    dispatchSurveys,
   };
 };
 

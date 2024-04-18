@@ -1,3 +1,5 @@
+import { IPages } from "../interfaces";
+
 export enum Locale {
   de = "de",
   en = "en",
@@ -16,4 +18,8 @@ export interface HandleSteps {
 
 export interface HandleModal {
   isVisible: boolean;
+}
+
+export interface InitialStateSurvey {
+  pages: IPages[];
 }

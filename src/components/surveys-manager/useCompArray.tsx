@@ -7,8 +7,7 @@ import {
   Steps,
   SurveyProp,
 } from "..";
-import { useTranslations } from "../../hooks";
-import useSelectors from "../../hooks/useSelectors";
+import { useTranslations, useSelectors } from "../../hooks";
 import { Cancel, Check } from "../icons";
 
 const useCompArray = () => {

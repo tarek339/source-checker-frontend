@@ -1,3 +1,5 @@
+import { IPages } from "./interfaces";
+
 export interface ISteps {
   counter: string;
   text: string;
@@ -60,4 +62,14 @@ export interface IToggleButton {
   ifOnText: string;
   ifOffText: string;
   htmlFor: string;
+}
+
+export interface ITable {
+  headers: string[];
+  propsChildren: JSX.Element[] | JSX.Element;
+  first: number;
+  last: number;
+  setFirst: (value: React.SetStateAction<number>) => void | undefined;
+  setLast: (value: React.SetStateAction<number>) => void | undefined;
+  property: IPages[];
 }

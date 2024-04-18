@@ -1,14 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { translationsReducer } from "..";
-import { pagesReducer } from "./slices/pages";
-import { surveyReducer } from "./slices/survey";
-import { modalReducer } from "./slices/modal";
+import {
+  modalReducer,
+  pagesReducer,
+  surveyPagesReducer,
+  surveyReducer,
+  translationsReducer,
+} from "./slices";
 
 export const store = configureStore({
   reducer: {
     translation: translationsReducer,
     pages: pagesReducer,
-    surveys: surveyReducer,
+    survey: surveyReducer,
+    surveyPages: surveyPagesReducer,
     modal: modalReducer,
   },
 });

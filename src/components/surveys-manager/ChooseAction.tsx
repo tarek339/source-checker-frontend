@@ -1,8 +1,7 @@
 import { IoAddOutline } from "react-icons/io5";
 import { FiArrowUp } from "react-icons/fi";
 import { useState } from "react";
-import useDispatches from "../../hooks/useDispatches";
-import { useTranslations } from "../../hooks";
+import { useDispatches, useTranslations } from "../../hooks";
 
 const ChooseAction = () => {
   const [ishHoveredNew, setIshHoveredNew] = useState(false);

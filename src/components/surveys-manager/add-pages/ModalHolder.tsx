@@ -41,6 +41,7 @@ const ModalHolder = () => {
           note,
         },
       });
+
       localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
       const surveyDataString = localStorage.getItem("surveyData");
       const surveyData = JSON.parse(surveyDataString!);

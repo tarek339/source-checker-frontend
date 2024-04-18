@@ -5,10 +5,13 @@ const useSelectors = () => {
   const locale = useSelector((state: RootState) => state.translation.locale);
   const page = useSelector((state: RootState) => state.pages.page);
   const stepDone = useSelector((state: RootState) => state.pages.stepDone);
-  const survey = useSelector((state: RootState) => state.surveys.survey);
+  const survey = useSelector((state: RootState) => state.survey.survey);
+  const surveyPages = useSelector(
+    (state: RootState) => state.surveyPages?.pages
+  );
   const modal = useSelector((state: RootState) => state.modal.isVisible);
 
-  return { locale, page, stepDone, survey, modal };
+  return { locale, page, stepDone, survey, modal, surveyPages };
 };
 
 export default useSelectors;

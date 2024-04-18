@@ -1,7 +1,6 @@
 import axios from "axios";
 import { IModalContent } from "../../../types/interfaces/components";
-import useDispatches from "../../../hooks/useDispatches";
-import { useTranslations } from "../../../hooks";
+import { useTranslations, useDispatches } from "../../../hooks";
 
 const ModalContent = ({ header, url, localeStorage, id }: IModalContent) => {
   const { handlePage, closeModal } = useDispatches();

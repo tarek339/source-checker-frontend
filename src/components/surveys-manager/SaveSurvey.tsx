@@ -1,6 +1,4 @@
-import { useTranslations } from "../../hooks";
-import useDispatches from "../../hooks/useDispatches";
-import useSelectors from "../../hooks/useSelectors";
+import { useDispatches, useSelectors, useTranslations } from "../../hooks";
 import ContinueButton from "../ContinueButton";
 import DividerHorizontal from "../DividerHorizontal";
 import Modal from "../parents/containers/Modal";

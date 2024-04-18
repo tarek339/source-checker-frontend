@@ -6,8 +6,7 @@ import {
   Input,
   InputErrorContainer,
 } from "..";
-import { useTranslations } from "../../hooks";
-import useDispatches from "../../hooks/useDispatches";
+import { useTranslations, useDispatches } from "../../hooks";
 import axios from "axios";
 
 const ChooseSurvey = () => {

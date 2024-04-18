@@ -1,15 +1,21 @@
-import { useBreakPoints, useTranslations } from "../../../hooks";
-import useDispatches from "../../../hooks/useDispatches";
+import {
+  useBreakPoints,
+  useDispatches,
+  useSelectors,
+  useTranslations,
+} from "../../../hooks";
 import BackButton from "../../BackButton";
 import ContinueButton from "../../ContinueButton";
 import DividerHorizontal from "../../DividerHorizontal";
 import ModalHolder from "./ModalHolder";
 import NoPages from "./NoPages";
+import PagesHolder from "./PagesHolder";
 
 const AddPages = () => {
   const { openModal } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
+  const { survey } = useSelectors();
 
   return (
     <>
@@ -23,7 +29,7 @@ const AddPages = () => {
         }}>
         <h3>{t("addPages.header")}</h3>
 
-        <NoPages />
+        {survey?.pages ? <PagesHolder /> : <NoPages />}
 
         <div className="add-pages-holder">
           <h3>

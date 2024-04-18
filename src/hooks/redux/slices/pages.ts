@@ -4,7 +4,7 @@ import { HandlePage } from "../../../types/interfaces/redux/slices";
 const pagesSlice = createSlice({
   name: "pages",
   initialState: {
-    page: 4,
+    page: 0,
     stepDone: false,
   },
   reducers: {

@@ -10,6 +10,13 @@ export interface IUseTranslation {
   setLocale: (text: string) => void;
 }
 
+export interface IPages {
+  id: string;
+  title: string;
+  url: string;
+  note: string;
+}
+
 export interface ISurvey {
   anonymousResults: boolean;
   freeUserNames: boolean;
@@ -17,6 +24,7 @@ export interface ISurvey {
   surveyPin: string;
   selectedSurveysOption: string;
   selectedResultsOption: string;
+  pages: IPages[];
 }
 
 export interface ISurveyProp {

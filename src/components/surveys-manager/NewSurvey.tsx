@@ -8,8 +8,7 @@ import {
   ToggleButton,
   useCompArray,
 } from "..";
-import { useTranslations } from "../../hooks";
-import useDispatches from "../../hooks/useDispatches";
+import { useDispatches, useTranslations } from "../../hooks";
 import axios from "axios";
 
 const NewSurvey = () => {
