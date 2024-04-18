@@ -26,6 +26,8 @@ const AddPages = () => {
           flexDirection: "column",
           justifyContent: "center",
           gap: "25px",
+          maxWidth: "700px",
+          margin: "0 auto",
         }}>
         <h3>{t("addPages.header")}</h3>
 

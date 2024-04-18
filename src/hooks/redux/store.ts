@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
+  loadingReducer,
   modalReducer,
   pagesReducer,
   surveyPagesReducer,
@@ -14,6 +15,7 @@ export const store = configureStore({
     survey: surveyReducer,
     surveyPages: surveyPagesReducer,
     modal: modalReducer,
+    loading: loadingReducer,
   },
 });
 

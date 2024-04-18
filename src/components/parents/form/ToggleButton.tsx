@@ -7,10 +7,12 @@ const ToggleButton = ({
   ifOnText,
   ifOffText,
   htmlFor,
+  labelText,
 }: IToggleButton) => {
   return (
     <div className="toggle-holder">
       <label>{label}</label>
+      <span>{labelText}</span>
       <input
         checked={isOn}
         onChange={handleToggle}
@@ -20,7 +22,7 @@ const ToggleButton = ({
       />
       <div className="label-holder">
         <label
-          style={{ background: isOn ? "#16a34a" : "lightgrey" }}
+          style={{ background: isOn ? "#2835c3" : "lightgrey" }}
           className="switch-label"
           htmlFor={htmlFor}>
           <span className="switch-button" />

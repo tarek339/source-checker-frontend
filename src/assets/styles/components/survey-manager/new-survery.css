@@ -1,0 +1,21 @@
+.rating-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  border: 1.5px solid rgb(40, 53, 195, 0.2);
+  color: #2835c3;
+  background-color: rgb(40, 53, 195, 0.05);
+  padding: 15px 20px;
+}
+
+.rating-container h4 {
+  color: #2835c3;
+}
+
+.icon-holder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 3.3px;
+}

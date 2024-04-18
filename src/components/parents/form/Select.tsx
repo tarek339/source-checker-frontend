@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ISelect } from "../../../types/interfaces/components";
 
 const Select = ({
@@ -13,10 +13,6 @@ const Select = ({
   const handleDropdownClick = () => {
     setIsActive(!isActive);
   };
-
-  useEffect(() => {
-    console.log(isActive);
-  }, [isActive]);
 
   return (
     <div className="input-holder">

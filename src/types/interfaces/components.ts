@@ -57,6 +57,7 @@ export interface IModalContent {
 
 export interface IToggleButton {
   label: string;
+  labelText?: string;
   isOn: boolean;
   handleToggle: React.ChangeEventHandler<HTMLInputElement> | undefined;
   ifOnText: string;

@@ -1,9 +1,13 @@
-import { useTranslations } from "../../../hooks";
+import { useSelectors, useTranslations } from "../../../hooks";
 
 const FormButton = () => {
   const { t } = useTranslations();
+  const { loading } = useSelectors();
   return (
-    <button type="submit" className="form-button">
+    <button
+      disabled={loading ? true : false}
+      type="submit"
+      className="form-button">
       {t("input.button")}
     </button>
   );

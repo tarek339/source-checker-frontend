@@ -10,7 +10,8 @@
     "survey": "Umfrage",
     "title": "Title",
     "url": "Url",
-    "note": "Notiz (wird nicht angezeigt)"
+    "note": "Notiz (wird nicht angezeigt)",
+    "surveyNumber": "Umfrage Nr."
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -52,13 +53,17 @@
     "surveyData": "Umfragedaten eingeben"
   },
   "newSurvey": {
-    "header": "Umfrageeinstellung",
+    "headerOne": "Umfrageeinstellung",
+    "headerTwo": "Schüler:innen Einstellung",
+    "labelTextOne": "Sollen Schüler:innen die Möglichkeit haben, eigene Benutzernamen zu wählen? Wenn diese Option deaktiviert ist, werden den Schülern automatisch Nummern zugewiesen.",
+    "labelTextTwo": "Sollen in den Ergebnissen, welche den Schülern angezeigt werden, die Namen angezeigt werden? Wenn, nein werden nur die kumulierten Ergebnisse angezeigt.",
     "resultsType": "Ergbnistyp",
     "rating": "Bewertung",
+    "ratingText": "Bei diesem Umfragetyp müssen die Schüler:innend die vorgegebenen Seiten nach Vertrauenswürdigkeit bewerten. Dies geschieht mittels Skala von 1 - 5. (Nicht vertrauenswürdig - vertrauenswürdig)",
     "afterSurvey": "Nach Umfrage",
     "anonymous": "Anonyme Egebnisse",
-    "yes": "Ja",
-    "no": "Nein",
+    "yes": "Aktiviert",
+    "no": "Deaktiviert",
     "userName": "Benutzernamen",
     "freeNames": "Freie Usernamen?",
     "surveyType": "Umfragetyp"

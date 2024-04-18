@@ -131,6 +131,8 @@ const useCompArray = () => {
     },
   ];
 
+  const surveryNum = `(${t("common.surveyNumber")} ${survey?.surveyNumber})`;
+
   const surveyArray = [
     {
       comp: (
@@ -160,7 +162,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("newSurvey.surveyType")}
-          child={survey?.selectedSurveysOption}
+          child={t("newSurvey.rating")}
         />
       ),
     },
@@ -168,13 +170,16 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("newSurvey.resultsType")}
-          child={survey?.selectedResultsOption}
+          child={t("newSurvey.afterSurvey")}
         />
       ),
     },
     {
       comp: (
-        <SurveyProp header={t("common.surveyID")} child={survey?.surveyId} />
+        <SurveyProp
+          header={t("common.surveyID")}
+          child={survey?.surveyId + " " + surveryNum}
+        />
       ),
     },
     {

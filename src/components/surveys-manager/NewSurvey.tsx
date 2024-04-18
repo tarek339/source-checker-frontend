@@ -1,53 +1,29 @@
 import { useState } from "react";
-import {
-  BackButton,
-  DividerHorizontal,
-  FormButton,
-  InputErrorContainer,
-  Select,
-  ToggleButton,
-  useCompArray,
-} from "..";
+import { BackButton, DividerHorizontal, FormButton, ToggleButton } from "..";
 import { useDispatches, useTranslations } from "../../hooks";
 import axios from "axios";
+import { FaCircleDot } from "react-icons/fa6";
 
 const NewSurvey = () => {
   const { t } = useTranslations();
-  const { handlePage, dispatchSurvey } = useDispatches();
-  const { surveysOptions, resultsOptions } = useCompArray();
+  const { handlePage, dispatchSurvey, dispatchLoading } = useDispatches();
 
   const [anonymousResults, setAnonymousResults] = useState(false);
   const [freeUserNames, setFreeUserNames] = useState(false);
-  const [selectedSurveysOption, setselectedSurveysOption] = useState("");
-  const [selectedResultsOption, setselectedResultsOption] = useState("");
-  const [surveyOptError, setSurveyOptError] = useState<JSX.Element | null>(
-    null
-  );
-  const [resultOptError, setResultOptError] = useState<JSX.Element | null>(
-    null
-  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
-      !selectedSurveysOption
-        ? setSurveyOptError(<InputErrorContainer />)
-        : null;
-      !selectedResultsOption
-        ? setResultOptError(<InputErrorContainer />)
-        : null;
-      if (surveyOptError || resultOptError) return;
-
+      dispatchLoading(true);
       const res = await axios.post("/survey/create", {
         anonymousResults,
         freeUserNames,
-        selectedSurveysOption,
-        selectedResultsOption,
       });
       localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
       const surveyDataString = localStorage.getItem("surveyData");
       const surveyData = JSON.parse(surveyDataString!);
       dispatchSurvey(surveyData);
+      dispatchLoading(false);
       handlePage(+3);
     } catch (error) {
       console.log(error);
@@ -59,78 +35,53 @@ const NewSurvey = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "15px",
+        gap: "25px",
         margin: "0 auto",
-        maxWidth: "300px",
       }}>
-      <h3>{t("newSurvey.header")} </h3>
+      <h3>{t("newSurvey.headerOne")} </h3>
+      <DividerHorizontal />
+      <div className="rating-container">
+        <div className="icon-holder">
+          <FaCircleDot />
+        </div>
+        <div>
+          <h4>Rating</h4>
+          <p>{t("newSurvey.ratingText")}</p>
+        </div>
+      </div>
+      <h3>{t("newSurvey.headerTwo")} </h3>
+      <DividerHorizontal />
       <form
         onSubmit={handleSubmit}
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "15px",
+          gap: "30px",
         }}>
-        <Select
-          label={t("newSurvey.surveyType")}
-          error={surveyOptError}
-          inputErrorStyle={surveyOptError}
-          selectedItem={
-            !selectedSurveysOption ? t("input.select") : selectedSurveysOption
-          }
-          option={surveysOptions
-            .filter((opt) => opt.option !== selectedSurveysOption)
-            .map((opt, i) => {
-              return (
-                <div
-                  key={i}
-                  className="options-style"
-                  onClick={() => setselectedSurveysOption(opt.option)}>
-                  <span className="opt-span">{opt.option}</span>
-                </div>
-              );
-            })}
-        />
-        <Select
-          label={t("newSurvey.resultsType")}
-          error={resultOptError}
-          inputErrorStyle={resultOptError}
-          selectedItem={
-            !selectedResultsOption ? t("input.select") : selectedResultsOption
-          }
-          option={resultsOptions
-            .filter((opt) => opt.option !== selectedResultsOption)
-            .map((opt, i) => {
-              return (
-                <div
-                  key={i}
-                  className="options-style"
-                  onClick={() => setselectedResultsOption(opt.option)}>
-                  <span className="opt-span">{opt.option}</span>
-                </div>
-              );
-            })}
-        />
-        <ToggleButton
-          label={t("newSurvey.anonymous")}
-          isOn={anonymousResults}
-          handleToggle={() => setAnonymousResults(!anonymousResults)}
-          ifOnText={t("newSurvey.yes")}
-          ifOffText={t("newSurvey.no")}
-          htmlFor={"anonymous"}
-        />
         <ToggleButton
           label={t("newSurvey.freeNames")}
+          labelText={t("newSurvey.labelTextOne")}
           isOn={freeUserNames}
           handleToggle={() => setFreeUserNames(!freeUserNames)}
           ifOnText={t("newSurvey.yes")}
           ifOffText={t("newSurvey.no")}
           htmlFor={"user-names"}
         />
+        <ToggleButton
+          label={t("newSurvey.anonymous")}
+          labelText={t("newSurvey.labelTextTwo")}
+          isOn={anonymousResults}
+          handleToggle={() => setAnonymousResults(!anonymousResults)}
+          ifOnText={t("newSurvey.yes")}
+          ifOffText={t("newSurvey.no")}
+          htmlFor={"anonymous"}
+        />
 
-        <FormButton />
         <DividerHorizontal />
-        <BackButton page={0} />
+        <div className="button-holder">
+          <BackButton page={0} />
+          <FormButton />
+        </div>
       </form>
     </div>
   );

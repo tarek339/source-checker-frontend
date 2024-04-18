@@ -8,6 +8,7 @@ import { addSurvey, removeSurvey } from "./survey";
 import { handleModal } from "./modal";
 import { addSurveyPages } from "./surveyPages";
 import { translationsReducer } from "./translations";
+import { loadingReducer, handleLoading } from "./loading";
 
 export {
   handleTranslation,
@@ -17,9 +18,11 @@ export {
   addSurvey,
   handleModal,
   addSurveyPages,
+  handleLoading,
   pagesReducer,
   surveyReducer,
   surveyPagesReducer,
   modalReducer,
   translationsReducer,
+  loadingReducer,
 };

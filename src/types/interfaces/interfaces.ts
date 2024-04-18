@@ -11,7 +11,7 @@ export interface IUseTranslation {
 }
 
 export interface IPages {
-  id: string;
+  _id: string;
   title: string;
   url: string;
   note: string;
@@ -24,10 +24,11 @@ export interface ISurvey {
   surveyPin: string;
   selectedSurveysOption: string;
   selectedResultsOption: string;
+  surveyNumber: number;
   pages: IPages[];
 }
 
 export interface ISurveyProp {
-  header: string;
+  header: string | JSX.Element;
   child: string | number | boolean | JSX.Element | undefined;
 }

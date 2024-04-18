@@ -11,6 +11,19 @@
   font-size: 14px;
 }
 
+.copy-data {
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  color: #2835c3;
+}
+.copy-data:hover {
+  text-decoration: underline;
+}
+
 .button-container {
   display: flex;
   flex-direction: row;

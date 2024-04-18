@@ -17,13 +17,13 @@ const PagesHolder = () => {
     setHoveredRow(null);
   };
 
-  const onDelete = async (id: string) => {
-    await axios.post(`/survey/delete-page/${id}`);
+  const onDelete = async (_id: string) => {
+    console.log(_id);
+    await axios.post(`/survey/delete-page/${_id}`);
   };
 
   useEffect(() => {
     dispatchSurveys(survey?.pages!);
-    console.log(surveyPages);
   }, [surveyPages]);
 
   return (
@@ -48,7 +48,7 @@ const PagesHolder = () => {
             </td>
             {page?.title && (
               <td
-                onClick={() => onDelete(page?.id!)}
+                onClick={() => onDelete(page?._id!)}
                 style={{
                   textAlign: "right",
                   textTransform: "uppercase",

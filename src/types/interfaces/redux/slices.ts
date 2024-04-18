@@ -9,6 +9,10 @@ export interface HandleTranslation {
   locale: Locale;
 }
 
+export interface HandleLoading {
+  loading: boolean;
+}
+
 export interface HandlePage {
   page: number;
 }

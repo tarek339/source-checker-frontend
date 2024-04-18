@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import {
   addSurvey,
   addSurveyPages,
+  handleLoading,
   handleModal,
   handlePages,
   handleSteps,
@@ -31,6 +32,9 @@ const useDispatches = () => {
   const openModal = () => dispatch(handleModal({ isVisible: true }));
   const closeModal = () => dispatch(handleModal({ isVisible: false }));
 
+  const dispatchLoading = (loading: boolean) =>
+    dispatch(handleLoading({ loading: loading }));
+
   return {
     enableEN,
     enableGE,
@@ -41,6 +45,7 @@ const useDispatches = () => {
     openModal,
     closeModal,
     dispatchSurveys,
+    dispatchLoading,
   };
 };
 

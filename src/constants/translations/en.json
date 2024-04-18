@@ -10,7 +10,8 @@
     "survey": "Survey",
     "title": "Title",
     "url": "Url",
-    "note": "Note (not displayed)"
+    "note": "Note (not displayed)",
+    "surveyNumber": "Survey nr."
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -52,13 +53,17 @@
     "surveyData": "Type in survey data"
   },
   "newSurvey": {
-    "header": "Survey settings",
+    "headerOne": "Survey settings",
+    "headerTwo": "Student settings",
+    "labelTextOne": "Should students have the option to choose their own user names? If this option is deactivated, students are automatically assigned numbers.",
+    "labelTextTwo": "Should the names be displayed in the results shown to the students? If no, only the cumulative results are displayed.",
     "resultsType": "Results type",
     "rating": "Rating",
+    "ratingText": "In this type of survey, students have to rate the given pages according to trustworthiness. This is done using a scale of 1 - 5 (not trustworthy - trustworthy)",
     "afterSurvey": "Afer survey",
     "anonymous": "Anonymous results",
-    "yes": "Yes",
-    "no": "No",
+    "yes": "Enabled",
+    "no": "Disabeld",
     "userName": "User name",
     "freeNames": "Free user names?",
     "surveyType": "Survey type"

@@ -10,8 +10,9 @@ const useSelectors = () => {
     (state: RootState) => state.surveyPages?.pages
   );
   const modal = useSelector((state: RootState) => state.modal.isVisible);
+  const loading = useSelector((state: RootState) => state.loading.loading);
 
-  return { locale, page, stepDone, survey, modal, surveyPages };
+  return { locale, page, stepDone, survey, modal, surveyPages, loading };
 };
 
 export default useSelectors;
