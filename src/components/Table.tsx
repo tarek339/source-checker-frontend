@@ -1,4 +1,8 @@
 import { ITable } from "../types/interfaces/components";
+import {
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
+} from "react-icons/md";
 
 const Table = ({
   headers,
@@ -52,7 +56,7 @@ const Table = ({
           gap: "10px",
           marginTop: "5px",
           marginRight: "10px",
-          fontSize: "14px",
+          fontSize: "16px",
         }}
         className="pagination">
         <div style={{ display: "flex", gap: "10px" }}>
@@ -69,8 +73,14 @@ const Table = ({
             alignItems: "center",
             gap: "10px",
           }}>
-          <span onClick={prevPage}>-</span>
-          <span onClick={nextPage}>+</span>
+          <MdOutlineArrowBackIos
+            style={{ cursor: "pointer" }}
+            onClick={prevPage}
+          />
+          <MdOutlineArrowForwardIos
+            style={{ cursor: "pointer" }}
+            onClick={nextPage}
+          />
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ import InputErrorContainer from "../../parents/form/InputErrorContainer";
 
 const ModalHolder = () => {
   const { modal, survey } = useSelectors();
-  const { closeModal, dispatchSurvey } = useDispatches();
+  const { closeModal, dispatchSurvey, dispatchLoading } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
 
@@ -33,7 +33,7 @@ const ModalHolder = () => {
       !title ? setTitleErrorMessage(<InputErrorContainer />) : null;
       !url ? setUrlErrorMessage(<InputErrorContainer />) : null;
       if (titleErrorMessage || urlErrorMessage) return;
-
+      dispatchLoading(true);
       const res = await axios.put(`/survey/complete/${survey?.surveyId}`, {
         pages: {
           title,
@@ -49,6 +49,7 @@ const ModalHolder = () => {
       setTitle("");
       setUrl("");
       setNote("");
+      dispatchLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -89,6 +90,7 @@ const ModalHolder = () => {
             value={note}
             onChange={(e) => setNote(e.target.value)}
           />
+
           <div className="button-holder">
             <button className="back-button" onClick={closeModal}>
               {t("common.cancel")}

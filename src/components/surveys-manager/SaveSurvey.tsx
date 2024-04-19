@@ -6,7 +6,6 @@ import Modal from "../parents/containers/Modal";
 import ModalContent from "../parents/containers/ModalContent";
 import useCompArray from "./useCompArray";
 import { FaRegCopy } from "react-icons/fa";
-import { Span } from "next/dist/trace";
 
 const SaveSurvey = () => {
   const { t } = useTranslations();
@@ -53,9 +52,11 @@ const SaveSurvey = () => {
           <p>Umfrage wird nach 7 Tagen automatisch gelöscht.</p>
           <p>ID und PIN sicher aufbewahren. Zurücksetzen nicht möglich.</p>
         </div>
+
         <div className="copy-data" onClick={copyToClipboard}>
           <FaRegCopy /> <span>{copied ? "Copied" : "ID/PIN"}</span>
         </div>
+
         {surveyArray.map((survey, index) => {
           return (
             <div key={index}>

@@ -14,12 +14,10 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Authentication />} />
-        <Route path="/surveys-manager" element={<SurveysManager />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<Authentication />} />
+      <Route path="/surveys-manager" element={<SurveysManager />} />
+    </Routes>
   );
 }
 

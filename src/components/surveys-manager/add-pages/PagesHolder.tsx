@@ -48,7 +48,6 @@ const PagesHolder = () => {
             </td>
             {page?.title && (
               <td
-                onClick={() => onDelete(page?._id!)}
                 style={{
                   textAlign: "right",
                   textTransform: "uppercase",
@@ -56,7 +55,7 @@ const PagesHolder = () => {
                   borderBottomRightRadius:
                     i === surveyPages?.length - 1 ? "4px" : "0px",
                 }}>
-                löschen
+                <span onClick={() => onDelete(page?._id!)}>löschen</span>
               </td>
             )}
           </tr>

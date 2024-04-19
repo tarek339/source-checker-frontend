@@ -45,7 +45,7 @@ const ChooseSurvey = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "15px",
+        gap: "20px",
         margin: "0 auto",
         maxWidth: "300px",
       }}>
@@ -54,7 +54,7 @@ const ChooseSurvey = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "15px",
+          gap: "20px",
         }}
         onSubmit={handleSubmit}>
         <Input
@@ -75,9 +75,16 @@ const ChooseSurvey = () => {
           value={surveyPin}
           onChange={(e) => setSurveyPin(e.target.value)}
         />
-        <FormButton />
         <DividerHorizontal />
-        <BackButton page={0} />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "15px",
+          }}>
+          <FormButton />
+          <BackButton page={0} />
+        </div>
       </form>
     </div>
   );
