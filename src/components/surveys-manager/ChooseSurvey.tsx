@@ -36,6 +36,7 @@ const ChooseSurvey = () => {
       fetchSurvey(res.data.survey);
       setPage(+3);
     } catch (error) {
+      setFetchErrorMessage("Falsche ID oder falscher PIN");
       console.log(error);
     }
   };
@@ -61,7 +62,13 @@ const ChooseSurvey = () => {
           label={t("common.surveyID")}
           name={surveyId}
           htmlFor={"survey-id"}
-          error={IDErrorMessage ? IDErrorMessage : fetchErrorMessage}
+          error={
+            IDErrorMessage ? (
+              IDErrorMessage
+            ) : (
+              <span className="input-error">{fetchErrorMessage}</span>
+            )
+          }
           inputErrorStyle={IDErrorMessage ? IDErrorMessage : fetchErrorMessage}
           value={surveyId}
           onChange={(e) => {
@@ -74,7 +81,13 @@ const ChooseSurvey = () => {
           label={t("common.surveyPIN")}
           name={surveyPin}
           htmlFor={"survey-pin"}
-          error={PINErrorMessage ? PINErrorMessage : fetchErrorMessage}
+          error={
+            PINErrorMessage ? (
+              PINErrorMessage
+            ) : (
+              <span className="input-error">{fetchErrorMessage}</span>
+            )
+          }
           inputErrorStyle={
             PINErrorMessage ? PINErrorMessage : fetchErrorMessage
           }
