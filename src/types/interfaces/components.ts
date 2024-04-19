@@ -10,8 +10,8 @@ export interface IInput {
   label: string;
   name: string;
   htmlFor: string;
-  error: JSX.Element | null;
-  inputErrorStyle: JSX.Element | null;
+  error: JSX.Element | string | null;
+  inputErrorStyle: JSX.Element | string | null;
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
@@ -41,6 +41,10 @@ export interface IBackContinueButton {
   page: number;
 }
 
+export interface ICancelButton {
+  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+}
+
 export interface IModal {
   children: JSX.Element | JSX.Element[];
   isVisible?: boolean;
@@ -53,6 +57,7 @@ export interface IModalContent {
   header: string;
   localeStorage: string;
   id: string;
+  page: string;
 }
 
 export interface IToggleButton {

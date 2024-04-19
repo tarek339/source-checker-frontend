@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   AddPages,
   ChooseAction,
@@ -7,12 +8,19 @@ import {
   Steps,
   SurveyProp,
 } from "..";
-import { useTranslations, useSelectors } from "../../hooks";
+import { useTranslations, useSelectors, useLocaleStorage } from "../../hooks";
 import { Cancel, Check } from "../icons";
 
 const useCompArray = () => {
   const { t } = useTranslations();
   const { page, stepDone, survey } = useSelectors();
+  const { setDoneStep } = useLocaleStorage();
+
+  useEffect(() => {
+    if (page !== 0) {
+      setDoneStep();
+    }
+  }, [page]);
 
   const steps = [
     {

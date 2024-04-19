@@ -26,7 +26,10 @@ const Table = ({
   };
 
   return (
-    <div>
+    <div
+      style={{
+        height: "327px",
+      }}>
       <table>
         <thead>
           <tr>
@@ -53,7 +56,7 @@ const Table = ({
           display: "flex",
           justifyContent: "flex-end",
           alignItems: "center",
-          gap: "10px",
+          gap: "20px",
           marginTop: "5px",
           marginRight: "10px",
           fontSize: "16px",
@@ -71,14 +74,16 @@ const Table = ({
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
-            gap: "10px",
+            gap: "20px",
           }}>
           <MdOutlineArrowBackIos
-            style={{ cursor: "pointer" }}
+            fontSize="18px"
+            style={{ cursor: first === 0 ? "" : "pointer" }}
             onClick={prevPage}
           />
           <MdOutlineArrowForwardIos
-            style={{ cursor: "pointer" }}
+            fontSize="18px"
+            style={{ cursor: last >= property.length ? "" : "pointer" }}
             onClick={nextPage}
           />
         </div>

@@ -6,12 +6,12 @@ import {
   Input,
   InputErrorContainer,
 } from "..";
-import { useTranslations, useDispatches } from "../../hooks";
+import { useTranslations, useLocaleStorage } from "../../hooks";
 import axios from "axios";
 
 const ChooseSurvey = () => {
   const { t } = useTranslations();
-  const { handlePage, dispatchSurvey } = useDispatches();
+  const { setPage, fetchSurvey } = useLocaleStorage();
 
   const [surveyId, setSurveyId] = useState("");
   const [surveyPin, setSurveyPin] = useState("");
@@ -21,20 +21,20 @@ const ChooseSurvey = () => {
   const [PINErrorMessage, setPINErrorMessage] = useState<JSX.Element | null>(
     null
   );
+  const [fetchErrorMessage, setFetchErrorMessage] = useState<string | null>(
+    null
+  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
       !surveyId ? setIDErrorMessage(<InputErrorContainer />) : null;
       !surveyPin ? setPINErrorMessage(<InputErrorContainer />) : null;
-      if (IDErrorMessage || PINErrorMessage) return;
+      if (!surveyId || !surveyPin) return;
 
       const res = await axios.post("/survey/fetch", { surveyId, surveyPin });
-      localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
-      const surveyDataString = localStorage.getItem("surveyData");
-      const surveyData = JSON.parse(surveyDataString!);
-      dispatchSurvey(surveyData);
-      handlePage(+3);
+      fetchSurvey(res.data.survey);
+      setPage(+3);
     } catch (error) {
       console.log(error);
     }
@@ -61,19 +61,29 @@ const ChooseSurvey = () => {
           label={t("common.surveyID")}
           name={surveyId}
           htmlFor={"survey-id"}
-          error={IDErrorMessage}
-          inputErrorStyle={IDErrorMessage}
+          error={IDErrorMessage ? IDErrorMessage : fetchErrorMessage}
+          inputErrorStyle={IDErrorMessage ? IDErrorMessage : fetchErrorMessage}
           value={surveyId}
-          onChange={(e) => setSurveyId(e.target.value)}
+          onChange={(e) => {
+            setSurveyId(e.target.value);
+            setIDErrorMessage(null);
+            setFetchErrorMessage(null);
+          }}
         />
         <Input
           label={t("common.surveyPIN")}
           name={surveyPin}
           htmlFor={"survey-pin"}
-          error={PINErrorMessage}
-          inputErrorStyle={PINErrorMessage}
+          error={PINErrorMessage ? PINErrorMessage : fetchErrorMessage}
+          inputErrorStyle={
+            PINErrorMessage ? PINErrorMessage : fetchErrorMessage
+          }
           value={surveyPin}
-          onChange={(e) => setSurveyPin(e.target.value)}
+          onChange={(e) => {
+            setSurveyPin(e.target.value);
+            setPINErrorMessage(null);
+            setFetchErrorMessage(null);
+          }}
         />
         <DividerHorizontal />
         <div

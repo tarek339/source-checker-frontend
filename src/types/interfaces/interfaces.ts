@@ -18,6 +18,7 @@ export interface IPages {
 }
 
 export interface ISurvey {
+  _id: string;
   anonymousResults: boolean;
   freeUserNames: boolean;
   surveyId: string;

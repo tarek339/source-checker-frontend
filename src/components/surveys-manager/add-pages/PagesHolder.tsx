@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatches, useSelectors } from "../../../hooks";
 import Table from "../../Table";
 import axios from "axios";
 
 const PagesHolder = () => {
   const { surveyPages, survey } = useSelectors();
-  const { dispatchSurveys } = useDispatches();
+  const { dispatchSurvey, dispatchPages } = useDispatches();
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(5);
@@ -18,18 +18,20 @@ const PagesHolder = () => {
   };
 
   const onDelete = async (_id: string) => {
-    console.log(_id);
     await axios.post(`/survey/delete-page/${_id}`);
+    const res = await axios.get(`/survey/get-profile/${survey?._id}`);
+    localStorage.setItem("surveyData", JSON.stringify(res.data));
+    const surveyDataString = localStorage.getItem("surveyData");
+    const surveyData = JSON.parse(surveyDataString!);
+    dispatchSurvey(surveyData);
+    dispatchPages(surveyData.pages);
+    console.log(surveyData.pages);
   };
-
-  useEffect(() => {
-    dispatchSurveys(survey?.pages!);
-  }, [surveyPages]);
 
   return (
     <Table
       headers={["Name", ""]}
-      propsChildren={surveyPages?.map((page, i) => {
+      propsChildren={surveyPages?.slice(first, last).map((page, i) => {
         return (
           <tr
             key={i}
@@ -42,7 +44,9 @@ const PagesHolder = () => {
             <td
               style={{
                 borderBottomLeftRadius:
-                  i === surveyPages?.length - 1 ? "4px" : "0px",
+                  i === surveyPages?.slice(first, last).length - 1
+                    ? "4px"
+                    : "0px",
               }}>
               {page?.title}
             </td>
@@ -53,7 +57,9 @@ const PagesHolder = () => {
                   textTransform: "uppercase",
                   color: "#f44336",
                   borderBottomRightRadius:
-                    i === surveyPages?.length - 1 ? "4px" : "0px",
+                    i === surveyPages?.slice(first, last).length - 1
+                      ? "4px"
+                      : "0px",
                 }}>
                 <span onClick={() => onDelete(page?._id!)}>löschen</span>
               </td>

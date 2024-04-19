@@ -1,13 +1,19 @@
 import { IoAddOutline } from "react-icons/io5";
 import { FiArrowUp } from "react-icons/fi";
-import { useState } from "react";
-import { useDispatches, useTranslations } from "../../hooks";
+import { useEffect, useState } from "react";
+import { useLocaleStorage, useTranslations } from "../../hooks";
 
 const ChooseAction = () => {
   const [ishHoveredNew, setIshHoveredNew] = useState(false);
   const [isHoveredAdd, setIsHoveredAdd] = useState(false);
-  const { handlePage, finishStep } = useDispatches();
+  const { setPage, setDoneStep } = useLocaleStorage();
   const { t } = useTranslations();
+
+  useEffect(() => {
+    localStorage.removeItem("surveyData");
+    localStorage.removeItem("page");
+    localStorage.removeItem("stepDone");
+  }, []);
 
   return (
     <>
@@ -15,8 +21,8 @@ const ChooseAction = () => {
       <div className="action-card-holder">
         <div
           onClick={() => {
-            handlePage(+2);
-            finishStep();
+            setPage(+2);
+            setDoneStep();
           }}
           onMouseEnter={() => setIsHoveredAdd(true)}
           onMouseLeave={() => setIsHoveredAdd(false)}
@@ -30,8 +36,8 @@ const ChooseAction = () => {
         <div
           onClick={() => {
             localStorage.removeItem("surveyData");
-            handlePage(+1);
-            finishStep();
+            setPage(+1);
+            setDoneStep();
           }}
           onMouseEnter={() => setIshHoveredNew(true)}
           onMouseLeave={() => setIshHoveredNew(false)}

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { BackButton, DividerHorizontal, FormButton, ToggleButton } from "..";
-import { useDispatches, useTranslations } from "../../hooks";
+import { useDispatches, useLocaleStorage, useTranslations } from "../../hooks";
 import axios from "axios";
 import { FaCircleDot } from "react-icons/fa6";
 
 const NewSurvey = () => {
   const { t } = useTranslations();
-  const { handlePage, dispatchSurvey, dispatchLoading } = useDispatches();
+  const { dispatchLoading } = useDispatches();
+  const { createSurvey, setPage } = useLocaleStorage();
 
   const [anonymousResults, setAnonymousResults] = useState(false);
   const [freeUserNames, setFreeUserNames] = useState(false);
@@ -19,12 +20,9 @@ const NewSurvey = () => {
         anonymousResults,
         freeUserNames,
       });
-      localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
-      const surveyDataString = localStorage.getItem("surveyData");
-      const surveyData = JSON.parse(surveyDataString!);
-      dispatchSurvey(surveyData);
+      createSurvey(res.data.survey);
       dispatchLoading(false);
-      handlePage(+3);
+      setPage(+3);
     } catch (error) {
       console.log(error);
     }

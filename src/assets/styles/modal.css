@@ -6,7 +6,7 @@
   overflow: auto;
   height: 100%;
   width: 100%;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgb(169, 169, 169, 0.25);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   top: 0;

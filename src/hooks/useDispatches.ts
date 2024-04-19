@@ -21,12 +21,11 @@ const useDispatches = () => {
 
   const handlePage = (addPage: number) =>
     dispatch(handlePages({ page: 0 + addPage }));
-  const finishStep = () => dispatch(handleSteps(true));
-  const resetStep = () => dispatch(handleSteps(false));
+  const finishStep = (arg: boolean) => dispatch(handleSteps(arg));
 
   const dispatchSurvey = (res: AxiosResponse<any, any>) =>
     dispatch(addSurvey(res));
-  const dispatchSurveys = (pages: IPages[]) =>
+  const dispatchPages = (pages: IPages[]) =>
     dispatch(addSurveyPages({ pages: pages }));
 
   const openModal = () => dispatch(handleModal({ isVisible: true }));
@@ -40,11 +39,10 @@ const useDispatches = () => {
     enableGE,
     handlePage,
     finishStep,
-    resetStep,
     dispatchSurvey,
     openModal,
     closeModal,
-    dispatchSurveys,
+    dispatchPages,
     dispatchLoading,
   };
 };

@@ -1,10 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { HandlePage } from "../../../types/interfaces/redux/slices";
 
+const newPage = localStorage.getItem("page");
+
 const pagesSlice = createSlice({
   name: "pages",
   initialState: {
-    page: 0,
+    page: Number(newPage),
     stepDone: false,
   },
   reducers: {

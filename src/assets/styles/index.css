@@ -126,6 +126,10 @@ label {
   text-transform: uppercase;
 }
 
+.back-button:hover {
+  background-color: #ff5c4d;
+}
+
 .continue-button {
   background-color: #16a34a;
   color: #fff;

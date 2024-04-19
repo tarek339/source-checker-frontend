@@ -11,10 +11,12 @@ import Input from "../../parents/form/Input";
 import InputMessage from "../../parents/form/InputMessage";
 import axios from "axios";
 import InputErrorContainer from "../../parents/form/InputErrorContainer";
+import CancelButton from "../../buttons/CancelButton";
 
 const ModalHolder = () => {
   const { modal, survey } = useSelectors();
-  const { closeModal, dispatchSurvey, dispatchLoading } = useDispatches();
+  const { closeModal, dispatchSurvey, dispatchLoading, dispatchPages } =
+    useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
 
@@ -32,10 +34,10 @@ const ModalHolder = () => {
       e.preventDefault();
       !title ? setTitleErrorMessage(<InputErrorContainer />) : null;
       !url ? setUrlErrorMessage(<InputErrorContainer />) : null;
-      if (titleErrorMessage || urlErrorMessage) return;
+      if (!title || !url) return;
       dispatchLoading(true);
       const res = await axios.put(`/survey/complete/${survey?.surveyId}`, {
-        pages: {
+        page: {
           title,
           url,
           note,
@@ -46,6 +48,7 @@ const ModalHolder = () => {
       const surveyDataString = localStorage.getItem("surveyData");
       const surveyData = JSON.parse(surveyDataString!);
       dispatchSurvey(surveyData);
+      dispatchPages(surveyData.pages);
       setTitle("");
       setUrl("");
       setNote("");
@@ -70,7 +73,10 @@ const ModalHolder = () => {
             error={titleErrorMessage}
             inputErrorStyle={titleErrorMessage}
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => {
+              setTitle(e.target.value);
+              setTitleErrorMessage(null);
+            }}
           />
           <Input
             label={t("common.url")}
@@ -79,7 +85,10 @@ const ModalHolder = () => {
             error={urlErrorMessage}
             inputErrorStyle={urlErrorMessage}
             value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={(e) => {
+              setUrl(e.target.value);
+              setUrlErrorMessage(null);
+            }}
           />
           <InputMessage
             label={t("common.note")}
@@ -92,9 +101,7 @@ const ModalHolder = () => {
           />
 
           <div className="button-holder">
-            <button className="back-button" onClick={closeModal}>
-              {t("common.cancel")}
-            </button>
+            <CancelButton onClick={closeModal} />
             <FormButton />
           </div>
         </form>

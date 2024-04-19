@@ -1,6 +1,11 @@
-import { useState } from "react";
-import { useDispatches, useSelectors, useTranslations } from "../../hooks";
-import ContinueButton from "../ContinueButton";
+import { useEffect, useState } from "react";
+import {
+  useDispatches,
+  useLocaleStorage,
+  useSelectors,
+  useTranslations,
+} from "../../hooks";
+import ContinueButton from "../buttons/ContinueButton";
 import DividerHorizontal from "../DividerHorizontal";
 import Modal from "../parents/containers/Modal";
 import ModalContent from "../parents/containers/ModalContent";
@@ -12,6 +17,8 @@ const SaveSurvey = () => {
   const { survey, modal } = useSelectors();
   const { closeModal, openModal } = useDispatches();
   const { surveyArray } = useCompArray();
+  const { getSurvey } = useLocaleStorage();
+
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -29,6 +36,10 @@ const SaveSurvey = () => {
     }, 1500);
   };
 
+  useEffect(() => {
+    getSurvey();
+  }, []);
+
   return (
     <>
       <Modal isVisible={modal} setIsVisible={closeModal}>
@@ -36,6 +47,7 @@ const SaveSurvey = () => {
           url={"/survey/delete"}
           header={t("common.survey") + " " + survey?.surveyId!}
           localeStorage={"surveyData"}
+          page={"page"}
           id={survey?.surveyId!}
         />
       </Modal>

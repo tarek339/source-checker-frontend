@@ -4,8 +4,8 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import BackButton from "../../BackButton";
-import ContinueButton from "../../ContinueButton";
+import BackButton from "../../buttons/BackButton";
+import ContinueButton from "../../buttons/ContinueButton";
 import DividerHorizontal from "../../DividerHorizontal";
 import ModalHolder from "./ModalHolder";
 import NoPages from "./NoPages";
@@ -31,7 +31,11 @@ const AddPages = () => {
         }}>
         <h3>{t("addPages.header")}</h3>
 
-        {survey?.pages ? <PagesHolder /> : <NoPages />}
+        {survey && survey?.pages && survey?.pages?.length > 0 ? (
+          <PagesHolder />
+        ) : (
+          <NoPages />
+        )}
 
         <div className="add-pages-holder">
           <h3>
