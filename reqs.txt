@@ -1,0 +1,5 @@
+file to work on: /views/Authentication.tsx
+css file to style: /assets/styles/views/authentication.css
+the image: /assets/images/...
+
+check screenshots and video on whatapp

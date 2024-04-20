@@ -83,7 +83,7 @@
   .auth-buttons {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 20px;
   }
   .auth-section {
     max-width: 500px;
@@ -124,6 +124,6 @@
   .auth-buttons {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
   }
 }
