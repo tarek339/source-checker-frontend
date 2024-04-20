@@ -4,6 +4,7 @@ import {
   useSelectors,
   useTranslations,
   useBreakPoints,
+  useLocaleStorage,
 } from "../../../hooks";
 import Modal from "../../parents/containers/Modal";
 import FormButton from "../../parents/form/FormButton";
@@ -15,10 +16,10 @@ import CancelButton from "../../buttons/CancelButton";
 
 const ModalHolder = () => {
   const { modal, survey } = useSelectors();
-  const { closeModal, dispatchSurvey, dispatchLoading, dispatchPages } =
-    useDispatches();
+  const { closeModal, dispatchLoading } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
+  const { fetchSurvey } = useLocaleStorage();
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
@@ -43,12 +44,8 @@ const ModalHolder = () => {
           note,
         },
       });
+      fetchSurvey(res.data.survey);
 
-      localStorage.setItem("surveyData", JSON.stringify(res.data.survey));
-      const surveyDataString = localStorage.getItem("surveyData");
-      const surveyData = JSON.parse(surveyDataString!);
-      dispatchSurvey(surveyData);
-      dispatchPages(surveyData.pages);
       setTitle("");
       setUrl("");
       setNote("");

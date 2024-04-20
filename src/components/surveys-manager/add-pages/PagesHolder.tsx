@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useDispatches, useSelectors } from "../../../hooks";
+import { useLocaleStorage, useSelectors } from "../../../hooks";
 import Table from "../../Table";
 import axios from "axios";
 
 const PagesHolder = () => {
   const { surveyPages, survey } = useSelectors();
-  const { dispatchSurvey, dispatchPages } = useDispatches();
+  const { fetchSurvey } = useLocaleStorage();
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(5);
@@ -20,12 +20,11 @@ const PagesHolder = () => {
   const onDelete = async (_id: string) => {
     await axios.post(`/survey/delete-page/${_id}`);
     const res = await axios.get(`/survey/get-profile/${survey?._id}`);
-    localStorage.setItem("surveyData", JSON.stringify(res.data));
-    const surveyDataString = localStorage.getItem("surveyData");
-    const surveyData = JSON.parse(surveyDataString!);
-    dispatchSurvey(surveyData);
-    dispatchPages(surveyData.pages);
-    console.log(surveyData.pages);
+    fetchSurvey(res.data);
+    if (res.data.pages.length % 5 === 0 && res.data.pages.length > 0) {
+      setFirst((prevNum) => prevNum - 5);
+      setLast((prevNum) => prevNum - 5);
+    }
   };
 
   return (

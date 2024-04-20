@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import {
   useBreakPoints,
   useDispatches,
+  useLocaleStorage,
   useSelectors,
   useTranslations,
 } from "../../../hooks";
@@ -16,6 +18,11 @@ const AddPages = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { survey } = useSelectors();
+  const { getSurvey } = useLocaleStorage();
+
+  useEffect(() => {
+    getSurvey();
+  }, []);
 
   return (
     <>
@@ -52,7 +59,7 @@ const AddPages = () => {
 
         <div className="button-container">
           <BackButton page={3} />
-          <ContinueButton page={+4} />
+          <ContinueButton page={0} />
         </div>
       </div>
     </>

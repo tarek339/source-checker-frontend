@@ -21,7 +21,7 @@ const useLocaleStorage = () => {
   };
 
   const getSurvey = () => {
-    const surveyDataString = localStorage.getItem("surveyData");
+    const surveyDataString = localStorage?.getItem("surveyData");
     const surveyData = JSON.parse(surveyDataString!);
     dispatchSurvey(surveyData!);
     dispatchPages(surveyData?.pages);
@@ -41,12 +41,21 @@ const useLocaleStorage = () => {
     finishStep(Boolean(data));
   };
 
+  const resetStates = () => {
+    localStorage.removeItem("surveyData");
+    localStorage.removeItem("page");
+    localStorage.removeItem("stepDone");
+    handlePage(0);
+    finishStep(false);
+  };
+
   return {
     setPage,
     fetchSurvey,
     createSurvey,
     getSurvey,
     setDoneStep,
+    resetStates,
   };
 };
 

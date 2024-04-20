@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ITable } from "../types/interfaces/components";
 import {
   MdOutlineArrowBackIos,
@@ -25,10 +26,20 @@ const Table = ({
     setLast((prevNum) => prevNum - 5);
   };
 
+  useEffect(() => {
+    if (property.length === last + 1) {
+      setFirst((prevNum) => prevNum + 5);
+      setLast((prevNum) => prevNum + 5);
+    }
+  }, [property.length]);
+
   return (
     <div
       style={{
-        height: "327px",
+        height: "361px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}>
       <table>
         <thead>
@@ -55,9 +66,8 @@ const Table = ({
         style={{
           display: "flex",
           justifyContent: "flex-end",
-          alignItems: "center",
           gap: "20px",
-          marginTop: "5px",
+          marginTop: "10px",
           marginRight: "10px",
           fontSize: "16px",
         }}

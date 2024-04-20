@@ -6,13 +6,11 @@ import { useLocaleStorage, useTranslations } from "../../hooks";
 const ChooseAction = () => {
   const [ishHoveredNew, setIshHoveredNew] = useState(false);
   const [isHoveredAdd, setIsHoveredAdd] = useState(false);
-  const { setPage, setDoneStep } = useLocaleStorage();
+  const { setPage, setDoneStep, resetStates } = useLocaleStorage();
   const { t } = useTranslations();
 
   useEffect(() => {
-    localStorage.removeItem("surveyData");
-    localStorage.removeItem("page");
-    localStorage.removeItem("stepDone");
+    resetStates();
   }, []);
 
   return (

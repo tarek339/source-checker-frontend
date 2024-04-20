@@ -1,10 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../components";
-import { useTranslations } from "../hooks";
+import { useLocaleStorage, useTranslations } from "../hooks";
+import { useEffect } from "react";
 
 const Authentication = () => {
   const navigate = useNavigate();
   const { t } = useTranslations();
+  const { resetStates } = useLocaleStorage();
+
+  useEffect(() => {
+    resetStates();
+  }, []);
 
   return (
     <div className="authentication">
