@@ -22,7 +22,9 @@
   "input": {
     "button": "submit",
     "select": "Please select",
-    "inputError": "Required field"
+    "inputError": "Required field",
+    "incorrectType": "Wrong character type - use digits only",
+    "fetchError": "Incorrect ID or PIN"
   },
   "footer": {
     "header": "The source checker is a project by",

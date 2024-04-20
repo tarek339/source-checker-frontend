@@ -22,7 +22,9 @@
   "input": {
     "button": "senden",
     "select": "Bitte auswählen",
-    "inputError": "Pflichtfeld"
+    "inputError": "Pflichtfeld",
+    "incorrectType": "Falsche Zeichenart - nur Ziffern verwenden",
+    "fetchError": "Falsche ID oder falscher PIN"
   },
   "footer": {
     "header": "Der Quellenchecker ist ein Projekt von",
