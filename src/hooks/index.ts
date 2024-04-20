@@ -4,6 +4,7 @@ import useBreakPoints from "./useBreakPoints";
 import useDispatches from "./useDispatches";
 import useSelectors from "./useSelectors";
 import useLocaleStorage from "./useLocaleStorage";
+import useInputErrors from "./useInputErrors";
 
 export {
   useTranslations,
@@ -12,4 +13,5 @@ export {
   useDispatches,
   useSelectors,
   useLocaleStorage,
+  useInputErrors,
 };

@@ -1,42 +1,37 @@
 import { useState } from "react";
-import {
-  BackButton,
-  DividerHorizontal,
-  FormButton,
-  Input,
-  InputErrorContainer,
-} from "..";
-import { useTranslations, useLocaleStorage } from "../../hooks";
+import { BackButton, DividerHorizontal, FormButton, Input } from "..";
+import { useTranslations, useLocaleStorage, useInputErrors } from "../../hooks";
 import axios from "axios";
 
 const ChooseSurvey = () => {
   const { t } = useTranslations();
   const { setPage, fetchSurvey } = useLocaleStorage();
+  const { emptyInput, incorrectType, fetchError } = useInputErrors();
 
   const [surveyId, setSurveyId] = useState("");
   const [surveyPin, setSurveyPin] = useState("");
-  const [IDErrorMessage, setIDErrorMessage] = useState<JSX.Element | null>(
-    null
-  );
-  const [PINErrorMessage, setPINErrorMessage] = useState<JSX.Element | null>(
-    null
-  );
-  const [fetchErrorMessage, setFetchErrorMessage] = useState<string | null>(
-    null
-  );
+  const [IDErrMsg, setIDErrMsg] = useState<JSX.Element | null>(null);
+  const [PINErrMsg, setPINErrMsg] = useState<JSX.Element | null>(null);
+  const [fetchErrMsg, setFetchErrMsg] = useState<JSX.Element | null>(null);
+  const [idTypeErrMsg, setIdTypeErrMsg] = useState<JSX.Element | null>(null);
+  const [pinTypeErrMsg, setPinTypeErrMsg] = useState<JSX.Element | null>();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
-      !surveyId ? setIDErrorMessage(<InputErrorContainer />) : null;
-      !surveyPin ? setPINErrorMessage(<InputErrorContainer />) : null;
+      !surveyId ? setIDErrMsg(emptyInput) : null;
+      !surveyPin ? setPINErrMsg(emptyInput) : null;
+      surveyId.match(/[A-Z|a-z|ü|é]/i) ? setIdTypeErrMsg(incorrectType) : null;
+      surveyPin.match(/[A-Z|a-z|ü|é]/i)
+        ? setPinTypeErrMsg(incorrectType)
+        : null;
       if (!surveyId || !surveyPin) return;
 
       const res = await axios.post("/survey/fetch", { surveyId, surveyPin });
       fetchSurvey(res.data.survey);
       setPage(+3);
     } catch (error) {
-      setFetchErrorMessage("Falsche ID oder falscher PIN");
+      setFetchErrMsg(fetchError);
       console.log(error);
     }
   };
@@ -63,18 +58,17 @@ const ChooseSurvey = () => {
           name={surveyId}
           htmlFor={"survey-id"}
           error={
-            IDErrorMessage ? (
-              IDErrorMessage
-            ) : (
-              <span className="input-error">{fetchErrorMessage}</span>
-            )
+            IDErrMsg ? IDErrMsg : idTypeErrMsg ? idTypeErrMsg : fetchErrMsg
           }
-          inputErrorStyle={IDErrorMessage ? IDErrorMessage : fetchErrorMessage}
+          inputErrorStyle={
+            IDErrMsg ? IDErrMsg : idTypeErrMsg ? idTypeErrMsg : fetchErrMsg
+          }
           value={surveyId}
           onChange={(e) => {
             setSurveyId(e.target.value);
-            setIDErrorMessage(null);
-            setFetchErrorMessage(null);
+            setIDErrMsg(null);
+            setFetchErrMsg(null);
+            setIdTypeErrMsg(null);
           }}
         />
         <Input
@@ -82,20 +76,17 @@ const ChooseSurvey = () => {
           name={surveyPin}
           htmlFor={"survey-pin"}
           error={
-            PINErrorMessage ? (
-              PINErrorMessage
-            ) : (
-              <span className="input-error">{fetchErrorMessage}</span>
-            )
+            PINErrMsg ? PINErrMsg : pinTypeErrMsg ? pinTypeErrMsg : fetchErrMsg
           }
           inputErrorStyle={
-            PINErrorMessage ? PINErrorMessage : fetchErrorMessage
+            PINErrMsg ? PINErrMsg : pinTypeErrMsg ? pinTypeErrMsg : fetchErrMsg
           }
           value={surveyPin}
           onChange={(e) => {
             setSurveyPin(e.target.value);
-            setPINErrorMessage(null);
-            setFetchErrorMessage(null);
+            setPINErrMsg(null);
+            setFetchErrMsg(null);
+            setPinTypeErrMsg(null);
           }}
         />
         <DividerHorizontal />
