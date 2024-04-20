@@ -56,7 +56,6 @@ export interface IModalContent {
   url: string;
   header: string;
   localeStorage: string;
-  id: string;
   page: string;
 }
 

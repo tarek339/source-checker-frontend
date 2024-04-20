@@ -2,18 +2,12 @@ import axios from "axios";
 import { IModalContent } from "../../../types/interfaces/components";
 import { useTranslations, useDispatches } from "../../../hooks";
 
-const ModalContent = ({
-  header,
-  url,
-  localeStorage,
-  page,
-  id,
-}: IModalContent) => {
+const ModalContent = ({ header, url, localeStorage, page }: IModalContent) => {
   const { handlePage, closeModal } = useDispatches();
   const { t } = useTranslations();
 
   const deleteSurvey = async () => {
-    await axios.post(`${url}`, id);
+    await axios.delete(`${url}`);
     localStorage.removeItem(localeStorage);
     localStorage.removeItem(page);
     handlePage(0);
