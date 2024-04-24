@@ -77,7 +77,9 @@
   },
   "saveSurvey": {
     "saveSurvey": "Save overview",
-    "chooseName": "Free user names"
+    "chooseName": "Free user names",
+    "deleteText": "Do you really want to delete the survey?",
+    "deleteSection": "All data will be deleted!"
   },
   "addPages": {
     "header": "Choose pages",

@@ -46,7 +46,7 @@ const SaveSurvey = () => {
       <Modal isVisible={modal} setIsVisible={closeModal}>
         <ModalContent
           url={`/survey/delete/${survey?._id}`}
-          header={t("common.survey") + " " + survey?.surveyId!}
+          header={t("common.survey") + " " + "ID:" + " " + survey?.surveyId!}
           localeStorage={"surveyData"}
           page={"page"}
         />
