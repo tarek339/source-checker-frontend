@@ -1,7 +1,7 @@
 import Footer from "./Footer";
 import Divider from "./Divider";
 import Steps from "./parents/Steps";
-import NewSurvey from "./surveys-manager/NewSurvey";
+import NewSurvey from "./surveys-manager/new-survey/NewSurvey";
 import ChooseAction from "./surveys-manager/ChooseAction";
 import ChooseSurvey from "./surveys-manager/ChooseSurvey";
 import Input from "./parents/form/Input";
@@ -24,6 +24,7 @@ import ContinueButton from "./buttons/ContinueButton";
 import ModalHolder from "./surveys-manager/add-pages/ModalHolder";
 import InputMessage from "./parents/form/InputMessage";
 import CancelButton from "./buttons/CancelButton";
+import SubmitModal from "./surveys-manager/new-survey/SubmitModal";
 
 export {
   Footer,
@@ -52,4 +53,5 @@ export {
   ModalHolder,
   InputMessage,
   CancelButton,
+  SubmitModal,
 };

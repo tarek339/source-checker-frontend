@@ -15,6 +15,13 @@
   animation-duration: 0.2s;
 }
 
+@media screen and (max-width: 500px) {
+  .modal {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 .modal-children {
   background-color: #fff;
   padding: 30px;

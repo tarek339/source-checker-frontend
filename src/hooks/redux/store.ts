@@ -3,6 +3,7 @@ import {
   loadingReducer,
   modalReducer,
   pagesReducer,
+  submitReducer,
   surveyPagesReducer,
   surveyReducer,
   translationsReducer,
@@ -16,6 +17,7 @@ export const store = configureStore({
     surveyPages: surveyPagesReducer,
     modal: modalReducer,
     loading: loadingReducer,
+    submit: submitReducer,
   },
 });
 

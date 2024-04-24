@@ -11,8 +11,18 @@ const useSelectors = () => {
   );
   const modal = useSelector((state: RootState) => state.modal.isVisible);
   const loading = useSelector((state: RootState) => state.loading.loading);
+  const onSubmit = useSelector((state: RootState) => state.submit.submit);
 
-  return { locale, page, stepDone, survey, modal, surveyPages, loading };
+  return {
+    locale,
+    page,
+    stepDone,
+    survey,
+    modal,
+    surveyPages,
+    loading,
+    onSubmit,
+  };
 };
 
 export default useSelectors;

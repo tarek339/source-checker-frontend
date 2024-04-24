@@ -78,3 +78,7 @@ export interface ITable {
   setLast: (value: React.SetStateAction<number>) => void | undefined;
   property: IPages[];
 }
+
+export interface ISubmitModal {
+  onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
+}

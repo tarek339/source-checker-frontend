@@ -29,7 +29,7 @@ const ModalContent = ({ header, url, localeStorage, page }: IModalContent) => {
         style={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "flex-start",
+          justifyContent: "flex-end",
           gap: "20px",
         }}>
         <button className="continue-button" onClick={closeModal}>

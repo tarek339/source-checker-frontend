@@ -22,10 +22,11 @@ const SaveSurvey = () => {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
+    let num = `NUM: ${survey?.surveyNumber}`;
     let id = `ID: ${survey?.surveyId}`;
     let pin = `PIN: ${survey?.surveyPin}`;
     let input = document.createElement("input");
-    input.value = `${id} ${pin}`;
+    input.value = `${num}, ${id}, ${pin}`;
     document.body.appendChild(input);
     input.select();
     document.execCommand("copy");

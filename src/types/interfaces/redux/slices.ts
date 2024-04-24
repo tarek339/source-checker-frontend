@@ -13,6 +13,10 @@ export interface HandleLoading {
   loading: boolean;
 }
 
+export interface HandleSubmit {
+  submit: boolean;
+}
+
 export interface HandlePage {
   page: number;
 }

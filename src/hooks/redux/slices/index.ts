@@ -9,6 +9,7 @@ import { handleModal } from "./modal";
 import { addSurveyPages } from "./surveyPages";
 import { translationsReducer } from "./translations";
 import { loadingReducer, handleLoading } from "./loading";
+import { handleSubmit, submitReducer } from "./submit";
 
 export {
   handleTranslation,
@@ -19,6 +20,8 @@ export {
   handleModal,
   addSurveyPages,
   handleLoading,
+  handleSubmit,
+  submitReducer,
   pagesReducer,
   surveyReducer,
   surveyPagesReducer,

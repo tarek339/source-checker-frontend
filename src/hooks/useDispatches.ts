@@ -6,11 +6,11 @@ import {
   handleModal,
   handlePages,
   handleSteps,
+  handleSubmit,
   handleTranslation,
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
 import { AxiosResponse } from "axios";
-
 import { IPages } from "../types/interfaces/interfaces";
 
 const useDispatches = () => {
@@ -34,6 +34,9 @@ const useDispatches = () => {
   const dispatchLoading = (loading: boolean) =>
     dispatch(handleLoading({ loading: loading }));
 
+  const dispatchSubmit = (submit: boolean) =>
+    dispatch(handleSubmit({ submit: submit }));
+
   return {
     enableEN,
     enableGE,
@@ -44,6 +47,7 @@ const useDispatches = () => {
     closeModal,
     dispatchPages,
     dispatchLoading,
+    dispatchSubmit,
   };
 };
 
