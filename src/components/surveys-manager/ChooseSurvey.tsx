@@ -96,7 +96,7 @@ const ChooseSurvey = () => {
             flexDirection: "column",
             gap: "15px",
           }}>
-          <FormButton />
+          <FormButton title={t("common.callUp")} />
           <BackButton page={0} />
         </div>
       </form>

@@ -93,7 +93,7 @@ const NewSurvey = () => {
               className="continue-button"
               onClick={openModal}
               type="button">
-              continue
+              {t("common.continue")}
             </button>
           </div>
         </div>

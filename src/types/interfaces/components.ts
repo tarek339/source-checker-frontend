@@ -82,3 +82,7 @@ export interface ITable {
 export interface ISubmitModal {
   onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
 }
+
+export interface IFormButton {
+  title: string;
+}

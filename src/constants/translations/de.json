@@ -11,7 +11,10 @@
     "title": "Title",
     "url": "Url",
     "note": "Notiz (wird nicht angezeigt)",
-    "surveyNumber": "Umfrage Nr."
+    "surveyNumber": "Umfrage Nr.",
+    "create": "Umfrage anlegen",
+    "callUp": "aufrufen",
+    "add": "hinzugfügen"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -68,7 +71,9 @@
     "no": "Deaktiviert",
     "userName": "Benutzernamen",
     "freeNames": "Freie Usernamen?",
-    "surveyType": "Umfragetyp"
+    "surveyType": "Umfragetyp",
+    "sure": "Sind Sie sicher?",
+    "warningText": "Die Daten lassen sich später nicht mehr ändern!"
   },
   "saveSurvey": {
     "saveSurvey": "Umfrage Übersicht",

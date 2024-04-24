@@ -11,7 +11,10 @@
     "title": "Title",
     "url": "Url",
     "note": "Note (not displayed)",
-    "surveyNumber": "Survey nr."
+    "surveyNumber": "Survey nr.",
+    "create": "Create survey",
+    "callUp": "call up",
+    "add": "hinzugfügen"
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -68,7 +71,9 @@
     "no": "Disabeld",
     "userName": "User name",
     "freeNames": "Free user names?",
-    "surveyType": "Survey type"
+    "surveyType": "Survey type",
+    "sure": "Are you sure?",
+    "warningText": "The data cannot be changed later!"
   },
   "saveSurvey": {
     "saveSurvey": "Save overview",

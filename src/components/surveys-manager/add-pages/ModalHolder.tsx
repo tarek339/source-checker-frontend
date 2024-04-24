@@ -99,7 +99,7 @@ const ModalHolder = () => {
 
           <div className="button-holder">
             <CancelButton onClick={closeModal} />
-            <FormButton />
+            <FormButton title={t("common.add")} />
           </div>
         </form>
       </div>

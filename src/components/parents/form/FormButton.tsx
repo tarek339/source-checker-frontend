@@ -1,14 +1,14 @@
-import { useSelectors, useTranslations } from "../../../hooks";
+import { useSelectors } from "../../../hooks";
+import { IFormButton } from "../../../types/interfaces/components";
 
-const FormButton = () => {
-  const { t } = useTranslations();
+const FormButton = ({ title }: IFormButton) => {
   const { loading } = useSelectors();
   return (
     <button
       disabled={loading ? true : false}
       type="submit"
       className="form-button">
-      {t("input.button")}
+      {title}
     </button>
   );
 };
