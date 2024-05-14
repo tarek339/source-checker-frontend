@@ -8,11 +8,15 @@ const useInputErrors = () => {
     <div className="input-error">{t("input.incorrectType")}</div>
   );
   const fetchError = <div className="input-error">{t("input.fetchError")}</div>;
+  const urlTyoeError = (
+    <div className="input-error">{t("input.urlTypeError")}</div>
+  );
 
   return {
     emptyInput,
     incorrectType,
     fetchError,
+    urlTyoeError,
   };
 };
 

@@ -5,6 +5,7 @@ import {
   useTranslations,
   useBreakPoints,
   useLocaleStorage,
+  useInputErrors,
 } from "../../../hooks";
 import Modal from "../../parents/containers/Modal";
 import FormButton from "../../parents/form/FormButton";
@@ -14,12 +15,15 @@ import axios from "axios";
 import InputErrorContainer from "../../parents/form/InputErrorContainer";
 import CancelButton from "../../buttons/CancelButton";
 
+const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+
 const ModalHolder = () => {
   const { modal, survey } = useSelectors();
   const { closeModal, dispatchLoading } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { fetchSurvey } = useLocaleStorage();
+  const { urlTyoeError } = useInputErrors();
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
@@ -29,13 +33,17 @@ const ModalHolder = () => {
   const [urlErrorMessage, setUrlErrorMessage] = useState<JSX.Element | null>(
     null
   );
+  const [isUrl, setIsUrl] = useState<JSX.Element | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
       !title ? setTitleErrorMessage(<InputErrorContainer />) : null;
       !url ? setUrlErrorMessage(<InputErrorContainer />) : null;
-      if (!title || !url) return;
+      if (!url.match(urlRegex)) {
+        setIsUrl(urlTyoeError);
+      }
+      if (!title || !url || !url.match(urlRegex)) return;
       dispatchLoading(true);
       const res = await axios.put(`/survey/complete/${survey?.surveyId}`, {
         page: {
@@ -79,12 +87,13 @@ const ModalHolder = () => {
             label={t("common.url")}
             name={"url"}
             htmlFor={"url"}
-            error={urlErrorMessage}
-            inputErrorStyle={urlErrorMessage}
+            error={urlErrorMessage ? urlErrorMessage : isUrl}
+            inputErrorStyle={urlErrorMessage ? urlErrorMessage : isUrl}
             value={url}
             onChange={(e) => {
               setUrl(e.target.value);
               setUrlErrorMessage(null);
+              setIsUrl(null);
             }}
           />
           <InputMessage

@@ -87,7 +87,7 @@ const NewSurvey = () => {
           />
 
           <DividerHorizontal />
-          <div className="button-holder">
+          <div className="button-container">
             <BackButton page={0} />
             <button
               className="continue-button"

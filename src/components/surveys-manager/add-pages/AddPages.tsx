@@ -59,7 +59,7 @@ const AddPages = () => {
 
         <div className="button-container">
           <BackButton page={3} />
-          <ContinueButton page={0} />
+          <ContinueButton page={4} />
         </div>
       </div>
     </>

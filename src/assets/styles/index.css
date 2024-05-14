@@ -150,13 +150,22 @@ label {
 .button-holder {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
 }
 
 @media screen and (max-width: 425px) {
-  .button-holder {
+  .button-holder,
+  .button-container {
     display: flex;
     flex-direction: column-reverse;
     align-items: stretch;

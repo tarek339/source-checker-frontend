@@ -27,7 +27,8 @@
     "select": "Please select",
     "inputError": "Required field",
     "incorrectType": "Wrong character type - use digits only",
-    "fetchError": "Incorrect ID or PIN"
+    "fetchError": "Incorrect ID or PIN",
+    "urlTypeError": "URL-type not correct!"
   },
   "footer": {
     "header": "The source checker is a project by",
