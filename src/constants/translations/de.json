@@ -89,6 +89,9 @@
     "addPages": "Neue Seite hinzügfen?",
     "addPagesXs": "Neue Seite?",
     "button": "neue seite",
-    "createPage": "Neue Seite anlegen"
+    "createPage": "Neue Seite anlegen",
+    "sideBar": {
+      "header": "Wie soll die Seite angezeigt werden?"
+    }
   }
 }

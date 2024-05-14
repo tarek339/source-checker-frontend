@@ -28,13 +28,13 @@ const SurveysManager = () => {
                             page === index
                               ? "#2834c2"
                               : stepDone && page === index + 1
-                              ? "#16a34a"
+                              ? "#f4d35e"
                               : stepDone && page === index + 2
-                              ? "#16a34a"
+                              ? "#f4d35e"
                               : stepDone && page === index + 3
-                              ? "#16a34a"
+                              ? "#f4d35e"
                               : stepDone && page === index + 4
-                              ? "#16a34a"
+                              ? "#f4d35e"
                               : "lightgray"
                           }`
                         : "transparent",
@@ -44,13 +44,13 @@ const SurveysManager = () => {
                             page === index
                               ? "#2834c2"
                               : stepDone && page === index + 1
-                              ? "#16a34a"
+                              ? "#f4d35e"
                               : stepDone && page === index + 2
-                              ? "#16a34a"
+                              ? "#f4d35e"
                               : stepDone && page === index + 3
-                              ? "#16a34a"
+                              ? "#f4d35e"
                               : stepDone && page === index + 4
-                              ? "#16a34a"
+                              ? "#f4d35e"
                               : "lightgray"
                           }`
                         : "transparent",

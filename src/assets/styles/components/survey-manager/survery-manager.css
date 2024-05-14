@@ -1,5 +1,5 @@
 .header {
-  background-color: #16a34a;
+  background-color: #2834c2;
   width: 100%;
   height: 65px;
   display: flex;
@@ -10,7 +10,7 @@
 }
 
 .header h2 {
-  color: #fff;
+  color: #fbfcff;
   letter-spacing: 1px;
 }
 

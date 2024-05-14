@@ -20,7 +20,7 @@
   text-transform: uppercase;
 }
 .add-page-button:hover {
-  background-color: #1420ae;
+  /* background-color: #1420ae; */
 }
 
 .modal-content {

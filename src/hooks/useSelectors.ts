@@ -12,6 +12,7 @@ const useSelectors = () => {
   const modal = useSelector((state: RootState) => state.modal.isVisible);
   const loading = useSelector((state: RootState) => state.loading.loading);
   const onSubmit = useSelector((state: RootState) => state.submit.submit);
+  const sideBar = useSelector((state: RootState) => state.sideBar.open);
 
   return {
     locale,
@@ -22,6 +23,7 @@ const useSelectors = () => {
     surveyPages,
     loading,
     onSubmit,
+    sideBar,
   };
 };
 

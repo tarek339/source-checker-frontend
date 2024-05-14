@@ -10,7 +10,7 @@ import DividerHorizontal from "../DividerHorizontal";
 import Modal from "../parents/containers/Modal";
 import ModalContent from "../parents/containers/ModalContent";
 import useCompArray from "./useCompArray";
-import { FaRegCopy } from "react-icons/fa";
+// import { FaRegCopy } from "react-icons/fa";
 
 const SaveSurvey = () => {
   const { t } = useTranslations();
@@ -19,23 +19,23 @@ const SaveSurvey = () => {
   const { surveyArray } = useCompArray();
   const { getSurvey } = useLocaleStorage();
 
-  const [copied, setCopied] = useState(false);
+  const [_copied, _setCopied] = useState(false);
 
-  const copyToClipboard = () => {
-    let num = `NUM: ${survey?.surveyNumber}`;
-    let id = `ID: ${survey?.surveyId}`;
-    let pin = `PIN: ${survey?.surveyPin}`;
-    let input = document.createElement("input");
-    input.value = `${num}, ${id}, ${pin}`;
-    document.body.appendChild(input);
-    input.select();
-    document.execCommand("copy");
-    document.body.removeChild(input);
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 1500);
-  };
+  // const copyToClipboard = () => {
+  //   let num = `NUM: ${survey?.surveyNumber}`;
+  //   let id = `ID: ${survey?.surveyId}`;
+  //   let pin = `PIN: ${survey?.surveyPin}`;
+  //   let input = document.createElement("input");
+  //   input.value = `${num}, ${id}, ${pin}`;
+  //   document.body.appendChild(input);
+  //   input.select();
+  //   document.execCommand("copy");
+  //   document.body.removeChild(input);
+  //   setCopied(true);
+  //   setTimeout(() => {
+  //     setCopied(false);
+  //   }, 1500);
+  // };
 
   useEffect(() => {
     getSurvey();
@@ -60,14 +60,18 @@ const SaveSurvey = () => {
           maxWidth: "800px",
         }}>
         <h3>{t("saveSurvey.saveSurvey")}</h3>
-        <div className="warning-message">
-          <p>Umfrage wird nach 7 Tagen automatisch gelöscht.</p>
-          <p>ID und PIN sicher aufbewahren. Zurücksetzen nicht möglich.</p>
-        </div>
+        {/* <div className="warning-message">
+          <p style={{ color: "#ff0000" }}>
+            Umfrage wird nach 7 Tagen automatisch gelöscht.
+          </p>
+          <p style={{ color: "#ff0000" }}>
+            ID und PIN sicher aufbewahren. Zurücksetzen nicht möglich.
+          </p>
+        </div> */}
 
-        <div className="copy-data" onClick={copyToClipboard}>
+        {/* <div className="copy-data" onClick={copyToClipboard}>
           <FaRegCopy /> <span>{copied ? "Copied" : "ID/PIN"}</span>
-        </div>
+        </div> */}
 
         {surveyArray.map((survey, index) => {
           return (

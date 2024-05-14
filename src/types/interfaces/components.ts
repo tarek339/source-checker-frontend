@@ -52,6 +52,12 @@ export interface IModal {
   style?: React.CSSProperties;
 }
 
+export interface ISideBar {
+  children: JSX.Element | JSX.Element[];
+  style?: React.CSSProperties;
+  isOpen: boolean;
+}
+
 export interface IModalContent {
   url: string;
   header: string;

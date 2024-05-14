@@ -54,7 +54,7 @@ const PagesHolder = () => {
                 style={{
                   textAlign: "right",
                   textTransform: "uppercase",
-                  color: "#f44336",
+                  color: "#FF0000",
                   borderBottomRightRadius:
                     i === surveyPages?.slice(first, last).length - 1
                       ? "4px"

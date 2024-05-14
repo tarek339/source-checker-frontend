@@ -36,7 +36,7 @@ const useCompArray = () => {
                   (stepDone && page === 2) ||
                   (stepDone && page === 3) ||
                   (stepDone && page === 4)
-                ? "#16a34a"
+                ? "#f4d35e"
                 : "darkgray",
           }}
         />
@@ -54,7 +54,7 @@ const useCompArray = () => {
                 : (stepDone && page === 2) ||
                   (stepDone && page === 3) ||
                   (stepDone && page === 4)
-                ? "#16a34a"
+                ? "#f4d35e"
                 : "darkgray",
           }}
         />
@@ -70,7 +70,7 @@ const useCompArray = () => {
               page === 2
                 ? "#2834c2"
                 : (stepDone && page === 3) || (stepDone && page === 4)
-                ? "#16a34a"
+                ? "#f4d35e"
                 : "darkgray",
           }}
         />
@@ -86,7 +86,7 @@ const useCompArray = () => {
               page === 3
                 ? "#2834c2"
                 : stepDone && page === 4
-                ? "#16a34a"
+                ? "#f4d35e"
                 : "darkgray",
           }}
         />
@@ -102,7 +102,7 @@ const useCompArray = () => {
               page === 4
                 ? "#2834c2"
                 : stepDone && page === 4
-                ? "#16a34a"
+                ? "#f4d35e"
                 : "darkgray",
           }}
         />
@@ -184,10 +184,20 @@ const useCompArray = () => {
     },
     {
       comp: (
-        <SurveyProp
-          header={t("common.surveyID")}
-          child={survey?.surveyId + " " + surveryNum}
-        />
+        <>
+          <SurveyProp
+            header={t("common.surveyID")}
+            child={survey?.surveyId + " " + surveryNum}
+          />
+          <div className="warning-message">
+            <p style={{ color: "#ff0000" }}>
+              Umfrage wird nach 7 Tagen automatisch gelöscht.
+            </p>
+            <p style={{ color: "#ff0000" }}>
+              ID und PIN sicher aufbewahren. Zurücksetzen nicht möglich.
+            </p>
+          </div>
+        </>
       ),
     },
     {

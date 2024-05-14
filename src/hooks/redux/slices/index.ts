@@ -10,6 +10,7 @@ import { addSurveyPages } from "./surveyPages";
 import { translationsReducer } from "./translations";
 import { loadingReducer, handleLoading } from "./loading";
 import { handleSubmit, submitReducer } from "./submit";
+import { sideBarReducer, handleSideBar } from "./sideBar";
 
 export {
   handleTranslation,
@@ -21,6 +22,8 @@ export {
   addSurveyPages,
   handleLoading,
   handleSubmit,
+  handleSideBar,
+  sideBarReducer,
   submitReducer,
   pagesReducer,
   surveyReducer,

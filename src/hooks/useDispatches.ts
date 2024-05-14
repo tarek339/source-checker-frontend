@@ -5,6 +5,7 @@ import {
   handleLoading,
   handleModal,
   handlePages,
+  handleSideBar,
   handleSteps,
   handleSubmit,
   handleTranslation,
@@ -37,6 +38,9 @@ const useDispatches = () => {
   const dispatchSubmit = (submit: boolean) =>
     dispatch(handleSubmit({ submit: submit }));
 
+  const dispatchSideBar = (open: boolean) =>
+    dispatch(handleSideBar({ open: open }));
+
   return {
     enableEN,
     enableGE,
@@ -48,6 +52,7 @@ const useDispatches = () => {
     dispatchPages,
     dispatchLoading,
     dispatchSubmit,
+    dispatchSideBar,
   };
 };
 

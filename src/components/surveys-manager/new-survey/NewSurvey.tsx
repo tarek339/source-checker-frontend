@@ -56,7 +56,7 @@ const NewSurvey = () => {
           </div>
           <div>
             <h4>Rating</h4>
-            <p>{t("newSurvey.ratingText")}</p>
+            <p style={{ color: "#2835c3" }}>{t("newSurvey.ratingText")}</p>
           </div>
         </div>
         <h3>{t("newSurvey.headerTwo")} </h3>

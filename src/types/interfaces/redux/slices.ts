@@ -31,3 +31,7 @@ export interface HandleModal {
 export interface InitialStateSurvey {
   pages: IPages[];
 }
+
+export interface InitialStateSideBar {
+  open: boolean;
+}

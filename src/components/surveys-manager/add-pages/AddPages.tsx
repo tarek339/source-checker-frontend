@@ -7,14 +7,13 @@ import {
   useTranslations,
 } from "../../../hooks";
 import BackButton from "../../buttons/BackButton";
-import ContinueButton from "../../buttons/ContinueButton";
 import DividerHorizontal from "../../DividerHorizontal";
 import ModalHolder from "./ModalHolder";
 import NoPages from "./NoPages";
 import PagesHolder from "./PagesHolder";
 
 const AddPages = () => {
-  const { openModal } = useDispatches();
+  const { openModal, dispatchSideBar } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { survey } = useSelectors();
@@ -35,6 +34,7 @@ const AddPages = () => {
           gap: "25px",
           maxWidth: "700px",
           margin: "0 auto",
+          position: "relative",
         }}>
         <h3>{t("addPages.header")}</h3>
 
@@ -59,7 +59,11 @@ const AddPages = () => {
 
         <div className="button-container">
           <BackButton page={3} />
-          <ContinueButton page={4} />
+          <button
+            onClick={() => dispatchSideBar(true)}
+            className="continue-button">
+            Weiter
+          </button>
         </div>
       </div>
     </>

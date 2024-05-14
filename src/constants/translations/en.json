@@ -89,6 +89,9 @@
     "addPages": "Add new page?",
     "addPagesXs": "New page?",
     "button": "new page",
-    "createPage": "Create new page"
+    "createPage": "Create new page",
+    "sideBar": {
+      "header": "How should the page be displayed?"
+    }
   }
 }

@@ -1,17 +1,17 @@
-import { useNavigate } from "react-router-dom"
-import { Footer } from "../components"
-import { useLocaleStorage, useTranslations } from "../hooks"
-import { useEffect } from "react"
-import imgSrc from "../assets/images/charisse-kenion-cJkVMAKDYl0-unsplash.jpg"
+import { useNavigate } from "react-router-dom";
+import { Footer } from "../components";
+import { useLocaleStorage, useTranslations } from "../hooks";
+import { useEffect } from "react";
+import imgSrc from "../assets/images/charisse-kenion-cJkVMAKDYl0-unsplash.jpg";
 
 const Authentication = () => {
-  const navigate = useNavigate()
-  const { t } = useTranslations()
-  const { resetStates } = useLocaleStorage()
+  const navigate = useNavigate();
+  const { t } = useTranslations();
+  const { resetStates } = useLocaleStorage();
 
   useEffect(() => {
-    resetStates()
-  }, [])
+    resetStates();
+  }, []);
 
   return (
     <div className="authentication">
@@ -19,7 +19,7 @@ const Authentication = () => {
         <div className="auth-section-container">
           <div className="auth-section">
             <h1>{t("common.sourceChecker")}</h1>
-            <h1 style={{ color: "#16a34a" }}>{t("auth.question")}</h1>
+            <h1 style={{ color: "#2834c2" }}>{t("auth.question")}</h1>
 
             <div className="auth-buttons">
               <button className="teacher-button">
@@ -27,8 +27,7 @@ const Authentication = () => {
               </button>
               <button
                 className="student-button"
-                onClick={() => navigate("/surveys-manager")}
-              >
+                onClick={() => navigate("/surveys-manager")}>
                 {t("auth.teacherButton")}
               </button>
             </div>
@@ -43,7 +42,7 @@ const Authentication = () => {
 
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Authentication
+export default Authentication;
