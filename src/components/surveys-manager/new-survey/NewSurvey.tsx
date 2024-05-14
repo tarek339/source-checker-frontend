@@ -55,7 +55,7 @@ const NewSurvey = () => {
             <FaCircleDot />
           </div>
           <div>
-            <h4>Rating</h4>
+            <h4 style={{ fontSize: "22px" }}>Rating</h4>
             <p style={{ color: "#2835c3" }}>{t("newSurvey.ratingText")}</p>
           </div>
         </div>

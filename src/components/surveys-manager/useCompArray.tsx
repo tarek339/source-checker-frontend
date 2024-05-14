@@ -190,10 +190,10 @@ const useCompArray = () => {
             child={survey?.surveyId + " " + surveryNum}
           />
           <div className="warning-message">
-            <p style={{ color: "#ff0000" }}>
+            <p style={{ color: "#ff0000", fontSize: "16px" }}>
               Umfrage wird nach 7 Tagen automatisch gelöscht.
             </p>
-            <p style={{ color: "#ff0000" }}>
+            <p style={{ color: "#ff0000", fontSize: "16px" }}>
               ID und PIN sicher aufbewahren. Zurücksetzen nicht möglich.
             </p>
           </div>

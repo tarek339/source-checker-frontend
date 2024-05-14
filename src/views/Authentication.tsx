@@ -31,7 +31,9 @@ const Authentication = () => {
                 {t("auth.teacherButton")}
               </button>
             </div>
-            <p>{t("auth.mainText")}</p>
+            <p style={{ fontSize: "21px", fontWeight: 400 }}>
+              {t("auth.mainText")}
+            </p>
           </div>
         </div>
 

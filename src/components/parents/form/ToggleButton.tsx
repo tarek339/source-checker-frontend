@@ -12,7 +12,7 @@ const ToggleButton = ({
   return (
     <div className="toggle-holder">
       <label>{label}</label>
-      <span style={{ color: "#17181d" }}>{labelText}</span>
+      <span style={{ color: "#17181d", fontSize: "18px" }}>{labelText}</span>
       <input
         checked={isOn}
         onChange={handleToggle}
