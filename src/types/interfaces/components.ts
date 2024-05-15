@@ -41,6 +41,10 @@ export interface IBackContinueButton {
   page: number;
 }
 
+export interface IChooseButton {
+  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+}
+
 export interface ICancelButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
@@ -91,4 +95,11 @@ export interface ISubmitModal {
 
 export interface IFormButton {
   title: string;
+}
+
+export interface IScreenShot {
+  title: string;
+  image?: string;
+  width: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }

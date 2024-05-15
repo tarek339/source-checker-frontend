@@ -14,7 +14,8 @@
     "surveyNumber": "Umfrage Nr.",
     "create": "Umfrage anlegen",
     "callUp": "aufrufen",
-    "add": "hinzugfügen"
+    "add": "hinzugfügen",
+    "choose": "auswählen"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -91,7 +92,7 @@
     "button": "neue seite",
     "createPage": "Neue Seite anlegen",
     "sideBar": {
-      "header": "Wie soll die Seite angezeigt werden?"
+      "header": "Wie sollen die Seiten angezeigt werden?"
     }
   }
 }

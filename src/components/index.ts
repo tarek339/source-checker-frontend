@@ -27,6 +27,7 @@ import CancelButton from "./buttons/CancelButton";
 import SubmitModal from "./surveys-manager/new-survey/SubmitModal";
 import SideBar from "./parents/containers/SideBar";
 import SideMenu from "./surveys-manager/add-pages/SideMenu";
+import ChooseButton from "./buttons/ChooseButton";
 
 export {
   Footer,
@@ -58,4 +59,5 @@ export {
   SubmitModal,
   SideBar,
   SideMenu,
+  ChooseButton,
 };

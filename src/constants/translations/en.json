@@ -14,7 +14,8 @@
     "surveyNumber": "Survey nr.",
     "create": "Create survey",
     "callUp": "call up",
-    "add": "hinzugfügen"
+    "add": "hinzugfügen",
+    "choose": "auswählen"
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -91,7 +92,7 @@
     "button": "new page",
     "createPage": "Create new page",
     "sideBar": {
-      "header": "How should the page be displayed?"
+      "header": "How should the pages be displayed?"
     }
   }
 }

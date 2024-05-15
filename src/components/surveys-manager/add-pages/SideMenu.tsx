@@ -6,6 +6,8 @@ import {
   useTranslations,
 } from "../../../hooks";
 import { ImCancelCircle } from "react-icons/im";
+import ChooseButton from "../../buttons/ChooseButton";
+import ScreenShot from "./ScreenShot";
 
 const SideMenu = () => {
   const { sideBar } = useSelectors();
@@ -43,19 +45,21 @@ const SideMenu = () => {
           paddingTop: "20px",
           display: "flex",
           flexDirection: windowWidth >= 768 ? "row" : "column",
-          justifyContent: "space-between",
-          gap: windowWidth <= 768 ? "20px" : "",
+          // justifyContent: "space-between",
+          gap: windowWidth <= 768 ? "20px" : "20px",
         }}>
-        <div>
-          <h3>typ 1</h3>
-          <button>auswählen</button>
-          <div
-            style={{
-              height: "100%",
-              width: "425px",
-              border: "1px solid grey",
-            }}></div>
-        </div>
+        <ScreenShot
+          title={"Mobile"}
+          image={""}
+          onClick={undefined}
+          width={"212.5px"}
+        />
+        <ScreenShot
+          title={"Desktop"}
+          image={""}
+          onClick={undefined}
+          width={"450px"}
+        />
       </div>
     </SideBar>
   );
