@@ -12,7 +12,7 @@ const Footer = () => {
         <p>
           {t("footer.header")}&nbsp;
           <span>
-            <a href="">#UseTheNews</a>
+            <a href="https://www.usethenews.de/de">#UseTheNews</a>
           </span>
           &nbsp;/&nbsp;
           <span>

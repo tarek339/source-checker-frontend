@@ -6,7 +6,6 @@ import {
   useTranslations,
 } from "../../../hooks";
 import { ImCancelCircle } from "react-icons/im";
-import ChooseButton from "../../buttons/ChooseButton";
 import ScreenShot from "./ScreenShot";
 
 const SideMenu = () => {

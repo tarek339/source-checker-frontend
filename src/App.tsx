@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./assets/styles/App.css";
-import { Authentication, SurveysManager } from "./views";
+import { Authentication, StudenAuth, SurveysManager } from "./views";
 import { SideMenu } from "./components";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Authentication />} />
         <Route path="/surveys-manager" element={<SurveysManager />} />
+        <Route path="/student-auth" element={<StudenAuth />} />
       </Routes>
     </div>
   );

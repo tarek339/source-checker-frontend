@@ -22,11 +22,13 @@ const Authentication = () => {
             <h1 style={{ color: "#2834c2" }}>{t("auth.question")}</h1>
 
             <div className="auth-buttons">
-              <button className="teacher-button">
+              <button
+                className="student-button"
+                onClick={() => navigate("/student-auth")}>
                 {t("auth.studentButton")}
               </button>
               <button
-                className="student-button"
+                className="teacher-button"
                 onClick={() => navigate("/surveys-manager")}>
                 {t("auth.teacherButton")}
               </button>

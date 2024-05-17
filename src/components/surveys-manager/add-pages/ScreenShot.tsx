@@ -1,7 +1,7 @@
 import { IScreenShot } from "../../../types/interfaces/components";
 import ChooseButton from "../../buttons/ChooseButton";
 
-const ScreenShot = ({ image, onClick, title, width }: IScreenShot) => {
+const ScreenShot = ({ title, width }: IScreenShot) => {
   return (
     <div>
       <h4>{title}</h4>
