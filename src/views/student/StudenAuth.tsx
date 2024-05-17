@@ -10,7 +10,7 @@ const StudenAuth = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("/survey/students-survey", surveyID);
+      await axios.post("/survey/students-survey", surveyID);
     } catch (error) {
       console.log(error);
     }
