@@ -9,13 +9,17 @@ import {
   handleSteps,
   handleSubmit,
   handleTranslation,
+  increaseFirstPage,
+  increaseLastPage,
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
 import { AxiosResponse } from "axios";
 import { IPages } from "../types/interfaces/interfaces";
+import useSelectors from "./useSelectors";
 
 const useDispatches = () => {
   const dispatch = useDispatch();
+  const { firstSideBarPages, lastSideBarPages } = useSelectors();
 
   const enableEN = () => dispatch(handleTranslation({ locale: Locale.en }));
   const enableGE = () => dispatch(handleTranslation({ locale: Locale.de }));
@@ -41,6 +45,10 @@ const useDispatches = () => {
   const dispatchSideBar = (open: boolean) =>
     dispatch(handleSideBar({ open: open }));
 
+  const incFirstSBPage = () =>
+    dispatch(increaseFirstPage(firstSideBarPages + 1));
+  const incLastSBPage = () => dispatch(increaseLastPage(lastSideBarPages + 1));
+
   return {
     enableEN,
     enableGE,
@@ -53,6 +61,8 @@ const useDispatches = () => {
     dispatchLoading,
     dispatchSubmit,
     dispatchSideBar,
+    incFirstSBPage,
+    incLastSBPage,
   };
 };
 

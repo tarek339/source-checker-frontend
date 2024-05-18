@@ -22,7 +22,7 @@ const SideBar = ({ children, style, isOpen }: ISideBar) => {
         style={{
           backgroundColor: "#fff",
           height: "100%",
-          transition: "width 0.4s ease-in-out",
+          transition: "width 0.2s ease-in-out",
           zIndex: 2,
           padding: "20px",
           top: 0,

@@ -11,7 +11,7 @@ const SurveysManager = () => {
   return (
     <div>
       <div className="header">
-        <h2>Quellchecker</h2>
+        <h2>Quellenchecker</h2>
       </div>
       <div style={{ margin: "0 auto", maxWidth: "1200px" }}>
         <div className="card">

@@ -3,6 +3,7 @@ import {
   loadingReducer,
   modalReducer,
   pagesReducer,
+  sideBarPageReducer,
   sideBarReducer,
   submitReducer,
   surveyPagesReducer,
@@ -20,6 +21,7 @@ export const store = configureStore({
     loading: loadingReducer,
     submit: submitReducer,
     sideBar: sideBarReducer,
+    sideBarPage: sideBarPageReducer,
   },
 });
 

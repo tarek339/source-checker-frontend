@@ -11,6 +11,11 @@ import { translationsReducer } from "./translations";
 import { loadingReducer, handleLoading } from "./loading";
 import { handleSubmit, submitReducer } from "./submit";
 import { sideBarReducer, handleSideBar } from "./sideBar";
+import {
+  sideBarPageReducer,
+  increaseFirstPage,
+  increaseLastPage,
+} from "./sideBarPage";
 
 export {
   handleTranslation,
@@ -23,6 +28,8 @@ export {
   handleLoading,
   handleSubmit,
   handleSideBar,
+  increaseLastPage,
+  increaseFirstPage,
   sideBarReducer,
   submitReducer,
   pagesReducer,
@@ -31,4 +38,5 @@ export {
   modalReducer,
   translationsReducer,
   loadingReducer,
+  sideBarPageReducer,
 };

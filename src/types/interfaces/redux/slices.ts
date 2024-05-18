@@ -30,6 +30,8 @@ export interface HandleModal {
 
 export interface InitialStateSurvey {
   pages: IPages[];
+  sideBarFirstPage: number;
+  sideBarLastPage: number;
 }
 
 export interface InitialStateSideBar {

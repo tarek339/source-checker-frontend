@@ -60,18 +60,6 @@ const SaveSurvey = () => {
           maxWidth: "800px",
         }}>
         <h3>{t("saveSurvey.saveSurvey")}</h3>
-        {/* <div className="warning-message">
-          <p style={{ color: "#ff0000" }}>
-            Umfrage wird nach 7 Tagen automatisch gelöscht.
-          </p>
-          <p style={{ color: "#ff0000" }}>
-            ID und PIN sicher aufbewahren. Zurücksetzen nicht möglich.
-          </p>
-        </div> */}
-
-        {/* <div className="copy-data" onClick={copyToClipboard}>
-          <FaRegCopy /> <span>{copied ? "Copied" : "ID/PIN"}</span>
-        </div> */}
 
         {surveyArray.map((survey, index) => {
           return (

@@ -9,6 +9,12 @@ const useSelectors = () => {
   const surveyPages = useSelector(
     (state: RootState) => state.surveyPages?.pages
   );
+  const firstSideBarPages = useSelector(
+    (state: RootState) => state.sideBarPage.sideBarFirstPage
+  );
+  const lastSideBarPages = useSelector(
+    (state: RootState) => state.sideBarPage.sideBarLastPage
+  );
   const modal = useSelector((state: RootState) => state.modal.isVisible);
   const loading = useSelector((state: RootState) => state.loading.loading);
   const onSubmit = useSelector((state: RootState) => state.submit.submit);
@@ -24,6 +30,8 @@ const useSelectors = () => {
     loading,
     onSubmit,
     sideBar,
+    firstSideBarPages,
+    lastSideBarPages,
   };
 };
 

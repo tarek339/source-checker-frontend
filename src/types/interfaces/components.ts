@@ -99,7 +99,9 @@ export interface IFormButton {
 
 export interface IScreenShot {
   title: string;
-  image?: string;
   width: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  id: string | undefined;
+  isMobileView: boolean;
+  pageID: string;
+  url: string;
 }

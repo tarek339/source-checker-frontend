@@ -9,7 +9,8 @@ import { ImCancelCircle } from "react-icons/im";
 import ScreenShot from "./ScreenShot";
 
 const SideMenu = () => {
-  const { sideBar } = useSelectors();
+  const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
+    useSelectors();
   const { dispatchSideBar } = useDispatches();
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
@@ -38,28 +39,41 @@ const SideMenu = () => {
           <ImCancelCircle fontSize="24px" />
         </div>
       </div>
+      <>
+        {surveyPages
+          ?.slice(firstSideBarPages, lastSideBarPages)
+          ?.map((page, i) => {
+            return (
+              <div
+                key={i}
+                style={{
+                  paddingTop: "20px",
+                  display: "flex",
+                  flexDirection: windowWidth >= 768 ? "row" : "column",
+                  gap: windowWidth <= 768 ? "20px" : "20px",
+                }}>
+                <p>{page.title}</p>
 
-      <div
-        style={{
-          paddingTop: "20px",
-          display: "flex",
-          flexDirection: windowWidth >= 768 ? "row" : "column",
-          // justifyContent: "space-between",
-          gap: windowWidth <= 768 ? "20px" : "20px",
-        }}>
-        <ScreenShot
-          title={"Mobile"}
-          image={""}
-          onClick={undefined}
-          width={"212.5px"}
-        />
-        <ScreenShot
-          title={"Desktop"}
-          image={""}
-          onClick={undefined}
-          width={"450px"}
-        />
-      </div>
+                <ScreenShot
+                  title={"Mobile"}
+                  width={"300.5px"}
+                  id={survey?._id}
+                  isMobileView={true}
+                  pageID={page._id}
+                  url={page.url}
+                />
+                <ScreenShot
+                  title={"Desktop"}
+                  width={"600px"}
+                  id={survey?._id}
+                  isMobileView={false}
+                  pageID={page._id}
+                  url={page.url}
+                />
+              </div>
+            );
+          })}
+      </>
     </SideBar>
   );
 };
