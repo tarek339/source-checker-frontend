@@ -48,8 +48,8 @@ const ModalHolder = () => {
       const res = await axios.put(`/survey/complete/${survey?.surveyId}`, {
         page: {
           title,
-          url: `https://12ft.io/${url}`,
-
+          // url: `https://12ft.io/${url}`,
+          url,
           note,
         },
       });
