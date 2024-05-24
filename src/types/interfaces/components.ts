@@ -94,7 +94,8 @@ export interface ISubmitModal {
 }
 
 export interface IFormButton {
-  title: string;
+  title: string | JSX.Element;
+  style?: React.CSSProperties;
 }
 
 export interface IScreenShot {
@@ -104,4 +105,10 @@ export interface IScreenShot {
   isMobileView: boolean;
   pageID: string;
   url: string;
+}
+
+export interface ILoadingSpinner {
+  fontSize: string;
+  color: string;
+  height?: string;
 }

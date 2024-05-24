@@ -11,13 +11,15 @@ import DividerHorizontal from "../../DividerHorizontal";
 import ModalHolder from "./ModalHolder";
 import NoPages from "./NoPages";
 import PagesHolder from "./PagesHolder";
+import { useNavigate } from "react-router-dom";
 
 const AddPages = () => {
-  const { openModal, dispatchSideBar } = useDispatches();
+  const { openModal, dispatchSideBar, handleCreatedSurvey } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
-  const { survey } = useSelectors();
+  const { survey, surveyCreated } = useSelectors();
   const { getSurvey } = useLocaleStorage();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getSurvey();
@@ -59,11 +61,29 @@ const AddPages = () => {
 
         <div className="button-container">
           <BackButton page={3} />
-          <button
-            onClick={() => dispatchSideBar(true)}
-            className="continue-button">
-            Weiter
-          </button>
+          {!surveyCreated &&
+          survey &&
+          survey?.pages &&
+          survey?.pages?.length > 0 ? (
+            <button
+              onClick={() => {
+                survey && survey?.pages && survey?.pages?.length > 0
+                  ? dispatchSideBar(true)
+                  : null;
+              }}
+              className="continue-button">
+              {t("common.chooseView")}
+            </button>
+          ) : surveyCreated ? (
+            <button
+              onClick={() => {
+                handleCreatedSurvey(false);
+                navigate("/survey-summary");
+              }}
+              className="continue-button">
+              zur übersicht
+            </button>
+          ) : null}
         </div>
       </div>
     </>

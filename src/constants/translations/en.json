@@ -15,7 +15,11 @@
     "create": "Create survey",
     "callUp": "call up",
     "add": "hinzugfügen",
-    "choose": "auswählen"
+    "choose": "choose",
+    "chooseView": "choose view",
+    "yes": "yes",
+    "no": "no",
+    "copy": "copy"
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -81,7 +85,9 @@
     "saveSurvey": "Save overview",
     "chooseName": "Free user names",
     "deleteText": "Do you really want to delete the survey?",
-    "deleteSection": "All data will be deleted!"
+    "deleteSection": "All data will be deleted!",
+    "info": "Survey is automatically deleted after 7 days.",
+    "secondInfo": "ID and PIN and keep them safe. Resetting is not possible."
   },
   "addPages": {
     "header": "Choose pages",

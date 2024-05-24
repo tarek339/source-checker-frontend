@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   useDispatches,
   useLocaleStorage,
@@ -10,7 +10,6 @@ import DividerHorizontal from "../DividerHorizontal";
 import Modal from "../parents/containers/Modal";
 import ModalContent from "../parents/containers/ModalContent";
 import useCompArray from "./useCompArray";
-// import { FaRegCopy } from "react-icons/fa";
 
 const SaveSurvey = () => {
   const { t } = useTranslations();
@@ -18,24 +17,6 @@ const SaveSurvey = () => {
   const { closeModal, openModal } = useDispatches();
   const { surveyArray } = useCompArray();
   const { getSurvey } = useLocaleStorage();
-
-  const [_copied, _setCopied] = useState(false);
-
-  // const copyToClipboard = () => {
-  //   let num = `NUM: ${survey?.surveyNumber}`;
-  //   let id = `ID: ${survey?.surveyId}`;
-  //   let pin = `PIN: ${survey?.surveyPin}`;
-  //   let input = document.createElement("input");
-  //   input.value = `${num}, ${id}, ${pin}`;
-  //   document.body.appendChild(input);
-  //   input.select();
-  //   document.execCommand("copy");
-  //   document.body.removeChild(input);
-  //   setCopied(true);
-  //   setTimeout(() => {
-  //     setCopied(false);
-  //   }, 1500);
-  // };
 
   useEffect(() => {
     getSurvey();

@@ -28,6 +28,7 @@ import SubmitModal from "./surveys-manager/new-survey/SubmitModal";
 import SideBar from "./parents/containers/SideBar";
 import SideMenu from "./surveys-manager/add-pages/SideMenu";
 import ChooseButton from "./buttons/ChooseButton";
+import LoadingSpinner from "./LoadingSpinner";
 
 export {
   Footer,
@@ -60,4 +61,5 @@ export {
   SideBar,
   SideMenu,
   ChooseButton,
+  LoadingSpinner,
 };

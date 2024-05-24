@@ -6,6 +6,7 @@ const useSelectors = () => {
   const page = useSelector((state: RootState) => state.pages.page);
   const stepDone = useSelector((state: RootState) => state.pages.stepDone);
   const survey = useSelector((state: RootState) => state.survey.survey);
+  const surveyCreated = useSelector((state: RootState) => state.survey.created);
   const surveyPages = useSelector(
     (state: RootState) => state.surveyPages?.pages
   );
@@ -32,6 +33,7 @@ const useSelectors = () => {
     sideBar,
     firstSideBarPages,
     lastSideBarPages,
+    surveyCreated,
   };
 };
 

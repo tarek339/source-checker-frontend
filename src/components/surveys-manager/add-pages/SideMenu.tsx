@@ -52,15 +52,13 @@ const SideMenu = () => {
                   flexDirection: windowWidth >= 768 ? "row" : "column",
                   gap: windowWidth <= 768 ? "20px" : "20px",
                 }}>
-                <p>{page.title}</p>
-
                 <ScreenShot
                   title={"Mobile"}
                   width={"300.5px"}
                   id={survey?._id}
                   isMobileView={true}
                   pageID={page._id}
-                  url={page.url}
+                  url={page.mobileScreenshot}
                 />
                 <ScreenShot
                   title={"Desktop"}
@@ -68,7 +66,7 @@ const SideMenu = () => {
                   id={survey?._id}
                   isMobileView={false}
                   pageID={page._id}
-                  url={page.url}
+                  url={page.desktopScreenshot}
                 />
               </div>
             );

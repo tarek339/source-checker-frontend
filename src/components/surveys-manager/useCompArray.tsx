@@ -1,20 +1,40 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   AddPages,
   ChooseAction,
   ChooseSurvey,
+  LoadingSpinner,
   NewSurvey,
   SaveSurvey,
   Steps,
   SurveyProp,
 } from "..";
 import { useTranslations, useSelectors, useLocaleStorage } from "../../hooks";
-import { Cancel, Check } from "../icons";
+import { No, Yes } from "../icons";
+import { FaRegCopy } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
 
 const useCompArray = () => {
   const { t } = useTranslations();
-  const { page, stepDone, survey } = useSelectors();
+  const { page, stepDone, survey, loading } = useSelectors();
   const { setDoneStep } = useLocaleStorage();
+
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = () => {
+    let id = `ID: ${survey?.surveyId}`;
+    let pin = `PIN: ${survey?.surveyPin}`;
+    let input = document.createElement("input");
+    input.value = `${id}, ${pin}`;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1500);
+  };
 
   useEffect(() => {
     if (page !== 0) {
@@ -36,7 +56,7 @@ const useCompArray = () => {
                   (stepDone && page === 2) ||
                   (stepDone && page === 3) ||
                   (stepDone && page === 4)
-                ? "#f4d35e"
+                ? "#2834c2"
                 : "darkgray",
           }}
         />
@@ -54,7 +74,7 @@ const useCompArray = () => {
                 : (stepDone && page === 2) ||
                   (stepDone && page === 3) ||
                   (stepDone && page === 4)
-                ? "#f4d35e"
+                ? "#2834c2"
                 : "darkgray",
           }}
         />
@@ -70,7 +90,7 @@ const useCompArray = () => {
               page === 2
                 ? "#2834c2"
                 : (stepDone && page === 3) || (stepDone && page === 4)
-                ? "#f4d35e"
+                ? "#2834c2"
                 : "darkgray",
           }}
         />
@@ -86,7 +106,7 @@ const useCompArray = () => {
               page === 3
                 ? "#2834c2"
                 : stepDone && page === 4
-                ? "#f4d35e"
+                ? "#2834c2"
                 : "darkgray",
           }}
         />
@@ -102,7 +122,7 @@ const useCompArray = () => {
               page === 4
                 ? "#2834c2"
                 : stepDone && page === 4
-                ? "#f4d35e"
+                ? "#2834c2"
                 : "darkgray",
           }}
         />
@@ -121,7 +141,15 @@ const useCompArray = () => {
       comp: <NewSurvey />,
     },
     {
-      comp: <SaveSurvey />,
+      comp: (
+        <>
+          {loading ? (
+            <LoadingSpinner fontSize={"64px"} color={"#D5D5D5"} />
+          ) : (
+            <SaveSurvey />
+          )}
+        </>
+      ),
     },
     {
       comp: <AddPages />,
@@ -139,8 +167,6 @@ const useCompArray = () => {
     },
   ];
 
-  const surveryNum = `(${t("common.surveyNumber")} ${survey?.surveyNumber})`;
-
   const surveyArray = [
     {
       comp: (
@@ -148,7 +174,7 @@ const useCompArray = () => {
           header={t("newSurvey.anonymous")}
           child={
             <span style={{ display: "flex", alignItems: "center" }}>
-              {survey?.anonymousResults ? <Check /> : <Cancel />}
+              {survey?.anonymousResults ? <Yes /> : <No />}
             </span>
           }
         />
@@ -160,7 +186,7 @@ const useCompArray = () => {
           header={t("saveSurvey.chooseName")}
           child={
             <span style={{ display: "flex", alignItems: "center" }}>
-              {survey?.freeUserNames ? <Check /> : <Cancel />}
+              {survey?.freeUserNames ? <Yes /> : <No />}
             </span>
           }
         />
@@ -187,14 +213,27 @@ const useCompArray = () => {
         <>
           <SurveyProp
             header={t("common.surveyID")}
-            child={survey?.surveyId + " " + surveryNum}
+            secondChild={
+              copied ? (
+                <FaCheck style={{ fontSize: "20px" }} />
+              ) : (
+                <FaRegCopy
+                  onClick={copyToClipboard}
+                  style={{
+                    fontSize: "20px",
+                    cursor: "pointer",
+                  }}
+                />
+              )
+            }
+            child={survey?.surveyId}
           />
           <div className="warning-message">
             <p style={{ color: "#ff0000", fontSize: "16px" }}>
-              Umfrage wird nach 7 Tagen automatisch gelöscht.
+              {t("saveSurvey.info")}
             </p>
             <p style={{ color: "#ff0000", fontSize: "16px" }}>
-              ID und PIN sicher aufbewahren. Zurücksetzen nicht möglich.
+              {t("saveSurvey.secondInfo")}
             </p>
           </div>
         </>

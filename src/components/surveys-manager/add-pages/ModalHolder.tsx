@@ -14,12 +14,13 @@ import InputMessage from "../../parents/form/InputMessage";
 import axios from "axios";
 import InputErrorContainer from "../../parents/form/InputErrorContainer";
 import CancelButton from "../../buttons/CancelButton";
+import LoadingSpinner from "../../LoadingSpinner";
 
 const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
 
 const ModalHolder = () => {
-  const { modal, survey } = useSelectors();
-  const { closeModal, dispatchLoading } = useDispatches();
+  const { modal, survey, loading } = useSelectors();
+  const { closeModal, dispatchLoading, handleCreatedSurvey } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { fetchSurvey } = useLocaleStorage();
@@ -37,28 +38,29 @@ const ModalHolder = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
-      e.preventDefault();
-      !title ? setTitleErrorMessage(<InputErrorContainer />) : null;
-      !url ? setUrlErrorMessage(<InputErrorContainer />) : null;
-      if (!url.match(urlRegex)) {
-        setIsUrl(urlTyoeError);
+      if (!loading) {
+        e.preventDefault();
+        !title ? setTitleErrorMessage(<InputErrorContainer />) : null;
+        !url ? setUrlErrorMessage(<InputErrorContainer />) : null;
+        if (!url.match(urlRegex)) {
+          setIsUrl(urlTyoeError);
+        }
+        if (!title || !url || !url.match(urlRegex)) return;
+        dispatchLoading(true);
+        handleCreatedSurvey(false);
+        const res = await axios.put(`/survey/complete/${survey?.surveyId}`, {
+          page: {
+            title,
+            url,
+            note,
+          },
+        });
+        fetchSurvey(res.data.survey);
+        setTitle("");
+        setUrl("");
+        setNote("");
+        dispatchLoading(false);
       }
-      if (!title || !url || !url.match(urlRegex)) return;
-      dispatchLoading(true);
-      const res = await axios.put(`/survey/complete/${survey?.surveyId}`, {
-        page: {
-          title,
-          // url: `https://12ft.io/${url}`,
-          url,
-          note,
-        },
-      });
-      fetchSurvey(res.data.survey);
-
-      setTitle("");
-      setUrl("");
-      setNote("");
-      dispatchLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -109,7 +111,21 @@ const ModalHolder = () => {
 
           <div className="button-holder">
             <CancelButton onClick={closeModal} />
-            <FormButton title={t("common.add")} />
+            <FormButton
+              style={{
+                width: "160px",
+                backgroundColor: loading ? "#D5D5D5" : "",
+                cursor: loading ? "default" : "pointer",
+                transition: "background-color 0.3s",
+              }}
+              title={
+                loading ? (
+                  <LoadingSpinner fontSize={"21px"} color={"#fff"} />
+                ) : (
+                  t("common.add")
+                )
+              }
+            />
           </div>
         </form>
       </div>

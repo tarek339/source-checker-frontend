@@ -15,6 +15,8 @@ export interface IPages {
   title: string;
   url: string;
   note: string;
+  mobileScreenshot: string;
+  desktopScreenshot: string;
 }
 
 export interface ISurvey {
@@ -30,6 +32,7 @@ export interface ISurvey {
 }
 
 export interface ISurveyProp {
-  header: string | JSX.Element;
+  header: string;
   child: string | number | boolean | JSX.Element | undefined;
+  secondChild?: JSX.Element | string;
 }

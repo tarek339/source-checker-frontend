@@ -11,6 +11,7 @@ import {
   handleTranslation,
   increaseFirstPage,
   increaseLastPage,
+  surveyCreated,
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
 import { AxiosResponse } from "axios";
@@ -49,6 +50,8 @@ const useDispatches = () => {
     dispatch(increaseFirstPage(firstSideBarPages + 1));
   const incLastSBPage = () => dispatch(increaseLastPage(lastSideBarPages + 1));
 
+  const handleCreatedSurvey = (arg: boolean) => dispatch(surveyCreated(arg));
+
   return {
     enableEN,
     enableGE,
@@ -63,6 +66,7 @@ const useDispatches = () => {
     dispatchSideBar,
     incFirstSBPage,
     incLastSBPage,
+    handleCreatedSurvey,
   };
 };
 

@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { BackButton, DividerHorizontal, FormButton, Input } from "..";
-import { useTranslations, useLocaleStorage, useInputErrors } from "../../hooks";
+import {
+  useTranslations,
+  useLocaleStorage,
+  useInputErrors,
+  useDispatches,
+} from "../../hooks";
 import axios from "axios";
 
 const ChooseSurvey = () => {
   const { t } = useTranslations();
   const { setPage, fetchSurvey } = useLocaleStorage();
   const { emptyInput, incorrectType, fetchError } = useInputErrors();
+  const { dispatchLoading } = useDispatches();
 
   const [surveyId, setSurveyId] = useState("");
   const [surveyPin, setSurveyPin] = useState("");
@@ -26,13 +32,13 @@ const ChooseSurvey = () => {
         ? setPinTypeErrMsg(incorrectType)
         : null;
       if (!surveyId || !surveyPin) return;
-
+      dispatchLoading(true);
       const res = await axios.post("/survey/fetch", { surveyId, surveyPin });
       fetchSurvey(res.data.survey);
       setPage(+3);
+      dispatchLoading(false);
     } catch (error) {
       setFetchErrMsg(fetchError);
-      console.log(error);
     }
   };
 

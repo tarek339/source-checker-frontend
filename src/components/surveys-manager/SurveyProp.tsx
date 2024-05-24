@@ -1,9 +1,20 @@
 import { ISurveyProp } from "../../types/interfaces/interfaces";
 
-const SurveyProp = ({ header, child }: ISurveyProp) => {
+const SurveyProp = ({ header, child, secondChild }: ISurveyProp) => {
   return (
     <div className="survey-props">
-      <h4>{header}</h4>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "flex-start",
+
+          gap: "5px",
+        }}>
+        <h4>{header}</h4>
+        <div style={{ paddingTop: "3px" }}>{secondChild}</div>
+      </div>
       <p>{child}</p>
     </div>
   );

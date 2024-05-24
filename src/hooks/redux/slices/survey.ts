@@ -3,10 +3,12 @@ import { ISurvey } from "../../../types/interfaces/interfaces";
 
 interface InitialState {
   survey: ISurvey | null;
+  created: boolean;
 }
 
 const initialState: InitialState = {
   survey: null,
+  created: false,
 };
 
 const surveySlice = createSlice({
@@ -19,8 +21,11 @@ const surveySlice = createSlice({
     removeSurvey: (state) => {
       state.survey = null;
     },
+    surveyCreated: (state, action) => {
+      state.created = action.payload;
+    },
   },
 });
 
 export const surveyReducer = surveySlice.reducer;
-export const { addSurvey, removeSurvey } = surveySlice.actions;
+export const { addSurvey, removeSurvey, surveyCreated } = surveySlice.actions;

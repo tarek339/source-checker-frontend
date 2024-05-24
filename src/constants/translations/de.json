@@ -15,7 +15,11 @@
     "create": "Umfrage anlegen",
     "callUp": "aufrufen",
     "add": "hinzugfügen",
-    "choose": "auswählen"
+    "choose": "auswählen",
+    "chooseView": "Ansicht wählen",
+    "yes": "ja",
+    "no": "nein",
+    "copy": "kopieren"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -81,7 +85,9 @@
     "saveSurvey": "Umfrage Übersicht",
     "chooseName": "Freie Nutzernamen",
     "deleteText": "Möchten Sie die Umfrage wirklich löschen?",
-    "deleteSection": "Alle Daten werden dadurch gelöscht!"
+    "deleteSection": "Alle Daten werden dadurch gelöscht!",
+    "info": "Umfrage wird nach 7 Tagen automatisch gelöscht.",
+    "secondInfo": "ID und PIN und sicher aufbewahren. Zurücksetzen nicht möglich."
   },
   "addPages": {
     "header": "Seiten auswählen",

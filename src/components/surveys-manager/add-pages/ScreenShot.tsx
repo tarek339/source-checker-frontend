@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IScreenShot } from "../../../types/interfaces/components";
 import ChooseButton from "../../buttons/ChooseButton";
-import { useDispatches, useSelectors } from "../../../hooks";
+import { useDispatches, useLocaleStorage, useSelectors } from "../../../hooks";
 
 const ScreenShot = ({
   title,
@@ -11,23 +11,33 @@ const ScreenShot = ({
   pageID,
   url,
 }: IScreenShot) => {
-  // const { fetchSurvey } = useLocaleStorage();
-  const { dispatchSideBar, incFirstSBPage, incLastSBPage } = useDispatches();
+  const { fetchSurvey } = useLocaleStorage();
+  const {
+    dispatchSideBar,
+    incFirstSBPage,
+    incLastSBPage,
+    handleCreatedSurvey,
+  } = useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
-  // const [isLastItem, setisLastItem] = useState(false);
 
   const editPage = async () => {
-    await axios.put(`/survey/edit-single-page/${id}`, {
-      isMobileView,
-      pageID,
-    });
-    // fetchSurvey(res); in locale storage
-
-    if (surveyPages.length !== lastSideBarPages) {
-      incFirstSBPage();
-      incLastSBPage();
-    } else dispatchSideBar(false);
+    try {
+      const res = await axios.put(`/survey/edit-single-page/${id}`, {
+        isMobileView,
+        pageID,
+      });
+      fetchSurvey(res.data.survey);
+      if (surveyPages.length !== lastSideBarPages) {
+        incFirstSBPage();
+        incLastSBPage();
+      } else {
+        dispatchSideBar(false);
+        handleCreatedSurvey(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -37,13 +47,21 @@ const ScreenShot = ({
         id="capture"
         style={{
           width: width,
-          height: "70vh",
+          height: "80vh",
           border: "1px solid transparent",
           marginBottom: "10px",
         }}>
-        <iframe
-          style={{ width: "100%", height: "100%", display: "block" }}
-          src={url}></iframe>
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "block",
+            border: "2px solid #000",
+            objectFit: "cover",
+            objectPosition: "top",
+          }}
+          src={url}
+        />
       </div>
       <ChooseButton onClick={editPage} />
     </div>

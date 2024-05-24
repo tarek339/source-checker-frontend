@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   BackButton,
   DividerHorizontal,
+  FormButton,
   SubmitModal,
   ToggleButton,
 } from "../..";
@@ -15,7 +16,7 @@ import { FaCircleDot } from "react-icons/fa6";
 
 const NewSurvey = () => {
   const { t } = useTranslations();
-  const { dispatchLoading, openModal, closeModal } = useDispatches();
+  const { dispatchLoading, closeModal } = useDispatches();
   const { createSurvey, setPage } = useLocaleStorage();
 
   const [anonymousResults, setAnonymousResults] = useState(false);
@@ -61,7 +62,8 @@ const NewSurvey = () => {
         </div>
         <h3>{t("newSurvey.headerTwo")} </h3>
         <DividerHorizontal />
-        <div
+        <form
+          onSubmit={handleSubmit}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -89,14 +91,9 @@ const NewSurvey = () => {
           <DividerHorizontal />
           <div className="button-container">
             <BackButton page={0} />
-            <button
-              className="continue-button"
-              onClick={openModal}
-              type="button">
-              {t("common.continue")}
-            </button>
+            <FormButton title={t("common.create")} />
           </div>
-        </div>
+        </form>
       </div>
     </>
   );

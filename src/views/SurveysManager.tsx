@@ -22,20 +22,21 @@ const SurveysManager = () => {
                 <div
                   className="steps"
                   style={{
+                    transition: "border-top 0.2s",
                     borderLeft:
                       windowWidth < 768
                         ? `4px solid ${
                             page === index
                               ? "#2834c2"
                               : stepDone && page === index + 1
-                              ? "#f4d35e"
+                              ? "#2834c2"
                               : stepDone && page === index + 2
-                              ? "#f4d35e"
+                              ? "#2834c2"
                               : stepDone && page === index + 3
-                              ? "#f4d35e"
+                              ? "#2834c2"
                               : stepDone && page === index + 4
-                              ? "#f4d35e"
-                              : "lightgray"
+                              ? "#2834c2"
+                              : "#D5D5D5"
                           }`
                         : "transparent",
                     borderTop:
@@ -44,14 +45,14 @@ const SurveysManager = () => {
                             page === index
                               ? "#2834c2"
                               : stepDone && page === index + 1
-                              ? "#f4d35e"
+                              ? "#2834c2"
                               : stepDone && page === index + 2
-                              ? "#f4d35e"
+                              ? "#2834c2"
                               : stepDone && page === index + 3
-                              ? "#f4d35e"
+                              ? "#2834c2"
                               : stepDone && page === index + 4
-                              ? "#f4d35e"
-                              : "lightgray"
+                              ? "#2834c2"
+                              : "#D5D5D5"
                           }`
                         : "transparent",
                   }}
