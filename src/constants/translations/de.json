@@ -5,6 +5,7 @@
     "back": "zurück",
     "cancel": "abbrechen",
     "delete": "löschen",
+    "edit": "bearbeiten",
     "surveyID": "Umfrage-ID",
     "surveyPIN": "Umfrage-PIN",
     "survey": "Umfrage",
@@ -19,7 +20,12 @@
     "chooseView": "Ansicht wählen",
     "yes": "ja",
     "no": "nein",
-    "copy": "kopieren"
+    "copy": "kopieren",
+    "view": "ansicht",
+    "mobileView": "mobil",
+    "desktopView": "desktop",
+    "action": "aktion",
+    "finish": "beenden"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -97,8 +103,10 @@
     "addPagesXs": "Neue Seite?",
     "button": "neue seite",
     "createPage": "Neue Seite anlegen",
+    "editPage": "Seite bearbeiten",
     "sideBar": {
       "header": "Wie sollen die Seiten angezeigt werden?"
-    }
+    },
+    "shareSurvey": "umfrage teilen"
   }
 }

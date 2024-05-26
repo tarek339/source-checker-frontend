@@ -50,7 +50,7 @@ const SideMenu = () => {
                   paddingTop: "20px",
                   display: "flex",
                   flexDirection: windowWidth >= 768 ? "row" : "column",
-                  gap: windowWidth <= 768 ? "20px" : "20px",
+                  gap: "20px",
                 }}>
                 <ScreenShot
                   title={"Mobile"}

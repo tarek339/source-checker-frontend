@@ -21,7 +21,7 @@ import Table from "./Table";
 import NoPages from "./surveys-manager/add-pages/NoPages";
 import PagesHolder from "./surveys-manager/add-pages/PagesHolder";
 import ContinueButton from "./buttons/ContinueButton";
-import ModalHolder from "./surveys-manager/add-pages/ModalHolder";
+import ModalHolder from "./surveys-manager/add-pages/AddPage";
 import InputMessage from "./parents/form/InputMessage";
 import CancelButton from "./buttons/CancelButton";
 import SubmitModal from "./surveys-manager/new-survey/SubmitModal";

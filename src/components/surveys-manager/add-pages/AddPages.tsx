@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   useBreakPoints,
   useDispatches,
@@ -8,26 +8,41 @@ import {
 } from "../../../hooks";
 import BackButton from "../../buttons/BackButton";
 import DividerHorizontal from "../../DividerHorizontal";
-import ModalHolder from "./ModalHolder";
 import NoPages from "./NoPages";
 import PagesHolder from "./PagesHolder";
 import { useNavigate } from "react-router-dom";
+import AddPage from "./AddPage";
 
 const AddPages = () => {
-  const { openModal, dispatchSideBar, handleCreatedSurvey } = useDispatches();
+  const { openModal, dispatchSideBar, handlePage } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
-  const { survey, surveyCreated } = useSelectors();
+  const { survey, surveyPages } = useSelectors();
   const { getSurvey } = useLocaleStorage();
   const navigate = useNavigate();
+  const [viewsSelected, setViewsSelected] = useState(false);
 
   useEffect(() => {
     getSurvey();
   }, []);
 
+  useEffect(() => {
+    surveyPages?.find((element) => {
+      if (element.isMobileView != null) {
+        setViewsSelected(true);
+      } else setViewsSelected(false);
+    });
+  }, [surveyPages]);
+
+  useEffect(() => {
+    if (survey && survey?.pages && survey?.pages?.length < 1) {
+      setViewsSelected(false);
+    }
+  }, [viewsSelected, survey]);
+
   return (
     <>
-      <ModalHolder />
+      <AddPage />
       <div
         style={{
           display: "flex",
@@ -59,9 +74,9 @@ const AddPages = () => {
 
         <DividerHorizontal />
 
-        <div className="button-container">
+        <div className="buttons">
           <BackButton page={3} />
-          {!surveyCreated &&
+          {!viewsSelected &&
           survey &&
           survey?.pages &&
           survey?.pages?.length > 0 ? (
@@ -74,15 +89,19 @@ const AddPages = () => {
               className="continue-button">
               {t("common.chooseView")}
             </button>
-          ) : surveyCreated ? (
-            <button
-              onClick={() => {
-                handleCreatedSurvey(false);
-                navigate("/survey-summary");
-              }}
-              className="continue-button">
-              zur übersicht
-            </button>
+          ) : viewsSelected ? (
+            <div className="views-selected-buttons">
+              <button
+                onClick={() => {
+                  navigate("/survey-summary");
+                }}
+                className="continue-button">
+                {t("addPages.shareSurvey")}
+              </button>
+              <button onClick={() => handlePage(0)} className="back-button">
+                {t("common.finish")}
+              </button>
+            </div>
           ) : null}
         </div>
       </div>

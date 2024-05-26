@@ -27,11 +27,16 @@ export interface HandleSteps {
 export interface HandleModal {
   isVisible: boolean;
 }
+export interface HandleEditModal {
+  visible: boolean;
+}
 
 export interface InitialStateSurvey {
   pages: IPages[];
   sideBarFirstPage: number;
   sideBarLastPage: number;
+  pageId: string;
+  singlePage: null | IPages;
 }
 
 export interface InitialStateSideBar {

@@ -15,7 +15,7 @@ const SurveyProp = ({ header, child, secondChild }: ISurveyProp) => {
         <h4>{header}</h4>
         <div style={{ paddingTop: "3px" }}>{secondChild}</div>
       </div>
-      <p>{child}</p>
+      <div>{child}</div>
     </div>
   );
 };

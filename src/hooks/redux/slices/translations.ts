@@ -4,7 +4,7 @@ import { HandleTranslation } from "../../../types/interfaces/redux/slices";
 const translationsSlice = createSlice({
   name: "translation",
   initialState: {
-    locale: "de",
+    locale: "en",
   },
   reducers: {
     handleTranslation: (state, action: PayloadAction<HandleTranslation>) => {

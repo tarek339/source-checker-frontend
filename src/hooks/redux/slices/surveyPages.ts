@@ -5,6 +5,8 @@ const initialState: InitialStateSurvey = {
   pages: [],
   sideBarFirstPage: 0,
   sideBarLastPage: 1,
+  pageId: "",
+  singlePage: null,
 };
 
 const surveyPagesSlice = createSlice({
@@ -20,9 +22,20 @@ const surveyPagesSlice = createSlice({
     increaseLastPage: (state, action) => {
       state.sideBarLastPage = action.payload.sideBarLastPage;
     },
+    setPageId: (state, action) => {
+      state.pageId = action.payload;
+    },
+    getSinglePage: (state, action) => {
+      state.singlePage = action.payload;
+    },
   },
 });
 
 export const surveyPagesReducer = surveyPagesSlice.reducer;
-export const { addSurveyPages, increaseFirstPage, increaseLastPage } =
-  surveyPagesSlice.actions;
+export const {
+  addSurveyPages,
+  increaseFirstPage,
+  increaseLastPage,
+  setPageId,
+  getSinglePage,
+} = surveyPagesSlice.actions;

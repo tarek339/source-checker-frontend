@@ -12,18 +12,13 @@ const ScreenShot = ({
   url,
 }: IScreenShot) => {
   const { fetchSurvey } = useLocaleStorage();
-  const {
-    dispatchSideBar,
-    incFirstSBPage,
-    incLastSBPage,
-    handleCreatedSurvey,
-  } = useDispatches();
+  const { dispatchSideBar, incFirstSBPage, incLastSBPage } = useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
 
   const editPage = async () => {
     try {
-      const res = await axios.put(`/survey/edit-single-page/${id}`, {
+      const res = await axios.put(`/survey/choose-page-view/${id}`, {
         isMobileView,
         pageID,
       });
@@ -33,7 +28,6 @@ const ScreenShot = ({
         incLastSBPage();
       } else {
         dispatchSideBar(false);
-        handleCreatedSurvey(true);
       }
     } catch (error) {
       console.log(error);
