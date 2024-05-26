@@ -112,3 +112,15 @@ export interface ILoadingSpinner {
   color: string;
   height?: string;
 }
+
+export interface IPageForm {
+  onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
+  titleError: string | JSX.Element | null;
+  urlError: string | JSX.Element | null;
+  inputValue: string;
+  urlValue: string;
+  textAreaValue: string;
+  onChangeTitle: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  onChangeUrl: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  onChangeTextArea: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
+}

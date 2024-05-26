@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux";
 import {
   addSurvey,
   addSurveyPages,
+  getSinglePage,
+  handleEditModal,
   handleLoading,
   handleModal,
   handlePages,
@@ -11,7 +13,7 @@ import {
   handleTranslation,
   increaseFirstPage,
   increaseLastPage,
-  surveyCreated,
+  setPageId,
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
 import { AxiosResponse } from "axios";
@@ -36,6 +38,8 @@ const useDispatches = () => {
 
   const openModal = () => dispatch(handleModal({ isVisible: true }));
   const closeModal = () => dispatch(handleModal({ isVisible: false }));
+  const openEditModal = () => dispatch(handleEditModal({ visible: true }));
+  const closeEditModal = () => dispatch(handleEditModal({ visible: false }));
 
   const dispatchLoading = (loading: boolean) =>
     dispatch(handleLoading({ loading: loading }));
@@ -50,7 +54,19 @@ const useDispatches = () => {
     dispatch(increaseFirstPage(firstSideBarPages + 1));
   const incLastSBPage = () => dispatch(increaseLastPage(lastSideBarPages + 1));
 
-  const handleCreatedSurvey = (arg: boolean) => dispatch(surveyCreated(arg));
+  const fetchPageId = (id: string) => dispatch(setPageId(id));
+  const fetchSinglePage = (page: IPages) =>
+    dispatch(
+      getSinglePage({
+        _id: page._id,
+        title: page.title,
+        url: page.url,
+        note: page.note,
+        isMobileView: page.isMobileView,
+        mobileScreenshot: page.mobileScreenshot,
+        desktopScreenshot: page.desktopScreenshot,
+      })
+    );
 
   return {
     enableEN,
@@ -66,7 +82,10 @@ const useDispatches = () => {
     dispatchSideBar,
     incFirstSBPage,
     incLastSBPage,
-    handleCreatedSurvey,
+    fetchPageId,
+    fetchSinglePage,
+    openEditModal,
+    closeEditModal,
   };
 };
 

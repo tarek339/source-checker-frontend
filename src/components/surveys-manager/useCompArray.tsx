@@ -173,9 +173,9 @@ const useCompArray = () => {
         <SurveyProp
           header={t("newSurvey.anonymous")}
           child={
-            <span style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
               {survey?.anonymousResults ? <Yes /> : <No />}
-            </span>
+            </div>
           }
         />
       ),
@@ -185,9 +185,9 @@ const useCompArray = () => {
         <SurveyProp
           header={t("saveSurvey.chooseName")}
           child={
-            <span style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
               {survey?.freeUserNames ? <Yes /> : <No />}
-            </span>
+            </div>
           }
         />
       ),
@@ -196,7 +196,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("newSurvey.surveyType")}
-          child={t("newSurvey.rating")}
+          child={<p>{t("newSurvey.rating")}</p>}
         />
       ),
     },
@@ -204,7 +204,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("newSurvey.resultsType")}
-          child={t("newSurvey.afterSurvey")}
+          child={<p>{t("newSurvey.rating")}</p>}
         />
       ),
     },
@@ -226,7 +226,7 @@ const useCompArray = () => {
                 />
               )
             }
-            child={survey?.surveyId}
+            child={<p>{survey?.surveyId}</p>}
           />
           <div className="warning-message">
             <p style={{ color: "#ff0000", fontSize: "16px" }}>
@@ -241,7 +241,10 @@ const useCompArray = () => {
     },
     {
       comp: (
-        <SurveyProp header={t("common.surveyPIN")} child={survey?.surveyPin} />
+        <SurveyProp
+          header={t("common.surveyPIN")}
+          child={<p>{survey?.surveyPin}</p>}
+        />
       ),
     },
   ];

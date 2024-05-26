@@ -6,7 +6,6 @@ const useSelectors = () => {
   const page = useSelector((state: RootState) => state.pages.page);
   const stepDone = useSelector((state: RootState) => state.pages.stepDone);
   const survey = useSelector((state: RootState) => state.survey.survey);
-  const surveyCreated = useSelector((state: RootState) => state.survey.created);
   const surveyPages = useSelector(
     (state: RootState) => state.surveyPages?.pages
   );
@@ -17,9 +16,14 @@ const useSelectors = () => {
     (state: RootState) => state.sideBarPage.sideBarLastPage
   );
   const modal = useSelector((state: RootState) => state.modal.isVisible);
+  const editModal = useSelector((state: RootState) => state.modal.visible);
   const loading = useSelector((state: RootState) => state.loading.loading);
   const onSubmit = useSelector((state: RootState) => state.submit.submit);
   const sideBar = useSelector((state: RootState) => state.sideBar.open);
+  const pageId = useSelector((state: RootState) => state.surveyPages.pageId);
+  const singlePage = useSelector(
+    (state: RootState) => state.surveyPages.singlePage
+  );
 
   return {
     locale,
@@ -33,7 +37,9 @@ const useSelectors = () => {
     sideBar,
     firstSideBarPages,
     lastSideBarPages,
-    surveyCreated,
+    pageId,
+    singlePage,
+    editModal,
   };
 };
 

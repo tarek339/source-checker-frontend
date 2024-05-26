@@ -36,7 +36,7 @@ const Table = ({
   return (
     <div
       style={{
-        height: "361px",
+        maxHeight: "361px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",

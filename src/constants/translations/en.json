@@ -5,6 +5,7 @@
     "cancel": "cancel",
     "continue": "continue",
     "delete": "delete",
+    "edit": "edit",
     "surveyID": "Survey-ID",
     "surveyPIN": "Survey-PIN",
     "survey": "Survey",
@@ -19,7 +20,12 @@
     "chooseView": "choose view",
     "yes": "yes",
     "no": "no",
-    "copy": "copy"
+    "copy": "copy",
+    "view": "view",
+    "mobileView": "mobile",
+    "desktopView": "desktop",
+    "action": "action",
+    "finish": "finish"
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -97,8 +103,10 @@
     "addPagesXs": "New page?",
     "button": "new page",
     "createPage": "Create new page",
+    "editPage": "Edit Page",
     "sideBar": {
       "header": "How should the pages be displayed?"
-    }
+    },
+    "shareSurvey": "share survey"
   }
 }

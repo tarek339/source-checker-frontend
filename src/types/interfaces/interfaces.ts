@@ -17,6 +17,7 @@ export interface IPages {
   note: string;
   mobileScreenshot: string;
   desktopScreenshot: string;
+  isMobileView: boolean | null;
 }
 
 export interface ISurvey {

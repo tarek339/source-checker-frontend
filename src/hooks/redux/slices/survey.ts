@@ -21,11 +21,8 @@ const surveySlice = createSlice({
     removeSurvey: (state) => {
       state.survey = null;
     },
-    surveyCreated: (state, action) => {
-      state.created = action.payload;
-    },
   },
 });
 
 export const surveyReducer = surveySlice.reducer;
-export const { addSurvey, removeSurvey, surveyCreated } = surveySlice.actions;
+export const { addSurvey, removeSurvey } = surveySlice.actions;
