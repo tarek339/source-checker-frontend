@@ -124,3 +124,7 @@ export interface IPageForm {
   onChangeUrl: React.ChangeEventHandler<HTMLInputElement> | undefined;
   onChangeTextArea: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
 }
+
+export interface IQRCode {
+  value: string;
+}

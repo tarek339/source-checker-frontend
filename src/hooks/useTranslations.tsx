@@ -1,8 +1,8 @@
 import { I18n } from "i18n-js";
 import translations from "../constants/translations";
+import { useCallback, useEffect } from "react";
 import useSelectors from "./useSelectors";
 import useDispatches from "./useDispatches";
-import { useCallback, useEffect } from "react";
 
 export function useTranslations() {
   const { locale } = useSelectors();

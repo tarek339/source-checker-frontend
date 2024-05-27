@@ -1,5 +1,5 @@
 const SurveySummary = () => {
-  return <div>SurveySummary</div>;
+  return <div></div>;
 };
 
 export default SurveySummary;

@@ -4,6 +4,7 @@ import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
+// import { useSelectors } from "../hooks";
 
 const Table = ({
   headers,
@@ -14,6 +15,12 @@ const Table = ({
   setLast,
   property,
 }: ITable) => {
+  // const { surveyPages } = useSelectors();
+  // const [height, setHeight] = useState(145);
+  // const [prevSurveyPagesLength, setPrevSurveyPagesLength] = useState(
+  //   surveyPages.length
+  // );
+
   const nextPage = () => {
     if (last >= property.length) return;
     setFirst((prevNum) => prevNum + 5);
@@ -33,13 +40,31 @@ const Table = ({
     }
   }, [property.length]);
 
+  // useEffect(() => {
+  //   if (surveyPages.length > prevSurveyPagesLength) {
+  //     setHeight((prevH) => prevH + 54);
+  //   }
+  //   if (surveyPages.length > 5) {
+  //     setHeight(361);
+  //   }
+  //   if (surveyPages.length < prevSurveyPagesLength && surveyPages.length < 6) {
+  //     setHeight((prevH) => prevH - 54);
+  //   }
+  //   if (surveyPages.length === 1) {
+  //     setHeight(145);
+  //   }
+  //   setPrevSurveyPagesLength(surveyPages.length);
+  //   console.log(height);
+  // }, [surveyPages, height]);
+
   return (
     <div
       style={{
-        maxHeight: "361px",
+        height: "auto",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        transition: "height 0.2s",
       }}>
       <table>
         <thead>
@@ -49,9 +74,9 @@ const Table = ({
                 <th
                   style={{
                     width: `${100 / headers.length}%`,
-                    borderTopLeftRadius: index === 0 ? "4px" : "0px",
+                    borderTopLeftRadius: index === 0 ? "10px" : "0px",
                     borderTopRightRadius:
-                      index == headers.length - 1 ? "4px" : "0px",
+                      index == headers.length - 1 ? "10px" : "0px",
                   }}
                   key={index}>
                   {header}
@@ -62,6 +87,7 @@ const Table = ({
         </thead>
         <tbody>{propsChildren}</tbody>
       </table>
+
       <div
         style={{
           display: "flex",

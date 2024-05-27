@@ -30,6 +30,7 @@ export interface ISurvey {
   selectedResultsOption: string;
   surveyNumber: number;
   pages: IPages[];
+  link: string;
 }
 
 export interface ISurveyProp {

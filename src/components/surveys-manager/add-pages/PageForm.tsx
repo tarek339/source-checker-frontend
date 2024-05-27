@@ -62,10 +62,10 @@ const PageForm = ({
         />
         <FormButton
           style={{
-            width: "160px",
             backgroundColor: loading ? "#D5D5D5" : "",
             cursor: loading ? "default" : "pointer",
             transition: "background-color 0.3s",
+            width: loading ? "160px" : "",
           }}
           title={
             loading ? (

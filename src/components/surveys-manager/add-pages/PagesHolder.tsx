@@ -75,18 +75,12 @@ const PagesHolder = () => {
                 style={{
                   borderBottomLeftRadius:
                     i === surveyPages?.slice(first, last).length - 1
-                      ? "4px"
+                      ? "10px"
                       : "0px",
                 }}>
                 {page?.title}
               </td>
-              <td
-                style={{
-                  borderBottomLeftRadius:
-                    i === surveyPages?.slice(first, last).length - 1
-                      ? "4px"
-                      : "0px",
-                }}>
+              <td>
                 {page?.isMobileView
                   ? t("common.mobileView")
                   : page?.isMobileView === false
@@ -96,17 +90,14 @@ const PagesHolder = () => {
               {page?.title && (
                 <td
                   style={{
-                    display: "flex",
-                    gap: "20px",
                     textTransform: "uppercase",
-
                     borderBottomRightRadius:
                       i === surveyPages?.slice(first, last).length - 1
-                        ? "4px"
+                        ? "10px"
                         : "0px",
                   }}>
                   <span
-                    style={{ color: "#2835c3" }}
+                    style={{ color: "#2835c3", paddingRight: "20px" }}
                     onClick={() =>
                       handleEdit(
                         page._id,
@@ -121,7 +112,9 @@ const PagesHolder = () => {
                     {t("common.edit")}
                   </span>
                   <span
-                    style={{ color: "#FF0000" }}
+                    style={{
+                      color: "#FF0000",
+                    }}
                     onClick={() => onDelete(page?._id!)}>
                     {t("common.delete")}
                   </span>
