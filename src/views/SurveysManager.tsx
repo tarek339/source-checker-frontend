@@ -1,6 +1,7 @@
 import { useBreakPoints, useTranslations } from "../hooks";
 import useSelectors from "../hooks/useSelectors";
 import useCompArray from "../components/surveys-manager/useCompArray";
+import { Card, Header, SurveyContent } from "../components";
 
 const SurveysManager = () => {
   const { t } = useTranslations();
@@ -10,12 +11,10 @@ const SurveysManager = () => {
 
   return (
     <div>
-      <div className="header">
-        <h2>Quellenchecker</h2>
-      </div>
-      <div style={{ margin: "0 auto", maxWidth: "1200px" }}>
-        <div className="card">
-          <h2>{t("survey.createSurvey")} </h2>
+      <Header title={t("common.sourceChecker")} />
+      <SurveyContent>
+        <Card>
+          <h2>{t("survey.createManagement")}</h2>
           <div className="steps-holder">
             {steps.map((step, index) => {
               return (
@@ -69,8 +68,8 @@ const SurveysManager = () => {
                 return <div key={index}>{action.comp}</div>;
               })}
           </div>
-        </div>
-      </div>
+        </Card>
+      </SurveyContent>
     </div>
   );
 };

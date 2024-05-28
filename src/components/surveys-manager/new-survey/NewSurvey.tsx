@@ -2,8 +2,9 @@ import { useState } from "react";
 import {
   BackButton,
   DividerHorizontal,
+  Flex,
   FormButton,
-  SubmitModal,
+  SubHeader,
   ToggleButton,
 } from "../..";
 import {
@@ -13,6 +14,8 @@ import {
 } from "../../../hooks";
 import axios from "axios";
 import { FaCircleDot } from "react-icons/fa6";
+import ButtonContainer from "../../parents/containers/ButtonContainer";
+import FormContainer from "../../parents/form/FormContainer";
 
 const NewSurvey = () => {
   const { t } = useTranslations();
@@ -40,62 +43,72 @@ const NewSurvey = () => {
   };
 
   return (
-    <>
-      <SubmitModal onSubmit={handleSubmit} />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "25px",
-          margin: "0 auto",
-        }}>
-        <h3>{t("newSurvey.headerOne")} </h3>
-        <DividerHorizontal />
-        <div className="rating-container">
-          <div className="icon-holder">
-            <FaCircleDot />
-          </div>
-          <div>
-            <h4 style={{ fontSize: "22px" }}>Rating</h4>
-            <p style={{ color: "#2835c3" }}>{t("newSurvey.ratingText")}</p>
-          </div>
-        </div>
-        <h3>{t("newSurvey.headerTwo")} </h3>
-        <DividerHorizontal />
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "30px",
-          }}>
-          <ToggleButton
-            label={t("newSurvey.freeNames")}
-            labelText={t("newSurvey.labelTextOne")}
-            isOn={freeUserNames}
-            handleToggle={() => setFreeUserNames(!freeUserNames)}
-            ifOnText={t("newSurvey.yes")}
-            ifOffText={t("newSurvey.no")}
-            htmlFor={"user-names"}
-          />
-          <ToggleButton
-            label={t("newSurvey.anonymous")}
-            labelText={t("newSurvey.labelTextTwo")}
-            isOn={anonymousResults}
-            handleToggle={() => setAnonymousResults(!anonymousResults)}
-            ifOnText={t("newSurvey.yes")}
-            ifOffText={t("newSurvey.no")}
-            htmlFor={"anonymous"}
-          />
+    <Flex
+      direction={"column"}
+      gap={"25px"}
+      style={{
+        margin: "0 auto",
+      }}>
+      <SubHeader title={t("newSurvey.headerOne")} />
 
-          <DividerHorizontal />
-          <div className="button-container">
-            <BackButton page={0} />
-            <FormButton title={t("common.create")} />
-          </div>
-        </form>
-      </div>
-    </>
+      <DividerHorizontal />
+      <Flex
+        direction={"row"}
+        gap={"10px"}
+        justify="flex-start"
+        style={{
+          border: "1.5px solid rgb(40, 53, 195, 0.2)",
+          color: "#2835c3",
+          backgroundColor: "rgb(40, 53, 195, 0.05)",
+          padding: "15px 20px",
+        }}>
+        <Flex
+          direction={"row"}
+          gap={"0px"}
+          justify="flex-start"
+          align="flex-start"
+          style={{
+            paddingTop: "8px",
+          }}>
+          <FaCircleDot />
+        </Flex>
+        <div>
+          <h4 style={{ fontSize: "22px", color: "#2835c3" }}>Rating</h4>
+          <p style={{ color: "#2835c3" }}>{t("newSurvey.ratingText")}</p>
+        </div>
+      </Flex>
+
+      <SubHeader title={t("newSurvey.headerTwo")} />
+
+      <DividerHorizontal />
+
+      <FormContainer onSubmit={handleSubmit} gap={"30px"}>
+        <ToggleButton
+          label={t("newSurvey.freeNames")}
+          labelText={t("newSurvey.labelTextOne")}
+          isOn={freeUserNames}
+          handleToggle={() => setFreeUserNames(!freeUserNames)}
+          ifOnText={t("newSurvey.yes")}
+          ifOffText={t("newSurvey.no")}
+          htmlFor={"user-names"}
+        />
+        <ToggleButton
+          label={t("newSurvey.anonymous")}
+          labelText={t("newSurvey.labelTextTwo")}
+          isOn={anonymousResults}
+          handleToggle={() => setAnonymousResults(!anonymousResults)}
+          ifOnText={t("newSurvey.yes")}
+          ifOffText={t("newSurvey.no")}
+          htmlFor={"anonymous"}
+        />
+        <DividerHorizontal />
+
+        <ButtonContainer>
+          <BackButton page={0} />
+          <FormButton title={t("common.create")} />
+        </ButtonContainer>
+      </FormContainer>
+    </Flex>
   );
 };
 

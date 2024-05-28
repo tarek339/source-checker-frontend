@@ -4,6 +4,7 @@ import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
+import Flex from "./parents/containers/Flex";
 // import { useSelectors } from "../hooks";
 
 const Table = ({
@@ -58,12 +59,12 @@ const Table = ({
   // }, [surveyPages, height]);
 
   return (
-    <div
+    <Flex
+      direction={"column"}
+      gap={"0px"}
+      justify="space-between"
       style={{
         height: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
         transition: "height 0.2s",
       }}>
       <table>
@@ -74,9 +75,9 @@ const Table = ({
                 <th
                   style={{
                     width: `${100 / headers.length}%`,
-                    borderTopLeftRadius: index === 0 ? "10px" : "0px",
+                    borderTopLeftRadius: index === 0 ? "20px" : "0px",
                     borderTopRightRadius:
-                      index == headers.length - 1 ? "10px" : "0px",
+                      index == headers.length - 1 ? "20px" : "0px",
                   }}
                   key={index}>
                   {header}
@@ -88,30 +89,23 @@ const Table = ({
         <tbody>{propsChildren}</tbody>
       </table>
 
-      <div
+      <Flex
+        direction={"row"}
+        gap={"20px"}
+        justify="flex-end"
         style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          gap: "20px",
           marginTop: "10px",
           marginRight: "10px",
           fontSize: "16px",
-        }}
-        className="pagination">
-        <div style={{ display: "flex", gap: "10px" }}>
+        }}>
+        <Flex direction={"row"} gap={"10px"}>
           <span>{first + 1}</span>
           <span>-</span>
           <span>{last}</span>
           <span>of</span>
           <span>{property?.length}</span>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            gap: "20px",
-          }}>
+        </Flex>
+        <Flex direction={"row"} gap={"20px"} justify="flex-end" align="center">
           <MdOutlineArrowBackIos
             fontSize="18px"
             style={{ cursor: first === 0 ? "" : "pointer" }}
@@ -122,9 +116,9 @@ const Table = ({
             style={{ cursor: last >= property.length ? "" : "pointer" }}
             onClick={nextPage}
           />
-        </div>
-      </div>
-    </div>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 

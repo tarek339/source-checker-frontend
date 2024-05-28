@@ -15,17 +15,17 @@
   animation-duration: 0.2s;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 530px) {
   .modal {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
 .modal-children {
   background-color: #fff;
   padding: 30px;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 

@@ -31,6 +31,7 @@ export interface ISurvey {
   surveyNumber: number;
   pages: IPages[];
   link: string;
+  validUntil: string;
 }
 
 export interface ISurveyProp {

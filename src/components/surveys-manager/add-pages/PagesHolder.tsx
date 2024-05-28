@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  useBreakPoints,
   useDispatches,
   useLocaleStorage,
   useSelectors,
@@ -8,12 +9,14 @@ import {
 import Table from "../../Table";
 import axios from "axios";
 import EditPage from "./EditPage";
+import Flex from "../../parents/containers/Flex";
 
 const PagesHolder = () => {
   const { surveyPages, survey } = useSelectors();
   const { openEditModal, fetchSinglePage } = useDispatches();
   const { fetchSurvey } = useLocaleStorage();
   const { t } = useTranslations();
+  const { windowWidth } = useBreakPoints();
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(5);
@@ -75,7 +78,7 @@ const PagesHolder = () => {
                 style={{
                   borderBottomLeftRadius:
                     i === surveyPages?.slice(first, last).length - 1
-                      ? "10px"
+                      ? "20px"
                       : "0px",
                 }}>
                 {page?.title}
@@ -93,31 +96,35 @@ const PagesHolder = () => {
                     textTransform: "uppercase",
                     borderBottomRightRadius:
                       i === surveyPages?.slice(first, last).length - 1
-                        ? "10px"
+                        ? "20px"
                         : "0px",
                   }}>
-                  <span
-                    style={{ color: "#2835c3", paddingRight: "20px" }}
-                    onClick={() =>
-                      handleEdit(
-                        page._id,
-                        page.url,
-                        page.title,
-                        page.note,
-                        page.isMobileView!,
-                        page.mobileScreenshot,
-                        page.desktopScreenshot
-                      )
-                    }>
-                    {t("common.edit")}
-                  </span>
-                  <span
-                    style={{
-                      color: "#FF0000",
-                    }}
-                    onClick={() => onDelete(page?._id!)}>
-                    {t("common.delete")}
-                  </span>
+                  <Flex
+                    direction={windowWidth <= 500 ? "column" : "row"}
+                    gap={windowWidth <= 500 ? "5px" : "20px"}>
+                    <span
+                      style={{ color: "#2835c3" }}
+                      onClick={() =>
+                        handleEdit(
+                          page._id,
+                          page.url,
+                          page.title,
+                          page.note,
+                          page.isMobileView!,
+                          page.mobileScreenshot,
+                          page.desktopScreenshot
+                        )
+                      }>
+                      {t("common.edit")}
+                    </span>
+                    <span
+                      style={{
+                        color: "#FF0000",
+                      }}
+                      onClick={() => onDelete(page?._id!)}>
+                      {t("common.delete")}
+                    </span>
+                  </Flex>
                 </td>
               )}
             </tr>

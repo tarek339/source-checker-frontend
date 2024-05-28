@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { BackButton, DividerHorizontal, FormButton, Input } from "..";
+import {
+  BackButton,
+  DividerHorizontal,
+  Flex,
+  FormButton,
+  Input,
+  SubHeader,
+} from "..";
 import {
   useTranslations,
   useLocaleStorage,
@@ -7,6 +14,7 @@ import {
   useDispatches,
 } from "../../hooks";
 import axios from "axios";
+import FormContainer from "../parents/form/FormContainer";
 
 const ChooseSurvey = () => {
   const { t } = useTranslations();
@@ -43,22 +51,16 @@ const ChooseSurvey = () => {
   };
 
   return (
-    <div
+    <Flex
+      direction={"column"}
+      gap={"15px"}
       style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "20px",
         margin: "0 auto",
         maxWidth: "300px",
       }}>
-      <h3>{t("chooseSurvey.surveyData")}</h3>
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-        }}
-        onSubmit={handleSubmit}>
+      <SubHeader title={t("chooseSurvey.surveyData")} />
+
+      <FormContainer onSubmit={handleSubmit} gap={"15px"}>
         <Input
           label={t("common.surveyID")}
           name={surveyId}
@@ -96,17 +98,12 @@ const ChooseSurvey = () => {
           }}
         />
         <DividerHorizontal />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "15px",
-          }}>
+        <Flex direction={"column"} gap={"15px"}>
           <FormButton title={t("common.callUp")} />
           <BackButton page={0} />
-        </div>
-      </form>
-    </div>
+        </Flex>
+      </FormContainer>
+    </Flex>
   );
 };
 

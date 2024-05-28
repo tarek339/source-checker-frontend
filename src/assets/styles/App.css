@@ -1,13 +1,6 @@
 @import "./views/authentication.css";
-@import "./components/survey-manager/survery-manager.css";
-@import "./components/survey-manager/choose-action.css";
-@import "./components/survey-manager/save-survrey.css";
-@import "./components/survey-manager/steps.css";
-@import "./components/survey-manager/add-pages/no-pages.css";
-@import "./components/survey-manager/add-pages/add-pages.css";
+@import "./components/survery-manager.css";
 @import "./select.css";
 @import "./toggle.css";
 @import "./table.css";
 @import "./modal.css";
-@import "./components/survey-manager/new-survery.css";
-@import "./views/student-auth.css";

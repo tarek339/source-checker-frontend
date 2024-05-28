@@ -2,6 +2,11 @@ import axios from "axios";
 import { IModalContent } from "../../../types/interfaces/components";
 import { useTranslations, useDispatches } from "../../../hooks";
 import { Alert } from "../../icons";
+import CancelButton from "../../buttons/CancelButton";
+import ContButton from "../../buttons/ContButton";
+import ButtonContainer from "./ButtonContainer";
+import Flex from "./Flex";
+import SubHeader from "../SubHeader";
 
 const ModalContent = ({ header, url, localeStorage, page }: IModalContent) => {
   const { handlePage, closeModal } = useDispatches();
@@ -16,42 +21,19 @@ const ModalContent = ({ header, url, localeStorage, page }: IModalContent) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "flex-start",
-        gap: "10px",
-      }}>
+    <Flex direction={"row"} gap={"10px"} align="flex-start">
       <Alert />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          gap: "5px",
-        }}>
-        <h3>
-          {header} {t("common.delete")}?
-        </h3>
+      <Flex direction={"column"} gap={"5px"} justify="flex-start">
+        <SubHeader title={`${`${header} ${t("common.delete")}`}?`} />
         <p>{t("saveSurvey.deleteText")}</p>
         <p>{t("saveSurvey.deleteSection")}</p>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-end",
-            gap: "20px",
-            marginTop: "10px",
-          }}>
-          <button className="continue-button" onClick={closeModal}>
-            {t("common.cancel")}
-          </button>
-          <button onClick={deleteSurvey} className="back-button">
-            {t("common.delete")}
-          </button>
-        </div>
-      </div>
-    </div>
+        <ButtonContainer
+          style={{ justifyContent: "flex-end", paddingTop: "1em" }}>
+          <ContButton onClick={closeModal} title={t("common.cancel")} />
+          <CancelButton onClick={deleteSurvey} title={t("common.delete")} />
+        </ButtonContainer>
+      </Flex>
+    </Flex>
   );
 };
 

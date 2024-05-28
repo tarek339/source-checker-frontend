@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ISelect } from "../../../types/interfaces/components";
+import Flex from "../containers/Flex";
 
 const Select = ({
   label,
@@ -15,24 +16,26 @@ const Select = ({
   };
 
   return (
-    <div className="input-holder">
-      <label htmlFor="">{label}</label>
-      <div
-        className={`select ${isActive ? "active" : ""}`}
-        onClick={handleDropdownClick}
-        style={{
-          borderColor: inputErrorStyle ? "#f44336" : "",
-          boxShadow: inputErrorStyle ? "0px 0px 0px 1px #f44336 inset" : "",
-        }}>
+    <Flex direction={"column"} gap={"3px"}>
+      <>
+        <label htmlFor="">{label}</label>
         <div
-          style={{ color: inputErrorStyle ? "#f44336" : "" }}
-          className="textBox">
-          {selectedItem}
+          className={`select ${isActive ? "active" : ""}`}
+          onClick={handleDropdownClick}
+          style={{
+            borderColor: inputErrorStyle ? "#f44336" : "",
+            boxShadow: inputErrorStyle ? "0px 0px 0px 1px #f44336 inset" : "",
+          }}>
+          <div
+            style={{ color: inputErrorStyle ? "#f44336" : "" }}
+            className="textBox">
+            {selectedItem}
+          </div>
+          <div className="option">{option}</div>
         </div>
-        <div className="option">{option}</div>
-      </div>
-      {error}
-    </div>
+        {error}
+      </>
+    </Flex>
   );
 };
 

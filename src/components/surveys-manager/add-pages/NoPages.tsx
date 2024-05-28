@@ -1,13 +1,23 @@
 import { useTranslations } from "../../../hooks";
+import SubHeader from "../../parents/SubHeader";
+import Flex from "../../parents/containers/Flex";
 
 const NoPages = () => {
   const { t } = useTranslations();
 
   return (
-    <div className="no-pages">
-      <h3>{t("addPages.notiHeader")}</h3>
+    <Flex
+      direction={"column"}
+      gap={"15px"}
+      justify="center"
+      style={{
+        margin: "0 auto",
+        textAlign: "center",
+        marginTop: "1em",
+      }}>
+      <SubHeader title={t("addPages.notiHeader")} />
       <p>{t("addPages.notiText")}</p>
-    </div>
+    </Flex>
   );
 };
 

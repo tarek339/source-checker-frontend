@@ -7,6 +7,8 @@ import {
 } from "../../../hooks";
 import { ImCancelCircle } from "react-icons/im";
 import ScreenShot from "./ScreenShot";
+import Flex from "../../parents/containers/Flex";
+import SubHeader from "../../parents/SubHeader";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -26,31 +28,25 @@ const SideMenu = () => {
             ? "100%"
             : "0%",
       }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          gap: "5px",
-        }}>
-        <h3>{t("addPages.sideBar.header")}</h3>
+      <Flex direction={"row"} gap={"5px"} justify="space-between">
+        <SubHeader title={t("addPages.sideBar.header")} />
         <div
           style={{ cursor: "pointer", marginTop: "2px" }}
           onClick={() => dispatchSideBar(false)}>
           <ImCancelCircle fontSize="24px" />
         </div>
-      </div>
+      </Flex>
       <>
         {surveyPages
           ?.slice(firstSideBarPages, lastSideBarPages)
           ?.map((page, i) => {
             return (
-              <div
+              <Flex
                 key={i}
+                direction={windowWidth >= 768 ? "row" : "column"}
+                gap={"20px"}
                 style={{
                   paddingTop: "20px",
-                  display: "flex",
-                  flexDirection: windowWidth >= 768 ? "row" : "column",
-                  gap: "20px",
                 }}>
                 <ScreenShot
                   title={"Mobile"}
@@ -68,7 +64,7 @@ const SideMenu = () => {
                   pageID={page._id}
                   url={page.desktopScreenshot}
                 />
-              </div>
+              </Flex>
             );
           })}
       </>

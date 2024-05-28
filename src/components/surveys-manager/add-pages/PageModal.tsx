@@ -1,4 +1,5 @@
 import { useDispatches, useSelectors, useBreakPoints } from "../../../hooks";
+import Flex from "../../parents/containers/Flex";
 import Modal from "../../parents/containers/Modal";
 
 export interface IPageModal {
@@ -15,11 +16,11 @@ const PageModal = ({ children, title }: IPageModal) => {
     <Modal
       isVisible={modal}
       setIsVisible={closeModal}
-      style={{ width: windowWidth <= 500 ? "80%" : "500px" }}>
-      <div className="modal-content">
+      style={{ width: windowWidth <= 500 ? "100%" : "500px" }}>
+      <Flex direction={"column"} gap={"10px"}>
         <h3>{title}</h3>
         {children}
-      </div>
+      </Flex>
     </Modal>
   );
 };

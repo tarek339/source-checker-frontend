@@ -49,7 +49,7 @@
     "license": "Lizenz"
   },
   "survey": {
-    "createSurvey": "Umfrage Management",
+    "createManagement": "Umfrage Management",
     "stepOne": "Schritt 1",
     "stepTwo": "Schritt 2",
     "stepThree": "Schritt 3",
@@ -108,5 +108,10 @@
       "header": "Wie sollen die Seiten angezeigt werden?"
     },
     "shareSurvey": "umfrage teilen"
+  },
+  "studentAuth": {
+    "header": "Quellenchecker: Traust du dem?",
+    "validUntil": "Gültig bis",
+    "studentLink": "Schülerlink"
   }
 }

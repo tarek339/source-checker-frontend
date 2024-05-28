@@ -1,13 +1,25 @@
+import { useBreakPoints } from "../../hooks";
 import { ISteps } from "../../types/interfaces/components";
+import Flex from "./containers/Flex";
 
 const Steps = ({ counter, text, style }: ISteps) => {
+  const { windowWidth } = useBreakPoints();
   return (
-    <div className="steps-description">
-      <span style={{ fontWeight: 600, fontSize: "20px", ...style }}>
+    <Flex
+      direction={"column"}
+      gap={"5px"}
+      justify="center"
+      style={{ paddingLeft: windowWidth <= 768 ? "15px" : "0px" }}>
+      <span
+        style={{
+          fontWeight: 600,
+          fontSize: "20px",
+          ...style,
+        }}>
         {counter}
       </span>
-      <span>{text}</span>
-    </div>
+      <span style={{ color: "#17181d" }}>{text}</span>
+    </Flex>
   );
 };
 

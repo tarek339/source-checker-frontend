@@ -1,14 +1,10 @@
-import { useLocaleStorage, useTranslations } from "../../hooks";
-import { IBackContinueButton } from "../../types/interfaces/components";
+import { IContButton } from "../../types/interfaces/components";
 
-const BackButton = ({ page }: IBackContinueButton) => {
-  const { t } = useTranslations();
-  const { setPage } = useLocaleStorage();
-
+const ContButton = ({ onClick, title }: IContButton) => {
   return (
     <button
       style={{
-        backgroundColor: "#ff0000",
+        backgroundColor: "#2835c3",
         color: "#fff",
         borderColor: "transparent",
         borderRadius: "45px",
@@ -20,10 +16,10 @@ const BackButton = ({ page }: IBackContinueButton) => {
         textTransform: "uppercase",
         fontWeight: 600,
       }}
-      onClick={() => setPage(page)}>
-      {t("common.back")}
+      onClick={onClick}>
+      {title}
     </button>
   );
 };
 
-export default BackButton;
+export default ContButton;

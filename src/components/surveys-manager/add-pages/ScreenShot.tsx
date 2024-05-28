@@ -1,7 +1,12 @@
 import axios from "axios";
 import { IScreenShot } from "../../../types/interfaces/components";
-import ChooseButton from "../../buttons/ChooseButton";
-import { useDispatches, useLocaleStorage, useSelectors } from "../../../hooks";
+import {
+  useDispatches,
+  useLocaleStorage,
+  useSelectors,
+  useTranslations,
+} from "../../../hooks";
+import ContButton from "../../buttons/ContButton";
 
 const ScreenShot = ({
   title,
@@ -15,6 +20,7 @@ const ScreenShot = ({
   const { dispatchSideBar, incFirstSBPage, incLastSBPage } = useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
+  const { t } = useTranslations();
 
   const editPage = async () => {
     try {
@@ -57,7 +63,7 @@ const ScreenShot = ({
           src={url}
         />
       </div>
-      <ChooseButton onClick={editPage} />
+      <ContButton onClick={editPage} title={t("common.choose")} />
     </div>
   );
 };

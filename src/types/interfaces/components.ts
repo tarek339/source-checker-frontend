@@ -41,12 +41,14 @@ export interface IBackContinueButton {
   page: number;
 }
 
-export interface IChooseButton {
+export interface IContButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  title: string;
 }
 
 export interface ICancelButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  title: string;
 }
 
 export interface IModal {
@@ -127,4 +129,50 @@ export interface IPageForm {
 
 export interface IQRCode {
   value: string;
+}
+
+export interface IHeader {
+  title: string;
+}
+
+export interface ICard {
+  children: JSX.Element[] | JSX.Element;
+  style?: React.CSSProperties;
+}
+
+export interface ISurveyContent {
+  children: JSX.Element[] | JSX.Element;
+  style?: React.CSSProperties;
+}
+
+export interface ISubCard {
+  children: JSX.Element | JSX.Element[];
+  width: string;
+  style?: React.CSSProperties;
+}
+
+export interface IFlex {
+  children: JSX.Element[] | JSX.Element;
+  direction: "row-reverse" | "row" | "column" | "column-reverse";
+  gap: string;
+  justify?: string;
+  align?: string;
+  width?: string;
+  style?: React.CSSProperties;
+}
+
+export interface IButtonContainer {
+  children: JSX.Element | JSX.Element[];
+  style?: React.CSSProperties;
+}
+
+export interface IFormContainer {
+  onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
+  children: JSX.Element | JSX.Element[];
+  gap: string;
+  style?: React.CSSProperties;
+}
+
+export interface ISubHeader {
+  title: string;
 }

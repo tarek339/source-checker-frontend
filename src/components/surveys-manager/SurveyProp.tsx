@@ -1,22 +1,15 @@
 import { ISurveyProp } from "../../types/interfaces/interfaces";
+import Flex from "../parents/containers/Flex";
 
 const SurveyProp = ({ header, child, secondChild }: ISurveyProp) => {
   return (
-    <div className="survey-props">
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "flex-start",
-
-          gap: "5px",
-        }}>
+    <Flex direction={"row"} gap={"5px"} justify="space-between" align="center">
+      <Flex direction={"row"} gap={"5px"} justify="flex-start" align="center">
         <h4>{header}</h4>
         <div style={{ paddingTop: "3px" }}>{secondChild}</div>
-      </div>
+      </Flex>
       <div>{child}</div>
-    </div>
+    </Flex>
   );
 };
 

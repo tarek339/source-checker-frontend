@@ -5,6 +5,8 @@ import FormButton from "../../parents/form/FormButton";
 import LoadingSpinner from "../../LoadingSpinner";
 import InputMessage from "../../parents/form/InputMessage";
 import { IPageForm } from "../../../types/interfaces/components";
+import FormContainer from "../../parents/form/FormContainer";
+import ButtonContainer from "../../parents/containers/ButtonContainer";
 
 const PageForm = ({
   onSubmit,
@@ -22,7 +24,7 @@ const PageForm = ({
   const { closeModal, closeEditModal } = useDispatches();
 
   return (
-    <form className="form-content" onSubmit={onSubmit}>
+    <FormContainer onSubmit={onSubmit} gap={"15px"}>
       <Input
         label={t("common.title")}
         name={"tile"}
@@ -53,18 +55,16 @@ const PageForm = ({
         onChange={onChangeTextArea}
       />
 
-      <div className="button-holder">
+      <ButtonContainer style={{ justifyContent: "flex-end" }}>
         <CancelButton
           onClick={() => {
             closeModal();
             closeEditModal();
           }}
+          title={t("common.back")}
         />
         <FormButton
           style={{
-            backgroundColor: loading ? "#D5D5D5" : "",
-            cursor: loading ? "default" : "pointer",
-            transition: "background-color 0.3s",
             width: loading ? "160px" : "",
           }}
           title={
@@ -75,8 +75,8 @@ const PageForm = ({
             )
           }
         />
-      </div>
-    </form>
+      </ButtonContainer>
+    </FormContainer>
   );
 };
 

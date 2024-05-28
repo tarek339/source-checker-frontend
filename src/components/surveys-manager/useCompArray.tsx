@@ -228,7 +228,7 @@ const useCompArray = () => {
             }
             child={<p>{survey?.surveyId}</p>}
           />
-          <div className="warning-message">
+          <div>
             <p style={{ color: "#ff0000", fontSize: "16px" }}>
               {t("saveSurvey.info")}
             </p>

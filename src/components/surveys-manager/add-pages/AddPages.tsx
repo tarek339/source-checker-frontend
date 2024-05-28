@@ -12,9 +12,12 @@ import NoPages from "./NoPages";
 import PagesHolder from "./PagesHolder";
 import { useNavigate } from "react-router-dom";
 import AddPage from "./AddPage";
+import Flex from "../../parents/containers/Flex";
+import SubHeader from "../../parents/SubHeader";
+import ContButton from "../../buttons/ContButton";
 
 const AddPages = () => {
-  const { openModal, dispatchSideBar, handlePage } = useDispatches();
+  const { openModal, dispatchSideBar } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { survey, surveyPages } = useSelectors();
@@ -43,17 +46,16 @@ const AddPages = () => {
   return (
     <>
       <AddPage />
-      <div
+      <Flex
+        direction={"column"}
+        gap={"25px"}
+        justify="center"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "25px",
           maxWidth: "700px",
           margin: "0 auto",
           position: "relative",
         }}>
-        <h3>{t("addPages.header")}</h3>
+        <SubHeader title={t("addPages.header")} />
 
         {survey && survey?.pages && survey?.pages?.length > 0 ? (
           <PagesHolder />
@@ -61,50 +63,56 @@ const AddPages = () => {
           <NoPages />
         )}
 
-        <div className="add-pages-holder">
-          <h3>
-            {windowWidth <= 375
-              ? t("addPages.addPagesXs")
-              : t("addPages.addPages")}
-          </h3>
-          <button className="add-page-button" onClick={openModal}>
-            {t("addPages.button")}
-          </button>
-        </div>
+        <Flex
+          direction={"row"}
+          gap={"0px"}
+          justify="space-between"
+          align="center"
+          style={{
+            borderRadius: "4px",
+            marginTop: "2em",
+          }}>
+          <SubHeader
+            title={
+              windowWidth <= 375
+                ? t("addPages.addPagesXs")
+                : t("addPages.addPages")
+            }
+          />
+
+          <ContButton title={t("addPages.button")} onClick={openModal} />
+        </Flex>
 
         <DividerHorizontal />
 
-        <div className="buttons">
+        <Flex
+          direction={windowWidth <= 500 ? "column-reverse" : "row"}
+          gap={"20px"}
+          justify="flex-start"
+          width="100%">
           <BackButton page={3} />
-          {!viewsSelected &&
-          survey &&
-          survey?.pages &&
-          survey?.pages?.length > 0 ? (
-            <button
-              onClick={() => {
-                survey && survey?.pages && survey?.pages?.length > 0
-                  ? dispatchSideBar(true)
-                  : null;
-              }}
-              className="continue-button">
-              {t("common.chooseView")}
-            </button>
-          ) : viewsSelected ? (
-            <div className="views-selected-buttons">
-              <button
-                onClick={() => {
-                  navigate("/survey-summary");
-                }}
-                className="continue-button">
-                {t("addPages.shareSurvey")}
-              </button>
-              <button onClick={() => handlePage(0)} className="back-button">
-                {t("common.finish")}
-              </button>
-            </div>
-          ) : null}
-        </div>
-      </div>
+          <>
+            {survey && survey?.pages && survey?.pages?.length > 0 && (
+              <ContButton
+                onClick={
+                  viewsSelected
+                    ? () => navigate("/survey-summary")
+                    : () => {
+                        survey && survey?.pages && survey?.pages?.length > 0
+                          ? dispatchSideBar(true)
+                          : null;
+                      }
+                }
+                title={
+                  viewsSelected
+                    ? t("addPages.shareSurvey")
+                    : t("common.chooseView")
+                }
+              />
+            )}
+          </>
+        </Flex>
+      </Flex>
     </>
   );
 };
