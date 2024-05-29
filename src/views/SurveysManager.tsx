@@ -1,13 +1,36 @@
-import { useBreakPoints, useTranslations } from "../hooks";
+import { useTranslations } from "../hooks";
 import useSelectors from "../hooks/useSelectors";
 import useCompArray from "../components/surveys-manager/useCompArray";
-import { Card, Header, SurveyContent } from "../components";
+import { Card, Header, LoadingBar, SurveyContent } from "../components";
+import { useEffect, useState } from "react";
 
 const SurveysManager = () => {
   const { t } = useTranslations();
-  const { page, stepDone } = useSelectors();
-  const { steps, actionsHolder } = useCompArray();
-  const { windowWidth } = useBreakPoints();
+  const { page } = useSelectors();
+  const { actionsHolder } = useCompArray();
+  const [percent, setPercent] = useState(0);
+
+  useEffect(() => {
+    switch (page) {
+      case 0:
+        setPercent(0);
+        break;
+      case 1:
+        setPercent(25);
+        break;
+      case 2:
+        setPercent(50);
+        break;
+      case 3:
+        setPercent(75);
+        break;
+      case 4:
+        setPercent(100);
+        break;
+      default:
+        0;
+    }
+  }, [page]);
 
   return (
     <div>
@@ -15,7 +38,8 @@ const SurveysManager = () => {
       <SurveyContent>
         <Card>
           <h2>{t("survey.createManagement")}</h2>
-          <div className="steps-holder">
+          <LoadingBar percent={percent} marginTop={2} page={page} />
+          {/* <div className="steps-holder">
             {steps.map((step, index) => {
               return (
                 <div
@@ -60,8 +84,12 @@ const SurveysManager = () => {
                 </div>
               );
             })}
-          </div>
-          <div className="action-holder">
+          </div> */}
+          <div
+            style={{
+              margin: "2em auto",
+              maxWidth: "800px",
+            }}>
             {actionsHolder
               .filter((_action, index) => index === page)
               .map((action, index) => {

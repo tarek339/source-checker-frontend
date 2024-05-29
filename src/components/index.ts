@@ -24,6 +24,7 @@ import SubCard from "./parents/containers/SubCard";
 import SurveyContent from "./parents/SurveyContent";
 import Flex from "./parents/containers/Flex";
 import SubHeader from "./parents/SubHeader";
+import LoadingBar from "./LoadingBar";
 
 export {
   Footer,
@@ -52,4 +53,5 @@ export {
   SurveyContent,
   Flex,
   SubHeader,
+  LoadingBar,
 };

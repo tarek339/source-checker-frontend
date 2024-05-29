@@ -25,7 +25,8 @@
     "mobileView": "mobile",
     "desktopView": "desktop",
     "action": "action",
-    "finish": "finish"
+    "finish": "finish",
+    "step": "step"
   },
   "auth": {
     "question": "Which online sources do you trust?",

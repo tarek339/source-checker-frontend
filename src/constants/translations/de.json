@@ -25,7 +25,8 @@
     "mobileView": "mobil",
     "desktopView": "desktop",
     "action": "aktion",
-    "finish": "beenden"
+    "finish": "beenden",
+    "step": "schritt"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",

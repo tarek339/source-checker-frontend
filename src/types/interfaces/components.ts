@@ -176,3 +176,9 @@ export interface IFormContainer {
 export interface ISubHeader {
   title: string;
 }
+
+export interface ILoadingBar {
+  percent: number;
+  marginTop: number;
+  page: number;
+}

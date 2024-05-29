@@ -12,11 +12,6 @@
   margin-top: 1.5em;
 }
 
-.action-holder {
-  margin: 3em auto;
-  max-width: 800px;
-}
-
 @media screen and (min-width: 768px) {
   .steps {
     border-top: 4px solid lightgray;
