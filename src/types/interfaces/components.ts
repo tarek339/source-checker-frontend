@@ -33,10 +33,6 @@ export interface ISelect {
   option: JSX.Element[] | JSX.Element | string | undefined;
 }
 
-export interface IInputErrorContainer {
-  children: React.ReactNode;
-}
-
 export interface IBackContinueButton {
   page: number;
 }

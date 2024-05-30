@@ -8,7 +8,6 @@ import {
   useTranslations,
 } from "../../../hooks";
 import PageForm from "./PageForm";
-import InputErrorContainer from "../../parents/form/InputErrorContainer";
 import axios from "axios";
 import Modal from "../../parents/containers/Modal";
 
@@ -19,7 +18,7 @@ const EditPage = () => {
   const { dispatchLoading, closeEditModal } = useDispatches();
   const { t } = useTranslations();
   const { fetchSurvey } = useLocaleStorage();
-  const { urlTyoeError } = useInputErrors();
+  const { urlTyoeError, emptyInput } = useInputErrors();
   const { windowWidth } = useBreakPoints();
 
   const [title, setTitle] = useState<string>(singlePage?.title!);
@@ -43,8 +42,8 @@ const EditPage = () => {
     try {
       if (!loading) {
         e.preventDefault();
-        !title ? setTitleErrorMessage(<InputErrorContainer />) : null;
-        !url ? setUrlErrorMessage(<InputErrorContainer />) : null;
+        !title ? setTitleErrorMessage(emptyInput) : null;
+        !url ? setUrlErrorMessage(emptyInput) : null;
         if (!url.match(urlRegex)) {
           setIsUrl(urlTyoeError);
         }

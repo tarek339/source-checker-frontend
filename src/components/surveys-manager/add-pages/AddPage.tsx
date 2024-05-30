@@ -7,7 +7,6 @@ import {
   useInputErrors,
 } from "../../../hooks";
 import axios from "axios";
-import InputErrorContainer from "../../parents/form/InputErrorContainer";
 import PageForm from "./PageForm";
 import PageModal from "./PageModal";
 
@@ -18,7 +17,7 @@ const AddPage = () => {
   const { dispatchLoading } = useDispatches();
   const { t } = useTranslations();
   const { fetchSurvey } = useLocaleStorage();
-  const { urlTyoeError } = useInputErrors();
+  const { urlTyoeError, emptyInput } = useInputErrors();
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
@@ -34,8 +33,8 @@ const AddPage = () => {
     try {
       if (!loading) {
         e.preventDefault();
-        !title ? setTitleErrorMessage(<InputErrorContainer />) : null;
-        !url ? setUrlErrorMessage(<InputErrorContainer />) : null;
+        !title ? setTitleErrorMessage(emptyInput) : null;
+        !url ? setUrlErrorMessage(emptyInput) : null;
         if (!url.match(urlRegex)) {
           setIsUrl(urlTyoeError);
         }

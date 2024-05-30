@@ -1,16 +1,18 @@
 import { useTranslations } from "./useTranslations";
 
+const style = {
+  fontSize: "14px",
+  color: "#ff0000",
+  paddingLeft: "5px",
+};
+
 const useInputErrors = () => {
   const { t } = useTranslations();
 
-  const emptyInput = <div className="input-error">{t("input.inputError")}</div>;
-  const incorrectType = (
-    <div className="input-error">{t("input.incorrectType")}</div>
-  );
-  const fetchError = <div className="input-error">{t("input.fetchError")}</div>;
-  const urlTyoeError = (
-    <div className="input-error">{t("input.urlTypeError")}</div>
-  );
+  const emptyInput = <div style={style}>{t("input.inputError")}</div>;
+  const incorrectType = <div style={style}>{t("input.incorrectType")}</div>;
+  const fetchError = <div style={style}>{t("input.fetchError")}</div>;
+  const urlTyoeError = <div style={style}>{t("input.urlTypeError")}</div>;
 
   return {
     emptyInput,
