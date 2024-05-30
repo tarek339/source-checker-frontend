@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useBreakPoints, useLocaleStorage, useTranslations } from "../../hooks";
 import SubHeader from "../parents/SubHeader";
 import Flex from "../parents/containers/Flex";
+import FramerMotion from "../parents/containers/FramerMotion";
 
 const style: React.CSSProperties = {
   border: "2px dashed lightgray",
@@ -30,7 +31,7 @@ const ChooseAction = () => {
   }, []);
 
   return (
-    <>
+    <FramerMotion>
       <SubHeader title={t("chooseAction.header")} />
       <Flex
         direction={windowWidth <= 619 ? "column" : "row"}
@@ -72,7 +73,7 @@ const ChooseAction = () => {
           <p>{t("chooseAction.existingSurvey")}</p>
         </div>
       </Flex>
-    </>
+    </FramerMotion>
   );
 };
 

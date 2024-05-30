@@ -1,7 +1,13 @@
 import { useTranslations } from "../hooks";
 import useSelectors from "../hooks/useSelectors";
 import useCompArray from "../components/surveys-manager/useCompArray";
-import { Card, Header, LoadingBar, SurveyContent } from "../components";
+import {
+  Card,
+  FramerMotion,
+  Header,
+  LoadingBar,
+  SurveyContent,
+} from "../components";
 import { useEffect, useState } from "react";
 
 const SurveysManager = () => {
@@ -33,13 +39,14 @@ const SurveysManager = () => {
   }, [page]);
 
   return (
-    <div>
+    <>
       <Header title={t("common.sourceChecker")} />
-      <SurveyContent>
-        <Card>
-          <h2>{t("survey.createManagement")}</h2>
-          <LoadingBar percent={percent} marginTop={2} page={page} />
-          {/* <div className="steps-holder">
+      <FramerMotion>
+        <SurveyContent>
+          <Card>
+            <h2>{t("survey.createManagement")}</h2>
+            <LoadingBar percent={percent} marginTop={2} page={page} />
+            {/* <div className="steps-holder">
             {steps.map((step, index) => {
               return (
                 <div
@@ -85,20 +92,21 @@ const SurveysManager = () => {
               );
             })}
           </div> */}
-          <div
-            style={{
-              margin: "2em auto",
-              maxWidth: "800px",
-            }}>
-            {actionsHolder
-              .filter((_action, index) => index === page)
-              .map((action, index) => {
-                return <div key={index}>{action.comp}</div>;
-              })}
-          </div>
-        </Card>
-      </SurveyContent>
-    </div>
+            <div
+              style={{
+                margin: "2em auto",
+                maxWidth: "800px",
+              }}>
+              {actionsHolder
+                .filter((_action, index) => index === page)
+                .map((action, index) => {
+                  return <div key={index}>{action.comp}</div>;
+                })}
+            </div>
+          </Card>
+        </SurveyContent>
+      </FramerMotion>
+    </>
   );
 };
 

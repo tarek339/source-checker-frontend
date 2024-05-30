@@ -4,6 +4,7 @@ import {
   DividerHorizontal,
   Flex,
   FormButton,
+  FramerMotion,
   Input,
   SubHeader,
 } from "..";
@@ -51,59 +52,69 @@ const ChooseSurvey = () => {
   };
 
   return (
-    <Flex
-      direction={"column"}
-      gap={"15px"}
-      style={{
-        margin: "0 auto",
-        maxWidth: "300px",
-      }}>
-      <SubHeader title={t("chooseSurvey.surveyData")} />
+    <FramerMotion>
+      <Flex
+        direction={"column"}
+        gap={"15px"}
+        style={{
+          margin: "0 auto",
+          maxWidth: "300px",
+        }}>
+        <SubHeader title={t("chooseSurvey.surveyData")} />
 
-      <FormContainer onSubmit={handleSubmit} gap={"15px"}>
-        <Input
-          label={t("common.surveyID")}
-          name={surveyId}
-          htmlFor={"survey-id"}
-          error={
-            IDErrMsg ? IDErrMsg : idTypeErrMsg ? idTypeErrMsg : fetchErrMsg
-          }
-          inputErrorStyle={
-            IDErrMsg ? IDErrMsg : idTypeErrMsg ? idTypeErrMsg : fetchErrMsg
-          }
-          value={surveyId}
-          onChange={(e) => {
-            setSurveyId(e.target.value);
-            setIDErrMsg(null);
-            setFetchErrMsg(null);
-            setIdTypeErrMsg(null);
-          }}
-        />
-        <Input
-          label={t("common.surveyPIN")}
-          name={surveyPin}
-          htmlFor={"survey-pin"}
-          error={
-            PINErrMsg ? PINErrMsg : pinTypeErrMsg ? pinTypeErrMsg : fetchErrMsg
-          }
-          inputErrorStyle={
-            PINErrMsg ? PINErrMsg : pinTypeErrMsg ? pinTypeErrMsg : fetchErrMsg
-          }
-          value={surveyPin}
-          onChange={(e) => {
-            setSurveyPin(e.target.value);
-            setPINErrMsg(null);
-            setFetchErrMsg(null);
-            setPinTypeErrMsg(null);
-          }}
-        />
-        <DividerHorizontal />
-        <Flex direction={"column"} gap={"15px"}>
-          <FormButton title={t("common.callUp")} />
-          <BackButton page={0} />
-        </Flex>
-      </FormContainer>
-    </Flex>
+        <FormContainer onSubmit={handleSubmit} gap={"15px"}>
+          <Input
+            label={t("common.surveyID")}
+            name={surveyId}
+            htmlFor={"survey-id"}
+            error={
+              IDErrMsg ? IDErrMsg : idTypeErrMsg ? idTypeErrMsg : fetchErrMsg
+            }
+            inputErrorStyle={
+              IDErrMsg ? IDErrMsg : idTypeErrMsg ? idTypeErrMsg : fetchErrMsg
+            }
+            value={surveyId}
+            onChange={(e) => {
+              setSurveyId(e.target.value);
+              setIDErrMsg(null);
+              setFetchErrMsg(null);
+              setIdTypeErrMsg(null);
+            }}
+          />
+          <Input
+            label={t("common.surveyPIN")}
+            name={surveyPin}
+            htmlFor={"survey-pin"}
+            error={
+              PINErrMsg
+                ? PINErrMsg
+                : pinTypeErrMsg
+                ? pinTypeErrMsg
+                : fetchErrMsg
+            }
+            inputErrorStyle={
+              PINErrMsg
+                ? PINErrMsg
+                : pinTypeErrMsg
+                ? pinTypeErrMsg
+                : fetchErrMsg
+            }
+            value={surveyPin}
+            onChange={(e) => {
+              setSurveyPin(e.target.value);
+              setPINErrMsg(null);
+              setFetchErrMsg(null);
+              setPinTypeErrMsg(null);
+            }}
+          />
+          <DividerHorizontal />
+          <Flex direction={"column"} gap={"15px"}>
+            <FormButton title={t("common.callUp")} />
+            <BackButton page={0} />
+          </Flex>
+        </FormContainer>
+      </Flex>
+    </FramerMotion>
   );
 };
 

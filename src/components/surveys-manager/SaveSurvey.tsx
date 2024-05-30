@@ -14,6 +14,7 @@ import SubHeader from "../parents/SubHeader";
 import ButtonContainer from "../parents/containers/ButtonContainer";
 import CancelButton from "../buttons/CancelButton";
 import ContinueButton from "../buttons/ContinueButton";
+import FramerMotion from "../parents/containers/FramerMotion";
 
 const SaveSurvey = () => {
   const { t } = useTranslations();
@@ -27,7 +28,7 @@ const SaveSurvey = () => {
   }, []);
 
   return (
-    <>
+    <FramerMotion>
       <Modal isVisible={modal} setIsVisible={closeModal}>
         <ModalContent
           url={`/survey/delete/${survey?._id}`}
@@ -63,7 +64,7 @@ const SaveSurvey = () => {
           <ContinueButton page={+4} />
         </ButtonContainer>
       </Flex>
-    </>
+    </FramerMotion>
   );
 };
 

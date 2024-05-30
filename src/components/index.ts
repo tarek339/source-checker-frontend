@@ -25,6 +25,7 @@ import SurveyContent from "./parents/SurveyContent";
 import Flex from "./parents/containers/Flex";
 import SubHeader from "./parents/SubHeader";
 import LoadingBar from "./LoadingBar";
+import FramerMotion from "./parents/containers/FramerMotion";
 
 export {
   Footer,
@@ -54,4 +55,5 @@ export {
   Flex,
   SubHeader,
   LoadingBar,
+  FramerMotion,
 };

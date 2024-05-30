@@ -7,6 +7,7 @@ import {
   SurveysManager,
 } from "./views";
 import { SideMenu } from "./components";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
@@ -16,12 +17,14 @@ function App() {
         paddingBottom: "20px",
       }}>
       <SideMenu />
-      <Routes>
-        <Route path="/" element={<Authentication />} />
-        <Route path="/surveys-manager" element={<SurveysManager />} />
-        <Route path="/student-auth" element={<StudenAuth />} />
-        <Route path="/survey-summary" element={<SurveySummary />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route path="/" element={<Authentication />} />
+          <Route path="/surveys-manager" element={<SurveysManager />} />
+          <Route path="/student-auth" element={<StudenAuth />} />
+          <Route path="/survey-summary" element={<SurveySummary />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }

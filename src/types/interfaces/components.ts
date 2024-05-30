@@ -178,3 +178,7 @@ export interface ILoadingBar {
   marginTop: number;
   page: number;
 }
+
+export interface IFramerMotion {
+  children: JSX.Element | JSX.Element[];
+}

@@ -15,6 +15,7 @@ import AddPage from "./AddPage";
 import Flex from "../../parents/containers/Flex";
 import SubHeader from "../../parents/SubHeader";
 import ContButton from "../../buttons/ContButton";
+import FramerMotion from "../../parents/containers/FramerMotion";
 
 const AddPages = () => {
   const { openModal, dispatchSideBar } = useDispatches();
@@ -44,7 +45,7 @@ const AddPages = () => {
   }, [viewsSelected, survey]);
 
   return (
-    <>
+    <FramerMotion>
       <AddPage />
       <Flex
         direction={"column"}
@@ -113,7 +114,7 @@ const AddPages = () => {
           </>
         </Flex>
       </Flex>
-    </>
+    </FramerMotion>
   );
 };
 
