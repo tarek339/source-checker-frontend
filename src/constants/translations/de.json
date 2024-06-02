@@ -26,7 +26,9 @@
     "desktopView": "desktop",
     "action": "aktion",
     "finish": "beenden",
-    "step": "schritt"
+    "step": "schritt",
+    "error": "Fehler",
+    "retry": "erneut versuchen"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -86,7 +88,10 @@
     "freeNames": "Freie Usernamen?",
     "surveyType": "Umfragetyp",
     "sure": "Sind Sie sicher?",
-    "warningText": "Die Daten lassen sich später nicht mehr ändern!"
+    "warningText": "Die Daten lassen sich später nicht mehr ändern!",
+    "connectionError": "Verbindung fehlgeschlagen",
+    "conErrMsgOne": "Während der Erstellung ist ein Fehler aufgetreten.",
+    "conErrMsgTwo": "Bitte versuche es später erneut."
   },
   "saveSurvey": {
     "saveSurvey": "Umfrage Übersicht",

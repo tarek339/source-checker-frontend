@@ -15,7 +15,6 @@ import AddPages from "./surveys-manager/add-pages/AddPages";
 import SurveyProp from "./surveys-manager/SurveyProp";
 import ContinueButton from "./buttons/ContinueButton";
 import CancelButton from "./buttons/CancelButton";
-import SubmitModal from "./surveys-manager/new-survey/SubmitModal";
 import SideMenu from "./surveys-manager/add-pages/SideMenu";
 import LoadingSpinner from "./LoadingSpinner";
 import Card from "./parents/containers/Card";
@@ -45,7 +44,6 @@ export {
   SurveyProp,
   ContinueButton,
   CancelButton,
-  SubmitModal,
   SideMenu,
   LoadingSpinner,
   Card,

@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   animation-name: fadeIn;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
 }
 
 @media screen and (max-width: 530px) {

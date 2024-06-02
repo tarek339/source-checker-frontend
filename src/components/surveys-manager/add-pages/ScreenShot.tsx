@@ -56,7 +56,7 @@ const ScreenShot = ({
             width: "100%",
             height: "100%",
             display: "block",
-            border: "2px solid #000",
+            border: "2px solid #d5d5d5",
             objectFit: "cover",
             objectPosition: "top",
           }}

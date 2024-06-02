@@ -10,12 +10,12 @@ import BackButton from "../../buttons/BackButton";
 import DividerHorizontal from "../../DividerHorizontal";
 import NoPages from "./NoPages";
 import PagesHolder from "./PagesHolder";
-import { useNavigate } from "react-router-dom";
 import AddPage from "./AddPage";
 import Flex from "../../parents/containers/Flex";
 import SubHeader from "../../parents/SubHeader";
 import ContButton from "../../buttons/ContButton";
 import FramerMotion from "../../parents/containers/FramerMotion";
+import { useNavigate } from "react-router-dom";
 
 const AddPages = () => {
   const { openModal, dispatchSideBar } = useDispatches();
@@ -32,7 +32,7 @@ const AddPages = () => {
 
   useEffect(() => {
     surveyPages?.find((element) => {
-      if (element.isMobileView != null) {
+      if (element.isMobileView !== null) {
         setViewsSelected(true);
       } else setViewsSelected(false);
     });
@@ -99,9 +99,13 @@ const AddPages = () => {
                   viewsSelected
                     ? () => navigate("/survey-summary")
                     : () => {
-                        survey && survey?.pages && survey?.pages?.length > 0
-                          ? dispatchSideBar(true)
-                          : null;
+                        if (
+                          survey &&
+                          survey?.pages &&
+                          survey?.pages?.length > 0
+                        ) {
+                          dispatchSideBar(true);
+                        }
                       }
                 }
                 title={

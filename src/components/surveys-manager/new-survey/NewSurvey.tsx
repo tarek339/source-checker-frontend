@@ -17,10 +17,11 @@ import { FaCircleDot } from "react-icons/fa6";
 import ButtonContainer from "../../parents/containers/ButtonContainer";
 import FormContainer from "../../parents/form/FormContainer";
 import FramerMotion from "../../parents/containers/FramerMotion";
+import ErrorModal from "./ErrorModal";
 
 const NewSurvey = () => {
   const { t } = useTranslations();
-  const { dispatchLoading, closeModal } = useDispatches();
+  const { dispatchLoading, closeModal, openModal } = useDispatches();
   const { createSurvey, setPage } = useLocaleStorage();
 
   const [anonymousResults, setAnonymousResults] = useState(false);
@@ -39,12 +40,15 @@ const NewSurvey = () => {
       setPage(+3);
       closeModal();
     } catch (error) {
+      dispatchLoading(false);
+      openModal();
       console.log(error);
     }
   };
 
   return (
     <FramerMotion>
+      <ErrorModal onSubmit={handleSubmit} />
       <Flex
         direction={"column"}
         gap={"25px"}

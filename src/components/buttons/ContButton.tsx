@@ -1,6 +1,6 @@
 import { IContButton } from "../../types/interfaces/components";
 
-const ContButton = ({ onClick, title }: IContButton) => {
+const ContButton = ({ onClick, title, type }: IContButton) => {
   return (
     <button
       style={{
@@ -16,6 +16,7 @@ const ContButton = ({ onClick, title }: IContButton) => {
         textTransform: "uppercase",
         fontWeight: 600,
       }}
+      type={type}
       onClick={onClick}>
       {title}
     </button>

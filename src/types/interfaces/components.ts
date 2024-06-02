@@ -40,6 +40,7 @@ export interface IBackContinueButton {
 export interface IContButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
   title: string;
+  type?: "submit" | "reset" | "button" | undefined;
 }
 
 export interface ICancelButton {
@@ -87,7 +88,7 @@ export interface ITable {
   property: IPages[];
 }
 
-export interface ISubmitModal {
+export interface IErrorModal {
   onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
 }
 
