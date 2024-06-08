@@ -1,23 +1,13 @@
-import { useEffect, useState } from "react";
-import {
-  AddPages,
-  ChooseAction,
-  ChooseSurvey,
-  LoadingSpinner,
-  NewSurvey,
-  SaveSurvey,
-  Steps,
-  SurveyProp,
-} from "..";
-import { useTranslations, useSelectors, useLocaleStorage } from "../../hooks";
+import { useState } from "react";
+import { SurveyProp } from "..";
+import { useTranslations, useSelectors } from "../../hooks";
 import { No, Yes } from "../icons";
 import { FaRegCopy } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
 
 const useCompArray = () => {
   const { t } = useTranslations();
-  const { page, stepDone, survey, loading } = useSelectors();
-  const { setDoneStep } = useLocaleStorage();
+  const { survey } = useSelectors();
 
   const [copied, setCopied] = useState(false);
 
@@ -35,137 +25,6 @@ const useCompArray = () => {
       setCopied(false);
     }, 1500);
   };
-
-  useEffect(() => {
-    if (page !== 0) {
-      setDoneStep();
-    }
-  }, [page]);
-
-  const steps = [
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepOne")}
-          text={t("survey.stepOneText")}
-          style={{
-            color:
-              page === 0
-                ? "#2834c2"
-                : (stepDone && page === 1) ||
-                  (stepDone && page === 2) ||
-                  (stepDone && page === 3) ||
-                  (stepDone && page === 4)
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepTwo")}
-          text={t("survey.stepTwoText")}
-          style={{
-            color:
-              page === 1
-                ? "#2834c2"
-                : (stepDone && page === 2) ||
-                  (stepDone && page === 3) ||
-                  (stepDone && page === 4)
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepThree")}
-          text={t("survey.stepThreeText")}
-          style={{
-            color:
-              page === 2
-                ? "#2834c2"
-                : (stepDone && page === 3) || (stepDone && page === 4)
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepFour")}
-          text={t("survey.stepFourText")}
-          style={{
-            color:
-              page === 3
-                ? "#2834c2"
-                : stepDone && page === 4
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepFive")}
-          text={t("survey.stepFiveText")}
-          style={{
-            color:
-              page === 4
-                ? "#2834c2"
-                : stepDone && page === 4
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-  ];
-
-  const actionsHolder = [
-    {
-      comp: <ChooseAction />,
-    },
-    {
-      comp: <ChooseSurvey />,
-    },
-    {
-      comp: <NewSurvey />,
-    },
-    {
-      comp: (
-        <>
-          {loading ? (
-            <LoadingSpinner fontSize={"64px"} color={"#D5D5D5"} />
-          ) : (
-            <SaveSurvey />
-          )}
-        </>
-      ),
-    },
-    {
-      comp: <AddPages />,
-    },
-  ];
-
-  const surveysOptions = [
-    {
-      option: t("newSurvey.rating"),
-    },
-  ];
-  const resultsOptions = [
-    {
-      option: t("newSurvey.afterSurvey"),
-    },
-  ];
 
   const surveyArray = [
     {
@@ -250,10 +109,6 @@ const useCompArray = () => {
   ];
 
   return {
-    steps,
-    actionsHolder,
-    surveysOptions,
-    resultsOptions,
     surveyArray,
   };
 };

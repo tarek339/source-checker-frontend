@@ -15,6 +15,7 @@ export interface IInput {
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
+
 export interface ITextArea {
   label: string;
   name: string;
@@ -34,7 +35,7 @@ export interface ISelect {
 }
 
 export interface IBackContinueButton {
-  page: number;
+  path: string;
 }
 
 export interface IContButton {
@@ -57,15 +58,13 @@ export interface IModal {
 
 export interface ISideBar {
   children: JSX.Element | JSX.Element[];
-  style?: React.CSSProperties;
-  isOpen: boolean;
+  collapsed: boolean;
+  toggled: boolean;
 }
 
 export interface IModalContent {
   url: string;
   header: string;
-  localeStorage: string;
-  page: string;
 }
 
 export interface IToggleButton {
@@ -106,10 +105,14 @@ export interface IScreenShot {
   url: string;
 }
 
-export interface ILoadingSpinner {
-  fontSize: string;
+export interface ILoadingPulse {
   color: string;
-  height?: string;
+  size: number;
+}
+
+export interface ILoadingSpinner {
+  color: string;
+  size: number;
 }
 
 export interface IPageForm {
@@ -172,14 +175,18 @@ export interface IFormContainer {
 
 export interface ISubHeader {
   title: string;
+  style?: React.CSSProperties;
 }
 
 export interface ILoadingBar {
   percent: number;
   marginTop: number;
-  page: number;
 }
 
 export interface IFramerMotion {
   children: JSX.Element | JSX.Element[];
+}
+
+export interface ISubTitel {
+  title: string;
 }

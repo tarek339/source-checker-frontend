@@ -3,12 +3,9 @@ import {
   addSurvey,
   addSurveyPages,
   getSinglePage,
-  handleEditModal,
   handleLoading,
   handleModal,
-  handlePages,
   handleSideBar,
-  handleSteps,
   handleSubmit,
   handleTranslation,
   increaseFirstPage,
@@ -27,10 +24,6 @@ const useDispatches = () => {
   const enableEN = () => dispatch(handleTranslation({ locale: Locale.en }));
   const enableGE = () => dispatch(handleTranslation({ locale: Locale.de }));
 
-  const handlePage = (addPage: number) =>
-    dispatch(handlePages({ page: 0 + addPage }));
-  const finishStep = (arg: boolean) => dispatch(handleSteps(arg));
-
   const dispatchSurvey = (res: AxiosResponse<any, any>) =>
     dispatch(addSurvey(res));
   const dispatchPages = (pages: IPages[]) =>
@@ -38,8 +31,6 @@ const useDispatches = () => {
 
   const openModal = () => dispatch(handleModal({ isVisible: true }));
   const closeModal = () => dispatch(handleModal({ isVisible: false }));
-  const openEditModal = () => dispatch(handleEditModal({ visible: true }));
-  const closeEditModal = () => dispatch(handleEditModal({ visible: false }));
 
   const dispatchLoading = (loading: boolean) =>
     dispatch(handleLoading({ loading: loading }));
@@ -71,8 +62,6 @@ const useDispatches = () => {
   return {
     enableEN,
     enableGE,
-    handlePage,
-    finishStep,
     dispatchSurvey,
     openModal,
     closeModal,
@@ -84,8 +73,6 @@ const useDispatches = () => {
     incLastSBPage,
     fetchPageId,
     fetchSinglePage,
-    openEditModal,
-    closeEditModal,
   };
 };
 

@@ -3,7 +3,7 @@ import {
   useDispatches,
   useSelectors,
   useTranslations,
-  useLocaleStorage,
+  useRequests,
   useInputErrors,
 } from "../../../hooks";
 import axios from "axios";
@@ -14,9 +14,9 @@ const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
 
 const AddPage = () => {
   const { survey, loading } = useSelectors();
-  const { dispatchLoading } = useDispatches();
+  const { dispatchLoading, dispatchPages, closeModal } = useDispatches();
   const { t } = useTranslations();
-  const { fetchSurvey } = useLocaleStorage();
+  const { fetchSurvey } = useRequests();
   const { urlTyoeError, emptyInput } = useInputErrors();
 
   const [title, setTitle] = useState("");
@@ -47,14 +47,20 @@ const AddPage = () => {
             note,
           },
         });
-        fetchSurvey(res.data.survey);
+        dispatchPages(res.data.survey.page);
+        fetchSurvey();
         setTitle("");
         setUrl("");
         setNote("");
+        closeModal();
         dispatchLoading(false);
       }
     } catch (error) {
       console.log(error);
+      dispatchLoading(false);
+      setTitle("");
+      setUrl("");
+      setNote("");
     }
   };
 

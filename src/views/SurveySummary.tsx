@@ -2,14 +2,13 @@ import { useEffect } from "react";
 import {
   Flex,
   FramerMotion,
-  Header,
   SubCard,
   SubHeader,
   SurveyContent,
 } from "../components";
 import {
   useBreakPoints,
-  useLocaleStorage,
+  useRequests,
   useSelectors,
   useTranslations,
 } from "../hooks";
@@ -20,15 +19,14 @@ const SurveySummary = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { survey } = useSelectors();
-  const { getSurvey } = useLocaleStorage();
+  const { fetchSurvey } = useRequests();
 
   useEffect(() => {
-    getSurvey();
+    fetchSurvey();
   }, []);
 
   return (
     <>
-      <Header title={t("common.sourceChecker")} />
       <FramerMotion>
         <SurveyContent style={{ paddingLeft: "20px", paddingRight: "20px" }}>
           <SubHeader title={`${t("common.surveyID")}: ${survey?.surveyId}`} />

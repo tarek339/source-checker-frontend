@@ -1,4 +1,3 @@
-import SideBar from "../../parents/containers/SideBar";
 import {
   useBreakPoints,
   useDispatches,
@@ -9,6 +8,7 @@ import { ImCancelCircle } from "react-icons/im";
 import ScreenShot from "./ScreenShot";
 import Flex from "../../parents/containers/Flex";
 import SubHeader from "../../parents/SubHeader";
+import SideBar from "../../parents/containers/SideBar";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -18,22 +18,17 @@ const SideMenu = () => {
   const { t } = useTranslations();
 
   return (
-    <SideBar
-      isOpen={sideBar}
-      style={{
-        width:
-          sideBar && windowWidth >= 768
-            ? "60%"
-            : sideBar && windowWidth <= 768
-            ? "100%"
-            : "0%",
-      }}>
-      <Flex direction={"row"} gap={"5px"} justify="space-between">
+    <SideBar collapsed={sideBar} toggled={sideBar}>
+      <Flex
+        direction={"row"}
+        gap={"5px"}
+        justify="space-between"
+        align="center">
         <SubHeader title={t("addPages.sideBar.header")} />
         <div
-          style={{ cursor: "pointer", marginTop: "2px" }}
+          style={{ cursor: "pointer", paddingTop: "23px" }}
           onClick={() => dispatchSideBar(false)}>
-          <ImCancelCircle fontSize="24px" />
+          <ImCancelCircle fontSize="28px" />
         </div>
       </Flex>
       <>
@@ -50,7 +45,7 @@ const SideMenu = () => {
                 }}>
                 <ScreenShot
                   title={"Mobile"}
-                  width={"300.5px"}
+                  width={"250px"}
                   id={survey?._id}
                   isMobileView={true}
                   pageID={page._id}
@@ -58,7 +53,7 @@ const SideMenu = () => {
                 />
                 <ScreenShot
                   title={"Desktop"}
-                  width={"600px"}
+                  width={"450px"}
                   id={survey?._id}
                   isMobileView={false}
                   pageID={page._id}

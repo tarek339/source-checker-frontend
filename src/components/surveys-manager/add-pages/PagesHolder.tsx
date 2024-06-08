@@ -1,22 +1,19 @@
 import { useState } from "react";
 import {
-  useBreakPoints,
   useDispatches,
-  useLocaleStorage,
+  useRequests,
   useSelectors,
   useTranslations,
 } from "../../../hooks";
 import Table from "../../Table";
 import axios from "axios";
-import EditPage from "./EditPage";
-import Flex from "../../parents/containers/Flex";
 
 const PagesHolder = () => {
   const { surveyPages, survey } = useSelectors();
-  const { openEditModal, fetchSinglePage } = useDispatches();
-  const { fetchSurvey } = useLocaleStorage();
   const { t } = useTranslations();
-  const { windowWidth } = useBreakPoints();
+  const { dispatchSurvey } = useDispatches();
+  const { fetchSurvey } = useRequests();
+
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(5);
@@ -31,37 +28,19 @@ const PagesHolder = () => {
   const onDelete = async (_id: string) => {
     await axios.post(`/survey/delete-page/${_id}`);
     const res = await axios.get(`/survey/get-profile/${survey?._id}`);
-    fetchSurvey(res.data);
-    if (res.data.pages.length % 5 === 0 && res.data.pages.length > 0) {
+    fetchSurvey();
+    dispatchSurvey(res.data.survey);
+    if (
+      res.data.survey.pages.length % 5 === 0 &&
+      res.data.survey.pages.length > 0
+    ) {
       setFirst((prevNum) => prevNum - 5);
       setLast((prevNum) => prevNum - 5);
     }
   };
 
-  const handleEdit = (
-    id: string,
-    url: string,
-    title: string,
-    note: string,
-    isMobileView: boolean,
-    mobileScreenshot: string,
-    desktopScreenshot: string
-  ) => {
-    fetchSinglePage({
-      _id: id,
-      url: url,
-      title: title,
-      note: note,
-      isMobileView: isMobileView,
-      mobileScreenshot: mobileScreenshot,
-      desktopScreenshot: desktopScreenshot,
-    });
-    openEditModal();
-  };
-
   return (
     <>
-      <EditPage />
       <Table
         headers={["Name", t("common.view"), t("common.action")]}
         propsChildren={surveyPages?.slice(first, last).map((page, i) => {
@@ -98,33 +77,15 @@ const PagesHolder = () => {
                       i === surveyPages?.slice(first, last).length - 1
                         ? "20px"
                         : "0px",
+                    textAlign: "right",
                   }}>
-                  <Flex
-                    direction={windowWidth <= 500 ? "column" : "row"}
-                    gap={windowWidth <= 500 ? "5px" : "20px"}>
-                    <span
-                      style={{ color: "#2835c3" }}
-                      onClick={() =>
-                        handleEdit(
-                          page._id,
-                          page.url,
-                          page.title,
-                          page.note,
-                          page.isMobileView!,
-                          page.mobileScreenshot,
-                          page.desktopScreenshot
-                        )
-                      }>
-                      {t("common.edit")}
-                    </span>
-                    <span
-                      style={{
-                        color: "#FF0000",
-                      }}
-                      onClick={() => onDelete(page?._id!)}>
-                      {t("common.delete")}
-                    </span>
-                  </Flex>
+                  <span
+                    style={{
+                      color: "#FF0000",
+                    }}
+                    onClick={() => onDelete(page?._id!)}>
+                    {t("common.delete")}
+                  </span>
                 </td>
               )}
             </tr>
@@ -134,7 +95,7 @@ const PagesHolder = () => {
         last={last}
         setFirst={setFirst}
         setLast={setLast}
-        property={surveyPages}
+        property={survey?.pages!}
       />
     </>
   );

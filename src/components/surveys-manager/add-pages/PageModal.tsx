@@ -16,7 +16,7 @@ const PageModal = ({ children, title }: IPageModal) => {
     <Modal
       isVisible={modal}
       setIsVisible={closeModal}
-      style={{ width: windowWidth <= 500 ? "100%" : "500px" }}>
+      style={{ width: windowWidth <= 500 ? "100%" : "600px" }}>
       <Flex direction={"column"} gap={"10px"}>
         <h3>{title}</h3>
         {children}

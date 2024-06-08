@@ -3,7 +3,7 @@ import { translationsReducer } from "./redux/slices/translations";
 import useBreakPoints from "./useBreakPoints";
 import useDispatches from "./useDispatches";
 import useSelectors from "./useSelectors";
-import useLocaleStorage from "./useLocaleStorage";
+import useRequests from "./useRequests";
 import useInputErrors from "./useInputErrors";
 
 export {
@@ -12,6 +12,6 @@ export {
   useBreakPoints,
   useDispatches,
   useSelectors,
-  useLocaleStorage,
+  useRequests,
   useInputErrors,
 };

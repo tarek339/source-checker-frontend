@@ -1,7 +1,7 @@
 import { useTranslations } from "../hooks";
 import { ILoadingBar } from "../types/interfaces/components";
 
-const LoadingBar = ({ percent, marginTop, page }: ILoadingBar) => {
+const LoadingBar = ({ percent, marginTop }: ILoadingBar) => {
   const { t } = useTranslations();
 
   return (
@@ -15,7 +15,7 @@ const LoadingBar = ({ percent, marginTop, page }: ILoadingBar) => {
           marginTop: `${marginTop}em`,
           width: "100%",
           backgroundColor: "#d5d5d5",
-          height: "20px",
+          height: "17px",
           borderRadius: "45px",
         }}>
         <div
@@ -28,14 +28,20 @@ const LoadingBar = ({ percent, marginTop, page }: ILoadingBar) => {
             transition: percent === 0 ? "width 0.2s" : "width 0.4s",
           }}></div>
       </div>
-      <h4
+      <div
         style={{
-          textTransform: "uppercase",
-          paddingTop: "1em",
-          paddingLeft: "20px",
+          display: "flex",
+          justifyContent: "flex-end",
+          paddingTop: "15px",
+          paddingRight: "20px",
         }}>
-        {`${t("common.step")} ${page + 1}/5`}
-      </h4>
+        <h4
+          style={{
+            textTransform: "uppercase",
+          }}>
+          {`${t("common.step")} ${1}/5`}
+        </h4>
+      </div>
     </>
   );
 };

@@ -17,18 +17,8 @@ export interface HandleSubmit {
   submit: boolean;
 }
 
-export interface HandlePage {
-  page: number;
-}
-export interface HandleSteps {
-  stepDone: boolean;
-}
-
 export interface HandleModal {
   isVisible: boolean;
-}
-export interface HandleEditModal {
-  visible: boolean;
 }
 
 export interface InitialStateSurvey {

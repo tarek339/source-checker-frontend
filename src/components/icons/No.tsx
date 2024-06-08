@@ -7,7 +7,7 @@ const No = () => {
       style={{
         backgroundColor: "#ff0000",
         color: "#FBFCFF",
-        borderRadius: "45px",
+        borderRadius: "4px",
         fontSize: "18px",
         fontWeight: "bold",
         textTransform: "uppercase",

@@ -2,11 +2,11 @@ import Input from "../../parents/form/Input";
 import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
 import CancelButton from "../../buttons/CancelButton";
 import FormButton from "../../parents/form/FormButton";
-import LoadingSpinner from "../../LoadingSpinner";
 import InputMessage from "../../parents/form/InputMessage";
 import { IPageForm } from "../../../types/interfaces/components";
 import FormContainer from "../../parents/form/FormContainer";
 import ButtonContainer from "../../parents/containers/ButtonContainer";
+import LoadingPulse from "../../LoadingPulse";
 
 const PageForm = ({
   onSubmit,
@@ -21,7 +21,7 @@ const PageForm = ({
 }: IPageForm) => {
   const { t } = useTranslations();
   const { loading } = useSelectors();
-  const { closeModal, closeEditModal } = useDispatches();
+  const { closeModal } = useDispatches();
 
   return (
     <FormContainer onSubmit={onSubmit} gap={"15px"}>
@@ -59,17 +59,17 @@ const PageForm = ({
         <CancelButton
           onClick={() => {
             closeModal();
-            closeEditModal();
           }}
           title={t("common.back")}
         />
         <FormButton
           style={{
             width: loading ? "160px" : "",
+            height: loading ? "37px" : "",
           }}
           title={
             loading ? (
-              <LoadingSpinner fontSize={"21px"} color={"#fff"} />
+              <LoadingPulse color={"#fff"} size={10} />
             ) : (
               t("common.add")
             )

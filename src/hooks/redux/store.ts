@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import {
   loadingReducer,
   modalReducer,
-  pagesReducer,
   sideBarPageReducer,
   sideBarReducer,
   submitReducer,
@@ -14,7 +13,6 @@ import {
 export const store = configureStore({
   reducer: {
     translation: translationsReducer,
-    pages: pagesReducer,
     survey: surveyReducer,
     surveyPages: surveyPagesReducer,
     modal: modalReducer,

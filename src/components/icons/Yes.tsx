@@ -7,7 +7,7 @@ const Yes = () => {
       style={{
         backgroundColor: "#2834c2",
         color: "#31e981",
-        borderRadius: "45px",
+        borderRadius: "4px",
         fontSize: "18px",
         fontWeight: "bold",
         textTransform: "uppercase",

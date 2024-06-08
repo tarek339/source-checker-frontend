@@ -39,7 +39,7 @@ const Table = ({
       setFirst((prevNum) => prevNum + 5);
       setLast((prevNum) => prevNum + 5);
     }
-  }, [property.length]);
+  }, [property?.length]);
 
   // useEffect(() => {
   //   if (surveyPages.length > prevSurveyPagesLength) {
@@ -66,6 +66,7 @@ const Table = ({
       style={{
         height: "auto",
         transition: "height 0.2s",
+        paddingTop: "2em",
       }}>
       <table>
         <thead>
@@ -78,6 +79,7 @@ const Table = ({
                     borderTopLeftRadius: index === 0 ? "20px" : "0px",
                     borderTopRightRadius:
                       index == headers.length - 1 ? "20px" : "0px",
+                    textAlign: index === headers.length - 1 ? "right" : "left",
                   }}
                   key={index}>
                   {header}

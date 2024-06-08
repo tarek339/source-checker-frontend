@@ -13,7 +13,7 @@ const NoPages = () => {
       style={{
         margin: "0 auto",
         textAlign: "center",
-        marginTop: "1em",
+        marginTop: "2em",
       }}>
       <SubHeader title={t("addPages.notiHeader")} />
       <p>{t("addPages.notiText")}</p>

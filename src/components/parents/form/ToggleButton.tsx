@@ -22,7 +22,7 @@ const ToggleButton = ({
       />
       <div className="label-holder">
         <label
-          style={{ background: isOn ? "#2835c3" : "lightgrey" }}
+          style={{ background: isOn ? "#2835c3" : "#d5d5d5" }}
           className="switch-label"
           htmlFor={htmlFor}>
           <span className="switch-button" />

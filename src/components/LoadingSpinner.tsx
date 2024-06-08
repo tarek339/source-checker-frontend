@@ -1,20 +1,7 @@
-import { useEffect, useState } from "react";
-import { Loading } from "./icons";
+import { MoonLoader } from "react-spinners";
 import { ILoadingSpinner } from "../types/interfaces/components";
 
-const LoadingSpinner = ({ fontSize, color, height }: ILoadingSpinner) => {
-  const [rotation, setRotation] = useState(0);
-  const [loading, _setLoading] = useState(true);
-
-  useEffect(() => {
-    if (loading) {
-      const interval = setInterval(() => {
-        setRotation((prevRotation) => prevRotation + 5);
-      }, 12);
-      return () => clearInterval(interval);
-    }
-  }, [loading]);
-
+const LoadingSpinner = ({ size, color }: ILoadingSpinner) => {
   return (
     <div
       style={{
@@ -22,15 +9,8 @@ const LoadingSpinner = ({ fontSize, color, height }: ILoadingSpinner) => {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        height: height,
       }}>
-      <Loading
-        style={{
-          fontSize: fontSize,
-          color: color,
-          transform: `rotate(${rotation}deg)`,
-        }}
-      />
+      <MoonLoader speedMultiplier={0.8} color={color} size={size} />
     </div>
   );
 };

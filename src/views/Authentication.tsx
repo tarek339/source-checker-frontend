@@ -1,17 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../components";
-import { useLocaleStorage, useTranslations } from "../hooks";
-import { useEffect } from "react";
+import { useTranslations } from "../hooks";
 import imgSrc from "../assets/images/charisse-kenion-cJkVMAKDYl0-unsplash.jpg";
 
 const Authentication = () => {
   const navigate = useNavigate();
   const { t } = useTranslations();
-  const { resetStates } = useLocaleStorage();
-
-  useEffect(() => {
-    resetStates();
-  }, []);
 
   return (
     <div className="authentication">
@@ -29,7 +23,7 @@ const Authentication = () => {
               </button>
               <button
                 className="teacher-button"
-                onClick={() => navigate("/surveys-manager")}>
+                onClick={() => navigate("/surveys-manager/choose-action")}>
                 {t("auth.teacherButton")}
               </button>
             </div>

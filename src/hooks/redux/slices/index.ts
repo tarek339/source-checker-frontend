@@ -1,8 +1,6 @@
 import { handleTranslation } from "./translations";
-import { pagesReducer } from "./pages";
 import { surveyReducer } from "./survey";
-import { modalReducer, handleEditModal } from "./modal";
-import { handlePages, handleSteps } from "./pages";
+import { modalReducer } from "./modal";
 import { addSurvey, removeSurvey } from "./survey";
 import { handleModal } from "./modal";
 import {
@@ -23,8 +21,6 @@ import {
 
 export {
   handleTranslation,
-  handlePages,
-  handleSteps,
   removeSurvey,
   addSurvey,
   handleModal,
@@ -36,10 +32,8 @@ export {
   increaseFirstPage,
   setPageId,
   getSinglePage,
-  handleEditModal,
   sideBarReducer,
   submitReducer,
-  pagesReducer,
   surveyReducer,
   surveyPagesReducer,
   modalReducer,

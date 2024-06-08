@@ -7,16 +7,16 @@ import ContButton from "../../buttons/ContButton";
 import ButtonContainer from "./ButtonContainer";
 import Flex from "./Flex";
 import SubHeader from "../SubHeader";
+import { useNavigate } from "react-router-dom";
 
-const ModalContent = ({ header, url, localeStorage, page }: IModalContent) => {
-  const { handlePage, closeModal } = useDispatches();
+const ModalContent = ({ header, url }: IModalContent) => {
+  const { closeModal } = useDispatches();
   const { t } = useTranslations();
+  const navigate = useNavigate();
 
   const deleteSurvey = async () => {
     await axios.delete(`${url}`);
-    localStorage.removeItem(localeStorage);
-    localStorage.removeItem(page);
-    handlePage(0);
+    navigate("/surveys-manager/choose-action");
     closeModal();
   };
 
@@ -24,7 +24,10 @@ const ModalContent = ({ header, url, localeStorage, page }: IModalContent) => {
     <Flex direction={"row"} gap={"10px"} align="flex-start">
       <Alert />
       <Flex direction={"column"} gap={"5px"} justify="flex-start">
-        <SubHeader title={`${`${header} ${t("common.delete")}`}?`} />
+        <SubHeader
+          style={{ paddingTop: "0px" }}
+          title={`${`${header} ${t("common.delete")}`}?`}
+        />
         <p>{t("saveSurvey.deleteText")}</p>
         <p>{t("saveSurvey.deleteSection")}</p>
         <ButtonContainer

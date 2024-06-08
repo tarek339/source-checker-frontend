@@ -1,11 +1,6 @@
 import axios from "axios";
 import { IScreenShot } from "../../../types/interfaces/components";
-import {
-  useDispatches,
-  useLocaleStorage,
-  useSelectors,
-  useTranslations,
-} from "../../../hooks";
+import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
 import ContButton from "../../buttons/ContButton";
 
 const ScreenShot = ({
@@ -16,8 +11,13 @@ const ScreenShot = ({
   pageID,
   url,
 }: IScreenShot) => {
-  const { fetchSurvey } = useLocaleStorage();
-  const { dispatchSideBar, incFirstSBPage, incLastSBPage } = useDispatches();
+  const {
+    dispatchSideBar,
+    incFirstSBPage,
+    incLastSBPage,
+    dispatchSurvey,
+    dispatchPages,
+  } = useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
   const { t } = useTranslations();
@@ -28,7 +28,10 @@ const ScreenShot = ({
         isMobileView,
         pageID,
       });
-      fetchSurvey(res.data.survey);
+      if (res.data.survey) {
+        dispatchSurvey(res.data.survey);
+        dispatchPages(res.data.survey.pages);
+      }
       if (surveyPages.length !== lastSideBarPages) {
         incFirstSBPage();
         incLastSBPage();
@@ -47,14 +50,14 @@ const ScreenShot = ({
         id="capture"
         style={{
           width: width,
-          height: "80vh",
+
           border: "1px solid transparent",
           marginBottom: "10px",
         }}>
         <img
           style={{
-            width: "100%",
-            height: "100%",
+            maxWidth: "100%",
+            height: "auto",
             display: "block",
             border: "2px solid #d5d5d5",
             objectFit: "cover",

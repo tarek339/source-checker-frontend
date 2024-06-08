@@ -1,9 +1,10 @@
-import { useLocaleStorage, useTranslations } from "../../hooks";
+import { useNavigate } from "react-router-dom";
+import { useTranslations } from "../../hooks";
 import { IBackContinueButton } from "../../types/interfaces/components";
 
-const ContinueButton = ({ page }: IBackContinueButton) => {
+const ContinueButton = ({ path }: IBackContinueButton) => {
   const { t } = useTranslations();
-  const { setPage } = useLocaleStorage();
+  const naigate = useNavigate();
 
   return (
     <button
@@ -20,7 +21,7 @@ const ContinueButton = ({ page }: IBackContinueButton) => {
         textTransform: "uppercase",
         fontWeight: 600,
       }}
-      onClick={() => setPage(page)}>
+      onClick={() => naigate(path)}>
       {t("common.continue")}
     </button>
   );

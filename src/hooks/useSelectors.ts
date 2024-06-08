@@ -3,8 +3,6 @@ import { RootState } from "./redux/store";
 
 const useSelectors = () => {
   const locale = useSelector((state: RootState) => state.translation.locale);
-  const page = useSelector((state: RootState) => state.pages.page);
-  const stepDone = useSelector((state: RootState) => state.pages.stepDone);
   const survey = useSelector((state: RootState) => state.survey.survey);
   const surveyPages = useSelector(
     (state: RootState) => state.surveyPages?.pages
@@ -16,7 +14,6 @@ const useSelectors = () => {
     (state: RootState) => state.sideBarPage.sideBarLastPage
   );
   const modal = useSelector((state: RootState) => state.modal.isVisible);
-  const editModal = useSelector((state: RootState) => state.modal.visible);
   const loading = useSelector((state: RootState) => state.loading.loading);
   const onSubmit = useSelector((state: RootState) => state.submit.submit);
   const sideBar = useSelector((state: RootState) => state.sideBar.open);
@@ -27,8 +24,6 @@ const useSelectors = () => {
 
   return {
     locale,
-    page,
-    stepDone,
     survey,
     modal,
     surveyPages,
@@ -39,7 +34,6 @@ const useSelectors = () => {
     lastSideBarPages,
     pageId,
     singlePage,
-    editModal,
   };
 };
 
