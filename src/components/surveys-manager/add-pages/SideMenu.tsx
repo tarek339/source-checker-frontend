@@ -46,7 +46,11 @@ const SideMenu = () => {
                 }}>
                 <ScreenShot
                   title={"Mobile"}
-                  width={"250px"}
+                  width={
+                    windowWidth >= 767 && windowWidth <= 1250
+                      ? "200px"
+                      : "250px"
+                  }
                   id={survey?._id}
                   isMobileView={true}
                   pageID={page._id}
@@ -54,7 +58,11 @@ const SideMenu = () => {
                 />
                 <ScreenShot
                   title={"Desktop"}
-                  width={"450px"}
+                  width={
+                    windowWidth >= 767 && windowWidth <= 1250
+                      ? "400px"
+                      : "450px"
+                  }
                   id={survey?._id}
                   isMobileView={false}
                   pageID={page._id}
