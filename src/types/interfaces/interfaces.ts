@@ -18,6 +18,8 @@ export interface IPages {
   mobileScreenshot: string;
   desktopScreenshot: string;
   isMobileView: boolean | null;
+  openGraph: any;
+  isOpenGraphView: boolean;
 }
 
 export interface ISurvey {

@@ -67,6 +67,8 @@ const PagesHolder = () => {
                   ? t("common.mobileView")
                   : page?.isMobileView === false
                   ? t("common.desktopView")
+                  : page?.isOpenGraphView
+                  ? "open graph"
                   : null}
               </td>
               {page?.title && (

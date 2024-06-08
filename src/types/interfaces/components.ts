@@ -153,7 +153,7 @@ export interface ISubCard {
 
 export interface IFlex {
   children: JSX.Element[] | JSX.Element;
-  direction: "row-reverse" | "row" | "column" | "column-reverse";
+  direction: "row" | "column" | "column-reverse" | "row-reverse";
   gap: string;
   justify?: string;
   align?: string;
@@ -189,4 +189,12 @@ export interface IFramerMotion {
 
 export interface ISubTitel {
   title: string;
+}
+
+export interface IOpenGraphView {
+  pageID: string;
+  openGraphView: boolean;
+  ogTitle: string;
+  url: string;
+  ogDescription: string;
 }
