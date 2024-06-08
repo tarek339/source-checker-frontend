@@ -1,7 +1,7 @@
 import axios from "axios";
-import { IScreenShot } from "../../../types/interfaces/components";
-import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
-import ContButton from "../../buttons/ContButton";
+import { useDispatches, useSelectors, useTranslations } from "../hooks";
+import { IScreenShot } from "../types/interfaces/components";
+import ContButton from "./buttons/ContButton";
 
 const ScreenShot = ({
   title,
@@ -22,11 +22,12 @@ const ScreenShot = ({
   const { surveyPages } = useSelectors();
   const { t } = useTranslations();
 
-  const editPage = async () => {
+  const chooseView = async () => {
     try {
       const res = await axios.put(`/survey/choose-page-view/${id}`, {
         isMobileView,
         pageID,
+        openGraphView: false,
       });
       if (res.data.survey) {
         dispatchSurvey(res.data.survey);
@@ -50,7 +51,6 @@ const ScreenShot = ({
         id="capture"
         style={{
           width: width,
-
           border: "1px solid transparent",
           marginBottom: "10px",
         }}>
@@ -66,7 +66,7 @@ const ScreenShot = ({
           src={url}
         />
       </div>
-      <ContButton onClick={editPage} title={t("common.choose")} />
+      <ContButton onClick={chooseView} title={t("common.choose")} />
     </div>
   );
 };

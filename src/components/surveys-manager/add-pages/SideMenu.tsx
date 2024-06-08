@@ -5,10 +5,11 @@ import {
   useTranslations,
 } from "../../../hooks";
 import { ImCancelCircle } from "react-icons/im";
-import ScreenShot from "./ScreenShot";
 import Flex from "../../parents/containers/Flex";
 import SubHeader from "../../parents/SubHeader";
 import SideBar from "../../parents/containers/SideBar";
+import ScreenShot from "../../ScreenShot";
+import OpenGraphView from "../../OpenGraphView";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -34,10 +35,10 @@ const SideMenu = () => {
       <>
         {surveyPages
           ?.slice(firstSideBarPages, lastSideBarPages)
-          ?.map((page, i) => {
+          ?.map((page) => {
             return (
               <Flex
-                key={i}
+                key={page._id}
                 direction={windowWidth >= 768 ? "row" : "column"}
                 gap={"20px"}
                 style={{
@@ -58,6 +59,15 @@ const SideMenu = () => {
                   isMobileView={false}
                   pageID={page._id}
                   url={page.desktopScreenshot}
+                />
+                <OpenGraphView
+                  pageID={page._id}
+                  openGraphView={true}
+                  ogTitle={page.openGraph.ogTitle}
+                  url={page.openGraph.ogImage?.map(
+                    (img: { url: string }) => img.url
+                  )}
+                  ogDescription={page.openGraph.ogDescription}
                 />
               </Flex>
             );
