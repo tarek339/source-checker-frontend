@@ -153,3 +153,9 @@ check screenshots and video on whatapp
       option: t("newSurvey.afterSurvey"),
     },
   ];
+
+
+  possible error type
+  500 server error (not available)
+  404 nicht gefunden (wrong req)
+  422 Unprocessable Entity (server found but couldnt handle data)

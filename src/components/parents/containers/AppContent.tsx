@@ -1,13 +1,10 @@
-import { ISurveyContent } from "../../../types/interfaces/components";
+import { IAppContainer } from "../../../types/interfaces/components";
 
-const AppContent = ({ children, style }: ISurveyContent) => {
+const AppContent = ({ children }: IAppContainer) => {
   return (
     <div
       style={{
-        margin: "0 auto",
-        maxWidth: "1200px",
-        marginTop: "4em",
-        ...style,
+        marginBottom: "30px",
       }}>
       {children}
     </div>

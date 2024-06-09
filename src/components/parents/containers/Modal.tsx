@@ -8,6 +8,9 @@ const Modal = ({ children, isVisible, setIsVisible, style }: IModal) => {
       if (modal && event.target == modal) {
         setIsVisible(true);
       }
+      if (modal) {
+        document.body.style.overflow = "hidden";
+      }
     };
   }, [isVisible, setIsVisible]);
 

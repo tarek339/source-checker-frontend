@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import {
   useBreakPoints,
   useDispatches,
+  useScroll,
   useSelectors,
   useTranslations,
 } from "../../../hooks";
@@ -19,6 +21,11 @@ const ErrorModal = ({ onSubmit }: IErrorModal) => {
   const { t } = useTranslations();
   const { closeModal } = useDispatches();
   const { windowWidth } = useBreakPoints();
+  const { handleScroll } = useScroll();
+
+  useEffect(() => {
+    handleScroll();
+  }, [modal]);
 
   return (
     <Modal isVisible={modal} setIsVisible={closeModal}>

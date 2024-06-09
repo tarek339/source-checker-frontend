@@ -5,7 +5,6 @@ const modalSlice = createSlice({
   name: "modal",
   initialState: {
     isVisible: false,
-    visible: false,
   },
   reducers: {
     handleModal: (state, action: PayloadAction<HandleModal>) => {

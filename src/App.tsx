@@ -11,15 +11,15 @@ import {
   AddPages,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
-import { Header } from "./components";
+import { AppContent, Header } from "./components";
 import { useSelectors, useTranslations } from "./hooks";
 
 function App() {
   const { t } = useTranslations();
   const { mainPage } = useSelectors();
   return (
-    <>
-      {mainPage ? null : <Header title={t("common.sourceChecker")} />}
+    <AppContent>
+      <>{mainPage ? null : <Header title={t("common.sourceChecker")} />}</>
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={<Authentication />} />
@@ -41,7 +41,7 @@ function App() {
           <Route path="/student-auth" element={<StudenAuth />} />
         </Routes>
       </AnimatePresence>
-    </>
+    </AppContent>
   );
 }
 

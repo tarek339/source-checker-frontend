@@ -1,6 +1,12 @@
-import { useDispatches, useSelectors, useBreakPoints } from "../../../hooks";
+import {
+  useDispatches,
+  useSelectors,
+  useBreakPoints,
+  useScroll,
+} from "../../../hooks";
 import Flex from "../../parents/containers/Flex";
 import Modal from "../../parents/containers/Modal";
+import { useEffect } from "react";
 
 export interface IPageModal {
   children: JSX.Element;
@@ -11,6 +17,11 @@ const PageModal = ({ children, title }: IPageModal) => {
   const { modal } = useSelectors();
   const { closeModal } = useDispatches();
   const { windowWidth } = useBreakPoints();
+  const { handleScroll } = useScroll();
+
+  useEffect(() => {
+    handleScroll();
+  }, [modal]);
 
   return (
     <Modal

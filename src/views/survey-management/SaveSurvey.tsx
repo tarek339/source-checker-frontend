@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import {
   useDispatches,
   useRequests,
+  useScroll,
   useSelectors,
   useTranslations,
 } from "../../hooks";
@@ -27,6 +28,11 @@ const SaveSurvey = () => {
   const { closeModal, openModal } = useDispatches();
   const { surveyArray } = useCompArray();
   const { fetchSurvey } = useRequests();
+  const { handleScroll } = useScroll();
+
+  useEffect(() => {
+    handleScroll();
+  }, [modal]);
 
   useEffect(() => {
     fetchSurvey();
