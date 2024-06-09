@@ -1,11 +1,12 @@
 import { ISurveyContent } from "../../../types/interfaces/components";
 
-const SurveyContent = ({ children, style }: ISurveyContent) => {
+const SurveyContent = ({ children, style, maxWidth }: ISurveyContent) => {
   return (
     <div
       style={{
         margin: "0 auto",
-        maxWidth: "1000px",
+        maxWidth: !maxWidth ? "1000px" : `${maxWidth}px`,
+        marginTop: "5em",
         ...style,
       }}>
       {children}

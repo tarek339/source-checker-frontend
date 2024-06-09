@@ -18,6 +18,7 @@ import {
   increaseFirstPage,
   increaseLastPage,
 } from "./sideBarPage";
+import { mainPageReducer, handlePage } from "./mainPage";
 
 export {
   handleTranslation,
@@ -32,6 +33,8 @@ export {
   increaseFirstPage,
   setPageId,
   getSinglePage,
+  handlePage,
+  mainPageReducer,
   sideBarReducer,
   submitReducer,
   surveyReducer,

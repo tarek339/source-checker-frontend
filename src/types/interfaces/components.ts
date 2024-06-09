@@ -143,6 +143,7 @@ export interface ICard {
 export interface ISurveyContent {
   children: JSX.Element[] | JSX.Element;
   style?: React.CSSProperties;
+  maxWidth?: number;
 }
 
 export interface ISubCard {

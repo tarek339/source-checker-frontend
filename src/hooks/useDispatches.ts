@@ -5,6 +5,7 @@ import {
   getSinglePage,
   handleLoading,
   handleModal,
+  handlePage,
   handleSideBar,
   handleSubmit,
   handleTranslation,
@@ -58,6 +59,7 @@ const useDispatches = () => {
         desktopScreenshot: page.desktopScreenshot,
       })
     );
+  const setMainPage = (arg: boolean) => dispatch(handlePage({ mainPage: arg }));
 
   return {
     enableEN,
@@ -73,6 +75,7 @@ const useDispatches = () => {
     incLastSBPage,
     fetchPageId,
     fetchSinglePage,
+    setMainPage,
   };
 };
 

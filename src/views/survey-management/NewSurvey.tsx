@@ -10,6 +10,7 @@ import {
   FormContainer,
   FramerMotion,
   SubHeader,
+  SubTitel,
   SurveyContent,
   ToggleButton,
 } from "../../components";
@@ -48,6 +49,7 @@ const NewSurvey = () => {
 
   return (
     <SurveyContent>
+      <SubTitel title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <ErrorModal onSubmit={handleSubmit} />

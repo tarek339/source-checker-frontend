@@ -1,13 +1,14 @@
 import { IoAddOutline } from "react-icons/io5";
 import { FiArrowUp } from "react-icons/fi";
-import { useState } from "react";
-import { useBreakPoints, useTranslations } from "../../hooks";
+import { useEffect, useState } from "react";
+import { useBreakPoints, useDispatches, useTranslations } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import {
   Card,
   Flex,
   FramerMotion,
   SubHeader,
+  SubTitel,
   SurveyContent,
 } from "../../components";
 
@@ -30,9 +31,15 @@ const ChooseAction = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const navigate = useNavigate();
+  const { setMainPage } = useDispatches();
+
+  useEffect(() => {
+    setMainPage(false);
+  }, []);
 
   return (
     <SurveyContent>
+      <SubTitel title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <SubHeader title={t("chooseAction.header")} />

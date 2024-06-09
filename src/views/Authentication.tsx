@@ -1,11 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../components";
-import { useTranslations } from "../hooks";
+import { useDispatches, useTranslations } from "../hooks";
 import imgSrc from "../assets/images/charisse-kenion-cJkVMAKDYl0-unsplash.jpg";
+import { useEffect } from "react";
 
 const Authentication = () => {
   const navigate = useNavigate();
   const { t } = useTranslations();
+  const { setMainPage } = useDispatches();
+
+  useEffect(() => {
+    setMainPage(true);
+  }, []);
 
   return (
     <div className="authentication">

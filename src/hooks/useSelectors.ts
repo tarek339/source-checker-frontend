@@ -21,6 +21,7 @@ const useSelectors = () => {
   const singlePage = useSelector(
     (state: RootState) => state.surveyPages.singlePage
   );
+  const mainPage = useSelector((state: RootState) => state.mainPage.mainPage);
 
   return {
     locale,
@@ -34,6 +35,7 @@ const useSelectors = () => {
     lastSideBarPages,
     pageId,
     singlePage,
+    mainPage,
   };
 };
 

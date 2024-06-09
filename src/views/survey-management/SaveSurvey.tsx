@@ -18,6 +18,7 @@ import {
   useCompArray,
   Modal,
   ModalContent,
+  SubTitel,
 } from "../../components";
 
 const SaveSurvey = () => {
@@ -33,6 +34,7 @@ const SaveSurvey = () => {
 
   return (
     <SurveyContent>
+      <SubTitel title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <Modal isVisible={modal} setIsVisible={closeModal}>

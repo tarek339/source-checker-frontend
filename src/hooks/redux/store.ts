@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
   loadingReducer,
+  mainPageReducer,
   modalReducer,
   sideBarPageReducer,
   sideBarReducer,
@@ -20,6 +21,7 @@ export const store = configureStore({
     submit: submitReducer,
     sideBar: sideBarReducer,
     sideBarPage: sideBarPageReducer,
+    mainPage: mainPageReducer,
   },
 });
 

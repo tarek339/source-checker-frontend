@@ -32,3 +32,7 @@ export interface InitialStateSurvey {
 export interface InitialStateSideBar {
   open: boolean;
 }
+
+export interface HandleMainPage {
+  mainPage: boolean;
+}

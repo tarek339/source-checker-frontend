@@ -9,6 +9,7 @@ import {
   FramerMotion,
   Input,
   SubHeader,
+  SubTitel,
   SurveyContent,
 } from "../../components";
 import { useTranslations, useInputErrors, useDispatches } from "../../hooks";
@@ -50,6 +51,7 @@ const ChooseSurvey = () => {
 
   return (
     <SurveyContent>
+      <SubTitel title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <SubHeader title={t("chooseSurvey.surveyData")} />

@@ -19,6 +19,8 @@ import {
   ContButton,
   NoPages,
   PagesHolder,
+  SubTitel,
+  SideMenu,
 } from "../../components";
 
 const AddPages = () => {
@@ -36,7 +38,7 @@ const AddPages = () => {
 
   useEffect(() => {
     surveyPages?.find((element) => {
-      if (element.isMobileView !== null) {
+      if (element.isMobileView !== null || element.isOpenGraphView !== false) {
         setViewsSelected(true);
       } else setViewsSelected(false);
     });
@@ -49,7 +51,9 @@ const AddPages = () => {
   }, [viewsSelected, survey]);
 
   return (
-    <SurveyContent>
+    <SurveyContent style={{ position: "relative" }}>
+      <SideMenu />
+      <SubTitel title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <SubHeader title={t("addPages.header")} />
