@@ -28,7 +28,7 @@ import NoPages from "./surveys-manager/add-pages/NoPages";
 import PagesHolder from "./surveys-manager/add-pages/PagesHolder";
 import FormContainer from "./parents/form/FormContainer";
 import ButtonContainer from "./parents/containers/ButtonContainer";
-import ErrorModal from "./surveys-manager/new-survey/ErrorModal";
+import ErrorModal from "./surveys-manager/ErrorModal";
 import ModalContent from "./parents/containers/ModalContent";
 import Modal from "./parents/containers/Modal";
 import useCompArray from "./surveys-manager/useCompArray";
