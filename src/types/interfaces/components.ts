@@ -1,4 +1,5 @@
 import { IPages } from "./interfaces";
+import { HandleModal } from "./redux/slices";
 
 export interface ISteps {
   counter: string;
@@ -56,6 +57,14 @@ export interface IModal {
   style?: React.CSSProperties;
 }
 
+export interface IModals {
+  children: JSX.Element | JSX.Element[];
+  isOpen: boolean;
+  onClose: () => {
+    payload: HandleModal;
+    type: "modal/handleModal";
+  };
+}
 export interface ISideBar {
   children: JSX.Element | JSX.Element[];
   collapsed: boolean;
@@ -144,6 +153,10 @@ export interface ISurveyContent {
   children: JSX.Element[] | JSX.Element;
   style?: React.CSSProperties;
   maxWidth?: number;
+}
+
+export interface IAppContainer {
+  children: JSX.Element[] | JSX.Element;
 }
 
 export interface ISubCard {

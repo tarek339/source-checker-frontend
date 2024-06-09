@@ -22,17 +22,17 @@ import LoadingBar from "./LoadingBar";
 import FramerMotion from "./parents/containers/FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
 import SubTitel from "./parents/SubTitel";
-import AppContent from "./parents/containers/AppContent";
 import ContButton from "./buttons/ContButton";
 import AddPage from "./surveys-manager/add-pages/AddPage";
 import NoPages from "./surveys-manager/add-pages/NoPages";
 import PagesHolder from "./surveys-manager/add-pages/PagesHolder";
 import FormContainer from "./parents/form/FormContainer";
 import ButtonContainer from "./parents/containers/ButtonContainer";
-import ErrorModal from "./surveys-manager/new-survey/ErrorModal";
+import ErrorModal from "./surveys-manager/ErrorModal";
 import ModalContent from "./parents/containers/ModalContent";
 import Modal from "./parents/containers/Modal";
 import useCompArray from "./surveys-manager/useCompArray";
+import AppContent from "./parents/containers/AppContent";
 
 export {
   Footer,

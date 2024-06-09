@@ -1,24 +1,31 @@
+import { useEffect } from "react";
+import { IErrorModal } from "../../types/interfaces/components";
+import CancelButton from "../buttons/CancelButton";
+import ContButton from "../buttons/ContButton";
+import { Alert } from "../icons";
+import SubHeader from "../parents/SubHeader";
+import ButtonContainer from "../parents/containers/ButtonContainer";
+import Flex from "../parents/containers/Flex";
+import Modal from "../parents/containers/Modal";
+import FormContainer from "../parents/form/FormContainer";
 import {
-  useBreakPoints,
-  useDispatches,
   useSelectors,
   useTranslations,
-} from "../../../hooks";
-import { IErrorModal } from "../../../types/interfaces/components";
-import CancelButton from "../../buttons/CancelButton";
-import ContButton from "../../buttons/ContButton";
-import { Alert } from "../../icons";
-import SubHeader from "../../parents/SubHeader";
-import ButtonContainer from "../../parents/containers/ButtonContainer";
-import Flex from "../../parents/containers/Flex";
-import Modal from "../../parents/containers/Modal";
-import FormContainer from "../../parents/form/FormContainer";
+  useDispatches,
+  useBreakPoints,
+  useScroll,
+} from "../../hooks";
 
 const ErrorModal = ({ onSubmit }: IErrorModal) => {
   const { modal } = useSelectors();
   const { t } = useTranslations();
   const { closeModal } = useDispatches();
   const { windowWidth } = useBreakPoints();
+  const { handleScroll } = useScroll();
+
+  useEffect(() => {
+    handleScroll();
+  }, [modal]);
 
   return (
     <Modal isVisible={modal} setIsVisible={closeModal}>

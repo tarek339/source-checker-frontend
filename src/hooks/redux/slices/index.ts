@@ -1,8 +1,7 @@
 import { handleTranslation } from "./translations";
 import { surveyReducer } from "./survey";
-import { modalReducer } from "./modal";
+import { modalReducer, handleModal } from "./modal";
 import { addSurvey, removeSurvey } from "./survey";
-import { handleModal } from "./modal";
 import {
   addSurveyPages,
   setPageId,
