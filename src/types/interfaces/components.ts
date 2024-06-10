@@ -76,11 +76,11 @@ export interface IModalContent {
   header: string;
 }
 
-export interface IToggleButton {
+export interface ISwitchToggle {
   label: string;
   labelText?: string;
-  isOn: boolean;
-  handleToggle: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  checked: boolean;
+  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
   ifOnText: string;
   ifOffText: string;
   htmlFor: string;
