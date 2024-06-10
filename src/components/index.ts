@@ -5,7 +5,6 @@ import Input from "./parents/form/Input";
 import FormButton from "./parents/form/FormButton";
 import BackButton from "./buttons/BackButton";
 import Select from "./parents/form/Select";
-import ToggleButton from "./parents/form/ToggleButton";
 import DividerHorizontal from "./DividerHorizontal";
 import SurveyProp from "./surveys-manager/SurveyProp";
 import ContinueButton from "./buttons/ContinueButton";
@@ -33,6 +32,7 @@ import ModalContent from "./parents/containers/ModalContent";
 import Modal from "./parents/containers/Modal";
 import useCompArray from "./surveys-manager/useCompArray";
 import AppContent from "./parents/containers/AppContent";
+import SwitchToggle from "./parents/form/SwitchToggle";
 
 export {
   Footer,
@@ -42,7 +42,6 @@ export {
   FormButton,
   BackButton,
   Select,
-  ToggleButton,
   DividerHorizontal,
   SurveyProp,
   ContinueButton,
@@ -70,4 +69,5 @@ export {
   Modal,
   ModalContent,
   useCompArray,
+  SwitchToggle,
 };

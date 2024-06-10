@@ -12,7 +12,7 @@ import {
   SubHeader,
   SubTitel,
   SurveyContent,
-  ToggleButton,
+  SwitchToggle,
 } from "../../components";
 import { useDispatches, useTranslations } from "../../hooks";
 import axios from "axios";
@@ -92,20 +92,21 @@ const NewSurvey = () => {
             <DividerHorizontal />
 
             <FormContainer onSubmit={handleSubmit} gap={"30px"}>
-              <ToggleButton
+              <SwitchToggle
                 label={t("newSurvey.freeNames")}
                 labelText={t("newSurvey.labelTextOne")}
-                isOn={freeUserNames}
-                handleToggle={() => setFreeUserNames(!freeUserNames)}
+                checked={freeUserNames}
+                onChange={() => setFreeUserNames(!freeUserNames)}
                 ifOnText={t("newSurvey.yes")}
                 ifOffText={t("newSurvey.no")}
                 htmlFor={"user-names"}
               />
-              <ToggleButton
+
+              <SwitchToggle
                 label={t("newSurvey.anonymous")}
                 labelText={t("newSurvey.labelTextTwo")}
-                isOn={anonymousResults}
-                handleToggle={() => setAnonymousResults(!anonymousResults)}
+                checked={anonymousResults}
+                onChange={() => setAnonymousResults(!anonymousResults)}
                 ifOnText={t("newSurvey.yes")}
                 ifOffText={t("newSurvey.no")}
                 htmlFor={"anonymous"}
