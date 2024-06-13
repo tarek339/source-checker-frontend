@@ -10,7 +10,7 @@ const Header = ({ title }: IHeader) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: "40px",
+        padding: "40px 40px 40px 25px",
         boxShadow: "rgba(0, 0, 0, 0.239) 0px 3px 8px",
       }}>
       <h2

@@ -1,6 +1,6 @@
-import { useTranslations } from "../../../hooks";
-import SubHeader from "../../parents/SubHeader";
-import Flex from "../../parents/containers/Flex";
+import { useTranslations } from "../../../../hooks";
+import Flex from "../../../parents/containers/Flex";
+import SubHeader from "../../../parents/SubHeader";
 
 const NoPages = () => {
   const { t } = useTranslations();

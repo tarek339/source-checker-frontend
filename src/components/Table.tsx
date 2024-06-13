@@ -5,7 +5,7 @@ import {
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
 import Flex from "./parents/containers/Flex";
-// import { useSelectors } from "../hooks";
+import { useTranslations } from "../hooks";
 
 const Table = ({
   headers,
@@ -16,11 +16,7 @@ const Table = ({
   setLast,
   property,
 }: ITable) => {
-  // const { surveyPages } = useSelectors();
-  // const [height, setHeight] = useState(145);
-  // const [prevSurveyPagesLength, setPrevSurveyPagesLength] = useState(
-  //   surveyPages.length
-  // );
+  const { t } = useTranslations();
 
   const nextPage = () => {
     if (last >= property.length) return;
@@ -40,23 +36,6 @@ const Table = ({
       setLast((prevNum) => prevNum + 5);
     }
   }, [property?.length]);
-
-  // useEffect(() => {
-  //   if (surveyPages.length > prevSurveyPagesLength) {
-  //     setHeight((prevH) => prevH + 54);
-  //   }
-  //   if (surveyPages.length > 5) {
-  //     setHeight(361);
-  //   }
-  //   if (surveyPages.length < prevSurveyPagesLength && surveyPages.length < 6) {
-  //     setHeight((prevH) => prevH - 54);
-  //   }
-  //   if (surveyPages.length === 1) {
-  //     setHeight(145);
-  //   }
-  //   setPrevSurveyPagesLength(surveyPages.length);
-  //   console.log(height);
-  // }, [surveyPages, height]);
 
   return (
     <Flex
@@ -104,7 +83,7 @@ const Table = ({
           <span>{first + 1}</span>
           <span>-</span>
           <span>{last}</span>
-          <span>of</span>
+          <span>{t("common.of")}</span>
           <span>{property?.length}</span>
         </Flex>
         <Flex direction={"row"} gap={"20px"} justify="flex-end" align="center">

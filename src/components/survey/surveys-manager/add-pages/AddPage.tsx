@@ -1,14 +1,14 @@
-import { useState } from "react";
-import {
-  useDispatches,
-  useSelectors,
-  useTranslations,
-  useRequests,
-  useInputErrors,
-} from "../../../hooks";
+import { ChangeEvent, useState } from "react";
 import axios from "axios";
 import PageForm from "./PageForm";
 import PageModal from "./PageModal";
+import {
+  useSelectors,
+  useDispatches,
+  useTranslations,
+  useRequests,
+  useInputErrors,
+} from "../../../../hooks";
 
 const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
 
@@ -73,16 +73,18 @@ const AddPage = () => {
         inputValue={title}
         urlValue={url}
         textAreaValue={note}
-        onChangeTitle={(e) => {
+        onChangeTitle={(e: ChangeEvent<HTMLInputElement>) => {
           setTitle(e.target.value);
           setTitleErrorMessage(null);
         }}
-        onChangeUrl={(e) => {
+        onChangeUrl={(e: ChangeEvent<HTMLInputElement>) => {
           setUrl(e.target.value);
           setUrlErrorMessage(null);
           setIsUrl(null);
         }}
-        onChangeTextArea={(e) => setNote(e.target.value)}
+        onChangeTextArea={(e: ChangeEvent<HTMLTextAreaElement>) =>
+          setNote(e.target.value)
+        }
       />
     </PageModal>
   );

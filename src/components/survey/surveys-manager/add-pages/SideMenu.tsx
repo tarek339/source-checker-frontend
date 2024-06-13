@@ -1,15 +1,16 @@
-import {
-  useBreakPoints,
-  useDispatches,
-  useSelectors,
-  useTranslations,
-} from "../../../hooks";
+import { useEffect } from "react";
 import { ImCancelCircle } from "react-icons/im";
-import Flex from "../../parents/containers/Flex";
-import SubHeader from "../../parents/SubHeader";
-import SideBar from "../../parents/containers/SideBar";
-import ScreenShot from "../../ScreenShot";
-import OpenGraphView from "../../OpenGraphView";
+import {
+  useSelectors,
+  useDispatches,
+  useBreakPoints,
+  useTranslations,
+} from "../../../../hooks";
+import OpenGraphView from "../../../OpenGraphView";
+import ScreenShot from "../../../ScreenShot";
+import SubHeader from "../../../parents/SubHeader";
+import Flex from "../../../parents/containers/Flex";
+import SideBar from "../../../parents/containers/SideBar";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -17,6 +18,10 @@ const SideMenu = () => {
   const { dispatchSideBar } = useDispatches();
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
+
+  useEffect(() => {
+    console.log(sideBar);
+  }, [sideBar]);
 
   return (
     <SideBar collapsed={sideBar} toggled={sideBar}>

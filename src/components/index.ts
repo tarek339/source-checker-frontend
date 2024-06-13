@@ -6,10 +6,10 @@ import FormButton from "./parents/form/FormButton";
 import BackButton from "./buttons/BackButton";
 import Select from "./parents/form/Select";
 import DividerHorizontal from "./DividerHorizontal";
-import SurveyProp from "./surveys-manager/SurveyProp";
+import SurveyProp from "./survey/surveys-manager/SurveyProp";
 import ContinueButton from "./buttons/ContinueButton";
 import CancelButton from "./buttons/CancelButton";
-import SideMenu from "./surveys-manager/add-pages/SideMenu";
+import SideMenu from "./survey/surveys-manager/add-pages/SideMenu";
 import LoadingPulse from "./LoadingPulse";
 import Card from "./parents/containers/Card";
 import Header from "./parents/Header";
@@ -22,17 +22,22 @@ import FramerMotion from "./parents/containers/FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
 import SubTitel from "./parents/SubTitel";
 import ContButton from "./buttons/ContButton";
-import AddPage from "./surveys-manager/add-pages/AddPage";
-import NoPages from "./surveys-manager/add-pages/NoPages";
-import PagesHolder from "./surveys-manager/add-pages/PagesHolder";
+import AddPage from "./survey/surveys-manager/add-pages/AddPage";
+import NoPages from "./survey/surveys-manager/add-pages/NoPages";
+import PagesHolder from "./survey/surveys-manager/add-pages/PagesHolder";
 import FormContainer from "./parents/form/FormContainer";
 import ButtonContainer from "./parents/containers/ButtonContainer";
-import ErrorModal from "./surveys-manager/ErrorModal";
+import ErrorModal from "./survey/surveys-manager/ErrorModal";
 import ModalContent from "./parents/containers/ModalContent";
 import Modal from "./parents/containers/Modal";
-import useCompArray from "./surveys-manager/useCompArray";
+import useCompArray from "./survey/surveys-manager/useCompArray";
 import AppContent from "./parents/containers/AppContent";
 import SwitchToggle from "./parents/form/SwitchToggle";
+import Introduction from "./survey/survey-control/Introduction";
+import SurveyData from "./survey/survey-control/SurveyData";
+import Contorl from "./survey/survey-control/Contorl";
+import PageControl from "./survey/survey-control/PageControl";
+import SurveyStatus from "./survey/survey-control/SurveyStatus";
 
 export {
   Footer,
@@ -70,4 +75,9 @@ export {
   ModalContent,
   useCompArray,
   SwitchToggle,
+  Introduction,
+  SurveyData,
+  Contorl,
+  PageControl,
+  SurveyStatus,
 };

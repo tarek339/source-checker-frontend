@@ -41,13 +41,15 @@ export interface IBackContinueButton {
 
 export interface IContButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  title: string;
+  title: string | JSX.Element | JSX.Element[];
   type?: "submit" | "reset" | "button" | undefined;
+  width?: string | undefined;
 }
 
 export interface ICancelButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
   title: string;
+  style?: React.CSSProperties;
 }
 
 export interface IModal {

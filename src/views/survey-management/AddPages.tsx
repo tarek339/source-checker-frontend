@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
-import {
-  useBreakPoints,
-  useDispatches,
-  useRequests,
-  useSelectors,
-  useTranslations,
-} from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import {
   SurveyContent,
+  SideMenu,
+  SubTitel,
   Card,
   FramerMotion,
-  Flex,
   SubHeader,
+  AddPage,
+  Flex,
+  PagesHolder,
+  NoPages,
+  ContButton,
   DividerHorizontal,
   BackButton,
-  AddPage,
-  ContButton,
-  NoPages,
-  PagesHolder,
-  SubTitel,
-  SideMenu,
 } from "../../components";
+import {
+  useDispatches,
+  useTranslations,
+  useBreakPoints,
+  useSelectors,
+  useRequests,
+} from "../../hooks";
 
 const AddPages = () => {
   const { openModal, dispatchSideBar } = useDispatches();

@@ -1,20 +1,22 @@
 import { useEffect } from "react";
-import { IErrorModal } from "../../types/interfaces/components";
-import CancelButton from "../buttons/CancelButton";
-import ContButton from "../buttons/ContButton";
-import { Alert } from "../icons";
-import SubHeader from "../parents/SubHeader";
-import ButtonContainer from "../parents/containers/ButtonContainer";
-import Flex from "../parents/containers/Flex";
-import Modal from "../parents/containers/Modal";
-import FormContainer from "../parents/form/FormContainer";
+import {
+  ButtonContainer,
+  CancelButton,
+  ContButton,
+  Flex,
+  FormContainer,
+  Modal,
+  SubHeader,
+} from "../..";
 import {
   useSelectors,
   useTranslations,
   useDispatches,
   useBreakPoints,
   useScroll,
-} from "../../hooks";
+} from "../../../hooks";
+import { IErrorModal } from "../../../types/interfaces/components";
+import { Alert } from "../../icons";
 
 const ErrorModal = ({ onSubmit }: IErrorModal) => {
   const { modal } = useSelectors();
