@@ -5,6 +5,7 @@ import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
 import SubHeader from "../../parents/SubHeader";
 import { useState } from "react";
+import SpanBold from "../../parents/SpanBold";
 
 const PageControl = () => {
   const { windowWidth } = useBreakPoints();
@@ -26,11 +27,14 @@ const PageControl = () => {
 
   return (
     <SubCard width={windowWidth < 768 ? "" : `${100 / 3}%`}>
-      <Flex direction={"column"} gap={"10px"}>
+      <Flex direction={"column"} gap={"5px"}>
         <SubHeader title={t("common.pageControl")} />
-        <span>
-          {t("common.page")} {currentPage} {t("common.of")} {surveyPages.length}
-        </span>
+        <span style={{ fontWeight: 600 }}></span>
+        <SpanBold
+          title={`${`${t("common.page")} ${currentPage} ${t("common.of")} ${
+            surveyPages.length
+          }`}`}
+        />
         <Flex direction={"row"} gap={"5px"} justify="center" width="100%">
           <ContButton
             onClick={handlePrev}

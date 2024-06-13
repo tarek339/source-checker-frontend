@@ -18,6 +18,12 @@ import {
   increaseLastPage,
 } from "./sideBarPage";
 import { mainPageReducer, handlePage } from "./mainPage";
+import {
+  surveyControllerReducer,
+  handleSurveyStatus,
+  handleCountDown,
+} from "./surveyController";
+import { addStudent, removeStudent, studenReducer } from "./student";
 
 export {
   handleTranslation,
@@ -33,6 +39,12 @@ export {
   setPageId,
   getSinglePage,
   handlePage,
+  handleSurveyStatus,
+  handleCountDown,
+  addStudent,
+  removeStudent,
+  studenReducer,
+  surveyControllerReducer,
   mainPageReducer,
   sideBarReducer,
   submitReducer,

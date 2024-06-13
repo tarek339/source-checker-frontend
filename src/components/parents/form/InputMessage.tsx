@@ -19,8 +19,8 @@ const InputMessage = ({
           name={name}
           id={htmlFor}
           style={{
-            borderColor: inputErrorStyle ? "#f44336" : "",
-            boxShadow: inputErrorStyle ? "0px 0px 0px 1px #f44336 inset" : "",
+            borderColor: inputErrorStyle ? "#ff0000" : "",
+            boxShadow: inputErrorStyle ? "0px 0px 0px 1px #ff0000 inset" : "",
           }}
           value={value}
           onChange={onChange}

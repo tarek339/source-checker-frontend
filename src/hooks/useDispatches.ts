@@ -1,13 +1,16 @@
 import { useDispatch } from "react-redux";
 import {
+  addStudent,
   addSurvey,
   addSurveyPages,
   getSinglePage,
+  handleCountDown,
   handleLoading,
   handleModal,
   handlePage,
   handleSideBar,
   handleSubmit,
+  handleSurveyStatus,
   handleTranslation,
   increaseFirstPage,
   increaseLastPage,
@@ -61,6 +64,14 @@ const useDispatches = () => {
     );
   const setMainPage = (arg: boolean) => dispatch(handlePage({ mainPage: arg }));
 
+  const setSurveyStatus = (isStarted: boolean) =>
+    dispatch(handleSurveyStatus({ isStarted: isStarted }));
+  const setCoundDownStatus = (countDownDone: boolean) =>
+    dispatch(handleCountDown({ countDownDone: countDownDone }));
+
+  const dispatchStudent = (res: AxiosResponse<any, any>) =>
+    dispatch(addStudent(res));
+
   return {
     enableEN,
     enableGE,
@@ -76,6 +87,9 @@ const useDispatches = () => {
     fetchPageId,
     fetchSinglePage,
     setMainPage,
+    setSurveyStatus,
+    setCoundDownStatus,
+    dispatchStudent,
   };
 };
 

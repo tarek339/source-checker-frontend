@@ -37,7 +37,9 @@
     "page": "Seite",
     "next": "nächtse",
     "surveyStatus": "Umfragestatus",
-    "studentQuantity": "Anzahl Schüler"
+    "studentQuantity": "Anzahl Schüler",
+    "freeName": "Freien Usernamen auswählen",
+    "register": "anmelden"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",

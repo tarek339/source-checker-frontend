@@ -8,6 +8,7 @@ const Flex = ({
   align,
   width,
   style,
+  height,
 }: IFlex) => {
   return (
     <div
@@ -18,6 +19,7 @@ const Flex = ({
         justifyContent: justify,
         alignItems: align,
         width: width,
+        height: height,
         ...style,
       }}>
       {children}

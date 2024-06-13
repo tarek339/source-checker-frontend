@@ -38,6 +38,10 @@ import SurveyData from "./survey/survey-control/SurveyData";
 import Contorl from "./survey/survey-control/Contorl";
 import PageControl from "./survey/survey-control/PageControl";
 import SurveyStatus from "./survey/survey-control/SurveyStatus";
+import NotStarted from "./survey/student-survey/NotStarted";
+import SpanBold from "./parents/SpanBold";
+import CountDown from "./survey/student-survey/CountDown";
+import SurveyStart from "./survey/student-survey/SurveyStart";
 
 export {
   Footer,
@@ -80,4 +84,8 @@ export {
   Contorl,
   PageControl,
   SurveyStatus,
+  NotStarted,
+  SpanBold,
+  CountDown,
+  SurveyStart,
 };

@@ -10,6 +10,7 @@ import {
   ChooseSurvey,
   AddPages,
   StudentSurvey,
+  RegisterStudent,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
 import { AppContent, Header } from "./components";
@@ -18,6 +19,7 @@ import { useSelectors, useTranslations } from "./hooks";
 function App() {
   const { t } = useTranslations();
   const { mainPage } = useSelectors();
+
   return (
     <AppContent>
       <>{mainPage ? null : <Header title={t("common.sourceChecker")} />}</>
@@ -38,9 +40,13 @@ function App() {
             element={<SaveSurvey />}
           />
           <Route path="/surveys-manager/add-pages/:id" element={<AddPages />} />
-          <Route path="/survey-summary/:id" element={<SurveyControl />} />
+          <Route path="/survey-control/:id" element={<SurveyControl />} />
           <Route path="/student-auth" element={<StudenAuth />} />
-          <Route path="/student-survey" element={<StudentSurvey />} />
+          <Route path="/register-student/:id" element={<RegisterStudent />} />
+          <Route
+            path="/student-survey/:id/student-id/:studentId"
+            element={<StudentSurvey />}
+          />
         </Routes>
       </AnimatePresence>
     </AppContent>

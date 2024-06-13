@@ -109,7 +109,7 @@ const AddPages = () => {
                   <ContButton
                     onClick={
                       viewsSelected
-                        ? () => navigate(`/survey-summary/${survey._id}`)
+                        ? () => navigate(`/survey-control/${survey._id}`)
                         : () => {
                             if (
                               survey &&

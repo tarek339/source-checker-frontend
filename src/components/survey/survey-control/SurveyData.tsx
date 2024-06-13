@@ -4,6 +4,7 @@ import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
 import { useBreakPoints, useSelectors, useTranslations } from "../../../hooks";
 import SubHeader from "../../parents/SubHeader";
+import SpanBold from "../../parents/SpanBold";
 
 const SurveyData = () => {
   const { windowWidth } = useBreakPoints();
@@ -19,18 +20,24 @@ const SurveyData = () => {
         <Flex direction={"row"} gap={"10px"}>
           <Flex direction={"column"} gap={"0px"}>
             <QrCode value={survey?.link!} />
-            <span style={{ fontWeight: 600 }}>ID: {survey?.surveyId}</span>
+            <SpanBold title={`ID: ${survey?.surveyId}`} />
           </Flex>
           <Flex direction={"column"} gap={"20px"}>
-            <span style={{ fontWeight: 600 }}>
-              {`${t("studentAuth.validUntil")}:`}{" "}
-              {moment(survey?.validUntil).format("DD.MM.YYYY")}
-            </span>
-            <span>
-              <a style={{ fontWeight: 600 }} href={survey?.link}>
-                {t("studentAuth.studentLink")}
-              </a>
-            </span>
+            <SpanBold
+              title={`${t("studentAuth.validUntil")}: ${moment(
+                survey?.validUntil
+              ).format("DD.MM.YYYY")}`}
+            />
+            <SpanBold
+              title={
+                <a
+                  style={{ fontWeight: 600 }}
+                  target="_blank"
+                  href={survey?.link}>
+                  {t("studentAuth.studentLink")}
+                </a>
+              }
+            />
           </Flex>
         </Flex>
       </Flex>

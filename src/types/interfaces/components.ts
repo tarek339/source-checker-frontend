@@ -163,7 +163,7 @@ export interface IAppContainer {
 
 export interface ISubCard {
   children: JSX.Element | JSX.Element[];
-  width: string;
+  width?: string;
   style?: React.CSSProperties;
 }
 
@@ -174,6 +174,7 @@ export interface IFlex {
   justify?: string;
   align?: string;
   width?: string;
+  height?: string;
   style?: React.CSSProperties;
 }
 
@@ -213,4 +214,8 @@ export interface IOpenGraphView {
   ogTitle: string;
   url: string;
   ogDescription: string;
+}
+
+export interface ISpanBold {
+  title: string | React.ReactNode;
 }

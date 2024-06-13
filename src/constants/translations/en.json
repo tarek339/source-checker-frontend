@@ -37,7 +37,9 @@
     "page": "Page",
     "next": "next",
     "surveyStatus": "Survey status",
-    "studentQuantity": "Student Quantity"
+    "studentQuantity": "Student Quantity",
+    "freeName": "Choose free user name",
+    "register": "register"
   },
   "auth": {
     "question": "Which online sources do you trust?",
