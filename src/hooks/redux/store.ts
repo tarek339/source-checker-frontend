@@ -5,7 +5,9 @@ import {
   modalReducer,
   sideBarPageReducer,
   sideBarReducer,
+  studenReducer,
   submitReducer,
+  surveyControllerReducer,
   surveyPagesReducer,
   surveyReducer,
   translationsReducer,
@@ -22,6 +24,8 @@ export const store = configureStore({
     sideBar: sideBarReducer,
     sideBarPage: sideBarPageReducer,
     mainPage: mainPageReducer,
+    surveyController: surveyControllerReducer,
+    student: studenReducer,
   },
 });
 

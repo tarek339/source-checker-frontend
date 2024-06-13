@@ -42,7 +42,7 @@ const ChooseSurvey = () => {
       if (!surveyId || !surveyPin) return;
       dispatchLoading(true);
       const res = await axios.post("/survey/fetch", { surveyId, surveyPin });
-      navigate(`/surveys-manager/${res.data.survey._id}`);
+      navigate(`/surveys-manager/save-survey/${res.data.survey._id}`);
       dispatchLoading(false);
     } catch (error) {
       setFetchErrMsg(fetchError);

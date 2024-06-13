@@ -34,10 +34,19 @@ export interface ISurvey {
   pages: IPages[];
   link: string;
   validUntil: string;
+  isStarted: boolean;
+  pageNum: number;
 }
 
 export interface ISurveyProp {
   header: string;
   child: string | number | boolean | JSX.Element | undefined;
   secondChild?: JSX.Element | string;
+}
+
+export interface IStudent {
+  _id: string;
+  freeUserName: string;
+  userNumber: string;
+  isNameRegistered: boolean;
 }

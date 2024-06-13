@@ -159,3 +159,10 @@ check screenshots and video on whatapp
   500 server error (not available)
   404 nicht gefunden (wrong req)
   422 Unprocessable Entity (server found but couldnt handle data)
+
+  to start the survey a state global isStarted needed
+  onClick start set isStarted to true
+  if true remove NoStarted component and show survey pages to the students
+  slice the survey pages to one each slice
+  onClick next show next slice
+  for that a global state nextSurveyPage is needed

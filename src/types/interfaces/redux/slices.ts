@@ -36,3 +36,11 @@ export interface InitialStateSideBar {
 export interface HandleMainPage {
   mainPage: boolean;
 }
+
+export interface InitialStateSurveyController {
+  isStarted: boolean;
+}
+
+export interface InitialStateCountDownDone {
+  countDownDone: boolean;
+}

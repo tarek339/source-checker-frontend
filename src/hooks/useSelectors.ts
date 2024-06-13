@@ -22,6 +22,13 @@ const useSelectors = () => {
     (state: RootState) => state.surveyPages.singlePage
   );
   const mainPage = useSelector((state: RootState) => state.mainPage.mainPage);
+  const isStarted = useSelector(
+    (state: RootState) => state.surveyController.isStarted
+  );
+  const isCountDownDone = useSelector(
+    (state: RootState) => state.surveyController.countDownDone
+  );
+  const student = useSelector((state: RootState) => state.student.student);
 
   return {
     locale,
@@ -36,6 +43,9 @@ const useSelectors = () => {
     pageId,
     singlePage,
     mainPage,
+    isStarted,
+    isCountDownDone,
+    student,
   };
 };
 
