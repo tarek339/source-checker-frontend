@@ -4,6 +4,7 @@ import { ISideBar } from "../../../types/interfaces/components";
 
 const SideB = ({ children, collapsed, toggled }: ISideBar) => {
   const { windowWidth } = useBreakPoints();
+
   return (
     <Sidebar
       width="0px"

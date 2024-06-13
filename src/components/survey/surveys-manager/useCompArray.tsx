@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { SurveyProp } from "..";
-import { useTranslations, useSelectors } from "../../hooks";
-import { No, Yes } from "../icons";
 import { FaRegCopy } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
+import { useTranslations, useSelectors } from "../../../hooks";
+import { Yes, No } from "../../icons";
+import SurveyProp from "./SurveyProp";
 
 const useCompArray = () => {
   const { t } = useTranslations();

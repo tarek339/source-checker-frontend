@@ -1,12 +1,12 @@
 import { useState } from "react";
+import axios from "axios";
 import {
-  useDispatches,
-  useRequests,
   useSelectors,
   useTranslations,
-} from "../../../hooks";
-import Table from "../../Table";
-import axios from "axios";
+  useDispatches,
+  useRequests,
+} from "../../../../hooks";
+import Table from "../../../Table";
 
 const PagesHolder = () => {
   const { surveyPages, survey } = useSelectors();
@@ -59,6 +59,7 @@ const PagesHolder = () => {
                     i === surveyPages?.slice(first, last).length - 1
                       ? "20px"
                       : "0px",
+                  width: "40%",
                 }}>
                 {page?.title}
               </td>

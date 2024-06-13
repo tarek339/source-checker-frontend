@@ -28,7 +28,16 @@
     "finish": "finish",
     "step": "step",
     "error": "Error",
-    "retry": "retry"
+    "retry": "retry",
+    "of": "of",
+    "surveyData": "Survey data",
+    "surveyControl": "Survey control",
+    "start": "start",
+    "pageControl": "Pagecontrol",
+    "page": "Page",
+    "next": "next",
+    "surveyStatus": "Survey status",
+    "studentQuantity": "Student Quantity"
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -113,11 +122,20 @@
     "sideBar": {
       "header": "How should the pages be displayed?"
     },
-    "shareSurvey": "share survey"
+    "shareSurvey": "start survey"
   },
   "studentAuth": {
     "header": "Source checker: Do you trust it?",
     "validUntil": "Valid until",
     "studentLink": "Student link"
+  },
+  "surveyControl": {
+    "introduction": "Welcome to the survey!",
+    "introText": {
+      "first": "Imagine someone sends you a link via WhatsApp or you see a news item in a story.",
+      "second": "Your first impression counts: Do you trust it?",
+      "third": "You can now see a few examples of very different websites and social media apps.",
+      "fourth": "Rate them with stars."
+    }
   }
 }

@@ -1,5 +1,5 @@
-import { ISurveyProp } from "../../types/interfaces/interfaces";
-import Flex from "../parents/containers/Flex";
+import { ISurveyProp } from "../../../types/interfaces/interfaces";
+import Flex from "../../parents/containers/Flex";
 
 const SurveyProp = ({ header, child, secondChild }: ISurveyProp) => {
   return (

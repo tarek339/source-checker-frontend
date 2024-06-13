@@ -4,11 +4,12 @@ import {
   Authentication,
   ChooseAction,
   StudenAuth,
-  SurveySummary,
+  SurveyControl,
   NewSurvey,
   SaveSurvey,
   ChooseSurvey,
   AddPages,
+  StudentSurvey,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
 import { AppContent, Header } from "./components";
@@ -37,8 +38,9 @@ function App() {
             element={<SaveSurvey />}
           />
           <Route path="/surveys-manager/add-pages/:id" element={<AddPages />} />
-          <Route path="/survey-summary/:id" element={<SurveySummary />} />
+          <Route path="/survey-summary/:id" element={<SurveyControl />} />
           <Route path="/student-auth" element={<StudenAuth />} />
+          <Route path="/student-survey" element={<StudentSurvey />} />
         </Routes>
       </AnimatePresence>
     </AppContent>

@@ -1,6 +1,6 @@
 import { ICancelButton } from "../../types/interfaces/components";
 
-const CancelButton = ({ onClick, title }: ICancelButton) => {
+const CancelButton = ({ onClick, title, style }: ICancelButton) => {
   return (
     <button
       type="button"
@@ -17,6 +17,7 @@ const CancelButton = ({ onClick, title }: ICancelButton) => {
         fontSize: "18px",
         textTransform: "uppercase",
         fontWeight: 600,
+        ...style,
       }}>
       {title}
     </button>

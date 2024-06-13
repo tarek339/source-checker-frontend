@@ -28,7 +28,16 @@
     "finish": "beenden",
     "step": "schritt",
     "error": "Fehler",
-    "retry": "erneut versuchen"
+    "retry": "erneut versuchen",
+    "of": "von",
+    "surveyData": "Umfragedaten",
+    "surveyControl": "Umfragesteuerung",
+    "start": "starten",
+    "pageControl": "Seitensteuerung",
+    "page": "Seite",
+    "next": "nächtse",
+    "surveyStatus": "Umfragestatus",
+    "studentQuantity": "Anzahl Schüler"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -113,11 +122,20 @@
     "sideBar": {
       "header": "Wie sollen die Seiten angezeigt werden?"
     },
-    "shareSurvey": "umfrage teilen"
+    "shareSurvey": "umfrage starten"
   },
   "studentAuth": {
     "header": "Quellenchecker: Traust du dem?",
     "validUntil": "Gültig bis",
     "studentLink": "Schülerlink"
+  },
+  "surveyControl": {
+    "introduction": "Willkommen zur Umfrage!",
+    "introText": {
+      "first": "Stell dir vor, jemand schickt dir einen Link per Whatsapp oder du siehst eine News in einer Story.",
+      "second": "Dein erster Eindruck zählt: Traust du dem?",
+      "third": "Du siehst jetzt ein paar Beispiele von ganz verschiedenen Internetseiten und Social Media Apps.",
+      "fourth": "Bewerte sie mit Sternen."
+    }
   }
 }

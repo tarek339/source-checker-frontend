@@ -1,12 +1,12 @@
+import { useEffect } from "react";
 import {
-  useDispatches,
   useSelectors,
+  useDispatches,
   useBreakPoints,
   useScroll,
-} from "../../../hooks";
-import Flex from "../../parents/containers/Flex";
-import Modal from "../../parents/containers/Modal";
-import { useEffect } from "react";
+} from "../../../../hooks";
+import Flex from "../../../parents/containers/Flex";
+import Modal from "../../../parents/containers/Modal";
 
 export interface IPageModal {
   children: JSX.Element;

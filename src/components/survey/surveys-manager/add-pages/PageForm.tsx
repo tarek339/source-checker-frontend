@@ -1,12 +1,16 @@
-import Input from "../../parents/form/Input";
-import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
-import CancelButton from "../../buttons/CancelButton";
-import FormButton from "../../parents/form/FormButton";
-import InputMessage from "../../parents/form/InputMessage";
-import { IPageForm } from "../../../types/interfaces/components";
-import FormContainer from "../../parents/form/FormContainer";
-import ButtonContainer from "../../parents/containers/ButtonContainer";
-import LoadingPulse from "../../LoadingPulse";
+import {
+  useTranslations,
+  useSelectors,
+  useDispatches,
+} from "../../../../hooks";
+import { IPageForm } from "../../../../types/interfaces/components";
+import LoadingPulse from "../../../LoadingPulse";
+import CancelButton from "../../../buttons/CancelButton";
+import ButtonContainer from "../../../parents/containers/ButtonContainer";
+import FormButton from "../../../parents/form/FormButton";
+import FormContainer from "../../../parents/form/FormContainer";
+import Input from "../../../parents/form/Input";
+import InputMessage from "../../../parents/form/InputMessage";
 
 const PageForm = ({
   onSubmit,

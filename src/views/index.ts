@@ -1,7 +1,7 @@
 import Authentication from "./Authentication";
-import SurveysManager from "./SurveysManager";
+import StudentSurvey from "./StudentSurvey";
 import StudenAuth from "./student/StudenAuth";
-import SurveySummary from "./SurveySummary";
+import SurveyControl from "./SurveyControl";
 import ChooseAction from "./survey-management/ChooseAction";
 import NewSurvey from "./survey-management/NewSurvey";
 import SaveSurvey from "./survey-management/SaveSurvey";
@@ -10,9 +10,9 @@ import AddPages from "./survey-management/AddPages";
 
 export {
   Authentication,
-  SurveysManager,
+  StudentSurvey,
   StudenAuth,
-  SurveySummary,
+  SurveyControl,
   ChooseAction,
   NewSurvey,
   SaveSurvey,
