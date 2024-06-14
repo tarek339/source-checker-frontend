@@ -218,4 +218,8 @@ export interface IOpenGraphView {
 
 export interface ISpanBold {
   title: string | React.ReactNode;
+  onClick?: () => void;
+  style?: React.CSSProperties;
+  onMouseEnter?: React.MouseEventHandler<HTMLSpanElement> | undefined;
+  onMouseLeave?: React.MouseEventHandler<HTMLSpanElement> | undefined;
 }

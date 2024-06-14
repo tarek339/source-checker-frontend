@@ -40,7 +40,7 @@ const PageControl = () => {
             onClick={handlePrev}
             title={
               <>
-                <IoArrowBackSharp fontSize={"24px"} />
+                <IoArrowBackSharp fontSize={"22px"} />
                 <span>{t("common.back")}</span>
               </>
             }
@@ -52,7 +52,7 @@ const PageControl = () => {
             title={
               <>
                 <span>{t("common.next")}</span>
-                <IoArrowForwardSharp fontSize={"24px"} />
+                <IoArrowForwardSharp fontSize={"22px"} />
               </>
             }
           />

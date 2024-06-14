@@ -66,6 +66,7 @@ const useDispatches = () => {
 
   const setSurveyStatus = (isStarted: boolean) =>
     dispatch(handleSurveyStatus({ isStarted: isStarted }));
+
   const setCoundDownStatus = (countDownDone: boolean) =>
     dispatch(handleCountDown({ countDownDone: countDownDone }));
 

@@ -1,10 +1,14 @@
 import { useEffect } from "react";
-import { useRequests, useSelectors } from "../hooks";
+import { useDispatches, useRequests, useSelectors } from "../hooks";
 import { NotStarted, SurveyContent, SurveyStart } from "../components";
+import { socket } from "../socket";
+import { useParams } from "react-router-dom";
 
 const StudentSurvey = () => {
-  const { survey } = useSelectors();
+  const { isStarted } = useSelectors();
   const { fetchSurvey, fetchSingleStudent } = useRequests();
+  const { setSurveyStatus } = useDispatches();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchSurvey();
@@ -14,9 +18,17 @@ const StudentSurvey = () => {
     fetchSingleStudent();
   }, []);
 
+  useEffect(() => {
+    socket.on("surveyStatusChanged", (surveyInfo) => {
+      if (id === surveyInfo.surveyId) {
+        setSurveyStatus(surveyInfo.isStarted);
+      }
+    });
+  }, []);
+
   return (
     <SurveyContent>
-      {!survey?.isStarted ? <NotStarted /> : <SurveyStart />}
+      {!isStarted ? <NotStarted /> : <SurveyStart />}
     </SurveyContent>
   );
 };
