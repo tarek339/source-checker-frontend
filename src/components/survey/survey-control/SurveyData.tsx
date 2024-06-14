@@ -5,11 +5,28 @@ import SubCard from "../../parents/containers/SubCard";
 import { useBreakPoints, useSelectors, useTranslations } from "../../../hooks";
 import SubHeader from "../../parents/SubHeader";
 import SpanBold from "../../parents/SpanBold";
+import { useState } from "react";
 
 const SurveyData = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { survey } = useSelectors();
+  const [copied, setCopied] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  const copyToClipboard = () => {
+    let link = survey?.link;
+    let input = document.createElement("input");
+    input.value = `${link}`;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1500);
+  };
 
   return (
     <SubCard
@@ -37,6 +54,16 @@ const SurveyData = () => {
                   {t("studentAuth.studentLink")}
                 </a>
               }
+            />
+            <SpanBold
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              onClick={copyToClipboard}
+              title={copied ? "Kopiert" : "Kopieren"}
+              style={{
+                cursor: "pointer",
+                textDecoration: hovered && !copied ? "underline" : "none",
+              }}
             />
           </Flex>
         </Flex>

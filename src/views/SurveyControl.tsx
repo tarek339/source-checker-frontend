@@ -27,6 +27,12 @@ const SurveyControl = () => {
     fetchSurvey();
   }, []);
 
+  useEffect(() => {
+    setInterval(() => {
+      fetchSurvey();
+    }, 60000);
+  }, []);
+
   return (
     <FramerMotion>
       <SurveyContent

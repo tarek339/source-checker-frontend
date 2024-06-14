@@ -15,7 +15,7 @@ const Contorl = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { survey } = useSelectors();
-  const { dispatchSurvey, setSurveyStatus } = useDispatches();
+  const { dispatchSurvey } = useDispatches();
 
   const startSurvey = async () => {
     try {
@@ -23,7 +23,7 @@ const Contorl = () => {
         isStarted: true,
       });
       dispatchSurvey(res.data.survey);
-      setSurveyStatus(res.data.survey);
+      await changeQuan();
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +35,15 @@ const Contorl = () => {
         isStarted: false,
       });
       dispatchSurvey(res.data.survey);
-      setSurveyStatus(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const changeQuan = async () => {
+    try {
+      const res = await axios.post(`/survey/change-quantity/${survey?._id}`);
+      dispatchSurvey(res.data.survey);
     } catch (error) {
       console.log(error);
     }
@@ -45,7 +53,7 @@ const Contorl = () => {
     <SubCard
       style={{ paddingLeft: "20px", paddingRight: "20px" }}
       width={windowWidth < 768 ? "" : `${100 / 3}%`}>
-      <Flex direction={"column"} gap={"15px"}>
+      <Flex direction={"column"} gap={"20px"}>
         <SubHeader title={t("common.surveyControl")} />
         <ContButton onClick={startSurvey} title={t("common.start")} />
         <CancelButton onClick={finishSurvey} title={t("common.finish")} />

@@ -17,6 +17,7 @@ const surveyController = createSlice({
     ) => {
       state.isStarted = action.payload.isStarted;
     },
+
     handleCountDown: (
       state,
       action: PayloadAction<InitialStateCountDownDone>
