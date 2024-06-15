@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 const StudentSurvey = () => {
   const { isStarted } = useSelectors();
   const { fetchSurvey, fetchSingleStudent } = useRequests();
-  const { setSurveyStatus } = useDispatches();
+  const { setSurveyStatus, setCurrentPage } = useDispatches();
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,6 +22,14 @@ const StudentSurvey = () => {
     socket.on("surveyStatusChanged", (surveyInfo) => {
       if (id === surveyInfo.surveyId) {
         setSurveyStatus(surveyInfo.isStarted);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    socket.on("surveyPageNumber", (surveyInfo) => {
+      if (id === surveyInfo.surveyId) {
+        setCurrentPage(surveyInfo.pageNum);
       }
     });
   }, []);

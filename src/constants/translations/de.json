@@ -139,5 +139,9 @@
       "third": "Du siehst jetzt ein paar Beispiele von ganz verschiedenen Internetseiten und Social Media Apps.",
       "fourth": "Bewerte sie mit Sternen."
     }
+  },
+  "studentSurvey": {
+    "notStartedInfo": "Bitte warte bis der Lehrer die Umfrage gestartet hat.",
+    "ratingTitle": "deine Bewertung"
   }
 }

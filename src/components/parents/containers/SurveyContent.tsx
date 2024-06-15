@@ -6,7 +6,7 @@ const SurveyContent = ({ children, style, maxWidth }: ISurveyContent) => {
       style={{
         margin: "0 auto",
         maxWidth: !maxWidth ? "1000px" : `${maxWidth}px`,
-        marginTop: "5em",
+        marginTop: "3em",
         ...style,
       }}>
       {children}

@@ -29,6 +29,14 @@ const useSelectors = () => {
     (state: RootState) => state.surveyController.countDownDone
   );
   const student = useSelector((state: RootState) => state.student.student);
+  const currentPage = useSelector(
+    (state: RootState) => state.surveyPages.currentPage
+  );
+  const voted = useSelector((state: RootState) => state.surveyPages.voted);
+  const votedStars = useSelector(
+    (state: RootState) => state.surveyPages.votedStars
+  );
+  const stars = useSelector((state: RootState) => state.surveyPages.stars);
 
   return {
     locale,
@@ -46,6 +54,10 @@ const useSelectors = () => {
     isStarted,
     isCountDownDone,
     student,
+    currentPage,
+    voted,
+    votedStars,
+    stars,
   };
 };
 

@@ -223,3 +223,19 @@ export interface ISpanBold {
   onMouseEnter?: React.MouseEventHandler<HTMLSpanElement> | undefined;
   onMouseLeave?: React.MouseEventHandler<HTMLSpanElement> | undefined;
 }
+
+export interface IScreenShotHolder {
+  src: string;
+}
+
+export interface IOpenGraphHolder {
+  ogTitle: string;
+  ogImage: string;
+  ogDescription: string;
+}
+
+export interface IStarRating {
+  pageId: string;
+  surveyId: string;
+  studentId: string;
+}

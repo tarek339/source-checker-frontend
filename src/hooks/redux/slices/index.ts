@@ -7,6 +7,10 @@ import {
   setPageId,
   getSinglePage,
   surveyPagesReducer,
+  handleCurrentPage,
+  handleVoted,
+  handleVotedStars,
+  handleStars,
 } from "./surveyPages";
 import { translationsReducer } from "./translations";
 import { loadingReducer, handleLoading } from "./loading";
@@ -43,6 +47,10 @@ export {
   handleCountDown,
   addStudent,
   removeStudent,
+  handleCurrentPage,
+  handleVoted,
+  handleVotedStars,
+  handleStars,
   studenReducer,
   surveyControllerReducer,
   mainPageReducer,
