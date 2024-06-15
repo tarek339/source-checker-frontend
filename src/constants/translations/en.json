@@ -139,5 +139,9 @@
       "third": "You can now see a few examples of very different websites and social media apps.",
       "fourth": "Rate them with stars."
     }
+  },
+  "studentSurvey": {
+    "notStartedInfo": "Please wait until the teacher has started the survey.",
+    "ratingTitle": "your rating"
   }
 }

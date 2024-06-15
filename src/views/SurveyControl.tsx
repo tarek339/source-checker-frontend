@@ -12,16 +12,21 @@ import {
 } from "../components";
 import {
   useBreakPoints,
+  useDispatches,
   useRequests,
   useSelectors,
   useTranslations,
 } from "../hooks";
+import { socket } from "../socket";
+import { useParams } from "react-router-dom";
 
 const SurveyControl = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { survey } = useSelectors();
   const { fetchSurvey } = useRequests();
+  const { setCurrentPage } = useDispatches();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchSurvey();
@@ -31,6 +36,14 @@ const SurveyControl = () => {
     setInterval(() => {
       fetchSurvey();
     }, 60000);
+  }, []);
+
+  useEffect(() => {
+    socket.on("surveyPageNumber", (surveyInfo) => {
+      if (id === surveyInfo.surveyId) {
+        setCurrentPage(surveyInfo.pageNum);
+      }
+    });
   }, []);
 
   return (

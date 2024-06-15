@@ -62,7 +62,7 @@ const SurveyData = () => {
               title={copied ? "Kopiert" : "Kopieren"}
               style={{
                 cursor: "pointer",
-                textDecoration: hovered && !copied ? "underline" : "none",
+                color: hovered ? "#000c9a" : "#2835c3",
               }}
             />
           </Flex>

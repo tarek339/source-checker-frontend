@@ -1,27 +1,46 @@
 import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
-import { useBreakPoints, useSelectors, useTranslations } from "../../../hooks";
+import {
+  useBreakPoints,
+  useDispatches,
+  useSelectors,
+  useTranslations,
+} from "../../../hooks";
 import ContButton from "../../buttons/ContButton";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
 import SubHeader from "../../parents/SubHeader";
-import { useState } from "react";
 import SpanBold from "../../parents/SpanBold";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const PageControl = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
-  const { surveyPages } = useSelectors();
-  const [currentPage, setCurrentPage] = useState(1);
+  const { surveyPages, currentPage } = useSelectors();
+  const { setCurrentPage, dispatchSurvey } = useDispatches();
+  const { id } = useParams();
 
-  const handleNext = () => {
-    surveyPages.map((_p, i) => {
-      return setCurrentPage(i + 1);
-    });
+  const handleCurrentPage = async (pageNum: number) => {
+    try {
+      const res = await axios.post(`/survey/set-current-page/${id}`, {
+        pageNum,
+      });
+      dispatchSurvey(res.data.survey);
+      setCurrentPage(res.data.survey.pageNum);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handlePrev = () => {
-    if (currentPage !== 1) {
-      setCurrentPage((prev) => prev - 1);
+  const nextPage = () => {
+    if (currentPage !== surveyPages.length) {
+      handleCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      handleCurrentPage(currentPage - 1);
     }
   };
 
@@ -37,7 +56,7 @@ const PageControl = () => {
         />
         <Flex direction={"row"} gap={"5px"} justify="center" width="100%">
           <ContButton
-            onClick={handlePrev}
+            onClick={prevPage}
             title={
               <>
                 <IoArrowBackSharp fontSize={"22px"} />
@@ -48,7 +67,7 @@ const PageControl = () => {
           />
           <ContButton
             width={"50%"}
-            onClick={handleNext}
+            onClick={nextPage}
             title={
               <>
                 <span>{t("common.next")}</span>

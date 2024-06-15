@@ -5,13 +5,17 @@ import {
   addSurveyPages,
   getSinglePage,
   handleCountDown,
+  handleCurrentPage,
   handleLoading,
   handleModal,
   handlePage,
   handleSideBar,
+  handleStars,
   handleSubmit,
   handleSurveyStatus,
   handleTranslation,
+  handleVoted,
+  handleVotedStars,
   increaseFirstPage,
   increaseLastPage,
   setPageId,
@@ -73,6 +77,13 @@ const useDispatches = () => {
   const dispatchStudent = (res: AxiosResponse<any, any>) =>
     dispatch(addStudent(res));
 
+  const setCurrentPage = (currentPage: number) =>
+    dispatch(handleCurrentPage({ currentPage }));
+  const setVoted = (voted: boolean) => dispatch(handleVoted({ voted }));
+  const setVotedStars = (votedStars: number) =>
+    dispatch(handleVotedStars({ votedStars }));
+  const setStars = (stars: number) => dispatch(handleStars({ stars }));
+
   return {
     enableEN,
     enableGE,
@@ -91,6 +102,10 @@ const useDispatches = () => {
     setSurveyStatus,
     setCoundDownStatus,
     dispatchStudent,
+    setCurrentPage,
+    setVoted,
+    setVotedStars,
+    setStars,
   };
 };
 

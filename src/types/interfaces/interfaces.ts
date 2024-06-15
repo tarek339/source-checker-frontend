@@ -20,6 +20,12 @@ export interface IPages {
   isMobileView: boolean | null;
   openGraph: any;
   isOpenGraphView: boolean;
+  starsArray: [
+    {
+      studentId: string;
+      stars: number;
+    }
+  ];
 }
 
 export interface ISurvey {

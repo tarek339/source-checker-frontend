@@ -27,6 +27,10 @@ export interface InitialStateSurvey {
   sideBarLastPage: number;
   pageId: string;
   singlePage: null | IPages;
+  currentPage: number;
+  voted: boolean;
+  votedStars: number;
+  stars: number;
 }
 
 export interface InitialStateSideBar {
@@ -43,4 +47,20 @@ export interface InitialStateSurveyController {
 
 export interface InitialStateCountDownDone {
   countDownDone: boolean;
+}
+
+export interface IHandleCurrentPage {
+  currentPage: number;
+}
+
+export interface IHandleVoted {
+  voted: boolean;
+}
+
+export interface IHandleVotedStars {
+  votedStars: number;
+}
+
+export interface IHandleStars {
+  stars: number;
 }

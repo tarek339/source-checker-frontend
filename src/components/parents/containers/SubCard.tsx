@@ -3,6 +3,7 @@ import { ISubCard } from "../../../types/interfaces/components";
 const SubCard = ({ children, width, style }: ISubCard) => {
   return (
     <div
+      className="sub-card"
       style={{
         backgroundColor: "#fff",
         padding: "20px",

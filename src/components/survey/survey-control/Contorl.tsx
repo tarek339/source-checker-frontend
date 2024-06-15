@@ -15,7 +15,7 @@ const Contorl = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { survey } = useSelectors();
-  const { dispatchSurvey } = useDispatches();
+  const { dispatchSurvey, setCurrentPage } = useDispatches();
 
   const startSurvey = async () => {
     try {
@@ -35,6 +35,7 @@ const Contorl = () => {
         isStarted: false,
       });
       dispatchSurvey(res.data.survey);
+      setCurrentPage(1);
     } catch (error) {
       console.log(error);
     }

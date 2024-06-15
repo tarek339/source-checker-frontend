@@ -28,7 +28,7 @@ const NotStarted = () => {
           <Flex direction={"row"} gap={"0px"} justify="center">
             <SubHeader
               style={{ color: "#ff0000" }}
-              title={"Bitte warte bis der Lehrer die Umfrage gestartet hat."}
+              title={t("studentSurvey.notStartedInfo")}
             />
           </Flex>
         </Flex>

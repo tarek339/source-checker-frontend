@@ -113,6 +113,22 @@ label {
   font-size: 18px;
 }
 
+.sub-card::-webkit-scrollbar {
+  display: none;
+}
+
+.sub-card {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.react-simple-star-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 60px;

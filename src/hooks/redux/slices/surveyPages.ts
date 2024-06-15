@@ -1,5 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { InitialStateSurvey } from "../../../types/interfaces/redux/slices";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import {
+  IHandleCurrentPage,
+  IHandleStars,
+  IHandleVoted,
+  IHandleVotedStars,
+  InitialStateSurvey,
+} from "../../../types/interfaces/redux/slices";
 
 const initialState: InitialStateSurvey = {
   pages: [],
@@ -7,6 +13,10 @@ const initialState: InitialStateSurvey = {
   sideBarLastPage: 1,
   pageId: "",
   singlePage: null,
+  currentPage: 1,
+  voted: false,
+  votedStars: 0,
+  stars: 0,
 };
 
 const surveyPagesSlice = createSlice({
@@ -28,6 +38,18 @@ const surveyPagesSlice = createSlice({
     getSinglePage: (state, action) => {
       state.singlePage = action.payload;
     },
+    handleCurrentPage: (state, action: PayloadAction<IHandleCurrentPage>) => {
+      state.currentPage = action.payload.currentPage;
+    },
+    handleVoted: (state, action: PayloadAction<IHandleVoted>) => {
+      state.voted = action.payload.voted;
+    },
+    handleVotedStars: (state, action: PayloadAction<IHandleVotedStars>) => {
+      state.votedStars = action.payload.votedStars;
+    },
+    handleStars: (state, action: PayloadAction<IHandleStars>) => {
+      state.stars = action.payload.stars;
+    },
   },
 });
 
@@ -38,4 +60,8 @@ export const {
   increaseLastPage,
   setPageId,
   getSinglePage,
+  handleCurrentPage,
+  handleVoted,
+  handleVotedStars,
+  handleStars,
 } = surveyPagesSlice.actions;
