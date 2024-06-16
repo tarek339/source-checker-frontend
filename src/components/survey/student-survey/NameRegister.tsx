@@ -9,6 +9,7 @@ import Input from "../../parents/form/Input";
 import {
   useBreakPoints,
   useDispatches,
+  useInputErrors,
   useRequests,
   useSelectors,
   useTranslations,
@@ -23,7 +24,10 @@ const NameRegister = () => {
   const { survey } = useSelectors();
   const navigate = useNavigate();
   const { fetchSurvey, fetchStudents } = useRequests();
+  const { emptyInput } = useInputErrors();
+
   const [freeUserName, setFreeUserName] = useState("");
+  const [inputError, setInputError] = useState<JSX.Element | null>(null);
 
   useEffect(() => {
     fetchSurvey();
@@ -31,6 +35,10 @@ const NameRegister = () => {
 
   const handleSubmit = async () => {
     try {
+      if (!freeUserName) {
+        setInputError(emptyInput);
+        return false;
+      }
       const res = await axios.post("/student/register-free-user-name", {
         freeUserName,
         surveyId: survey?._id,
@@ -66,8 +74,8 @@ const NameRegister = () => {
               label={t("common.freeName")}
               name={"surveyID"}
               htmlFor={"surveyID"}
-              error={null}
-              inputErrorStyle={null}
+              error={inputError}
+              inputErrorStyle={inputError}
               value={freeUserName}
               onChange={(e) => setFreeUserName(e.target.value)}
             />
