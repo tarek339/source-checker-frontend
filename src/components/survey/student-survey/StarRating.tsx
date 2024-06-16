@@ -9,6 +9,7 @@ import Flex from "../../parents/containers/Flex";
 import ContButton from "../../buttons/ContButton";
 import axios from "axios";
 import { IStarRating } from "../../../types/interfaces/components";
+import { useEffect } from "react";
 
 const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   const { t } = useTranslations();
@@ -31,6 +32,11 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
     dispatchSurvey(res.data.survey);
     fetchSurvey();
   };
+
+  useEffect(() => {
+    console.log("voted", voted);
+    console.log("voted-stars", votedStars);
+  }, [voted, votedStars]);
 
   return (
     <Flex direction={"row"} gap={"20px"} align="center">

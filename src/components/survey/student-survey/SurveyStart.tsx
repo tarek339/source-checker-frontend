@@ -10,7 +10,7 @@ import axios from "axios";
 
 const SurveyStart = () => {
   const { student, surveyPages, survey, currentPage } = useSelectors();
-  const { setVotedStars, setVoted } = useDispatches();
+  const { setVotedStars, setVoted, setStars } = useDispatches();
   const { t } = useTranslations();
   const [pageId, setPageId] = useState("");
 
@@ -32,6 +32,7 @@ const SurveyStart = () => {
       if (res.data === "") {
         setVotedStars(0);
         setVoted(false);
+        setStars(0);
       }
     } catch (error) {
       console.log(error);
