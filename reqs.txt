@@ -166,3 +166,31 @@ check screenshots and video on whatapp
   slice the survey pages to one each slice
   onClick next show next slice
   for that a global state nextSurveyPage is needed
+
+  useEffect(() => {
+    surveyPages.slice(currentPage - 1, currentPage).map((sp) => {
+      return sp.starsArray.filter((sa) => {
+        return setVoted(sa.studentId === student?._id!);
+      });
+    });
+    surveyPages.slice(currentPage - 1, currentPage).forEach((sp) => {
+      const foundId = sp.starsArray.find((sa) => {
+        return sa.studentId === student?._id;
+      });
+      if (foundId) {
+        setVotedStars(foundId.stars);
+      }
+    });
+  }, [student, surveyPages, voted, votedStars, currentPage]);
+
+  useEffect(() => {
+    surveyPages.slice(currentPage - 1, currentPage).map((page) => {
+      const findObj = page.starsArray.find((obj) => {
+        return obj;
+      });
+      if (!findObj) {
+        setVotedStars(0);
+        setVoted(false);
+      }
+    });
+  }, [surveyPages, currentPage, stars, voted, votedStars]);

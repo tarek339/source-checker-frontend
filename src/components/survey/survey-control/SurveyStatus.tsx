@@ -20,6 +20,12 @@ const SurveyStatus = () => {
     fetchStudents();
   }, []);
 
+  useEffect(() => {
+    setInterval(() => {
+      fetchStudents();
+    }, 30000);
+  }, []);
+
   const status = (
     <div
       style={{
@@ -32,10 +38,10 @@ const SurveyStatus = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: "125px",
+        width: "100px",
         transition: "background-color 0.3s, color 0.5s",
       }}>
-      {survey?.isStarted ? "gestarted" : "beendet"}
+      {survey?.isStarted ? t("surveyControl.start") : t("surveyControl.end")}
     </div>
   );
 

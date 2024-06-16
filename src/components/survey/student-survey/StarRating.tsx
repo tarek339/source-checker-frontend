@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Rating } from "react-simple-star-rating";
 import {
   useDispatches,
@@ -13,16 +12,17 @@ import { IStarRating } from "../../../types/interfaces/components";
 
 const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   const { t } = useTranslations();
-  const { dispatchSurvey, setVoted, setVotedStars, setStars } = useDispatches();
-  const { student, surveyPages, voted, votedStars, stars, currentPage } =
-    useSelectors();
+  const { dispatchSurvey, setStars, setVoted, setVotedStars } = useDispatches();
+  const { voted, votedStars, stars } = useSelectors();
   const { fetchSurvey } = useRequests();
 
   const handleRating = (star: number) => {
     setStars(star);
+    setVotedStars(star);
   };
 
   const handleSubmit = async () => {
+    setVoted(true);
     const res = await axios.post(`/survey/push-stars/${surveyId}`, {
       pageId,
       stars,
@@ -32,33 +32,6 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
     fetchSurvey();
   };
 
-  useEffect(() => {
-    surveyPages.slice(currentPage - 1, currentPage).map((sp) => {
-      return sp.starsArray.filter((sa) => {
-        return setVoted(sa.studentId === student?._id!);
-      });
-    });
-    surveyPages.slice(currentPage - 1, currentPage).forEach((sp) => {
-      const foundId = sp.starsArray.find((sa) => {
-        return sa.studentId === student?._id;
-      });
-      if (foundId) {
-        setVotedStars(foundId.stars);
-      }
-    });
-  }, [student, surveyPages, voted, votedStars, currentPage]);
-
-  useEffect(() => {
-    surveyPages.slice(currentPage - 1, currentPage).map((page) => {
-      const findObj = page.starsArray.find((obj) => {
-        return obj;
-      });
-      if (!findObj) {
-        setVotedStars(0);
-        setVoted(false);
-      }
-    });
-  }, [surveyPages, currentPage, stars, voted, votedStars]);
   return (
     <Flex direction={"row"} gap={"20px"} align="center">
       <>
@@ -70,13 +43,13 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
           tooltipStyle={{ marginLeft: "10px" }}
           SVGstyle={{ paddingTop: "7px" }}
           size={50}
-          tooltipDefaultText={t("studentSurvey.ratingTitle")}
+          tooltipDefaultText={t("studentSurvey.rating.ratingTitle")}
           tooltipArray={[
-            "unglaubwürdig",
-            "zweifelhaft",
-            "fragwürdig",
-            "vertrauenswürdig",
-            "glaubwürdig",
+            t("studentSurvey.rating.Unbelievable"),
+            t("studentSurvey.rating.Doubtful"),
+            t("studentSurvey.rating.Questionable"),
+            t("studentSurvey.rating.Trustworthy"),
+            t("studentSurvey.rating.Credible"),
           ]}
           disableFillHover={voted ? true : false}
           readonly={voted ? true : false}

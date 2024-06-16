@@ -41,6 +41,7 @@ const useRequests = () => {
     fetchStudents,
     fetchSingleStudent,
     students,
+    setStudents,
   };
 };
 

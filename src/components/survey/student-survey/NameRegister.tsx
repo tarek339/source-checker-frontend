@@ -22,7 +22,7 @@ const NameRegister = () => {
   const { dispatchStudent } = useDispatches();
   const { survey } = useSelectors();
   const navigate = useNavigate();
-  const { fetchSurvey } = useRequests();
+  const { fetchSurvey, fetchStudents } = useRequests();
   const [freeUserName, setFreeUserName] = useState("");
 
   useEffect(() => {
@@ -36,6 +36,7 @@ const NameRegister = () => {
         surveyId: survey?._id,
       });
       dispatchStudent(res.data.student);
+      await fetchStudents();
       setFreeUserName("");
       navigate(
         `/student-survey/${survey?._id}/student-id/${res.data.student._id}`

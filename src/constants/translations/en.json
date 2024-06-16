@@ -21,6 +21,7 @@
     "yes": "yes",
     "no": "no",
     "copy": "copy",
+    "copied": "copied",
     "view": "view",
     "mobileView": "mobile",
     "desktopView": "desktop",
@@ -39,7 +40,8 @@
     "surveyStatus": "Survey status",
     "studentQuantity": "Student Quantity",
     "freeName": "Choose free user name",
-    "register": "register"
+    "register": "register",
+    "summary": "Summary"
   },
   "auth": {
     "question": "Which online sources do you trust?",
@@ -138,10 +140,20 @@
       "second": "Your first impression counts: Do you trust it?",
       "third": "You can now see a few examples of very different websites and social media apps.",
       "fourth": "Rate them with stars."
-    }
+    },
+    "start": "start",
+    "end": "end"
   },
   "studentSurvey": {
     "notStartedInfo": "Please wait until the teacher has started the survey.",
-    "ratingTitle": "your rating"
+    "title": "rate the following source with stars!",
+    "rating": {
+      "ratingTitle": "Your rating",
+      "Unbelievable": "Unbelievable",
+      "Doubtful": "Doubtful",
+      "Questionable": "Questionable",
+      "Trustworthy": "Trustworthy",
+      "Credible": "Credible"
+    }
   }
 }

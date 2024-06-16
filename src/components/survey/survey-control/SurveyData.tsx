@@ -59,7 +59,7 @@ const SurveyData = () => {
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
               onClick={copyToClipboard}
-              title={copied ? "Kopiert" : "Kopieren"}
+              title={copied ? t("common.copied") : t("common.copy")}
               style={{
                 cursor: "pointer",
                 color: hovered ? "#000c9a" : "#2835c3",

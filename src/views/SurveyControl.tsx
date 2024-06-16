@@ -33,12 +33,6 @@ const SurveyControl = () => {
   }, []);
 
   useEffect(() => {
-    setInterval(() => {
-      fetchSurvey();
-    }, 60000);
-  }, []);
-
-  useEffect(() => {
     socket.on("surveyPageNumber", (surveyInfo) => {
       if (id === surveyInfo.surveyId) {
         setCurrentPage(surveyInfo.pageNum);
