@@ -23,7 +23,6 @@ const Contorl = () => {
         isStarted: true,
       });
       dispatchSurvey(res.data.survey);
-      await changeQuan();
     } catch (error) {
       console.log(error);
     }
@@ -41,14 +40,14 @@ const Contorl = () => {
     }
   };
 
-  const changeQuan = async () => {
-    try {
-      const res = await axios.post(`/survey/change-quantity/${survey?._id}`);
-      dispatchSurvey(res.data.survey);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const reduceTotalStars = async () => {
+  //   try {
+  //     const res = await axios.get(`/survey/reduce-total-stars/${survey?._id}`);
+  //     dispatchSurvey(res.data.survey);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <SubCard

@@ -21,6 +21,7 @@
     "yes": "ja",
     "no": "nein",
     "copy": "kopieren",
+    "copied": "kopiert",
     "view": "ansicht",
     "mobileView": "mobil",
     "desktopView": "desktop",
@@ -39,7 +40,8 @@
     "surveyStatus": "Umfragestatus",
     "studentQuantity": "Anzahl Schüler",
     "freeName": "Freien Usernamen auswählen",
-    "register": "anmelden"
+    "register": "anmelden",
+    "summary": "Zusammenfassung"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -138,10 +140,21 @@
       "second": "Dein erster Eindruck zählt: Traust du dem?",
       "third": "Du siehst jetzt ein paar Beispiele von ganz verschiedenen Internetseiten und Social Media Apps.",
       "fourth": "Bewerte sie mit Sternen."
-    }
+    },
+    "start": "start",
+    "end": "ende"
   },
   "studentSurvey": {
     "notStartedInfo": "Bitte warte bis der Lehrer die Umfrage gestartet hat.",
-    "ratingTitle": "deine Bewertung"
+
+    "title": "bewerte folgende Quelle mit Sternen!",
+    "rating": {
+      "ratingTitle": "Deine Bewertung",
+      "Unbelievable": "Unglaubwürdig",
+      "Doubtful": "Zweifelhaft",
+      "Questionable": "Fragwürdig",
+      "Trustworthy": "Vertrauenswürdig",
+      "Credible": "Glaubwürdig"
+    }
   }
 }

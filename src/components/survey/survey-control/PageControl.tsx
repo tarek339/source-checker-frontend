@@ -17,11 +17,14 @@ const PageControl = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { surveyPages, currentPage } = useSelectors();
-  const { setCurrentPage, dispatchSurvey } = useDispatches();
+  const { setCurrentPage, dispatchSurvey, setVoted, setVotedStars } =
+    useDispatches();
   const { id } = useParams();
 
   const handleCurrentPage = async (pageNum: number) => {
     try {
+      setVoted(false);
+      setVotedStars(0);
       const res = await axios.post(`/survey/set-current-page/${id}`, {
         pageNum,
       });

@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
-import { useSelectors } from "../../../hooks";
+import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
 import { IPages } from "../../../types/interfaces/interfaces";
 import SubHeader from "../../parents/SubHeader";
 import Flex from "../../parents/containers/Flex";
 import OpenGraphHolder from "./OpenGraphHolder";
 import ScreenShotHolder from "./ScreenShotHolder";
 import StarRating from "./StarRating";
+import axios from "axios";
 
 const SurveyStart = () => {
   const { student, surveyPages, survey, currentPage } = useSelectors();
+  const { setVotedStars, setVoted } = useDispatches();
+  const { t } = useTranslations();
   const [pageId, setPageId] = useState("");
 
   useEffect(() => {
@@ -17,11 +20,35 @@ const SurveyStart = () => {
     });
   }, [surveyPages, currentPage, pageId]);
 
+  const fetchStars = async () => {
+    try {
+      const res = await axios.get(
+        `/survey/get-student-page-stars/${survey?._id}/${pageId}/${student?._id}`
+      );
+      if (res.data > 0) {
+        setVotedStars(res.data);
+        setVoted(true);
+      }
+      if (res.data === "") {
+        setVotedStars(0);
+        setVoted(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (student?._id !== undefined && pageId !== "") {
+      fetchStars();
+    }
+  }, [student?._id, pageId]);
+
   return (
     <Flex direction={"column"} gap={"20px"}>
       <SubHeader
         style={{ marginLeft: "20px", marginRight: "20px" }}
-        title={`${student?.freeUserName!}, bewerte folgende Quelle mit Sternen!`}
+        title={`${student?.freeUserName!}, ${t("studentSurvey.title")}`}
       />
       <Flex direction={"row"} gap={"0px"} justify="center">
         {surveyPages
