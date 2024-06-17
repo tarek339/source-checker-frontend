@@ -1,9 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
+  IAddSurveyPages,
   IHandleCurrentPage,
   IHandleStars,
   IHandleVoted,
   IHandleVotedStars,
+  ISetPageId,
+  IncreaseFirstPage,
+  IncreaseLastPage,
   InitialStateSurvey,
 } from "../../../types/interfaces/redux/slices";
 
@@ -23,20 +27,20 @@ const surveyPagesSlice = createSlice({
   name: "pages",
   initialState,
   reducers: {
-    addSurveyPages: (state, action) => {
+    addSurveyPages: (state, action: PayloadAction<IAddSurveyPages>) => {
       state.pages = action.payload.pages;
     },
-    increaseFirstPage: (state, action) => {
+    increaseFirstPage: (state, action: PayloadAction<IncreaseFirstPage>) => {
       state.sideBarFirstPage = action.payload.sideBarFirstPage;
     },
-    increaseLastPage: (state, action) => {
+    increaseLastPage: (state, action: PayloadAction<IncreaseLastPage>) => {
       state.sideBarLastPage = action.payload.sideBarLastPage;
     },
-    setPageId: (state, action) => {
-      state.pageId = action.payload;
+    setPageId: (state, action: PayloadAction<ISetPageId>) => {
+      state.pageId = action.payload.pageId;
     },
     getSinglePage: (state, action) => {
-      state.singlePage = action.payload;
+      state.singlePage = action.payload.singlePage;
     },
     handleCurrentPage: (state, action: PayloadAction<IHandleCurrentPage>) => {
       state.currentPage = action.payload.currentPage;

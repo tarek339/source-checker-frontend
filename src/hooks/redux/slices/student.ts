@@ -1,11 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { IStudent } from "../../../types/interfaces/interfaces";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import {
+  IAddStudent,
+  InitialStudentState,
+} from "../../../types/interfaces/redux/slices";
 
-interface InitialState {
-  student: IStudent | null;
-}
-
-const initialState: InitialState = {
+const initialState: InitialStudentState = {
   student: null,
 };
 
@@ -13,8 +12,8 @@ const studentSlice = createSlice({
   name: "student",
   initialState,
   reducers: {
-    addStudent: (state, action) => {
-      state.student = action.payload;
+    addStudent: (state, action: PayloadAction<IAddStudent>) => {
+      state.student = action.payload.student;
     },
     removeStudent: (state) => {
       state.student = null;

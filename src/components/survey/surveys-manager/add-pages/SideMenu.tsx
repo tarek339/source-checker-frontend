@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ImCancelCircle } from "react-icons/im";
 import {
   useSelectors,
@@ -18,10 +17,6 @@ const SideMenu = () => {
   const { dispatchSideBar } = useDispatches();
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
-
-  useEffect(() => {
-    console.log(sideBar);
-  }, [sideBar]);
 
   return (
     <SideBar collapsed={sideBar} toggled={sideBar}>

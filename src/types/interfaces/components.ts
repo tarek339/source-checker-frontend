@@ -1,5 +1,5 @@
 import { IPages } from "./interfaces";
-import { HandleModal } from "./redux/slices";
+import { IHandleModal } from "./redux/slices";
 
 export interface ISteps {
   counter: string;
@@ -63,7 +63,7 @@ export interface IModals {
   children: JSX.Element | JSX.Element[];
   isOpen: boolean;
   onClose: () => {
-    payload: HandleModal;
+    payload: IHandleModal;
     type: "modal/handleModal";
   };
 }
@@ -188,6 +188,9 @@ export interface IFormContainer {
   children: JSX.Element | JSX.Element[];
   gap: string;
   style?: React.CSSProperties;
+  maxWidth?: number;
+  margin?: string;
+  paddingTop?: string;
 }
 
 export interface ISubHeader {
@@ -238,4 +241,9 @@ export interface IStarRating {
   pageId: string;
   surveyId: string;
   studentId: string;
+}
+
+export interface IPageModal {
+  children: JSX.Element;
+  title: string;
 }

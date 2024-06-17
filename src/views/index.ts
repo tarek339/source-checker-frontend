@@ -6,7 +6,7 @@ import NewSurvey from "./survey-management/NewSurvey";
 import SaveSurvey from "./survey-management/SaveSurvey";
 import ChooseSurvey from "./survey-management/ChooseSurvey";
 import AddPages from "./survey-management/AddPages";
-import StudenAuth from "./student/StudenAuth";
+import StudenSurveyAuthentication from "./student/StudenSurveyAuthentication";
 import RegisterStudent from "./student/RegisterStudent";
 import SurveySummary from "./SurveySummary";
 
@@ -19,7 +19,7 @@ export {
   SaveSurvey,
   ChooseSurvey,
   AddPages,
-  StudenAuth,
+  StudenSurveyAuthentication,
   RegisterStudent,
   SurveySummary,
 };

@@ -12,11 +12,15 @@ const Footer = () => {
         <p>
           {t("footer.header")}&nbsp;
           <span>
-            <a href="https://www.usethenews.de/de">#UseTheNews</a>
+            <a href="https://www.usethenews.de/de" target="_blank">
+              #UseTheNews
+            </a>
           </span>
           &nbsp;/&nbsp;
           <span>
-            <a href="">HAW Hamburg</a>
+            <a href="https://www.haw-hamburg.de/" target="_blank">
+              HAW Hamburg
+            </a>
           </span>
         </p>
         <p>{t("footer.public")}</p>
