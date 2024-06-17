@@ -14,7 +14,7 @@ const NotStarted = () => {
         <Flex direction={"column"} gap={"20px"}>
           <Flex direction={"column"} gap={"15px"}>
             <SubHeader
-              title={`${student?.freeUserName}, ${t(
+              title={`${t("common.hello")} ${student?.freeUserName}, ${t(
                 "surveyControl.introduction"
               )}`}
             />

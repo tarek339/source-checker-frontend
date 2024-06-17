@@ -41,7 +41,8 @@
     "studentQuantity": "Student Quantity",
     "freeName": "Choose free user name",
     "register": "register",
-    "summary": "Summary"
+    "summary": "Summary",
+    "hello": "Hello"
   },
   "auth": {
     "question": "Which online sources do you trust?",

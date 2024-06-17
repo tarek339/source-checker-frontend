@@ -23,6 +23,7 @@ export interface IPages {
   starsArray: [
     {
       studentId: string;
+      userName: string;
       stars: number;
     }
   ];
