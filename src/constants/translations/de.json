@@ -41,7 +41,8 @@
     "studentQuantity": "Anzahl Schüler",
     "freeName": "Freien Usernamen auswählen",
     "register": "anmelden",
-    "summary": "Zusammenfassung"
+    "summary": "Zusammenfassung",
+    "hello": "Hallo"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",

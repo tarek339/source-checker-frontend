@@ -40,15 +40,6 @@ const Contorl = () => {
     }
   };
 
-  // const reduceTotalStars = async () => {
-  //   try {
-  //     const res = await axios.get(`/survey/reduce-total-stars/${survey?._id}`);
-  //     dispatchSurvey(res.data.survey);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   return (
     <SubCard
       style={{ paddingLeft: "20px", paddingRight: "20px" }}
@@ -57,6 +48,11 @@ const Contorl = () => {
         <SubHeader title={t("common.surveyControl")} />
         <ContButton onClick={startSurvey} title={t("common.start")} />
         <CancelButton onClick={finishSurvey} title={t("common.finish")} />
+        <a
+          href={`http://localhost:5173/survey-summary/${survey?._id}`}
+          target="_blank">
+          {t("common.summary")}
+        </a>
       </Flex>
     </SubCard>
   );
