@@ -24,6 +24,7 @@ export interface IPages {
     {
       studentId: string;
       userName: string;
+      userNumber: string;
       stars: number;
     }
   ];

@@ -1,23 +1,45 @@
-import { IPages } from "../interfaces";
+import { IPages, IStudent, ISurvey } from "../interfaces";
+
+export interface InitialSurveyState {
+  survey: ISurvey | null;
+  created: boolean;
+}
+
+export interface IAddSurvey {
+  survey: ISurvey;
+}
+
+export interface InitalStateSideBarPage {
+  sideBarFirstPage: number;
+  sideBarLastPage: number;
+}
+
+export interface InitialStudentState {
+  student: IStudent | null;
+}
+
+export interface IAddStudent {
+  student: IStudent;
+}
 
 export enum Locale {
   de = "de",
   en = "en",
 }
 
-export interface HandleTranslation {
+export interface IHandleTranslation {
   locale: Locale;
 }
 
-export interface HandleLoading {
+export interface IHandleLoading {
   loading: boolean;
 }
 
-export interface HandleSubmit {
+export interface IHandleSubmit {
   submit: boolean;
 }
 
-export interface HandleModal {
+export interface IHandleModal {
   isVisible: boolean;
 }
 
@@ -37,7 +59,7 @@ export interface InitialStateSideBar {
   open: boolean;
 }
 
-export interface HandleMainPage {
+export interface IHandleMainPage {
   mainPage: boolean;
 }
 
@@ -63,4 +85,20 @@ export interface IHandleVotedStars {
 
 export interface IHandleStars {
   stars: number;
+}
+
+export interface IAddSurveyPages {
+  pages: IPages[];
+}
+
+export interface IncreaseFirstPage {
+  sideBarFirstPage: number;
+}
+
+export interface IncreaseLastPage {
+  sideBarLastPage: number;
+}
+
+export interface ISetPageId {
+  pageId: string;
 }

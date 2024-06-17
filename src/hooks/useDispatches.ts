@@ -21,8 +21,7 @@ import {
   setPageId,
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
-import { AxiosResponse } from "axios";
-import { IPages } from "../types/interfaces/interfaces";
+import { IPages, IStudent, ISurvey } from "../types/interfaces/interfaces";
 import useSelectors from "./useSelectors";
 
 const useDispatches = () => {
@@ -32,8 +31,7 @@ const useDispatches = () => {
   const enableEN = () => dispatch(handleTranslation({ locale: Locale.en }));
   const enableGE = () => dispatch(handleTranslation({ locale: Locale.de }));
 
-  const dispatchSurvey = (res: AxiosResponse<any, any>) =>
-    dispatch(addSurvey(res));
+  const dispatchSurvey = (survey: ISurvey) => dispatch(addSurvey({ survey }));
   const dispatchPages = (pages: IPages[]) =>
     dispatch(addSurveyPages({ pages: pages }));
 
@@ -53,7 +51,7 @@ const useDispatches = () => {
     dispatch(increaseFirstPage(firstSideBarPages + 1));
   const incLastSBPage = () => dispatch(increaseLastPage(lastSideBarPages + 1));
 
-  const fetchPageId = (id: string) => dispatch(setPageId(id));
+  const fetchPageId = (pageId: string) => dispatch(setPageId({ pageId }));
   const fetchSinglePage = (page: IPages) =>
     dispatch(
       getSinglePage({
@@ -61,9 +59,18 @@ const useDispatches = () => {
         title: page.title,
         url: page.url,
         note: page.note,
-        isMobileView: page.isMobileView,
         mobileScreenshot: page.mobileScreenshot,
         desktopScreenshot: page.desktopScreenshot,
+        isMobileView: page.isMobileView,
+        openGraph: page.openGraph,
+        isOpenGraphView: page.isOpenGraphView,
+        starsArray: [
+          {
+            studentId: "",
+            userName: "",
+            stars: "",
+          },
+        ],
       })
     );
   const setMainPage = (arg: boolean) => dispatch(handlePage({ mainPage: arg }));
@@ -74,8 +81,8 @@ const useDispatches = () => {
   const setCoundDownStatus = (countDownDone: boolean) =>
     dispatch(handleCountDown({ countDownDone: countDownDone }));
 
-  const dispatchStudent = (res: AxiosResponse<any, any>) =>
-    dispatch(addStudent(res));
+  const dispatchStudent = (student: IStudent) =>
+    dispatch(addStudent({ student }));
 
   const setCurrentPage = (currentPage: number) =>
     dispatch(handleCurrentPage({ currentPage }));

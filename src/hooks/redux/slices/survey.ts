@@ -1,12 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { ISurvey } from "../../../types/interfaces/interfaces";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import {
+  IAddSurvey,
+  InitialSurveyState,
+} from "../../../types/interfaces/redux/slices";
 
-interface InitialState {
-  survey: ISurvey | null;
-  created: boolean;
-}
-
-const initialState: InitialState = {
+const initialState: InitialSurveyState = {
   survey: null,
   created: false,
 };
@@ -15,8 +13,8 @@ const surveySlice = createSlice({
   name: "survey",
   initialState,
   reducers: {
-    addSurvey: (state, action) => {
-      state.survey = action.payload;
+    addSurvey: (state, action: PayloadAction<IAddSurvey>) => {
+      state.survey = action.payload.survey;
     },
     removeSurvey: (state) => {
       state.survey = null;

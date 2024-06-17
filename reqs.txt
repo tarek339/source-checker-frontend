@@ -194,3 +194,8 @@ check screenshots and video on whatapp
       }
     });
   }, [surveyPages, currentPage, stars, voted, votedStars]);
+
+  anonymous results and no user names
+
+  anonymousResults state
+  freeUserNames state

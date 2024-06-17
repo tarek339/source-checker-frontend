@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { InitalStateSideBarPage } from "../../../types/interfaces/redux/slices";
 
-const initialState = {
+const initialState: InitalStateSideBarPage = {
   sideBarFirstPage: 0,
   sideBarLastPage: 1,
 };

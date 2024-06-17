@@ -3,7 +3,7 @@ import "./assets/styles/App.css";
 import {
   Authentication,
   ChooseAction,
-  StudenAuth,
+  StudenSurveyAuthentication,
   SurveyControl,
   NewSurvey,
   SaveSurvey,
@@ -42,7 +42,10 @@ function App() {
           />
           <Route path="/surveys-manager/add-pages/:id" element={<AddPages />} />
           <Route path="/survey-control/:id" element={<SurveyControl />} />
-          <Route path="/student-auth" element={<StudenAuth />} />
+          <Route
+            path="/student-survey-authentication"
+            element={<StudenSurveyAuthentication />}
+          />
           <Route path="/register-student/:id" element={<RegisterStudent />} />
           <Route
             path="/student-survey/:id/student-id/:studentId"

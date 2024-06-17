@@ -7,11 +7,7 @@ import {
 } from "../../../../hooks";
 import Flex from "../../../parents/containers/Flex";
 import Modal from "../../../parents/containers/Modal";
-
-export interface IPageModal {
-  children: JSX.Element;
-  title: string;
-}
+import { IPageModal } from "../../../../types/interfaces/components";
 
 const PageModal = ({ children, title }: IPageModal) => {
   const { modal } = useSelectors();

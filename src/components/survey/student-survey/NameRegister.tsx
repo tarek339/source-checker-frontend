@@ -33,14 +33,23 @@ const NameRegister = () => {
     fetchSurvey();
   }, []);
 
+  useEffect(() => {
+    if (
+      survey?.freeUserNames === false &&
+      survey?.freeUserNames !== undefined
+    ) {
+      handleSubmit();
+    }
+  }, [survey]);
+
   const handleSubmit = async () => {
     try {
-      if (!freeUserName) {
+      if (!freeUserName && survey?.freeUserNames) {
         setInputError(emptyInput);
         return false;
       }
       const res = await axios.post("/student/register-free-user-name", {
-        freeUserName,
+        freeUserName: !survey?.freeUserNames ? "" : freeUserName,
         surveyId: survey?._id,
       });
       dispatchStudent(res.data.student);
