@@ -6,7 +6,7 @@
 .authentication-image {
   width: 40%;
   height: 100vh;
-  background-color: red;
+  background-color: transparent;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
