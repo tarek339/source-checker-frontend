@@ -8,8 +8,8 @@ import {
   FormContainer,
   FramerMotion,
   Input,
-  SubHeader,
-  SubTitel,
+  SubTitle,
+  Title,
   SurveyContent,
 } from "../../components";
 import { useTranslations, useInputErrors, useDispatches } from "../../hooks";
@@ -51,10 +51,10 @@ const ChooseSurvey = () => {
 
   return (
     <SurveyContent>
-      <SubTitel title={t("survey.createManagement")} />
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
-          <SubHeader title={t("chooseSurvey.surveyData")} />
+          <SubTitle title={t("chooseSurvey.surveyData")} />
           <Flex
             direction={"column"}
             gap={"15px"}

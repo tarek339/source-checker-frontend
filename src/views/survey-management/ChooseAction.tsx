@@ -7,8 +7,8 @@ import {
   Card,
   Flex,
   FramerMotion,
-  SubHeader,
-  SubTitel,
+  SubTitle,
+  Title,
   SurveyContent,
 } from "../../components";
 
@@ -39,10 +39,10 @@ const ChooseAction = () => {
 
   return (
     <SurveyContent>
-      <SubTitel title={t("survey.createManagement")} />
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
-          <SubHeader title={t("chooseAction.header")} />
+          <SubTitle title={t("chooseAction.header")} />
           <Flex
             direction={windowWidth <= 619 ? "column" : "row"}
             gap={"20px"}

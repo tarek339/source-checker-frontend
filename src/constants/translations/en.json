@@ -156,5 +156,9 @@
       "Trustworthy": "Trustworthy",
       "Credible": "Credible"
     }
+  },
+  "surveySummaray": {
+    "title": "Summary of the survey",
+    "subTitle": "has an average rating of"
   }
 }

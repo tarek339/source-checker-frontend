@@ -5,7 +5,7 @@ import {
   FormButton,
   FramerMotion,
   Input,
-  SubHeader,
+  SubTitle,
   SurveyContent,
 } from "../../components";
 import { useBreakPoints, useDispatches, useTranslations } from "../../hooks";
@@ -34,7 +34,7 @@ const StudenSurveyAuthentication = () => {
       <SurveyContent maxWidth={900}>
         <Card>
           <FramerMotion>
-            <SubHeader title={t("chooseSurvey.surveyData")} />
+            <SubTitle title={t("chooseSurvey.surveyData")} />
             <FormContainer
               onSubmit={(e) => {
                 e.preventDefault();

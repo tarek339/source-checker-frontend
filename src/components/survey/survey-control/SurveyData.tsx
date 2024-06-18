@@ -3,7 +3,7 @@ import QrCode from "../../QRCode";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
 import { useBreakPoints, useSelectors, useTranslations } from "../../../hooks";
-import SubHeader from "../../parents/SubHeader";
+import SubTitle from "../../parents/SubTitle";
 import SpanBold from "../../parents/SpanBold";
 import { useState } from "react";
 
@@ -33,7 +33,7 @@ const SurveyData = () => {
       width={windowWidth < 768 ? "" : "40%"}
       style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
       <Flex direction={"column"} gap={"15px"}>
-        <SubHeader title={t("common.surveyData")} />
+        <SubTitle title={t("common.surveyData")} />
         <Flex direction={"row"} gap={"10px"}>
           <Flex direction={"column"} gap={"0px"}>
             <QrCode value={survey?.link!} />

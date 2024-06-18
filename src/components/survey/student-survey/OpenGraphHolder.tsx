@@ -1,5 +1,5 @@
 import { IOpenGraphHolder } from "../../../types/interfaces/components";
-import SubHeader from "../../parents/SubHeader";
+import SubTitle from "../../parents/SubTitle";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
 
@@ -11,7 +11,7 @@ const OpenGraphHolder = ({
   return (
     <SubCard>
       <Flex direction={"column"} gap={"10px"} justify="center">
-        <SubHeader title={ogTitle} />
+        <SubTitle title={ogTitle} />
         <img
           style={{
             width: "100%",

@@ -7,7 +7,7 @@ import {
 } from "../../../../hooks";
 import OpenGraphView from "../../../OpenGraphView";
 import ScreenShot from "../../../ScreenShot";
-import SubHeader from "../../../parents/SubHeader";
+import SubTitle from "../../../parents/SubTitle";
 import Flex from "../../../parents/containers/Flex";
 import SideBar from "../../../parents/containers/SideBar";
 
@@ -25,7 +25,7 @@ const SideMenu = () => {
         gap={"5px"}
         justify="space-between"
         align="center">
-        <SubHeader title={t("addPages.sideBar.header")} />
+        <SubTitle title={t("addPages.sideBar.header")} />
         <div
           style={{ cursor: "pointer", paddingTop: "23px" }}
           onClick={() => dispatchSideBar(false)}>

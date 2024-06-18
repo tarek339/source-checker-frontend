@@ -9,7 +9,7 @@
     "surveyID": "Umfrage-ID",
     "surveyPIN": "Umfrage-PIN",
     "survey": "Umfrage",
-    "title": "Title",
+    "title": "Titel",
     "url": "Url",
     "note": "Notiz (wird nicht angezeigt)",
     "surveyNumber": "Umfrage Nr.",
@@ -157,5 +157,9 @@
       "Trustworthy": "Vertrauenswürdig",
       "Credible": "Glaubwürdig"
     }
+  },
+  "surveySummaray": {
+    "title": "Zusammenfassung der Umfrage",
+    "subTitle": "hat eine durchschnittliche Bewertung von"
   }
 }

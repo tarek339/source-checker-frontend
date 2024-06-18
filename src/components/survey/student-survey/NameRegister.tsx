@@ -1,5 +1,5 @@
 import axios from "axios";
-import SubHeader from "../../parents/SubHeader";
+import SubTitle from "../../parents/SubTitle";
 import Card from "../../parents/containers/Card";
 import Flex from "../../parents/containers/Flex";
 import SurveyContent from "../../parents/containers/SurveyContent";
@@ -67,7 +67,7 @@ const NameRegister = () => {
     <SurveyContent>
       <div style={{ margin: "0 auto", maxWidth: "900px" }}>
         <Card>
-          <SubHeader title={t("chooseSurvey.surveyData")} />
+          <SubTitle title={t("chooseSurvey.surveyData")} />
           <FormContainer
             onSubmit={(e) => {
               e.preventDefault();

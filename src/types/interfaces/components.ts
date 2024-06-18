@@ -193,7 +193,7 @@ export interface IFormContainer {
   paddingTop?: string;
 }
 
-export interface ISubHeader {
+export interface ISubTitle {
   title: string;
   style?: React.CSSProperties;
 }
@@ -207,7 +207,7 @@ export interface IFramerMotion {
   children: JSX.Element | JSX.Element[];
 }
 
-export interface ISubTitel {
+export interface ITitle {
   title: string;
 }
 

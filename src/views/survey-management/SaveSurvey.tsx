@@ -11,7 +11,7 @@ import {
   Card,
   FramerMotion,
   Flex,
-  SubHeader,
+  SubTitle,
   DividerHorizontal,
   CancelButton,
   ContinueButton,
@@ -19,7 +19,7 @@ import {
   useCompArray,
   Modal,
   ModalContent,
-  SubTitel,
+  Title,
 } from "../../components";
 
 const SaveSurvey = () => {
@@ -40,7 +40,7 @@ const SaveSurvey = () => {
 
   return (
     <SurveyContent>
-      <SubTitel title={t("survey.createManagement")} />
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <Modal isVisible={modal} setIsVisible={closeModal}>
@@ -58,7 +58,7 @@ const SaveSurvey = () => {
               margin: "0 auto",
               maxWidth: "1000px",
             }}>
-            <SubHeader title={t("saveSurvey.saveSurvey")} />
+            <SubTitle title={t("saveSurvey.saveSurvey")} />
             <>
               {surveyArray.map((survey, index) => {
                 return (

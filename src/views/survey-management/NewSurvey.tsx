@@ -9,8 +9,8 @@ import {
   FormButton,
   FormContainer,
   FramerMotion,
-  SubHeader,
-  SubTitel,
+  SubTitle,
+  Title,
   SurveyContent,
   SwitchToggle,
 } from "../../components";
@@ -49,7 +49,7 @@ const NewSurvey = () => {
 
   return (
     <SurveyContent>
-      <SubTitel title={t("survey.createManagement")} />
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <ErrorModal onSubmit={handleSubmit} />
@@ -59,7 +59,7 @@ const NewSurvey = () => {
             style={{
               margin: "0 auto",
             }}>
-            <SubHeader title={t("newSurvey.headerOne")} />
+            <SubTitle title={t("newSurvey.headerOne")} />
             <DividerHorizontal />
             <Flex
               direction={"row"}
@@ -87,7 +87,7 @@ const NewSurvey = () => {
               </div>
             </Flex>
 
-            <SubHeader title={t("newSurvey.headerTwo")} />
+            <SubTitle title={t("newSurvey.headerTwo")} />
 
             <DividerHorizontal />
 

@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import {
   SurveyContent,
   SideMenu,
-  SubTitel,
+  Title,
   Card,
   FramerMotion,
-  SubHeader,
+  SubTitle,
   AddPage,
   Flex,
   PagesHolder,
@@ -53,10 +53,10 @@ const AddPages = () => {
   return (
     <SurveyContent style={{ position: "relative" }}>
       <SideMenu />
-      <SubTitel title={t("survey.createManagement")} />
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
-          <SubHeader title={t("addPages.header")} />
+          <SubTitle title={t("addPages.header")} />
           <AddPage />
           <Flex
             direction={"column"}
@@ -83,7 +83,7 @@ const AddPages = () => {
                 borderRadius: "4px",
                 marginTop: "2em",
               }}>
-              <SubHeader
+              <SubTitle
                 style={{ paddingTop: "0px" }}
                 title={
                   windowWidth <= 375

@@ -16,11 +16,11 @@ import Header from "./parents/Header";
 import SubCard from "./parents/containers/SubCard";
 import SurveyContent from "./parents/containers/SurveyContent";
 import Flex from "./parents/containers/Flex";
-import SubHeader from "./parents/SubHeader";
+import SubTitle from "./parents/SubTitle";
 import LoadingBar from "./LoadingBar";
 import FramerMotion from "./parents/containers/FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
-import SubTitel from "./parents/SubTitel";
+import Title from "./parents/Title";
 import ContButton from "./buttons/ContButton";
 import AddPage from "./survey/surveys-manager/add-pages/AddPage";
 import NoPages from "./survey/surveys-manager/add-pages/NoPages";
@@ -62,11 +62,11 @@ export {
   SubCard,
   SurveyContent,
   Flex,
-  SubHeader,
+  SubTitle,
   LoadingBar,
   LoadingSpinner,
   FramerMotion,
-  SubTitel,
+  Title,
   AppContent,
   ContButton,
   AddPage,

@@ -1,5 +1,5 @@
 import { useSelectors, useTranslations } from "../../../hooks";
-import SubHeader from "../../parents/SubHeader";
+import SubTitle from "../../parents/SubTitle";
 import Flex from "../../parents/containers/Flex";
 import FramerMotion from "../../parents/containers/FramerMotion";
 import SubCard from "../../parents/containers/SubCard";
@@ -19,7 +19,7 @@ const NotStarted = () => {
           style={{ marginTop: "1em", marginLeft: "20px", marginRight: "20px" }}>
           <Flex direction={"column"} gap={"20px"}>
             <Flex direction={"column"} gap={"15px"}>
-              <SubHeader
+              <SubTitle
                 title={`${t("common.hello")} ${user}, ${t(
                   "surveyControl.introduction"
                 )}`}
@@ -32,7 +32,7 @@ const NotStarted = () => {
               </Flex>
             </Flex>
             <Flex direction={"row"} gap={"0px"} justify="center">
-              <SubHeader
+              <SubTitle
                 style={{ color: "#ff0000" }}
                 title={t("studentSurvey.notStartedInfo")}
               />

@@ -5,7 +5,7 @@ import {
   FramerMotion,
   Introduction,
   PageControl,
-  SubHeader,
+  SubTitle,
   SurveyContent,
   SurveyData,
   SurveyStatus,
@@ -45,7 +45,7 @@ const SurveyControl = () => {
       <SurveyContent
         maxWidth={1150}
         style={{ paddingLeft: "20px", paddingRight: "20px" }}>
-        <SubHeader
+        <SubTitle
           style={{ fontSize: "31px" }}
           title={`${t("common.surveyID")}: ${survey?.surveyId}`}
         />
