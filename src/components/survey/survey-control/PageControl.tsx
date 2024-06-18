@@ -63,7 +63,7 @@ const PageControl = () => {
             title={
               <>
                 <IoArrowBackSharp fontSize={"22px"} />
-                <span>{t("common.back")}</span>
+                <span>{t("button.back")}</span>
               </>
             }
             width={"50%"}
@@ -73,7 +73,7 @@ const PageControl = () => {
             onClick={nextPage}
             title={
               <>
-                <span>{t("common.next")}</span>
+                <span>{t("button.next")}</span>
                 <IoArrowForwardSharp fontSize={"22px"} />
               </>
             }

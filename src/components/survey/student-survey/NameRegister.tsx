@@ -90,10 +90,10 @@ const NameRegister = () => {
             />
             {windowWidth > 425 ? (
               <Flex direction={"row"} gap={""} width="100%" justify="flex-end">
-                <FormButton title={t("common.register")} />
+                <FormButton title={t("button.register")} />
               </Flex>
             ) : (
-              <FormButton title={t("common.register")} />
+              <FormButton title={t("button.register")} />
             )}
           </FormContainer>
         </Card>

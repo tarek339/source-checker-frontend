@@ -115,7 +115,7 @@ const NewSurvey = () => {
 
               <ButtonContainer>
                 <BackButton path={"/surveys-manager/choose-action"} />
-                <FormButton title={t("common.create")} />
+                <FormButton title={t("button.create")} />
               </ButtonContainer>
             </FormContainer>
           </Flex>

@@ -75,7 +75,7 @@ const SaveSurvey = () => {
             </>
             <DividerHorizontal />
             <ButtonContainer>
-              <CancelButton onClick={openModal} title={t("common.delete")} />
+              <CancelButton onClick={openModal} title={t("button.delete")} />
               <ContinueButton
                 path={`/surveys-manager/add-pages/${survey?._id}`}
               />

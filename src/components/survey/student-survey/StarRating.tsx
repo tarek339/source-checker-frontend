@@ -56,7 +56,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
           allowHover={voted ? false : true}
         />
         {stars > 0 && !voted ? (
-          <ContButton onClick={handleSubmit} title={t("input.button")} />
+          <ContButton onClick={handleSubmit} title={t("button.submit")} />
         ) : null}
       </>
     </Flex>

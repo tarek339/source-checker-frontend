@@ -22,7 +22,7 @@ const BackButton = ({ path }: IBackContinueButton) => {
         fontWeight: 600,
       }}
       onClick={() => naigate(path)}>
-      {t("common.back")}
+      {t("button.back")}
     </button>
   );
 };

@@ -46,14 +46,14 @@ const ErrorModal = ({ onSubmit }: IErrorModal) => {
             onSubmit={onSubmit}
             gap={"0px"}>
             <ButtonContainer>
-              <CancelButton onClick={closeModal} title={t("common.cancel")} />
+              <CancelButton onClick={closeModal} title={t("button.cancel")} />
               <ContButton
                 type="submit"
                 onClick={() => {
                   onSubmit;
                   closeModal();
                 }}
-                title={t("common.retry")}
+                title={t("button.retry")}
               />
             </ButtonContainer>
           </FormContainer>

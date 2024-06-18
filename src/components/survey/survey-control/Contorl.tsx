@@ -46,8 +46,8 @@ const Contorl = () => {
       width={windowWidth < 768 ? "" : `${100 / 3}%`}>
       <Flex direction={"column"} gap={"20px"}>
         <SubTitle title={t("common.surveyControl")} />
-        <ContButton onClick={startSurvey} title={t("common.start")} />
-        <CancelButton onClick={finishSurvey} title={t("common.finish")} />
+        <ContButton onClick={startSurvey} title={t("button.start")} />
+        <CancelButton onClick={finishSurvey} title={t("button.finish")} />
         <a
           href={`http://localhost:5173/survey-summary/${survey?._id}`}
           target="_blank">

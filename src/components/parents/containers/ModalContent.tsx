@@ -32,8 +32,8 @@ const ModalContent = ({ header, url }: IModalContent) => {
         <p>{t("saveSurvey.deleteSection")}</p>
         <ButtonContainer
           style={{ justifyContent: "flex-end", paddingTop: "1em" }}>
-          <ContButton onClick={closeModal} title={t("common.cancel")} />
-          <CancelButton onClick={deleteSurvey} title={t("common.delete")} />
+          <ContButton onClick={closeModal} title={t("button.cancel")} />
+          <CancelButton onClick={deleteSurvey} title={t("button.delete")} />
         </ButtonContainer>
       </Flex>
     </Flex>

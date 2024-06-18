@@ -123,7 +123,7 @@ const AddPages = () => {
                     title={
                       viewsSelected
                         ? t("addPages.shareSurvey")
-                        : t("common.chooseView")
+                        : t("button.chooseView")
                     }
                   />
                 )}

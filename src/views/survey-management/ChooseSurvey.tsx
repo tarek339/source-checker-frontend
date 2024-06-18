@@ -118,7 +118,7 @@ const ChooseSurvey = () => {
               />
               <DividerHorizontal />
               <Flex direction={"column"} gap={"15px"}>
-                <FormButton title={t("common.callUp")} />
+                <FormButton title={t("button.callUp")} />
                 <BackButton path={"/surveys-manager/choose-action"} />
               </Flex>
             </FormContainer>

@@ -59,10 +59,10 @@ const StudenSurveyAuthentication = () => {
                   gap={""}
                   width="100%"
                   justify="flex-end">
-                  <FormButton title={t("common.callUp")} />
+                  <FormButton title={t("button.callUp")} />
                 </Flex>
               ) : (
-                <FormButton title={t("common.callUp")} />
+                <FormButton title={t("button.callUp")} />
               )}
             </FormContainer>
           </FramerMotion>
