@@ -28,7 +28,8 @@
     "freeName": "Choose free user name",
     "summary": "Summary",
     "hello": "Hello",
-    "delete": "delete"
+    "delete": "delete",
+    "result": "Result"
   },
   "button": {
     "continue": "continue",
@@ -154,11 +155,11 @@
     "title": "rate the following source with stars!",
     "rating": {
       "ratingTitle": "Your rating",
-      "Unbelievable": "Unbelievable",
-      "Doubtful": "Doubtful",
-      "Questionable": "Questionable",
-      "Trustworthy": "Trustworthy",
-      "Credible": "Credible"
+      "unbelievable": "unbelievable",
+      "doubtful": "doubtful",
+      "questionable": "questionable",
+      "trustworthy": "trustworthy",
+      "credible": "credible"
     }
   },
   "surveySummaray": {

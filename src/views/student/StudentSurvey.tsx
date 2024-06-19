@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatches, useRequests, useSelectors } from "../../hooks";
-import { NotStarted, SurveyContent, SurveyStart } from "../../components";
+import { NotStarted, ContentContainer, SurveyStart } from "../../components";
 import { socket } from "../../socket";
 import { useParams } from "react-router-dom";
 
@@ -35,9 +35,9 @@ const StudentSurvey = () => {
   }, []);
 
   return (
-    <SurveyContent>
+    <ContentContainer>
       {!isStarted ? <NotStarted /> : <SurveyStart />}
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

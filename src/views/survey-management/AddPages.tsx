@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  SurveyContent,
+  ContentContainer,
   SideMenu,
   Title,
   Card,
@@ -12,7 +12,7 @@ import {
   PagesHolder,
   NoPages,
   ContButton,
-  DividerHorizontal,
+  Divider,
   BackButton,
 } from "../../components";
 import {
@@ -51,7 +51,7 @@ const AddPages = () => {
   }, [viewsSelected, survey]);
 
   return (
-    <SurveyContent style={{ position: "relative" }}>
+    <ContentContainer style={{ position: "relative" }}>
       <SideMenu />
       <Title title={t("survey.createManagement")} />
       <Card>
@@ -94,7 +94,7 @@ const AddPages = () => {
               <ContButton title={t("addPages.button")} onClick={openModal} />
             </Flex>
 
-            <DividerHorizontal />
+            <Divider />
 
             <Flex
               direction={windowWidth <= 500 ? "column-reverse" : "row"}
@@ -132,7 +132,7 @@ const AddPages = () => {
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

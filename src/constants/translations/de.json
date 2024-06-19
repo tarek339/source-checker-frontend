@@ -28,7 +28,8 @@
     "freeName": "Freien Usernamen auswählen",
     "summary": "Zusammenfassung",
     "hello": "Hallo",
-    "delete": "löschen"
+    "delete": "löschen",
+    "result": "Ergebnis"
   },
   "button": {
     "continue": "Weiter",
@@ -154,11 +155,11 @@
     "title": "bewerte folgende Quelle mit Sternen!",
     "rating": {
       "ratingTitle": "Deine Bewertung",
-      "Unbelievable": "Unglaubwürdig",
-      "Doubtful": "Zweifelhaft",
-      "Questionable": "Fragwürdig",
-      "Trustworthy": "Vertrauenswürdig",
-      "Credible": "Glaubwürdig"
+      "unbelievable": "unglaubwürdig",
+      "doubtful": "zweifelhaft",
+      "questionable": "fragwürdig",
+      "trustworthy": "vertrauenswürdig",
+      "credible": "glaubwürdig"
     }
   },
   "surveySummaray": {

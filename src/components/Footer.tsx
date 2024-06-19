@@ -1,5 +1,4 @@
 import { LuDot } from "react-icons/lu";
-import { Divider } from ".";
 import { useTranslations } from "../hooks";
 
 const Footer = () => {
@@ -7,7 +6,7 @@ const Footer = () => {
 
   return (
     <div className="footer">
-      <Divider />
+      <div className="divider"></div>
       <section className="footer-section">
         <p>
           {t("footer.header")}&nbsp;

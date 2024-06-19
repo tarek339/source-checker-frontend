@@ -2,7 +2,7 @@ import axios from "axios";
 import SubTitle from "../../parents/SubTitle";
 import Card from "../../parents/containers/Card";
 import Flex from "../../parents/containers/Flex";
-import SurveyContent from "../../parents/containers/SurveyContent";
+import ContentContainer from "../../parents/containers/ContentContainer";
 import FormButton from "../../parents/form/FormButton";
 import FormContainer from "../../parents/form/FormContainer";
 import Input from "../../parents/form/Input";
@@ -64,7 +64,7 @@ const NameRegister = () => {
   };
 
   return (
-    <SurveyContent>
+    <ContentContainer>
       <div style={{ margin: "0 auto", maxWidth: "900px" }}>
         <Card>
           <SubTitle title={t("chooseSurvey.surveyData")} />
@@ -98,7 +98,7 @@ const NameRegister = () => {
           </FormContainer>
         </Card>
       </div>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

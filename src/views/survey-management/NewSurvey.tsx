@@ -3,7 +3,7 @@ import {
   BackButton,
   ButtonContainer,
   Card,
-  DividerHorizontal,
+  Divider,
   ErrorModal,
   Flex,
   FormButton,
@@ -11,7 +11,7 @@ import {
   FramerMotion,
   SubTitle,
   Title,
-  SurveyContent,
+  ContentContainer,
   SwitchToggle,
 } from "../../components";
 import { useDispatches, useTranslations } from "../../hooks";
@@ -48,7 +48,7 @@ const NewSurvey = () => {
   };
 
   return (
-    <SurveyContent>
+    <ContentContainer>
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
@@ -60,7 +60,7 @@ const NewSurvey = () => {
               margin: "0 auto",
             }}>
             <SubTitle title={t("newSurvey.headerOne")} />
-            <DividerHorizontal />
+            <Divider />
             <Flex
               direction={"row"}
               gap={"10px"}
@@ -89,7 +89,7 @@ const NewSurvey = () => {
 
             <SubTitle title={t("newSurvey.headerTwo")} />
 
-            <DividerHorizontal />
+            <Divider />
 
             <FormContainer onSubmit={handleSubmit} gap={"30px"}>
               <SwitchToggle
@@ -111,7 +111,7 @@ const NewSurvey = () => {
                 ifOffText={t("newSurvey.no")}
                 htmlFor={"anonymous"}
               />
-              <DividerHorizontal />
+              <Divider />
 
               <ButtonContainer>
                 <BackButton path={"/surveys-manager/choose-action"} />
@@ -121,7 +121,7 @@ const NewSurvey = () => {
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

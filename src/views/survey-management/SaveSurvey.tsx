@@ -7,12 +7,12 @@ import {
   useTranslations,
 } from "../../hooks";
 import {
-  SurveyContent,
+  ContentContainer,
   Card,
   FramerMotion,
   Flex,
   SubTitle,
-  DividerHorizontal,
+  Divider,
   CancelButton,
   ContinueButton,
   ButtonContainer,
@@ -39,7 +39,7 @@ const SaveSurvey = () => {
   }, []);
 
   return (
-    <SurveyContent>
+    <ContentContainer>
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
@@ -65,15 +65,13 @@ const SaveSurvey = () => {
                   <div key={index}>
                     {survey.comp}
                     <div style={{ paddingTop: "21px" }}>
-                      {index !== surveyArray.length - 1 && (
-                        <DividerHorizontal />
-                      )}
+                      {index !== surveyArray.length - 1 && <Divider />}
                     </div>
                   </div>
                 );
               })}
             </>
-            <DividerHorizontal />
+            <Divider />
             <ButtonContainer>
               <CancelButton onClick={openModal} title={t("button.delete")} />
               <ContinueButton
@@ -83,7 +81,7 @@ const SaveSurvey = () => {
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

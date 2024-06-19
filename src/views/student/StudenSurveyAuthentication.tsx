@@ -6,7 +6,7 @@ import {
   FramerMotion,
   Input,
   SubTitle,
-  SurveyContent,
+  ContentContainer,
 } from "../../components";
 import { useBreakPoints, useDispatches, useTranslations } from "../../hooks";
 import axios from "axios";
@@ -30,8 +30,8 @@ const StudenSurveyAuthentication = () => {
     setMainPage(false);
   }, []);
   return (
-    <SurveyContent>
-      <SurveyContent maxWidth={900}>
+    <ContentContainer>
+      <ContentContainer maxWidth={900}>
         <Card>
           <FramerMotion>
             <SubTitle title={t("chooseSurvey.surveyData")} />
@@ -67,8 +67,8 @@ const StudenSurveyAuthentication = () => {
             </FormContainer>
           </FramerMotion>
         </Card>
-      </SurveyContent>
-    </SurveyContent>
+      </ContentContainer>
+    </ContentContainer>
   );
 };
 

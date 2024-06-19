@@ -1,11 +1,8 @@
 import { useEffect } from "react";
 import { ITable } from "../types/interfaces/components";
-import {
-  MdOutlineArrowBackIos,
-  MdOutlineArrowForwardIos,
-} from "react-icons/md";
 import Flex from "./parents/containers/Flex";
 import { useTranslations } from "../hooks";
+import { Next, Prev } from "./icons";
 
 const Table = ({
   headers,
@@ -87,15 +84,12 @@ const Table = ({
           <span>{property?.length}</span>
         </Flex>
         <Flex direction={"row"} gap={"20px"} justify="flex-end" align="center">
-          <MdOutlineArrowBackIos
-            fontSize="18px"
-            style={{ cursor: first === 0 ? "" : "pointer" }}
-            onClick={prevPage}
-          />
-          <MdOutlineArrowForwardIos
-            fontSize="18px"
-            style={{ cursor: last >= property.length ? "" : "pointer" }}
+          <Prev first={first} onClick={prevPage} fontSize={18} />
+          <Next
+            last={last}
+            propertyLength={property.length}
             onClick={nextPage}
+            fontSize={18}
           />
         </Flex>
       </Flex>

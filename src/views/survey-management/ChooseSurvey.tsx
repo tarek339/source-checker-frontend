@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   BackButton,
   Card,
-  DividerHorizontal,
+  Divider,
   Flex,
   FormButton,
   FormContainer,
@@ -10,7 +10,7 @@ import {
   Input,
   SubTitle,
   Title,
-  SurveyContent,
+  ContentContainer,
 } from "../../components";
 import { useTranslations, useInputErrors, useDispatches } from "../../hooks";
 import axios from "axios";
@@ -50,7 +50,7 @@ const ChooseSurvey = () => {
   };
 
   return (
-    <SurveyContent>
+    <ContentContainer>
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
@@ -116,7 +116,7 @@ const ChooseSurvey = () => {
                   setPinTypeErrMsg(null);
                 }}
               />
-              <DividerHorizontal />
+              <Divider />
               <Flex direction={"column"} gap={"15px"}>
                 <FormButton title={t("button.callUp")} />
                 <BackButton path={"/surveys-manager/choose-action"} />
@@ -125,7 +125,7 @@ const ChooseSurvey = () => {
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

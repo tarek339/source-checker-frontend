@@ -1,7 +1,7 @@
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
-import SurveyContent from "../../parents/containers/SurveyContent";
+import ContentContainer from "../../parents/containers/ContentContainer";
 import SubTitle from "../../parents/SubTitle";
 import { useDispatches } from "../../../hooks";
 
@@ -9,7 +9,7 @@ const CountDown = () => {
   const { setCoundDownStatus } = useDispatches();
 
   return (
-    <SurveyContent maxWidth={400}>
+    <ContentContainer maxWidth={400}>
       <SubCard>
         <Flex direction={"column"} gap={"20px"} align="center" justify="center">
           <SubTitle title={"Die Umfrage startet in"} />
@@ -40,7 +40,7 @@ const CountDown = () => {
           <SubTitle title={"Viel Spaß!"} />
         </Flex>
       </SubCard>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

@@ -5,7 +5,6 @@ import Input from "./parents/form/Input";
 import FormButton from "./parents/form/FormButton";
 import BackButton from "./buttons/BackButton";
 import Select from "./parents/form/Select";
-import DividerHorizontal from "./DividerHorizontal";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
 import ContinueButton from "./buttons/ContinueButton";
 import CancelButton from "./buttons/CancelButton";
@@ -14,7 +13,7 @@ import LoadingPulse from "./LoadingPulse";
 import Card from "./parents/containers/Card";
 import Header from "./parents/Header";
 import SubCard from "./parents/containers/SubCard";
-import SurveyContent from "./parents/containers/SurveyContent";
+import ContentContainer from "./parents/containers/ContentContainer";
 import Flex from "./parents/containers/Flex";
 import SubTitle from "./parents/SubTitle";
 import LoadingBar from "./LoadingBar";
@@ -51,7 +50,6 @@ export {
   FormButton,
   BackButton,
   Select,
-  DividerHorizontal,
   SurveyProp,
   ContinueButton,
   CancelButton,
@@ -60,7 +58,7 @@ export {
   Card,
   Header,
   SubCard,
-  SurveyContent,
+  ContentContainer,
   Flex,
   SubTitle,
   LoadingBar,

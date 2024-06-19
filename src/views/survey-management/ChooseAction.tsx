@@ -9,7 +9,7 @@ import {
   FramerMotion,
   SubTitle,
   Title,
-  SurveyContent,
+  ContentContainer,
 } from "../../components";
 
 const style: React.CSSProperties = {
@@ -38,7 +38,7 @@ const ChooseAction = () => {
   }, []);
 
   return (
-    <SurveyContent>
+    <ContentContainer>
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
@@ -82,7 +82,7 @@ const ChooseAction = () => {
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

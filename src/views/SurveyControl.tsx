@@ -6,7 +6,7 @@ import {
   Introduction,
   PageControl,
   SubTitle,
-  SurveyContent,
+  ContentContainer,
   SurveyData,
   SurveyStatus,
 } from "../components";
@@ -42,7 +42,7 @@ const SurveyControl = () => {
 
   return (
     <FramerMotion>
-      <SurveyContent
+      <ContentContainer
         maxWidth={1150}
         style={{ paddingLeft: "20px", paddingRight: "20px" }}>
         <SubTitle
@@ -66,7 +66,7 @@ const SurveyControl = () => {
             <SurveyStatus />
           </Flex>
         </Flex>
-      </SurveyContent>
+      </ContentContainer>
     </FramerMotion>
   );
 };

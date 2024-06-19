@@ -151,10 +151,11 @@ export interface ICard {
   style?: React.CSSProperties;
 }
 
-export interface ISurveyContent {
+export interface IContentContainer {
   children: JSX.Element[] | JSX.Element;
   style?: React.CSSProperties;
   maxWidth?: number;
+  marginTop?: number;
 }
 
 export interface IAppContainer {
