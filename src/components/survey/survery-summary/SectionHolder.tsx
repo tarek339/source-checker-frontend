@@ -1,6 +1,7 @@
-import { Flex, Divider } from "../../components";
-import { useSelectors } from "../../hooks";
-import { ISectionHolder } from "../../types/interfaces/views";
+import { useSelectors, useBreakPoints } from "../../../hooks";
+import { ISectionHolder } from "../../../types/interfaces/components";
+import Divider from "../../Divider";
+import Flex from "../../parents/containers/Flex";
 import Section from "./Section";
 
 const SectionHolder = ({
@@ -13,6 +14,7 @@ const SectionHolder = ({
   unbelievable,
 }: ISectionHolder) => {
   const { survey } = useSelectors();
+  const { windowWidth } = useBreakPoints();
 
   return (
     <>
@@ -20,7 +22,11 @@ const SectionHolder = ({
         page.starsArray.map((obj, i) => {
           return (
             <Flex key={i} direction={"column"} gap={"15px"} justify="center">
-              <Flex direction={"row"} gap={"10px"} align="center">
+              <Flex
+                direction={windowWidth >= 470 ? "row" : "column"}
+                gap={"10px"}
+                align={windowWidth >= 470 ? "center" : "flex-start"}
+                width="100%">
                 <Section
                   minWidth="185px"
                   maxWidth="200px"
@@ -31,7 +37,7 @@ const SectionHolder = ({
                                   : obj.userNumber
                               }`}
                 />
-                <Section text="bewertet als" />
+                {windowWidth >= 635 ? <Section text="bewertet als" /> : <></>}
                 <div>
                   {obj.stars === 5 ? (
                     <Section text={credible} />

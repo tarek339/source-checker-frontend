@@ -172,8 +172,21 @@ export interface IFlex {
   children: JSX.Element[] | JSX.Element;
   direction: "row" | "column" | "column-reverse" | "row-reverse";
   gap: string;
-  justify?: string;
-  align?: string;
+  justify?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
+  align?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline"
+    | "initial"
+    | "inherit";
   width?: string;
   height?: string;
   style?: React.CSSProperties;
@@ -247,4 +260,36 @@ export interface IStarRating {
 export interface IPageModal {
   children: JSX.Element;
   title: string;
+}
+
+export interface IResult {
+  sumStars: number[] | undefined;
+  credible: string;
+  trustworthy: string;
+  questionable: string;
+  doubtful: string;
+  unbelievable: string;
+  first: number;
+  last: number;
+  property: IPages[];
+  setFirst: (value: React.SetStateAction<number>) => void | undefined;
+  setLast: (value: React.SetStateAction<number>) => void | undefined;
+}
+
+export interface ISection {
+  text: string;
+  color?: string;
+  minWidth?: string;
+  maxWidth?: string;
+  width?: string;
+}
+
+export interface ISectionHolder {
+  page: IPages;
+  starsArrayLength: number;
+  credible: string;
+  trustworthy: string;
+  questionable: string;
+  doubtful: string;
+  unbelievable: string;
 }
