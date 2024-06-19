@@ -1,6 +1,6 @@
 import { useTranslations } from "../../../../hooks";
 import Flex from "../../../parents/containers/Flex";
-import SubHeader from "../../../parents/SubHeader";
+import SubTitle from "../../../parents/SubTitle";
 
 const NoPages = () => {
   const { t } = useTranslations();
@@ -15,7 +15,7 @@ const NoPages = () => {
         textAlign: "center",
         marginTop: "2em",
       }}>
-      <SubHeader title={t("addPages.notiHeader")} />
+      <SubTitle title={t("addPages.notiHeader")} />
       <p>{t("addPages.notiText")}</p>
     </Flex>
   );

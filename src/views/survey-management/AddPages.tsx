@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  SurveyContent,
+  ContentContainer,
   SideMenu,
-  SubTitel,
+  Title,
   Card,
   FramerMotion,
-  SubHeader,
+  SubTitle,
   AddPage,
   Flex,
   PagesHolder,
   NoPages,
   ContButton,
-  DividerHorizontal,
+  Divider,
   BackButton,
 } from "../../components";
 import {
@@ -51,12 +51,12 @@ const AddPages = () => {
   }, [viewsSelected, survey]);
 
   return (
-    <SurveyContent style={{ position: "relative" }}>
+    <ContentContainer style={{ position: "relative" }}>
       <SideMenu />
-      <SubTitel title={t("survey.createManagement")} />
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
-          <SubHeader title={t("addPages.header")} />
+          <SubTitle title={t("addPages.header")} />
           <AddPage />
           <Flex
             direction={"column"}
@@ -83,7 +83,7 @@ const AddPages = () => {
                 borderRadius: "4px",
                 marginTop: "2em",
               }}>
-              <SubHeader
+              <SubTitle
                 style={{ paddingTop: "0px" }}
                 title={
                   windowWidth <= 375
@@ -94,7 +94,7 @@ const AddPages = () => {
               <ContButton title={t("addPages.button")} onClick={openModal} />
             </Flex>
 
-            <DividerHorizontal />
+            <Divider />
 
             <Flex
               direction={windowWidth <= 500 ? "column-reverse" : "row"}
@@ -123,7 +123,7 @@ const AddPages = () => {
                     title={
                       viewsSelected
                         ? t("addPages.shareSurvey")
-                        : t("common.chooseView")
+                        : t("button.chooseView")
                     }
                   />
                 )}
@@ -132,7 +132,7 @@ const AddPages = () => {
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

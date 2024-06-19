@@ -1,8 +1,8 @@
 import axios from "axios";
-import SubHeader from "../../parents/SubHeader";
+import SubTitle from "../../parents/SubTitle";
 import Card from "../../parents/containers/Card";
 import Flex from "../../parents/containers/Flex";
-import SurveyContent from "../../parents/containers/SurveyContent";
+import ContentContainer from "../../parents/containers/ContentContainer";
 import FormButton from "../../parents/form/FormButton";
 import FormContainer from "../../parents/form/FormContainer";
 import Input from "../../parents/form/Input";
@@ -64,10 +64,10 @@ const NameRegister = () => {
   };
 
   return (
-    <SurveyContent>
+    <ContentContainer>
       <div style={{ margin: "0 auto", maxWidth: "900px" }}>
         <Card>
-          <SubHeader title={t("chooseSurvey.surveyData")} />
+          <SubTitle title={t("chooseSurvey.surveyData")} />
           <FormContainer
             onSubmit={(e) => {
               e.preventDefault();
@@ -90,15 +90,15 @@ const NameRegister = () => {
             />
             {windowWidth > 425 ? (
               <Flex direction={"row"} gap={""} width="100%" justify="flex-end">
-                <FormButton title={t("common.register")} />
+                <FormButton title={t("button.register")} />
               </Flex>
             ) : (
-              <FormButton title={t("common.register")} />
+              <FormButton title={t("button.register")} />
             )}
           </FormContainer>
         </Card>
       </div>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

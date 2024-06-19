@@ -6,7 +6,7 @@ import {
 } from "../../../hooks";
 import CancelButton from "../../buttons/CancelButton";
 import ContButton from "../../buttons/ContButton";
-import SubHeader from "../../parents/SubHeader";
+import SubTitle from "../../parents/SubTitle";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
 import axios from "axios";
@@ -45,9 +45,9 @@ const Contorl = () => {
       style={{ paddingLeft: "20px", paddingRight: "20px" }}
       width={windowWidth < 768 ? "" : `${100 / 3}%`}>
       <Flex direction={"column"} gap={"20px"}>
-        <SubHeader title={t("common.surveyControl")} />
-        <ContButton onClick={startSurvey} title={t("common.start")} />
-        <CancelButton onClick={finishSurvey} title={t("common.finish")} />
+        <SubTitle title={t("common.surveyControl")} />
+        <ContButton onClick={startSurvey} title={t("button.start")} />
+        <CancelButton onClick={finishSurvey} title={t("button.finish")} />
         <a
           href={`http://localhost:5173/survey-summary/${survey?._id}`}
           target="_blank">

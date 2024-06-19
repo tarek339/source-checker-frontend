@@ -6,7 +6,7 @@ import {
   Flex,
   FormContainer,
   Modal,
-  SubHeader,
+  SubTitle,
 } from "../..";
 import {
   useSelectors,
@@ -34,7 +34,7 @@ const ErrorModal = ({ onSubmit }: IErrorModal) => {
       <Flex direction={"row"} gap={"10px"} align="flex-start">
         <Alert />
         <Flex direction={"column"} gap={"5px"}>
-          <SubHeader style={{ paddingTop: "3px" }} title={t("common.error")} />
+          <SubTitle style={{ paddingTop: "3px" }} title={t("common.error")} />
           <p>{t("newSurvey.connectionError")}</p>
           <p>{t("newSurvey.conErrMsgOne")}</p>
           <p>{t("newSurvey.conErrMsgTwo")}</p>
@@ -46,14 +46,14 @@ const ErrorModal = ({ onSubmit }: IErrorModal) => {
             onSubmit={onSubmit}
             gap={"0px"}>
             <ButtonContainer>
-              <CancelButton onClick={closeModal} title={t("common.cancel")} />
+              <CancelButton onClick={closeModal} title={t("button.cancel")} />
               <ContButton
                 type="submit"
                 onClick={() => {
                   onSubmit;
                   closeModal();
                 }}
-                title={t("common.retry")}
+                title={t("button.retry")}
               />
             </ButtonContainer>
           </FormContainer>

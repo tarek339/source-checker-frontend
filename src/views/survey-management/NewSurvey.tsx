@@ -3,15 +3,15 @@ import {
   BackButton,
   ButtonContainer,
   Card,
-  DividerHorizontal,
+  Divider,
   ErrorModal,
   Flex,
   FormButton,
   FormContainer,
   FramerMotion,
-  SubHeader,
-  SubTitel,
-  SurveyContent,
+  SubTitle,
+  Title,
+  ContentContainer,
   SwitchToggle,
 } from "../../components";
 import { useDispatches, useTranslations } from "../../hooks";
@@ -48,8 +48,8 @@ const NewSurvey = () => {
   };
 
   return (
-    <SurveyContent>
-      <SubTitel title={t("survey.createManagement")} />
+    <ContentContainer>
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <ErrorModal onSubmit={handleSubmit} />
@@ -59,8 +59,8 @@ const NewSurvey = () => {
             style={{
               margin: "0 auto",
             }}>
-            <SubHeader title={t("newSurvey.headerOne")} />
-            <DividerHorizontal />
+            <SubTitle title={t("newSurvey.headerOne")} />
+            <Divider />
             <Flex
               direction={"row"}
               gap={"10px"}
@@ -87,9 +87,9 @@ const NewSurvey = () => {
               </div>
             </Flex>
 
-            <SubHeader title={t("newSurvey.headerTwo")} />
+            <SubTitle title={t("newSurvey.headerTwo")} />
 
-            <DividerHorizontal />
+            <Divider />
 
             <FormContainer onSubmit={handleSubmit} gap={"30px"}>
               <SwitchToggle
@@ -111,17 +111,17 @@ const NewSurvey = () => {
                 ifOffText={t("newSurvey.no")}
                 htmlFor={"anonymous"}
               />
-              <DividerHorizontal />
+              <Divider />
 
               <ButtonContainer>
                 <BackButton path={"/surveys-manager/choose-action"} />
-                <FormButton title={t("common.create")} />
+                <FormButton title={t("button.create")} />
               </ButtonContainer>
             </FormContainer>
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

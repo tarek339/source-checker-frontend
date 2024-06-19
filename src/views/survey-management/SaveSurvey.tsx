@@ -7,19 +7,19 @@ import {
   useTranslations,
 } from "../../hooks";
 import {
-  SurveyContent,
+  ContentContainer,
   Card,
   FramerMotion,
   Flex,
-  SubHeader,
-  DividerHorizontal,
+  SubTitle,
+  Divider,
   CancelButton,
   ContinueButton,
   ButtonContainer,
   useCompArray,
   Modal,
   ModalContent,
-  SubTitel,
+  Title,
 } from "../../components";
 
 const SaveSurvey = () => {
@@ -39,8 +39,8 @@ const SaveSurvey = () => {
   }, []);
 
   return (
-    <SurveyContent>
-      <SubTitel title={t("survey.createManagement")} />
+    <ContentContainer>
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
           <Modal isVisible={modal} setIsVisible={closeModal}>
@@ -58,24 +58,22 @@ const SaveSurvey = () => {
               margin: "0 auto",
               maxWidth: "1000px",
             }}>
-            <SubHeader title={t("saveSurvey.saveSurvey")} />
+            <SubTitle title={t("saveSurvey.saveSurvey")} />
             <>
               {surveyArray.map((survey, index) => {
                 return (
                   <div key={index}>
                     {survey.comp}
                     <div style={{ paddingTop: "21px" }}>
-                      {index !== surveyArray.length - 1 && (
-                        <DividerHorizontal />
-                      )}
+                      {index !== surveyArray.length - 1 && <Divider />}
                     </div>
                   </div>
                 );
               })}
             </>
-            <DividerHorizontal />
+            <Divider />
             <ButtonContainer>
-              <CancelButton onClick={openModal} title={t("common.delete")} />
+              <CancelButton onClick={openModal} title={t("button.delete")} />
               <ContinueButton
                 path={`/surveys-manager/add-pages/${survey?._id}`}
               />
@@ -83,7 +81,7 @@ const SaveSurvey = () => {
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

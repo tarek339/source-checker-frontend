@@ -7,9 +7,9 @@ import {
   Card,
   Flex,
   FramerMotion,
-  SubHeader,
-  SubTitel,
-  SurveyContent,
+  SubTitle,
+  Title,
+  ContentContainer,
 } from "../../components";
 
 const style: React.CSSProperties = {
@@ -38,11 +38,11 @@ const ChooseAction = () => {
   }, []);
 
   return (
-    <SurveyContent>
-      <SubTitel title={t("survey.createManagement")} />
+    <ContentContainer>
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
-          <SubHeader title={t("chooseAction.header")} />
+          <SubTitle title={t("chooseAction.header")} />
           <Flex
             direction={windowWidth <= 619 ? "column" : "row"}
             gap={"20px"}
@@ -82,7 +82,7 @@ const ChooseAction = () => {
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

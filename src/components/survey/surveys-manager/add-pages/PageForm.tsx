@@ -64,7 +64,7 @@ const PageForm = ({
           onClick={() => {
             closeModal();
           }}
-          title={t("common.back")}
+          title={t("button.back")}
         />
         <FormButton
           style={{
@@ -75,7 +75,7 @@ const PageForm = ({
             loading ? (
               <LoadingPulse color={"#fff"} size={10} />
             ) : (
-              t("common.add")
+              t("button.add")
             )
           }
         />

@@ -6,6 +6,8 @@ const FormContainer = ({
   gap,
   style,
   maxWidth,
+  margin,
+  paddingTop,
 }: IFormContainer) => {
   return (
     <form
@@ -15,8 +17,8 @@ const FormContainer = ({
         flexDirection: "column",
         gap: gap,
         maxWidth: `${maxWidth}px`,
-        margin: "0 auto",
-        paddingTop: "2em",
+        margin: margin,
+        paddingTop: paddingTop,
         ...style,
       }}>
       {children}

@@ -45,18 +45,18 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
           size={50}
           tooltipDefaultText={t("studentSurvey.rating.ratingTitle")}
           tooltipArray={[
-            t("studentSurvey.rating.Unbelievable"),
-            t("studentSurvey.rating.Doubtful"),
-            t("studentSurvey.rating.Questionable"),
-            t("studentSurvey.rating.Trustworthy"),
-            t("studentSurvey.rating.Credible"),
+            t("studentSurvey.rating.unbelievable"),
+            t("studentSurvey.rating.doubtful"),
+            t("studentSurvey.rating.questionable"),
+            t("studentSurvey.rating.trustworthy"),
+            t("studentSurvey.rating.credible"),
           ]}
           disableFillHover={voted ? true : false}
           readonly={voted ? true : false}
           allowHover={voted ? false : true}
         />
         {stars > 0 && !voted ? (
-          <ContButton onClick={handleSubmit} title={t("input.button")} />
+          <ContButton onClick={handleSubmit} title={t("button.submit")} />
         ) : null}
       </>
     </Flex>

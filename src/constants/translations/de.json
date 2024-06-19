@@ -1,23 +1,13 @@
 {
   "common": {
     "sourceChecker": "Quellenchecker",
-    "continue": "Weiter",
-    "back": "zurück",
-    "cancel": "abbrechen",
-    "delete": "löschen",
-    "edit": "bearbeiten",
     "surveyID": "Umfrage-ID",
     "surveyPIN": "Umfrage-PIN",
     "survey": "Umfrage",
-    "title": "Title",
+    "title": "Titel",
     "url": "Url",
     "note": "Notiz (wird nicht angezeigt)",
     "surveyNumber": "Umfrage Nr.",
-    "create": "Umfrage anlegen",
-    "callUp": "aufrufen",
-    "add": "hinzugfügen",
-    "choose": "auswählen",
-    "chooseView": "Ansicht wählen",
     "yes": "ja",
     "no": "nein",
     "copy": "kopieren",
@@ -26,23 +16,38 @@
     "mobileView": "mobil",
     "desktopView": "desktop",
     "action": "aktion",
-    "finish": "beenden",
     "step": "schritt",
     "error": "Fehler",
-    "retry": "erneut versuchen",
     "of": "von",
     "surveyData": "Umfragedaten",
     "surveyControl": "Umfragesteuerung",
-    "start": "starten",
     "pageControl": "Seitensteuerung",
     "page": "Seite",
-    "next": "nächtse",
     "surveyStatus": "Umfragestatus",
     "studentQuantity": "Anzahl Schüler",
     "freeName": "Freien Usernamen auswählen",
-    "register": "anmelden",
     "summary": "Zusammenfassung",
-    "hello": "Hallo"
+    "hello": "Hallo",
+    "delete": "löschen",
+    "result": "Ergebnis"
+  },
+  "button": {
+    "continue": "Weiter",
+    "back": "zurück",
+    "cancel": "abbrechen",
+    "delete": "löschen",
+    "edit": "bearbeiten",
+    "create": "Umfrage anlegen",
+    "callUp": "aufrufen",
+    "add": "hinzugfügen",
+    "choose": "auswählen",
+    "chooseView": "Ansicht wählen",
+    "start": "starten",
+    "finish": "beenden",
+    "next": "nächtse",
+    "register": "anmelden",
+    "submit": "senden",
+    "retry": "erneut versuchen"
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
@@ -51,7 +56,6 @@
     "mainText": "Quellenchecker ist ein Online-Tool für den Unterricht, bei dem die Schüler:innen über die Glaubwürdigkeit von realen Internet-Inhalten abstimmen. Ein YouTube-Video, ein Instagram-Post oder ein Artikel einer unbekannten Nachrichtenseite - welchen Quellen vertrauen die Jugendlichen, welchen weniger? Das lässt sich mit Quellenchecker spielerisch abfragen. Ziel ist ein leichter Einstieg ins Thema Informations- und Nachrichtenkompetenz und die Auseinandersetzung mit der Glaubwürdigkeit unterschiedlicher Internet-Quellen."
   },
   "input": {
-    "button": "senden",
     "select": "Bitte auswählen",
     "inputError": "Pflichtfeld",
     "incorrectType": "Falsche Zeichenart - nur Ziffern verwenden",
@@ -151,11 +155,15 @@
     "title": "bewerte folgende Quelle mit Sternen!",
     "rating": {
       "ratingTitle": "Deine Bewertung",
-      "Unbelievable": "Unglaubwürdig",
-      "Doubtful": "Zweifelhaft",
-      "Questionable": "Fragwürdig",
-      "Trustworthy": "Vertrauenswürdig",
-      "Credible": "Glaubwürdig"
+      "unbelievable": "unglaubwürdig",
+      "doubtful": "zweifelhaft",
+      "questionable": "fragwürdig",
+      "trustworthy": "vertrauenswürdig",
+      "credible": "glaubwürdig"
     }
+  },
+  "surveySummaray": {
+    "title": "Zusammenfassung der Umfrage",
+    "subTitle": "hat eine durchschnittliche Bewertung von"
   }
 }

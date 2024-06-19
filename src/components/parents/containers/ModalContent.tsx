@@ -6,7 +6,7 @@ import CancelButton from "../../buttons/CancelButton";
 import ContButton from "../../buttons/ContButton";
 import ButtonContainer from "./ButtonContainer";
 import Flex from "./Flex";
-import SubHeader from "../SubHeader";
+import SubTitle from "../SubTitle";
 import { useNavigate } from "react-router-dom";
 
 const ModalContent = ({ header, url }: IModalContent) => {
@@ -24,7 +24,7 @@ const ModalContent = ({ header, url }: IModalContent) => {
     <Flex direction={"row"} gap={"10px"} align="flex-start">
       <Alert />
       <Flex direction={"column"} gap={"5px"} justify="flex-start">
-        <SubHeader
+        <SubTitle
           style={{ paddingTop: "0px" }}
           title={`${`${header} ${t("common.delete")}`}?`}
         />
@@ -32,8 +32,8 @@ const ModalContent = ({ header, url }: IModalContent) => {
         <p>{t("saveSurvey.deleteSection")}</p>
         <ButtonContainer
           style={{ justifyContent: "flex-end", paddingTop: "1em" }}>
-          <ContButton onClick={closeModal} title={t("common.cancel")} />
-          <CancelButton onClick={deleteSurvey} title={t("common.delete")} />
+          <ContButton onClick={closeModal} title={t("button.cancel")} />
+          <CancelButton onClick={deleteSurvey} title={t("button.delete")} />
         </ButtonContainer>
       </Flex>
     </Flex>

@@ -53,7 +53,7 @@ const OpenGraphView = ({
           <p>{ogDescription}</p>
         </div>
       </>
-      <ContButton onClick={chooseView} title={t("common.choose")} />
+      <ContButton onClick={chooseView} title={t("button.choose")} />
     </Flex>
   );
 };

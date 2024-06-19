@@ -5,8 +5,8 @@ import {
   FramerMotion,
   Introduction,
   PageControl,
-  SubHeader,
-  SurveyContent,
+  SubTitle,
+  ContentContainer,
   SurveyData,
   SurveyStatus,
 } from "../components";
@@ -42,10 +42,10 @@ const SurveyControl = () => {
 
   return (
     <FramerMotion>
-      <SurveyContent
+      <ContentContainer
         maxWidth={1150}
         style={{ paddingLeft: "20px", paddingRight: "20px" }}>
-        <SubHeader
+        <SubTitle
           style={{ fontSize: "31px" }}
           title={`${t("common.surveyID")}: ${survey?.surveyId}`}
         />
@@ -66,7 +66,7 @@ const SurveyControl = () => {
             <SurveyStatus />
           </Flex>
         </Flex>
-      </SurveyContent>
+      </ContentContainer>
     </FramerMotion>
   );
 };

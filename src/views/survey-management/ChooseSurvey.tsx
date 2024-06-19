@@ -2,15 +2,15 @@ import { useState } from "react";
 import {
   BackButton,
   Card,
-  DividerHorizontal,
+  Divider,
   Flex,
   FormButton,
   FormContainer,
   FramerMotion,
   Input,
-  SubHeader,
-  SubTitel,
-  SurveyContent,
+  SubTitle,
+  Title,
+  ContentContainer,
 } from "../../components";
 import { useTranslations, useInputErrors, useDispatches } from "../../hooks";
 import axios from "axios";
@@ -50,11 +50,11 @@ const ChooseSurvey = () => {
   };
 
   return (
-    <SurveyContent>
-      <SubTitel title={t("survey.createManagement")} />
+    <ContentContainer>
+      <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
-          <SubHeader title={t("chooseSurvey.surveyData")} />
+          <SubTitle title={t("chooseSurvey.surveyData")} />
           <Flex
             direction={"column"}
             gap={"15px"}
@@ -116,16 +116,16 @@ const ChooseSurvey = () => {
                   setPinTypeErrMsg(null);
                 }}
               />
-              <DividerHorizontal />
+              <Divider />
               <Flex direction={"column"} gap={"15px"}>
-                <FormButton title={t("common.callUp")} />
+                <FormButton title={t("button.callUp")} />
                 <BackButton path={"/surveys-manager/choose-action"} />
               </Flex>
             </FormContainer>
           </Flex>
         </FramerMotion>
       </Card>
-    </SurveyContent>
+    </ContentContainer>
   );
 };
 

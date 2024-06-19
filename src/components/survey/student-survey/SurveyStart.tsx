@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
 import { IPages } from "../../../types/interfaces/interfaces";
-import SubHeader from "../../parents/SubHeader";
+import SubTitle from "../../parents/SubTitle";
 import Flex from "../../parents/containers/Flex";
 import OpenGraphHolder from "./OpenGraphHolder";
 import ScreenShotHolder from "./ScreenShotHolder";
@@ -53,7 +53,7 @@ const SurveyStart = () => {
   return (
     <FramerMotion>
       <Flex direction={"column"} gap={"20px"}>
-        <SubHeader
+        <SubTitle
           style={{ marginLeft: "20px", marginRight: "20px" }}
           title={`${user}, ${t("studentSurvey.title")}`}
         />

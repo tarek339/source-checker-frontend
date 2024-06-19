@@ -66,7 +66,7 @@ const ScreenShot = ({
           src={url}
         />
       </div>
-      <ContButton onClick={chooseView} title={t("common.choose")} />
+      <ContButton onClick={chooseView} title={t("button.choose")} />
     </div>
   );
 };

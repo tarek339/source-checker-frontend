@@ -151,10 +151,11 @@ export interface ICard {
   style?: React.CSSProperties;
 }
 
-export interface ISurveyContent {
+export interface IContentContainer {
   children: JSX.Element[] | JSX.Element;
   style?: React.CSSProperties;
   maxWidth?: number;
+  marginTop?: number;
 }
 
 export interface IAppContainer {
@@ -193,7 +194,7 @@ export interface IFormContainer {
   paddingTop?: string;
 }
 
-export interface ISubHeader {
+export interface ISubTitle {
   title: string;
   style?: React.CSSProperties;
 }
@@ -207,7 +208,7 @@ export interface IFramerMotion {
   children: JSX.Element | JSX.Element[];
 }
 
-export interface ISubTitel {
+export interface ITitle {
   title: string;
 }
 
