@@ -3,7 +3,7 @@ const Divider = () => {
     <div
       style={{
         width: "100%",
-        borderBottom: "1px solid lightgrey",
+        borderBottom: "2px solid lightgrey",
       }}></div>
   );
 };

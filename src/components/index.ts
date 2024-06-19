@@ -41,6 +41,8 @@ import NotStarted from "./survey/student-survey/NotStarted";
 import SpanBold from "./parents/SpanBold";
 import CountDown from "./survey/student-survey/CountDown";
 import SurveyStart from "./survey/student-survey/SurveyStart";
+import SectionHolder from "./survey/survery-summary/SectionHolder";
+import Result from "./survey/survery-summary/Result";
 
 export {
   Footer,
@@ -86,4 +88,6 @@ export {
   SpanBold,
   CountDown,
   SurveyStart,
+  SectionHolder,
+  Result,
 };

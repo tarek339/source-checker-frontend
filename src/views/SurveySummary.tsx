@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
-import { useRequests, useSelectors, useTranslations } from "../../hooks";
-import { IPages } from "../../types/interfaces/interfaces";
+import {
+  useBreakPoints,
+  useRequests,
+  useSelectors,
+  useTranslations,
+} from "../hooks";
+import { IPages } from "../types/interfaces/interfaces";
 import {
   Card,
   Flex,
@@ -8,16 +13,20 @@ import {
   SubTitle,
   Title,
   ContentContainer,
-} from "../../components";
-import { Average, Star } from "../../components/icons";
-import Result from "./Result";
-import SectionHolder from "./SectionHolder";
+  SectionHolder,
+  Result,
+} from "../components";
+import { Average, Star } from "../components/icons";
 
 const SurveySummary = () => {
   const { fetchSurvey } = useRequests();
   const { surveyPages } = useSelectors();
   const { t } = useTranslations();
+  const { windowWidth } = useBreakPoints();
+
   const [sumStars, setSumStars] = useState<number[]>();
+  const [first, setFirst] = useState(0);
+  const [last, setLast] = useState(1);
 
   const unbelievable = t("studentSurvey.rating.unbelievable");
   const doubtful = t("studentSurvey.rating.doubtful");
@@ -30,13 +39,13 @@ const SurveySummary = () => {
   }, []);
 
   useEffect(() => {
-    const sum = surveyPages.map((page: IPages) => {
+    const sum = surveyPages.slice(first, last).map((page: IPages) => {
       return page.starsArray.reduce((acc, crr) => {
         return acc + crr.stars;
       }, 0);
     });
     setSumStars(sum);
-  }, [surveyPages]);
+  }, [surveyPages, first, last]);
 
   return (
     <ContentContainer>
@@ -45,22 +54,22 @@ const SurveySummary = () => {
         <FramerMotion>
           <Flex direction={"column"} gap={"30px"}>
             <>
-              {surveyPages.map((page, index) => {
+              {surveyPages.slice(first, last).map((page, index) => {
                 const averageRating = sumStars![index] / page.starsArray.length;
                 return (
                   <Flex key={index} direction={"column"} gap={"30px"}>
                     <Flex
-                      direction={"row"}
+                      direction={windowWidth >= 470 ? "row" : "column"}
                       gap={"20px"}
-                      align="center"
+                      align={windowWidth >= 470 ? "center" : "flex-start"}
                       height="100%"
                       justify="center">
-                      <SubTitle title={`${t("common.title")} ${page.title}`} />
+                      <SubTitle title={`${page.title}`} />
                       <Flex direction={"row"} gap={"10px"} align="center">
                         <Average />
                         <Flex direction={"row"} gap={"0px"}>
                           <SubTitle
-                            title={averageRating.toFixed(2).toString()}
+                            title={averageRating?.toFixed(2).toString()!}
                           />
                           <Star />
                         </Flex>
@@ -70,7 +79,7 @@ const SurveySummary = () => {
                     <Flex
                       direction={"column"}
                       gap={"15px"}
-                      style={{ margin: "0 auto" }}>
+                      style={{ margin: windowWidth >= 470 ? "0 auto" : "" }}>
                       <SectionHolder
                         page={page}
                         starsArrayLength={page.starsArray.length}
@@ -91,8 +100,11 @@ const SurveySummary = () => {
                 questionable={questionable}
                 doubtful={doubtful}
                 unbelievable={unbelievable}
-                onNext={undefined}
-                onPrev={undefined}
+                first={first}
+                last={last}
+                setFirst={setFirst}
+                setLast={setLast}
+                property={surveyPages}
               />
             </>
           </Flex>

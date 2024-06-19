@@ -1,6 +1,6 @@
-import { ISection } from "../../types/interfaces/views";
+import { ISection } from "../../../types/interfaces/components";
 
-const Section = ({ text, color, minWidth, maxWidth }: ISection) => {
+const Section = ({ text, color, minWidth, maxWidth, width }: ISection) => {
   return (
     <span
       style={{
@@ -9,6 +9,7 @@ const Section = ({ text, color, minWidth, maxWidth }: ISection) => {
         color: color,
         minWidth: minWidth,
         maxWidth: maxWidth,
+        width: width,
       }}>
       {text}
     </span>
