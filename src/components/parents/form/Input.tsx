@@ -2,6 +2,7 @@ import { IInput } from "../../../types/interfaces/components";
 import Flex from "../containers/Flex";
 
 const Input = ({
+  type,
   label,
   name,
   htmlFor,
@@ -15,7 +16,7 @@ const Input = ({
       <>
         <label htmlFor={htmlFor}>{label}</label>
         <input
-          type="text"
+          type={!type ? "text" : type}
           name={name}
           id={htmlFor}
           style={{

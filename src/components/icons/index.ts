@@ -8,5 +8,18 @@ import Average from "./Average";
 import Star from "./Star";
 import Next from "./Next";
 import Prev from "./Prev";
+import SignOut from "./SignOut";
 
-export { Cancel, Check, Alert, Loading, Yes, No, Average, Star, Next, Prev };
+export {
+  Cancel,
+  Check,
+  Alert,
+  Loading,
+  Yes,
+  No,
+  Average,
+  Star,
+  Next,
+  Prev,
+  SignOut,
+};
