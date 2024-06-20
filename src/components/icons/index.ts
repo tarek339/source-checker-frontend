@@ -9,6 +9,7 @@ import Star from "./Star";
 import Next from "./Next";
 import Prev from "./Prev";
 import SignOut from "./SignOut";
+import Back from "./Back";
 
 export {
   Cancel,
@@ -22,4 +23,5 @@ export {
   Next,
   Prev,
   SignOut,
+  Back,
 };

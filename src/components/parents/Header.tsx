@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IHeader } from "../../types/interfaces/components";
-import { SignOut } from "../icons";
+import { Back, SignOut } from "../icons";
 import { useSelectors } from "../../hooks";
 
 const Header = ({ title }: IHeader) => {
@@ -32,9 +32,27 @@ const Header = ({ title }: IHeader) => {
       location.pathname === `/register-student/${survey?._id}` ||
       location.pathname ===
         `/student-survey/${survey?._id}/student-id/${student?._id}` ||
-      location.pathname === "/student-survey-authentication" ? null : (
-        <div onClick={() => navigate("/surveys-manager/choose-action")}>
-          <SignOut />
+      location.pathname === "/student-survey-authentication" ||
+      location.pathname === `/survey-summary/${survey?._id}` ? null : (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row-reverse",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "15px",
+          }}>
+          <div onClick={() => navigate("/surveys-manager/choose-action")}>
+            <SignOut />
+          </div>
+
+          <div onClick={() => history.back()}>
+            {location.pathname ===
+              `/surveys-manager/save-survey/${survey?._id}` ||
+            location.pathname === `/survey-summary/${survey?._id}` ? null : (
+              <Back />
+            )}
+          </div>
         </div>
       )}
     </div>
