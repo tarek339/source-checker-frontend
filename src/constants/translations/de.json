@@ -60,7 +60,9 @@
     "inputError": "Pflichtfeld",
     "incorrectType": "Falsche Zeichenart - nur Ziffern verwenden",
     "fetchError": "Falsche ID oder falscher PIN",
-    "urlTypeError": "URL-Typ nicht korrekt!"
+    "fetchIDError": "Falsche ID",
+    "urlTypeError": "URL-Typ nicht korrekt!",
+    "existingStudent": "User existiert bereits"
   },
   "footer": {
     "header": "Der Quellenchecker ist ein Projekt von",
@@ -151,7 +153,7 @@
   },
   "studentSurvey": {
     "notStartedInfo": "Bitte warte bis der Lehrer die Umfrage gestartet hat.",
-
+    "joinSurvey": "Umfrage-ID eingeben",
     "title": "bewerte folgende Quelle mit Sternen!",
     "rating": {
       "ratingTitle": "Deine Bewertung",

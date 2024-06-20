@@ -22,15 +22,18 @@ const NameRegister = () => {
   const { windowWidth } = useBreakPoints();
   const { dispatchStudent } = useDispatches();
   const { survey } = useSelectors();
+  const { fetchSurvey } = useRequests();
+  const { emptyInput, studentExists } = useInputErrors();
   const navigate = useNavigate();
-  const { fetchSurvey, fetchStudents } = useRequests();
-  const { emptyInput } = useInputErrors();
 
   const [freeUserName, setFreeUserName] = useState("");
   const [inputError, setInputError] = useState<JSX.Element | null>(null);
+  const [userExistsMsg, setUserExistsMsg] = useState<JSX.Element | null>(null);
 
   useEffect(() => {
-    fetchSurvey();
+    if (survey === null) {
+      fetchSurvey();
+    }
   }, []);
 
   useEffect(() => {
@@ -53,13 +56,12 @@ const NameRegister = () => {
         surveyId: survey?._id,
       });
       dispatchStudent(res.data.student);
-      await fetchStudents();
       setFreeUserName("");
       navigate(
         `/student-survey/${survey?._id}/student-id/${res.data.student._id}`
       );
     } catch (error) {
-      console.log(error);
+      setUserExistsMsg(studentExists);
     }
   };
 
@@ -83,10 +85,14 @@ const NameRegister = () => {
               label={t("common.freeName")}
               name={"surveyID"}
               htmlFor={"surveyID"}
-              error={inputError}
-              inputErrorStyle={inputError}
+              error={inputError ? inputError : userExistsMsg}
+              inputErrorStyle={inputError ? inputError : userExistsMsg}
               value={freeUserName}
-              onChange={(e) => setFreeUserName(e.target.value)}
+              onChange={(e) => {
+                setFreeUserName(e.target.value);
+                setUserExistsMsg(null);
+                setInputError(null);
+              }}
             />
             {windowWidth > 425 ? (
               <Flex direction={"row"} gap={""} width="100%" justify="flex-end">

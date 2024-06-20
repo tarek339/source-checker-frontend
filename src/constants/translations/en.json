@@ -61,7 +61,9 @@
     "inputError": "Required field",
     "incorrectType": "Wrong character type - use digits only",
     "fetchError": "Incorrect ID or PIN",
-    "urlTypeError": "URL-type not correct!"
+    "fetchIDError": "Incorrect ID",
+    "urlTypeError": "URL-type not correct!",
+    "existingStudent": "User already exists"
   },
   "footer": {
     "header": "The source checker is a project by",
@@ -152,6 +154,7 @@
   },
   "studentSurvey": {
     "notStartedInfo": "Please wait until the teacher has started the survey.",
+    "joinSurvey": "Enter survey ID",
     "title": "rate the following source with stars!",
     "rating": {
       "ratingTitle": "Your rating",
