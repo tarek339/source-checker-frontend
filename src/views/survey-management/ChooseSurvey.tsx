@@ -91,6 +91,7 @@ const ChooseSurvey = () => {
                 }}
               />
               <Input
+                type="password"
                 label={t("common.surveyPIN")}
                 name={surveyPin}
                 htmlFor={"survey-pin"}
