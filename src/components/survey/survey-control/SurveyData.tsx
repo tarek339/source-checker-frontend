@@ -48,7 +48,7 @@ const SurveyData = () => {
             <SpanBold
               title={
                 <a
-                  style={{ fontWeight: 600 }}
+                  style={{ fontWeight: 600, textDecoration: "underline" }}
                   target="_blank"
                   href={survey?.link}>
                   {t("studentAuth.studentLink")}
@@ -61,6 +61,7 @@ const SurveyData = () => {
               onClick={copyToClipboard}
               title={copied ? t("common.copied") : t("common.copy")}
               style={{
+                textDecoration: "underline",
                 cursor: "pointer",
                 color: hovered ? "#000c9a" : "#2835c3",
               }}

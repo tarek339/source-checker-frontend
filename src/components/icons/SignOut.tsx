@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
-import { useBreakPoints } from "../../hooks";
+import { useBreakPoints, useTranslations } from "../../hooks";
 
 const SignOut = () => {
   const [hovered, setHovered] = useState(false);
   const { windowWidth } = useBreakPoints();
+  const { t } = useTranslations();
   return (
     <div
       style={{
@@ -32,7 +33,7 @@ const SignOut = () => {
             borderRadius: "4px",
             fontWeight: 600,
           }}>
-          <span>logout</span>
+          <span>{t("common.logOut").toUpperCase()}</span>
         </div>
       ) : null}
     </div>

@@ -29,7 +29,8 @@
     "summary": "Zusammenfassung",
     "hello": "Hallo",
     "delete": "löschen",
-    "result": "Ergebnis"
+    "result": "Ergebnis",
+    "logOut": "ausloggen"
   },
   "button": {
     "continue": "Weiter",

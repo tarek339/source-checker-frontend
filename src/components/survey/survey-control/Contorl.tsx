@@ -1,6 +1,7 @@
 import {
   useBreakPoints,
   useDispatches,
+  useRequests,
   useSelectors,
   useTranslations,
 } from "../../../hooks";
@@ -16,6 +17,7 @@ const Contorl = () => {
   const { t } = useTranslations();
   const { survey } = useSelectors();
   const { dispatchSurvey, setCurrentPage } = useDispatches();
+  const { fetchSurvey } = useRequests();
 
   const startSurvey = async () => {
     try {
@@ -34,6 +36,7 @@ const Contorl = () => {
         isStarted: false,
       });
       dispatchSurvey(res.data.survey);
+      fetchSurvey();
       setCurrentPage(1);
     } catch (error) {
       console.log(error);
@@ -48,11 +51,6 @@ const Contorl = () => {
         <SubTitle title={t("common.surveyControl")} />
         <ContButton onClick={startSurvey} title={t("button.start")} />
         <CancelButton onClick={finishSurvey} title={t("button.finish")} />
-        <a
-          href={`http://localhost:5173/survey-summary/${survey?._id}`}
-          target="_blank">
-          {t("common.summary")}
-        </a>
       </Flex>
     </SubCard>
   );

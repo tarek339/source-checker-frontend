@@ -1,10 +1,11 @@
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { useBreakPoints } from "../../hooks";
+import { useBreakPoints, useTranslations } from "../../hooks";
 import { useState } from "react";
 
 const Back = () => {
   const [hovered, setHovered] = useState(false);
   const { windowWidth } = useBreakPoints();
+  const { t } = useTranslations();
   return (
     <div
       style={{
@@ -31,7 +32,7 @@ const Back = () => {
             borderRadius: "4px",
             fontWeight: 600,
           }}>
-          <span>back</span>
+          <span>{t("button.back").toUpperCase()}</span>
         </div>
       ) : null}
     </div>

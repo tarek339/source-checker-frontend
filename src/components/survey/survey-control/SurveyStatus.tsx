@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   useBreakPoints,
   useRequests,
@@ -13,8 +13,10 @@ import SubCard from "../../parents/containers/SubCard";
 const SurveyStatus = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
-  const { survey } = useSelectors();
+  const { survey, surveyPages } = useSelectors();
   const { fetchStudents, students } = useRequests();
+
+  const [starsAmount, setStarsAmount] = useState(0);
 
   useEffect(() => {
     fetchStudents();
@@ -45,6 +47,14 @@ const SurveyStatus = () => {
     </div>
   );
 
+  useEffect(() => {
+    surveyPages.map((page) => {
+      return page.starsArray.map((star) => {
+        return setStarsAmount(star.stars);
+      });
+    });
+  }, [survey, starsAmount]);
+
   return (
     <SubCard width={windowWidth < 768 ? "" : `${100 / 3}%`}>
       <Flex direction={"column"} gap={"15px"}>
@@ -57,6 +67,18 @@ const SurveyStatus = () => {
           <SpanBold
             title={`${t("common.studentQuantity")}: ${students.length}`}
           />
+          {!survey?.isStarted && starsAmount > 0 ? (
+            <SpanBold
+              title={
+                <a
+                  style={{ fontWeight: 600, textDecoration: "underline" }}
+                  href={`http://localhost:5173/survey-summary/${survey?._id}`}
+                  target="_blank">
+                  {t("common.summary")}
+                </a>
+              }
+            />
+          ) : null}
         </>
       </Flex>
     </SubCard>

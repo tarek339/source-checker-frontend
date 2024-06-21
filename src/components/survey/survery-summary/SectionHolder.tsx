@@ -28,14 +28,9 @@ const SectionHolder = ({
                 align={windowWidth >= 470 ? "center" : "flex-start"}
                 width="100%">
                 <Section
-                  minWidth="185px"
-                  maxWidth="200px"
-                  text={`Teilnehmer
-                              ${
-                                survey?.freeUserNames
-                                  ? obj.userName
-                                  : obj.userNumber
-                              }`}
+                  minWidth="100px"
+                  maxWidth="150px"
+                  text={survey?.freeUserNames ? obj.userName : obj.userNumber}
                 />
                 {windowWidth >= 635 ? <Section text="bewertet als" /> : <></>}
                 <div>
