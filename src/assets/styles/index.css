@@ -113,11 +113,13 @@ label {
   font-size: 18px;
 }
 
-.sub-card::-webkit-scrollbar {
+.sub-card::-webkit-scrollbar,
+.current-page-screenshot::-webkit-scrollbar {
   display: none;
 }
 
-.sub-card {
+.sub-card,
+.current-page-screenshot {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

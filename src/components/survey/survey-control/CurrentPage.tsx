@@ -12,10 +12,18 @@ const CurrentPage = () => {
 
   return (
     <SubCard width={windowWidth < 768 ? "" : "60%"}>
-      <Flex direction={"column"} gap={"20px"}>
-        <SubTitle title={t("surveyControl.currentPage")} />
-        <Flex direction={"row"} gap={"70px"}>
-          <>
+      <Flex direction={"column"} gap={"10px"}>
+        <Flex
+          direction={"row"}
+          gap={"5px"}
+          align="center"
+          justify="space-between">
+          <SubTitle title={t("surveyControl.currentPage")} />
+          <SubTitle title={`${`${currentPage}/${surveyPages.length}`}`} />
+        </Flex>
+
+        <Flex direction={windowWidth >= 768 ? "row" : "column"} gap={"10px"}>
+          <div style={{ width: windowWidth >= 768 ? "50%" : "100%" }}>
             {surveyPages
               .slice(currentPage - 1, currentPage)
               .map((page: IPages, i: number) => {
@@ -43,31 +51,38 @@ const CurrentPage = () => {
                   </Flex>
                 );
               })}
-          </>
-          <>
+          </div>
+          <div style={{ width: windowWidth >= 768 ? "50%" : "100%" }}>
             {surveyPages
               .slice(currentPage - 1, currentPage)
               .map((page: IPages, i) => {
                 return (
-                  <img
+                  <div
+                    className="current-page-screenshot"
                     key={i}
-                    src={
-                      page.isMobileView
-                        ? page.mobileScreenshot
-                        : page.isMobileView === false
-                        ? page.desktopScreenshot
-                        : page.isMobileView === null && page.isOpenGraphView
-                        ? page.openGraph.ogImage.map(
-                            (img: { url: string }) => img.url
-                          )
-                        : null
-                    }
-                    style={{ width: "25%", height: "auto" }}
-                    alt=""
-                  />
+                    style={{
+                      height: windowWidth >= 768 ? "180px" : "300px",
+                      overflow: "scroll",
+                    }}>
+                    <img
+                      src={
+                        page.isMobileView
+                          ? page.mobileScreenshot
+                          : page.isMobileView === false
+                          ? page.desktopScreenshot
+                          : page.isMobileView === null && page.isOpenGraphView
+                          ? page.openGraph.ogImage.map(
+                              (img: { url: string }) => img.url
+                            )
+                          : null
+                      }
+                      style={{ width: "100%", height: "auto" }}
+                      alt=""
+                    />
+                  </div>
                 );
               })}
-          </>
+          </div>
         </Flex>
       </Flex>
     </SubCard>

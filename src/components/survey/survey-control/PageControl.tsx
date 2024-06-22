@@ -9,7 +9,6 @@ import ContButton from "../../buttons/ContButton";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
 import SubTitle from "../../parents/SubTitle";
-import SpanBold from "../../parents/SpanBold";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -49,15 +48,10 @@ const PageControl = () => {
 
   return (
     <SubCard width={windowWidth < 768 ? "" : `${100 / 3}%`}>
-      <Flex direction={"column"} gap={"5px"}>
+      <Flex direction={"column"} gap={"20px"}>
         <SubTitle title={t("common.pageControl")} />
-        <span style={{ fontWeight: 600 }}></span>
-        <SpanBold
-          title={`${`${t("common.page")} ${currentPage} ${t("common.of")} ${
-            surveyPages.length
-          }`}`}
-        />
-        <Flex direction={"row"} gap={"5px"} justify="center" width="100%">
+
+        <Flex direction={"column-reverse"} gap={"20px"} width="100%">
           <ContButton
             onClick={prevPage}
             title={
@@ -66,10 +60,8 @@ const PageControl = () => {
                 <span>{t("button.back")}</span>
               </>
             }
-            width={"50%"}
           />
           <ContButton
-            width={"50%"}
             onClick={nextPage}
             title={
               <>
