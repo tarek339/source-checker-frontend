@@ -3,7 +3,7 @@ import {
   Contorl,
   Flex,
   FramerMotion,
-  Introduction,
+  CurrentPage,
   PageControl,
   SubTitle,
   ContentContainer,
@@ -57,7 +57,7 @@ const SurveyControl = () => {
             marginTop: "1em",
           }}>
           <Flex direction={windowWidth < 768 ? "column" : "row"} gap={"20px"}>
-            <Introduction />
+            <CurrentPage />
             <SurveyData />
           </Flex>
           <Flex direction={windowWidth < 768 ? "column" : "row"} gap={"20px"}>

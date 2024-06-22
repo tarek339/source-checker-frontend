@@ -43,7 +43,7 @@ const SurveyStatus = () => {
         width: "100px",
         transition: "background-color 0.3s, color 0.5s",
       }}>
-      {survey?.isStarted ? t("surveyControl.start") : t("surveyControl.end")}
+      {survey?.isStarted ? t("common.active") : t("common.unActive")}
     </div>
   );
 

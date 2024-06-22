@@ -30,7 +30,9 @@
     "hello": "Hello",
     "delete": "delete",
     "result": "Result",
-    "logOut": "ausloggen"
+    "logOut": "ausloggen",
+    "active": "aktiv",
+    "unActive": "unaktiv"
   },
   "button": {
     "continue": "continue",
@@ -143,7 +145,7 @@
     "studentLink": "Student link"
   },
   "surveyControl": {
-    "introduction": "Welcome to the survey!",
+    "currentPage": "Current page",
     "introText": {
       "first": "Imagine someone sends you a link via WhatsApp or you see a news item in a story.",
       "second": "Your first impression counts: Do you trust it?",
@@ -151,7 +153,10 @@
       "fourth": "Rate them with stars."
     },
     "start": "start",
-    "end": "end"
+    "end": "end",
+    "ogData": "Open-Graph-Data",
+    "sourceURL": "URL zur Quelle",
+    "note": "Note"
   },
   "studentSurvey": {
     "notStartedInfo": "Wait a minute, the survey is about to start.",

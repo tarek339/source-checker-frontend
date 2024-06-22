@@ -30,7 +30,9 @@
     "hello": "Hallo",
     "delete": "löschen",
     "result": "Ergebnis",
-    "logOut": "ausloggen"
+    "logOut": "ausloggen",
+    "active": "aktiv",
+    "unActive": "unaktiv"
   },
   "button": {
     "continue": "Weiter",
@@ -45,7 +47,7 @@
     "chooseView": "Ansicht wählen",
     "start": "starten",
     "finish": "beenden",
-    "next": "nächtse",
+    "next": "nächste",
     "register": "anmelden",
     "submit": "senden",
     "retry": "erneut versuchen"
@@ -142,7 +144,7 @@
     "studentLink": "Schülerlink"
   },
   "surveyControl": {
-    "introduction": "Willkommen zur Umfrage!",
+    "currentPage": "Aktuelle Seite",
     "introText": {
       "first": "Stell dir vor, jemand schickt dir einen Link per Whatsapp oder du siehst eine News in einer Story.",
       "second": "Dein erster Eindruck zählt: Traust du dem?",
@@ -150,7 +152,10 @@
       "fourth": "Bewerte sie mit Sternen."
     },
     "start": "start",
-    "end": "ende"
+    "end": "ende",
+    "ogData": "Open-Graph-Daten",
+    "sourceURL": "URL zur Quelle",
+    "note": "Notiz"
   },
   "studentSurvey": {
     "notStartedInfo": "Warte kurz, die Umfrage startet gleich.",
