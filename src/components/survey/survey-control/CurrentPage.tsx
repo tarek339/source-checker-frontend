@@ -44,9 +44,10 @@ const CurrentPage = () => {
           <>
             {surveyPages
               .slice(currentPage - 1, currentPage)
-              .map((page: IPages) => {
+              .map((page: IPages, i) => {
                 return (
                   <img
+                    key={i}
                     src={
                       page.isMobileView
                         ? page.mobileScreenshot
