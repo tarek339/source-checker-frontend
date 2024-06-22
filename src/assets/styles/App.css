@@ -1,6 +1,4 @@
-@import "./views/authentication.css";
-@import "./components/survery-manager.css";
-@import "./select.css";
+@import "./authentication.css";
 @import "./table.css";
 @import "./modal.css";
 @import "./toggle.css";

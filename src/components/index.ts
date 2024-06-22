@@ -4,7 +4,6 @@ import Steps from "./parents/Steps";
 import Input from "./parents/form/Input";
 import FormButton from "./parents/form/FormButton";
 import BackButton from "./buttons/BackButton";
-import Select from "./parents/form/Select";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
 import ContinueButton from "./buttons/ContinueButton";
 import CancelButton from "./buttons/CancelButton";
@@ -52,7 +51,6 @@ export {
   Input,
   FormButton,
   BackButton,
-  Select,
   SurveyProp,
   ContinueButton,
   CancelButton,

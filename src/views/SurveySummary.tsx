@@ -53,13 +53,22 @@ const SurveySummary = () => {
               {surveyPages.slice(first, last).map((page, index) => {
                 const averageRating = sumStars![index] / page.starsArray.length;
                 return (
-                  <Flex key={index} direction={"column"} gap={"30px"}>
+                  <Flex
+                    key={index}
+                    direction={"column"}
+                    gap={"0px"}
+                    style={{
+                      margin: "0 auto",
+                    }}>
                     <Flex
                       direction={windowWidth >= 470 ? "row" : "column"}
                       gap={"20px"}
                       align={windowWidth >= 470 ? "center" : "flex-start"}
                       height="100%"
-                      justify="center">
+                      justify="center"
+                      style={{
+                        marginBottom: "1em",
+                      }}>
                       <SubTitle title={`${page.title}`} />
                       <Flex direction={"row"} gap={"10px"} align="center">
                         <Average />
@@ -72,20 +81,15 @@ const SurveySummary = () => {
                       </Flex>
                     </Flex>
 
-                    <Flex
-                      direction={"column"}
-                      gap={"15px"}
-                      style={{ margin: windowWidth >= 470 ? "0 auto" : "" }}>
-                      <SectionHolder
-                        page={page}
-                        starsArrayLength={page.starsArray.length}
-                        credible={fiveStars}
-                        trustworthy={fourStars}
-                        questionable={threeStars}
-                        doubtful={twoStars}
-                        unbelievable={oneStar}
-                      />
-                    </Flex>
+                    <SectionHolder
+                      page={page}
+                      starsArrayLength={page.starsArray.length}
+                      credible={fiveStars}
+                      trustworthy={fourStars}
+                      questionable={threeStars}
+                      doubtful={twoStars}
+                      unbelievable={oneStar}
+                    />
                   </Flex>
                 );
               })}

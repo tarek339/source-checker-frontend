@@ -1,3 +1,4 @@
+import { useBreakPoints } from "../../../hooks";
 import { ISection } from "../../../types/interfaces/components";
 
 const Section = ({
@@ -8,6 +9,7 @@ const Section = ({
   width,
   style,
 }: ISection) => {
+  const { windowWidth } = useBreakPoints();
   return (
     <div
       style={{
@@ -17,9 +19,10 @@ const Section = ({
         minWidth: minWidth,
         maxWidth: maxWidth,
         width: width,
+        paddingTop: windowWidth >= 470 ? "12px" : "0px",
         ...style,
       }}>
-      <>{text}</>
+      {text}
     </div>
   );
 };

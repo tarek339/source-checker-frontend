@@ -1,12 +1,10 @@
 import { useSelectors, useBreakPoints } from "../../../hooks";
 import { ISectionHolder } from "../../../types/interfaces/components";
-import Divider from "../../Divider";
 import Flex from "../../parents/containers/Flex";
 import Section from "./Section";
 
 const SectionHolder = ({
   page,
-  starsArrayLength,
   credible,
   trustworthy,
   questionable,
@@ -24,35 +22,35 @@ const SectionHolder = ({
           .sort((a, b) => b.stars - a.stars)
           .map((obj, i) => {
             return (
-              <Flex key={i} direction={"column"} gap={"15px"} justify="center">
-                <Flex
-                  direction={windowWidth >= 470 ? "row" : "column"}
-                  gap={"0px"}
-                  align="flex-start"
-                  width="100%">
-                  <Section
-                    minWidth="100px"
-                    maxWidth="150px"
-                    style={{ paddingTop: "1.5px" }}
-                    text={
-                      survey?.freeUserNames
-                        ? obj.userName.toUpperCase()
-                        : obj.userNumber
-                    }
-                  />
-                  {obj.stars === 5 ? (
-                    <Section text={credible} />
-                  ) : obj.stars === 4 ? (
-                    <Section text={trustworthy} />
-                  ) : obj.stars === 3 ? (
-                    <Section text={questionable} />
-                  ) : obj.stars === 2 ? (
-                    <Section text={doubtful} />
-                  ) : (
-                    <Section text={unbelievable} />
-                  )}
-                </Flex>
-                <div>{i !== starsArrayLength - 1 ? <Divider /> : null}</div>
+              <Flex
+                key={i}
+                direction={windowWidth >= 470 ? "row" : "column"}
+                gap={windowWidth >= 470 ? "70px" : "0px"}
+                align="center"
+                justify={"space-between"}
+                style={{
+                  borderBottom: "2px solid #2835c3",
+                  padding: "5px",
+                }}>
+                <Section
+                  style={{ paddingTop: "1.5px" }}
+                  text={
+                    survey?.freeUserNames
+                      ? obj.userName.toUpperCase()
+                      : obj.userNumber
+                  }
+                />
+                {obj.stars === 5 ? (
+                  <Section text={credible} />
+                ) : obj.stars === 4 ? (
+                  <Section text={trustworthy} />
+                ) : obj.stars === 3 ? (
+                  <Section text={questionable} />
+                ) : obj.stars === 2 ? (
+                  <Section text={doubtful} />
+                ) : (
+                  <Section text={unbelievable} />
+                )}
               </Flex>
             );
           })}
