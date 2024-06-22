@@ -51,6 +51,7 @@ const ScreenShot = ({
         id="capture"
         style={{
           width: width,
+          height: "580px",
           border: "1px solid transparent",
           marginBottom: "10px",
         }}>

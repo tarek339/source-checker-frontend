@@ -44,7 +44,7 @@ const OpenGraphView = ({
   };
 
   return (
-    <Flex direction={"column"} gap={"20px"}>
+    <Flex direction={"column"} gap={"20px"} style={{ height: "600px" }}>
       <>
         <h4>Open Graph View</h4>
         <div>
@@ -53,7 +53,9 @@ const OpenGraphView = ({
           <p>{ogDescription}</p>
         </div>
       </>
-      <ContButton onClick={chooseView} title={t("button.choose")} />
+      <Flex direction={"row"} gap={""} justify="flex-start">
+        <ContButton onClick={chooseView} title={t("button.choose")} />
+      </Flex>
     </Flex>
   );
 };

@@ -25,7 +25,13 @@ const SideMenu = () => {
         gap={"5px"}
         justify="space-between"
         align="center">
-        <SubTitle title={t("addPages.sideBar.header")} />
+        <Flex direction={"row"} gap={"10px"} align="center">
+          <SubTitle title={t("addPages.sideBar.header")} />
+          <SubTitle
+            title={`${lastSideBarPages.toString()}/${surveyPages?.length}`}
+          />
+        </Flex>
+
         <div
           style={{ cursor: "pointer", paddingTop: "23px" }}
           onClick={() => dispatchSideBar(false)}>

@@ -68,8 +68,8 @@ const PageForm = ({
         />
         <FormButton
           style={{
-            width: loading ? "160px" : "",
-            height: loading ? "37px" : "",
+            width: "160px",
+            height: "37px",
           }}
           title={
             loading ? (
