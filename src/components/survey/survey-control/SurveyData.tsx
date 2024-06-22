@@ -2,15 +2,22 @@ import moment from "moment";
 import QrCode from "../../QRCode";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
-import { useBreakPoints, useSelectors, useTranslations } from "../../../hooks";
+import {
+  useBreakPoints,
+  useDispatches,
+  useSelectors,
+  useTranslations,
+} from "../../../hooks";
 import SubTitle from "../../parents/SubTitle";
 import SpanBold from "../../parents/SpanBold";
 import { useState } from "react";
+import QrCodeModal from "./QrCodeModal";
 
 const SurveyData = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { survey } = useSelectors();
+  const { openModal } = useDispatches();
   const [copied, setCopied] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -33,10 +40,15 @@ const SurveyData = () => {
       width={windowWidth < 768 ? "" : "40%"}
       style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
       <Flex direction={"column"} gap={"15px"}>
+        <QrCodeModal />
         <SubTitle title={t("common.surveyData")} />
         <Flex direction={"row"} gap={"10px"}>
           <Flex direction={"column"} gap={"0px"}>
-            <QrCode value={survey?.link!} />
+            <QrCode
+              onClick={openModal}
+              cursor="pointer"
+              value={survey?.link!}
+            />
             <SpanBold title={`ID: ${survey?.surveyId}`} />
           </Flex>
           <Flex direction={"column"} gap={"20px"}>

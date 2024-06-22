@@ -141,7 +141,10 @@ export interface IPageForm {
 }
 
 export interface IQRCode {
+  size?: number;
   value: string;
+  onClick?: React.MouseEventHandler<HTMLCanvasElement> | undefined;
+  cursor?: string;
 }
 
 export interface IHeader {
