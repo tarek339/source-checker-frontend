@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { IHeader } from "../../types/interfaces/components";
-import { Back, SignOut } from "../icons";
-import { useSelectors } from "../../hooks";
+import { IHeader } from "../types/interfaces/components";
+import { Back, SignOut } from "./icons";
+import { useSelectors } from "../hooks";
 
 const Header = ({ title }: IHeader) => {
   const navigate = useNavigate();
