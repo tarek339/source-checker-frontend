@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelectors, useTranslations, useBreakPoints } from "../../../hooks";
 import { Next, Prev } from "../../icons";
 import SubTitle from "../../parents/SubTitle";
@@ -21,8 +20,6 @@ const Result = ({
   const { surveyPages } = useSelectors();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
-
-  useEffect(() => {}, [surveyPages, sumStars, first, last]);
 
   const nextPage = () => {
     if (last >= property?.length) return;

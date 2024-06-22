@@ -29,11 +29,12 @@ export interface ITextArea {
 }
 
 export interface ISelect {
+  width: number;
   label: string;
   error: JSX.Element | null;
   inputErrorStyle?: JSX.Element | null;
-  selectedItem: JSX.Element | string | undefined;
-  option: JSX.Element[] | JSX.Element | string | undefined;
+  // selectedItem: JSX.Element | string | undefined;
+  options: JSX.Element[] | string[] | undefined;
 }
 
 export interface IBackContinueButton {
