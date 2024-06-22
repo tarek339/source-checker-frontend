@@ -40,9 +40,9 @@ const Result = ({
     <Flex
       direction={windowWidth <= 580 ? "column" : "row"}
       width="100%"
-      gap={windowWidth <= 580 ? "10px" : "0px"}
+      gap={windowWidth <= 470 ? "10px" : "0px"}
       justify="space-between"
-      align={windowWidth <= 580 ? "flex-start" : "center"}>
+      align={windowWidth <= 470 ? "flex-start" : "center"}>
       <Flex
         direction={windowWidth >= 400 ? "row" : "column"}
         gap={"5px"}
@@ -52,15 +52,35 @@ const Result = ({
           {surveyPages.slice(first, last).map((page, index) => {
             const averageRating = sumStars![index] / page.starsArray.length;
             if (averageRating >= 4.5 && averageRating <= 5) {
-              return <div style={{ paddingTop: "1.5px" }}>{credible}</div>;
+              return (
+                <div key={index} style={{ paddingTop: "1.5px" }}>
+                  {credible}
+                </div>
+              );
             } else if (averageRating >= 3.5 && averageRating <= 4.4) {
-              return <div style={{ paddingTop: "1.5px" }}>{trustworthy}</div>;
+              return (
+                <div key={index} style={{ paddingTop: "1.5px" }}>
+                  {trustworthy}
+                </div>
+              );
             } else if (averageRating >= 2.5 && averageRating <= 3.4) {
-              return <div style={{ paddingTop: "1.5px" }}>{questionable}</div>;
+              return (
+                <div key={index} style={{ paddingTop: "1.5px" }}>
+                  {questionable}
+                </div>
+              );
             } else if (averageRating >= 1.5 && averageRating <= 2.4) {
-              return <div style={{ paddingTop: "1.5px" }}>{doubtful}</div>;
+              return (
+                <div key={index} style={{ paddingTop: "1.5px" }}>
+                  {doubtful}
+                </div>
+              );
             } else {
-              return <div style={{ paddingTop: "1.5px" }}>{unbelievable}</div>;
+              return (
+                <div key={index} style={{ paddingTop: "1.5px" }}>
+                  {unbelievable}
+                </div>
+              );
             }
           })}
         </>

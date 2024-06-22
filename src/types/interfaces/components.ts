@@ -209,7 +209,7 @@ export interface IFormContainer {
 }
 
 export interface ISubTitle {
-  title: string;
+  title: string | JSX.Element;
   style?: React.CSSProperties;
 }
 

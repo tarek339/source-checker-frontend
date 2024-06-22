@@ -9,12 +9,14 @@ import Flex from "../../parents/containers/Flex";
 import ContButton from "../../buttons/ContButton";
 import axios from "axios";
 import { IStarRating } from "../../../types/interfaces/components";
+import { useState } from "react";
 
 const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   const { t } = useTranslations();
   const { dispatchSurvey, setStars, setVoted, setVotedStars } = useDispatches();
   const { voted, votedStars, stars } = useSelectors();
   const { fetchSurvey } = useRequests();
+  const [showToolTip, setShowToolTip] = useState(false);
 
   const handleRating = (star: number) => {
     setStars(star);
@@ -32,6 +34,14 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
     fetchSurvey();
   };
 
+  const onPointerMove = (value: number) => {
+    console.log(value);
+    value === 2 || value === 3 || value === 4
+      ? setShowToolTip(false)
+      : setShowToolTip(true);
+  };
+  const onPointerLeave = () => setShowToolTip(false);
+
   return (
     <Flex direction={"row"} gap={"20px"} align="center">
       <>
@@ -39,21 +49,23 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
           className="react-simple-star-rating"
           initialValue={!voted ? stars : votedStars}
           onClick={handleRating}
-          showTooltip={true}
-          tooltipStyle={{ marginLeft: "10px" }}
           SVGstyle={{ paddingTop: "7px" }}
           size={50}
-          tooltipDefaultText={t("studentSurvey.rating.ratingTitle")}
           tooltipArray={[
             t("studentSurvey.rating.unbelievable"),
-            t("studentSurvey.rating.doubtful"),
-            t("studentSurvey.rating.questionable"),
-            t("studentSurvey.rating.trustworthy"),
+            "",
+            "",
+            "",
             t("studentSurvey.rating.credible"),
           ]}
+          tooltipStyle={{ marginLeft: "10px" }}
+          showTooltip={showToolTip}
           disableFillHover={voted ? true : false}
           readonly={voted ? true : false}
           allowHover={voted ? false : true}
+          transition={true}
+          onPointerMove={onPointerMove}
+          onPointerLeave={onPointerLeave}
         />
         {stars > 0 && !voted ? (
           <ContButton onClick={handleSubmit} title={t("button.submit")} />

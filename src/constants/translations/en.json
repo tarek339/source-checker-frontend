@@ -159,12 +159,16 @@
     "title": "rate the following source with stars!",
     "rating": {
       "ratingTitle": "Your rating",
-      "unbelievable": "unbelievable",
+      "unbelievable": "not trustworthy",
       "doubtful": "doubtful",
       "questionable": "questionable",
       "trustworthy": "trustworthy",
-      "credible": "credible"
-    }
+      "credible": "trustworthy"
+    },
+    "thankYou": "Thank you for taking part in the survey!",
+    "ratedInfo": "You have evaluated the sources in different ways.",
+    "savedInfo": "Your results have been saved successfully.",
+    "closeBrowser": "You can now close the browser without any problems."
   },
   "surveySummaray": {
     "title": "Summary of the survey",

@@ -158,12 +158,16 @@
     "title": "bewerte folgende Quelle mit Sternen!",
     "rating": {
       "ratingTitle": "Deine Bewertung",
-      "unbelievable": "unglaubwürdig",
+      "unbelievable": "nicht vertrauenswürdig",
       "doubtful": "zweifelhaft",
       "questionable": "fragwürdig",
       "trustworthy": "vertrauenswürdig",
-      "credible": "glaubwürdig"
-    }
+      "credible": "vertrauenswürdig"
+    },
+    "thankYou": "Vielen Dank für die Teilnahme an der Umfrage!",
+    "ratedInfo": "Du hast die Quellen auf unterschiedliche Weise bewertet.",
+    "savedInfo": "Deine Ergebnisse wurden erfolgreich gespeichert.",
+    "closeBrowser": "Du kannst nun den Browser problems schließen."
   },
   "surveySummaray": {
     "title": "Zusammenfassung der Umfrage",
