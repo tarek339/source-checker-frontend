@@ -6,6 +6,7 @@ import useSelectors from "./useSelectors";
 import useRequests from "./useRequests";
 import useInputErrors from "./useInputErrors";
 import useScroll from "./useScroll";
+import useStars from "./useStars";
 
 export {
   useTranslations,
@@ -16,4 +17,5 @@ export {
   useRequests,
   useInputErrors,
   useScroll,
+  useStars,
 };

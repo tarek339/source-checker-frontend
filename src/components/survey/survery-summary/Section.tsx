@@ -1,8 +1,15 @@
 import { ISection } from "../../../types/interfaces/components";
 
-const Section = ({ text, color, minWidth, maxWidth, width }: ISection) => {
+const Section = ({
+  text,
+  color,
+  minWidth,
+  maxWidth,
+  width,
+  style,
+}: ISection) => {
   return (
-    <span
+    <div
       style={{
         fontSize: "22px",
         fontWeight: 600,
@@ -10,9 +17,10 @@ const Section = ({ text, color, minWidth, maxWidth, width }: ISection) => {
         minWidth: minWidth,
         maxWidth: maxWidth,
         width: width,
+        ...style,
       }}>
-      {text}
-    </span>
+      <>{text}</>
+    </div>
   );
 };
 

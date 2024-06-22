@@ -3,6 +3,7 @@ import {
   useBreakPoints,
   useRequests,
   useSelectors,
+  useStars,
   useTranslations,
 } from "../hooks";
 import { IPages } from "../types/interfaces/interfaces";
@@ -23,16 +24,11 @@ const SurveySummary = () => {
   const { surveyPages } = useSelectors();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
+  const { fiveStars, fourStars, oneStar, threeStars, twoStars } = useStars();
 
   const [sumStars, setSumStars] = useState<number[]>();
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(1);
-
-  const unbelievable = t("studentSurvey.rating.unbelievable");
-  const doubtful = t("studentSurvey.rating.doubtful");
-  const questionable = t("studentSurvey.rating.questionable");
-  const trustworthy = t("studentSurvey.rating.trustworthy");
-  const credible = t("studentSurvey.rating.credible");
 
   useEffect(() => {
     fetchSurvey();
@@ -83,11 +79,11 @@ const SurveySummary = () => {
                       <SectionHolder
                         page={page}
                         starsArrayLength={page.starsArray.length}
-                        credible={credible}
-                        trustworthy={trustworthy}
-                        questionable={questionable}
-                        doubtful={doubtful}
-                        unbelievable={unbelievable}
+                        credible={fiveStars}
+                        trustworthy={fourStars}
+                        questionable={threeStars}
+                        doubtful={twoStars}
+                        unbelievable={oneStar}
                       />
                     </Flex>
                   </Flex>
@@ -95,11 +91,11 @@ const SurveySummary = () => {
               })}
               <Result
                 sumStars={sumStars}
-                credible={credible}
-                trustworthy={trustworthy}
-                questionable={questionable}
-                doubtful={doubtful}
-                unbelievable={unbelievable}
+                credible={fiveStars}
+                trustworthy={fourStars}
+                questionable={threeStars}
+                doubtful={twoStars}
+                unbelievable={oneStar}
                 first={first}
                 last={last}
                 setFirst={setFirst}

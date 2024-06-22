@@ -43,6 +43,7 @@ import CountDown from "./survey/student-survey/CountDown";
 import SurveyStart from "./survey/student-survey/SurveyStart";
 import SectionHolder from "./survey/survery-summary/SectionHolder";
 import Result from "./survey/survery-summary/Result";
+import Acknowledgement from "./survey/student-survey/Acknowledgement";
 
 export {
   Footer,
@@ -90,4 +91,5 @@ export {
   SurveyStart,
   SectionHolder,
   Result,
+  Acknowledgement,
 };

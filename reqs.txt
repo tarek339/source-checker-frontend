@@ -199,3 +199,22 @@ check screenshots and video on whatapp
 
   anonymousResults state
   freeUserNames state
+   {surveyPages.slice(first, last).map((page, index) => {
+            const averageRating = sumStars![index] / page.starsArray.length;
+            if (averageRating >= 4.5 && averageRating <= 5) {
+              credible;
+              // setColor("#28a745");
+            } else if (averageRating >= 3.5 && averageRating <= 4.4) {
+              trustworthy;
+              // setColor("#4cd137");
+            } else if (averageRating >= 2.5 && averageRating <= 3.4) {
+              questionable;
+              // setColor("#f1a545");
+            } else if (averageRating >= 1.5 && averageRating <= 2.4) {
+              doubtful;
+              // setColor("#ff7f00");
+            } else {
+              unbelievable;
+              // setColor("#ff0000");
+            }
+          })}

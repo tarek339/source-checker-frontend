@@ -40,7 +40,7 @@
     "edit": "bearbeiten",
     "create": "Umfrage anlegen",
     "callUp": "aufrufen",
-    "add": "hinzugfügen",
+    "add": "hinzufügen",
     "choose": "auswählen",
     "chooseView": "Ansicht wählen",
     "start": "starten",
@@ -125,7 +125,7 @@
   "addPages": {
     "header": "Seiten auswählen",
     "notiHeader": "Es wurden noch keine Seiten zu dieser Umfrage hinzugfügt.",
-    "notiText": "Füge einen Link aus einer beliebigen Quelle hinzu, um eine Umfragemstarten zu können.",
+    "notiText": "Füge einen Link aus einer beliebigen Quelle hinzu, um eine Umfrage starten zu können.",
     "addPages": "Neue Seite hinzügfen?",
     "addPagesXs": "Neue Seite?",
     "button": "neue seite",
@@ -153,7 +153,7 @@
     "end": "ende"
   },
   "studentSurvey": {
-    "notStartedInfo": "Bitte warte bis der Lehrer die Umfrage gestartet hat.",
+    "notStartedInfo": "Warte kurz, die Umfrage startet gleich.",
     "joinSurvey": "Umfrage-ID eingeben",
     "title": "bewerte folgende Quelle mit Sternen!",
     "rating": {

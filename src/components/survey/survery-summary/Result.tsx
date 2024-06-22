@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelectors, useTranslations, useBreakPoints } from "../../../hooks";
 import { Next, Prev } from "../../icons";
 import SubTitle from "../../parents/SubTitle";
@@ -18,34 +18,11 @@ const Result = ({
   setLast,
   property,
 }: IResult) => {
-  const [result, setResult] = useState("");
-  const [color, setColor] = useState("");
   const { surveyPages } = useSelectors();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
 
-  useEffect(() => {
-    surveyPages.slice(first, last).map((page, index) => {
-      const averageRating = sumStars![index] / page.starsArray.length;
-
-      if (averageRating >= 4.5 && averageRating <= 5) {
-        setResult(credible);
-        setColor("#28a745");
-      } else if (averageRating >= 3.5 && averageRating <= 4.4) {
-        setResult(trustworthy);
-        setColor("#4cd137");
-      } else if (averageRating >= 2.5 && averageRating <= 3.4) {
-        setResult(questionable);
-        setColor("#f1a545");
-      } else if (averageRating >= 1.5 && averageRating <= 2.4) {
-        setResult(doubtful);
-        setColor("#ff7f00");
-      } else {
-        setResult(unbelievable);
-        setColor("#ff0000");
-      }
-    });
-  }, [surveyPages, sumStars, result, color, first, last]);
+  useEffect(() => {}, [surveyPages, sumStars, first, last]);
 
   const nextPage = () => {
     if (last >= property?.length) return;
@@ -69,14 +46,24 @@ const Result = ({
       <Flex
         direction={windowWidth >= 400 ? "row" : "column"}
         gap={"5px"}
-        align={windowWidth >= 400 ? "center" : "flex-start"}>
+        align={"flex-start"}>
         <SubTitle title={`${t("common.result")}:`} />
-        <SubTitle
-          style={{
-            color: color,
-          }}
-          title={`${result.toUpperCase()}`}
-        />
+        <>
+          {surveyPages.slice(first, last).map((page, index) => {
+            const averageRating = sumStars![index] / page.starsArray.length;
+            if (averageRating >= 4.5 && averageRating <= 5) {
+              return <div style={{ paddingTop: "1.5px" }}>{credible}</div>;
+            } else if (averageRating >= 3.5 && averageRating <= 4.4) {
+              return <div style={{ paddingTop: "1.5px" }}>{trustworthy}</div>;
+            } else if (averageRating >= 2.5 && averageRating <= 3.4) {
+              return <div style={{ paddingTop: "1.5px" }}>{questionable}</div>;
+            } else if (averageRating >= 1.5 && averageRating <= 2.4) {
+              return <div style={{ paddingTop: "1.5px" }}>{doubtful}</div>;
+            } else {
+              return <div style={{ paddingTop: "1.5px" }}>{unbelievable}</div>;
+            }
+          })}
+        </>
       </Flex>
 
       <Flex direction={"row"} gap={"20px"} justify="flex-end" align="center">

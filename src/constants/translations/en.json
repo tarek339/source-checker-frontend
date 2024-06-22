@@ -154,7 +154,7 @@
     "end": "end"
   },
   "studentSurvey": {
-    "notStartedInfo": "Please wait until the teacher has started the survey.",
+    "notStartedInfo": "Wait a minute, the survey is about to start.",
     "joinSurvey": "Enter survey ID",
     "title": "rate the following source with stars!",
     "rating": {

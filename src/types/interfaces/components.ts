@@ -265,11 +265,11 @@ export interface IPageModal {
 
 export interface IResult {
   sumStars: number[] | undefined;
-  credible: string;
-  trustworthy: string;
-  questionable: string;
-  doubtful: string;
-  unbelievable: string;
+  credible: JSX.Element;
+  trustworthy: JSX.Element;
+  questionable: JSX.Element;
+  doubtful: JSX.Element;
+  unbelievable: JSX.Element;
   first: number;
   last: number;
   property: IPages[];
@@ -278,19 +278,20 @@ export interface IResult {
 }
 
 export interface ISection {
-  text: string;
+  text: string | JSX.Element;
   color?: string;
   minWidth?: string;
   maxWidth?: string;
   width?: string;
+  style?: React.CSSProperties;
 }
 
 export interface ISectionHolder {
   page: IPages;
   starsArrayLength: number;
-  credible: string;
-  trustworthy: string;
-  questionable: string;
-  doubtful: string;
-  unbelievable: string;
+  credible: JSX.Element;
+  trustworthy: JSX.Element;
+  questionable: JSX.Element;
+  doubtful: JSX.Element;
+  unbelievable: JSX.Element;
 }

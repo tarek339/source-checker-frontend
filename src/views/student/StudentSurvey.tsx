@@ -1,6 +1,16 @@
 import { useEffect } from "react";
-import { useDispatches, useRequests, useSelectors } from "../../hooks";
-import { NotStarted, ContentContainer, SurveyStart } from "../../components";
+import {
+  useDispatches,
+  useRequests,
+  useSelectors,
+  useStars,
+} from "../../hooks";
+import {
+  NotStarted,
+  ContentContainer,
+  SurveyStart,
+  Acknowledgement,
+} from "../../components";
 import { socket } from "../../socket";
 import { useParams } from "react-router-dom";
 
@@ -9,6 +19,7 @@ const StudentSurvey = () => {
   const { fetchSurvey, fetchSingleStudent } = useRequests();
   const { setSurveyStatus, setCurrentPage } = useDispatches();
   const { id } = useParams();
+  const { starsAmount } = useStars();
 
   useEffect(() => {
     fetchSurvey();
@@ -36,7 +47,13 @@ const StudentSurvey = () => {
 
   return (
     <ContentContainer>
-      {!isStarted ? <NotStarted /> : <SurveyStart />}
+      {!isStarted && starsAmount === 0 ? (
+        <NotStarted />
+      ) : !isStarted && starsAmount > 0 ? (
+        <Acknowledgement />
+      ) : (
+        <SurveyStart />
+      )}
     </ContentContainer>
   );
 };
