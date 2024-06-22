@@ -228,6 +228,7 @@ export interface IFramerMotion {
 
 export interface ITitle {
   title: string;
+  style?: React.CSSProperties;
 }
 
 export interface IOpenGraphView {
