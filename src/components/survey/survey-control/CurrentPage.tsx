@@ -31,7 +31,10 @@ const CurrentPage = () => {
                           : t("surveyControl.ogData")
                       }`}
                     />
-                    <a href={page.url} style={{ textDecoration: "underline" }}>
+                    <a
+                      href={page.url}
+                      style={{ textDecoration: "underline" }}
+                      target="_blank">
                       <SpanBold title={t("surveyControl.sourceURL")} />
                     </a>
                     <SpanBold
