@@ -22,15 +22,6 @@ export interface ITextArea {
   onChange: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
 }
 
-export interface ISelect {
-  width: number;
-  label: string;
-  error: JSX.Element | null;
-  inputErrorStyle?: JSX.Element | null;
-  // selectedItem: JSX.Element | string | undefined;
-  options: JSX.Element[] | string[] | undefined;
-}
-
 export interface IBackContinueButton {
   path: string;
 }

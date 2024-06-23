@@ -14,11 +14,9 @@ const Back = () => {
       <IoMdArrowRoundBack
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        style={{
-          color: windowWidth >= 1024 && hovered ? "#31e981" : "#fff",
-          fontSize: "42px",
-          cursor: "pointer",
-        }}
+        color={windowWidth >= 1024 && hovered ? "#31e981" : "#fff"}
+        fontSize="42px"
+        cursor="pointer"
       />
       {windowWidth >= 1024 && hovered ? (
         <div

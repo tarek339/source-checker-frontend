@@ -20,12 +20,7 @@ const Alert = () => {
           borderRadius: "50px",
           padding: "3px",
         }}>
-        <IoAlertSharp
-          style={{
-            color: "#fff",
-            fontSize: "20px",
-          }}
-        />
+        <IoAlertSharp color="#fff" fontSize="20px" />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const Prev = ({ first, onClick, fontSize }: IPrev) => {
   return (
     <MdOutlineArrowBackIos
       fontSize={`${fontSize}px`}
-      style={{ cursor: first === 0 ? "default" : "pointer" }}
+      cursor={first === 0 ? "default" : "pointer"}
       onClick={onClick}
     />
   );
