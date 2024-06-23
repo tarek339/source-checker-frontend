@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa6";
 import { useTranslations, useSelectors } from "../../../hooks";
 import { Yes, No } from "../../icons";
 import SurveyProp from "./SurveyProp";
-
+import Span from "../../fonts/Span";
 const useCompArray = () => {
   const { t } = useTranslations();
   const { survey } = useSelectors();
@@ -55,7 +55,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("newSurvey.surveyType")}
-          child={<p>{t("newSurvey.rating")}</p>}
+          child={<Span fontWeight={600} title={t("newSurvey.rating")} />}
         />
       ),
     },
@@ -63,7 +63,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("newSurvey.resultsType")}
-          child={<p>{t("newSurvey.rating")}</p>}
+          child={<Span fontWeight={600} title={t("newSurvey.rating")} />}
         />
       ),
     },
@@ -85,7 +85,7 @@ const useCompArray = () => {
                 />
               )
             }
-            child={<p>{survey?.surveyId}</p>}
+            child={<Span fontWeight={600} title={survey?.surveyId!} />}
           />
           <div>
             <p style={{ color: "#ff0000", fontSize: "16px" }}>
@@ -102,7 +102,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("common.surveyPIN")}
-          child={<p>{survey?.surveyPin}</p>}
+          child={<Span fontWeight={600} title={survey?.surveyPin!} />}
         />
       ),
     },

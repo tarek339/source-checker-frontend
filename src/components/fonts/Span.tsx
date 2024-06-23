@@ -1,4 +1,4 @@
-import { ISpan } from "../types/interfaces/components";
+import { ISpan } from "../../types/interfaces/components";
 
 const Span = ({
   title,
