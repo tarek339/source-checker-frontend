@@ -27,7 +27,7 @@ const Acknowledgement = () => {
               <>
                 {surveyPages.map((page) => {
                   return page.starsArray.map((obj, i) => {
-                    if (obj.userName === student?.freeUserName) {
+                    if (obj.userNumber === student?.userNumber.toString()) {
                       return (
                         <Flex
                           key={i}

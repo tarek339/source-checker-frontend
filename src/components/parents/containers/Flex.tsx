@@ -9,6 +9,7 @@ const Flex = ({
   width,
   style,
   height,
+  onClick,
 }: IFlex) => {
   return (
     <div
@@ -21,7 +22,8 @@ const Flex = ({
         width: width,
         height: height,
         ...style,
-      }}>
+      }}
+      onClick={onClick}>
       {children}
     </div>
   );

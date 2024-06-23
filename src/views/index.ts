@@ -8,7 +8,8 @@ import ChooseSurvey from "./survey-management/ChooseSurvey";
 import AddPages from "./survey-management/AddPages";
 import StudenSurveyAuthentication from "./student/StudenSurveyAuthentication";
 import RegisterStudent from "./student/RegisterStudent";
-import SurveySummary from "./SurveySummary";
+import SurveySummary from "./sruvey-summary/SurveySummary";
+import SurveyRanking from "./sruvey-summary/SurveyRanking";
 
 export {
   Authentication,
@@ -22,4 +23,5 @@ export {
   StudenSurveyAuthentication,
   RegisterStudent,
   SurveySummary,
+  SurveyRanking,
 };

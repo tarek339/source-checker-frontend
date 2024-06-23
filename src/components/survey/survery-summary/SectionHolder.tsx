@@ -30,7 +30,7 @@ const SectionHolder = ({
                 justify={"space-between"}
                 style={{
                   borderBottom: "2px solid #2835c3",
-                  padding: "5px",
+                  padding: "5px 0px 5px 0px",
                 }}>
                 <Section
                   style={{ paddingTop: "1.5px" }}

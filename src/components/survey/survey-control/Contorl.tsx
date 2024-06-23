@@ -1,3 +1,4 @@
+import { ContButton, CancelButton } from "../..";
 import {
   useBreakPoints,
   useDispatches,
@@ -5,8 +6,6 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import CancelButton from "../../buttons/CancelButton";
-import ContButton from "../../buttons/ContButton";
 import SubTitle from "../../parents/SubTitle";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";

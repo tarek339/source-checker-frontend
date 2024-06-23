@@ -64,7 +64,7 @@ const SurveyStatus = () => {
               title={
                 <a
                   style={{ fontWeight: 600, textDecoration: "underline" }}
-                  href={`http://localhost:5173/survey-summary/${survey?._id}`}
+                  href={`http://localhost:5173/survey-ranking/${survey?._id}`}
                   target="_blank">
                   {t("common.summary")}
                 </a>

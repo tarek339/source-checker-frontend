@@ -5,8 +5,8 @@ import {
   useSelectors,
   useStars,
   useTranslations,
-} from "../hooks";
-import { IPages } from "../types/interfaces/interfaces";
+} from "../../hooks";
+import { IPages } from "../../types/interfaces/interfaces";
 import {
   Card,
   Flex,
@@ -16,8 +16,8 @@ import {
   ContentContainer,
   SectionHolder,
   Result,
-} from "../components";
-import { Average, Star } from "../components/icons";
+} from "../../components";
+import { Average, Star } from "../../components/icons";
 
 const SurveySummary = () => {
   const { fetchSurvey } = useRequests();
@@ -26,7 +26,7 @@ const SurveySummary = () => {
   const { windowWidth } = useBreakPoints();
   const { fiveStars, fourStars, oneStar, threeStars, twoStars } = useStars();
 
-  const [sumStars, setSumStars] = useState<number[]>();
+  const [sumStars, setSumStars] = useState<number[]>([0]);
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(1);
 
@@ -40,7 +40,9 @@ const SurveySummary = () => {
         return acc + crr.stars;
       }, 0);
     });
-    setSumStars(sum);
+    if (sum.length > 0) {
+      setSumStars(sum);
+    }
   }, [surveyPages, first, last]);
 
   return (
@@ -62,10 +64,9 @@ const SurveySummary = () => {
                     }}>
                     <Flex
                       direction={windowWidth >= 470 ? "row" : "column"}
-                      gap={"20px"}
+                      gap={"10px"}
                       align={windowWidth >= 470 ? "center" : "flex-start"}
                       height="100%"
-                      justify="center"
                       style={{
                         marginBottom: "1em",
                       }}>

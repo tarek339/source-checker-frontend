@@ -159,6 +159,7 @@
     "note": "Note"
   },
   "studentSurvey": {
+    "welcome": "Welcome to the survey!",
     "notStartedInfo": "Wait a minute, the survey is about to start.",
     "joinSurvey": "Enter survey ID",
     "title": "rate the following source with stars!",

@@ -5,12 +5,12 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import ContButton from "../../buttons/ContButton";
 import Flex from "../../parents/containers/Flex";
 import SubCard from "../../parents/containers/SubCard";
 import SubTitle from "../../parents/SubTitle";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { ContButton } from "../..";
 
 const PageControl = () => {
   const { windowWidth } = useBreakPoints();

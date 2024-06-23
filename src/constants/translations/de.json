@@ -158,6 +158,7 @@
     "note": "Notiz"
   },
   "studentSurvey": {
+    "welcome": "Willkommen zur Umfrage!",
     "notStartedInfo": "Warte kurz, die Umfrage startet gleich.",
     "joinSurvey": "Umfrage-ID eingeben",
     "title": "bewerte folgende Quelle mit Sternen!",

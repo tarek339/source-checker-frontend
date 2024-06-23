@@ -195,6 +195,7 @@ export interface IFlex {
   width?: string;
   height?: string;
   style?: React.CSSProperties;
+  onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
 }
 
 export interface IButtonContainer {

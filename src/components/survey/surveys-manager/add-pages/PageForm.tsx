@@ -1,3 +1,4 @@
+import { CancelButton } from "../../..";
 import {
   useTranslations,
   useSelectors,
@@ -5,7 +6,6 @@ import {
 } from "../../../../hooks";
 import { IPageForm } from "../../../../types/interfaces/components";
 import LoadingPulse from "../../../LoadingPulse";
-import CancelButton from "../../../buttons/CancelButton";
 import ButtonContainer from "../../../parents/containers/ButtonContainer";
 import FormButton from "../../../parents/form/FormButton";
 import FormContainer from "../../../parents/form/FormContainer";

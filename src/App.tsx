@@ -12,6 +12,7 @@ import {
   StudentSurvey,
   RegisterStudent,
   SurveySummary,
+  SurveyRanking,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
 import { AppContent, Header } from "./components";
@@ -52,6 +53,7 @@ function App() {
             element={<StudentSurvey />}
           />
           <Route path="/survey-summary/:id" element={<SurveySummary />} />
+          <Route path="/survey-ranking/:id" element={<SurveyRanking />} />
         </Routes>
       </AnimatePresence>
     </AppContent>

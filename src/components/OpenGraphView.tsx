@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useDispatches, useSelectors, useTranslations } from "../hooks";
 import Flex from "./parents/containers/Flex";
-import ContButton from "./buttons/ContButton";
 import { IOpenGraphView } from "../types/interfaces/components";
+import { ContButton } from ".";
 
 const OpenGraphView = ({
   pageID,
@@ -46,7 +46,7 @@ const OpenGraphView = ({
   return (
     <Flex direction={"column"} gap={"20px"} style={{ height: "600px" }}>
       <>
-        <h4>Open Graph View</h4>
+        <h4>Open-Graph</h4>
         <div>
           <h3>{ogTitle}</h3>
           <img style={{ maxWidth: "100%", height: "auto" }} src={url} alt="" />

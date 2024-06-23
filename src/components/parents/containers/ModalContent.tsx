@@ -2,12 +2,11 @@ import axios from "axios";
 import { IModalContent } from "../../../types/interfaces/components";
 import { useTranslations, useDispatches } from "../../../hooks";
 import { Alert } from "../../icons";
-import CancelButton from "../../buttons/CancelButton";
-import ContButton from "../../buttons/ContButton";
 import ButtonContainer from "./ButtonContainer";
 import Flex from "./Flex";
 import SubTitle from "../SubTitle";
 import { useNavigate } from "react-router-dom";
+import { ContButton, CancelButton } from "../..";
 
 const ModalContent = ({ header, url }: IModalContent) => {
   const { closeModal } = useDispatches();

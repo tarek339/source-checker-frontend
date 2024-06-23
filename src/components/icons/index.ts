@@ -14,6 +14,7 @@ import Delete from "./Delete";
 import Mobile from "./Mobile";
 import Desktop from "./Desktop";
 import Image from "./Image";
+import Arrow from "./Arrow";
 
 export {
   Cancel,
@@ -32,4 +33,5 @@ export {
   Mobile,
   Desktop,
   Image,
+  Arrow,
 };

@@ -9,6 +9,7 @@ const Header = ({ title }: IHeader) => {
   const navigate = useNavigate();
   const { survey, student } = useSelectors();
   const { windowWidth } = useBreakPoints();
+
   return (
     <Flex
       direction={windowWidth >= 425 ? "row" : "column"}
@@ -16,8 +17,9 @@ const Header = ({ title }: IHeader) => {
       width="100%"
       justify={windowWidth >= 425 ? "space-between" : "center"}
       align={windowWidth >= 425 ? "center" : "flex-start"}
+      height="75px"
       style={{
-        padding: "10px 30px 10px 30px",
+        padding: "10px 30px 15px 30px",
         backgroundColor: "#2834c2",
         boxShadow: "rgba(0, 0, 0, 0.239) 0px 3px 8px",
       }}>
@@ -43,6 +45,7 @@ const Header = ({ title }: IHeader) => {
           location.pathname ===
             `/student-survey/${survey?._id}/student-id/${student?._id}` ||
           location.pathname === "/student-survey-authentication" ||
+          location.pathname === `/survey-ranking/${survey?._id}` ||
           location.pathname === `/survey-summary/${survey?._id}` ? null : (
             <>
               <div onClick={() => navigate("/surveys-manager/choose-action")}>
@@ -51,14 +54,17 @@ const Header = ({ title }: IHeader) => {
 
               <div onClick={() => history.back()}>
                 {location.pathname ===
-                  `/surveys-manager/save-survey/${survey?._id}` ||
-                location.pathname ===
-                  `/survey-summary/${survey?._id}` ? null : (
+                `/surveys-manager/save-survey/${survey?._id}` ? null : (
                   <Back />
                 )}
               </div>
             </>
           )}
+          {location.pathname === `/survey-summary/${survey?._id}` ? (
+            <div onClick={() => history.back()}>
+              <Back />
+            </div>
+          ) : null}
         </>
       </Flex>
     </Flex>
