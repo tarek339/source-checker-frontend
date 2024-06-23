@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { IHeader } from "../types/interfaces/components";
 import { Back, SignOut } from "./icons";
 import { useBreakPoints, useSelectors } from "../hooks";
 import Title from "./parents/Title";
 import Flex from "./parents/containers/Flex";
+import { IHeader } from "../types/interfaces/components";
 
 const Header = ({ title }: IHeader) => {
   const navigate = useNavigate();

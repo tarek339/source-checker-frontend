@@ -1,4 +1,4 @@
-import { IAppContainer } from "../../../types/interfaces/components";
+import { IAppContainer } from "../types/interfaces/components";
 
 const AppContent = ({ children }: IAppContainer) => {
   return (
