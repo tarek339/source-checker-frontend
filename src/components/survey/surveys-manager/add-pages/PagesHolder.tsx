@@ -5,6 +5,7 @@ import {
   useTranslations,
   useDispatches,
   useRequests,
+  useBreakPoints,
 } from "../../../../hooks";
 import Table from "../../../Table";
 
@@ -13,6 +14,9 @@ const PagesHolder = () => {
   const { t } = useTranslations();
   const { dispatchSurvey } = useDispatches();
   const { fetchSurvey } = useRequests();
+  const { windowWidth } = useBreakPoints();
+
+  const screenXS = windowWidth < 445;
 
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const [first, setFirst] = useState(0);
@@ -42,7 +46,11 @@ const PagesHolder = () => {
   return (
     <>
       <Table
-        headers={["Name", t("common.view"), t("common.action")]}
+        headers={
+          screenXS
+            ? ["Name", t("common.action")]
+            : ["Name", t("common.view"), t("common.action")]
+        }
         propsChildren={surveyPages?.slice(first, last).map((page, i) => {
           return (
             <tr
@@ -63,34 +71,36 @@ const PagesHolder = () => {
                 }}>
                 {page?.title}
               </td>
-              <td>
-                {page?.isMobileView
-                  ? t("common.mobileView")
-                  : page?.isMobileView === false
-                  ? t("common.desktopView")
-                  : page?.isOpenGraphView
-                  ? "open graph"
-                  : null}
-              </td>
-              {page?.title && (
-                <td
-                  style={{
-                    textTransform: "uppercase",
-                    borderBottomRightRadius:
-                      i === surveyPages?.slice(first, last).length - 1
-                        ? "20px"
-                        : "0px",
-                    textAlign: "right",
-                  }}>
-                  <span
-                    style={{
-                      color: "#FF0000",
-                    }}
-                    onClick={() => onDelete(page?._id!)}>
-                    {t("common.delete")}
-                  </span>
+
+              {screenXS ? null : (
+                <td>
+                  {page?.isMobileView
+                    ? t("common.mobileView")
+                    : page?.isMobileView === false
+                    ? t("common.desktopView")
+                    : page?.isOpenGraphView
+                    ? "open graph"
+                    : null}
                 </td>
               )}
+
+              <td
+                style={{
+                  textTransform: "uppercase",
+                  borderBottomRightRadius:
+                    i === surveyPages?.slice(first, last).length - 1
+                      ? "20px"
+                      : "0px",
+                  textAlign: "right",
+                }}>
+                <span
+                  style={{
+                    color: "#FF0000",
+                  }}
+                  onClick={() => onDelete(page?._id!)}>
+                  {t("common.delete")}
+                </span>
+              </td>
             </tr>
           );
         })}

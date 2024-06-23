@@ -30,8 +30,7 @@ const ModalContent = ({ header, url }: IModalContent) => {
         />
         <p>{t("saveSurvey.deleteText")}</p>
         <p>{t("saveSurvey.deleteSection")}</p>
-        <ButtonContainer
-          style={{ justifyContent: "flex-end", paddingTop: "1em" }}>
+        <ButtonContainer style={{ paddingTop: "1em" }}>
           <ContButton onClick={closeModal} title={t("button.cancel")} />
           <CancelButton onClick={deleteSurvey} title={t("button.delete")} />
         </ButtonContainer>

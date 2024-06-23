@@ -14,6 +14,7 @@ import {
   ContButton,
   Divider,
   BackButton,
+  ButtonContainer,
 } from "../../components";
 import {
   useDispatches,
@@ -75,32 +76,24 @@ const AddPages = () => {
             )}
 
             <Flex
-              direction={"row"}
-              gap={"0px"}
+              direction={windowWidth >= 530 ? "row" : "column"}
+              gap={windowWidth < 530 ? "10px" : "0px"}
               justify="space-between"
-              align="center"
+              align={windowWidth >= 530 ? "center" : "stretch"}
               style={{
                 borderRadius: "4px",
                 marginTop: "2em",
               }}>
               <SubTitle
                 style={{ paddingTop: "0px" }}
-                title={
-                  windowWidth <= 375
-                    ? t("addPages.addPagesXs")
-                    : t("addPages.addPages")
-                }
+                title={t("addPages.addPages")}
               />
               <ContButton title={t("addPages.button")} onClick={openModal} />
             </Flex>
 
             <Divider />
 
-            <Flex
-              direction={windowWidth <= 500 ? "column-reverse" : "row"}
-              gap={"20px"}
-              justify="flex-start"
-              width="100%">
+            <ButtonContainer>
               <BackButton
                 path={`/surveys-manager/save-survey/${survey?._id}`}
               />
@@ -120,15 +113,11 @@ const AddPages = () => {
                             }
                           }
                     }
-                    title={
-                      viewsSelected
-                        ? t("addPages.shareSurvey")
-                        : t("button.chooseView")
-                    }
+                    title={t("button.continue")}
                   />
                 )}
               </>
-            </Flex>
+            </ButtonContainer>
           </Flex>
         </FramerMotion>
       </Card>

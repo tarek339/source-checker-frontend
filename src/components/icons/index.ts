@@ -10,6 +10,10 @@ import Next from "./Next";
 import Prev from "./Prev";
 import SignOut from "./SignOut";
 import Back from "./Back";
+import Delete from "./Delete";
+import Mobile from "./Mobile";
+import Desktop from "./Desktop";
+import Image from "./Image";
 
 export {
   Cancel,
@@ -24,4 +28,8 @@ export {
   Prev,
   SignOut,
   Back,
+  Delete,
+  Mobile,
+  Desktop,
+  Image,
 };

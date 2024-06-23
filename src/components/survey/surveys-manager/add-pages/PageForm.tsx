@@ -59,7 +59,7 @@ const PageForm = ({
         onChange={onChangeTextArea}
       />
 
-      <ButtonContainer style={{ justifyContent: "flex-end" }}>
+      <ButtonContainer>
         <CancelButton
           onClick={() => {
             closeModal();

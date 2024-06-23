@@ -10,7 +10,7 @@ const ButtonContainer = ({ children, style }: IButtonContainer) => {
       style={{
         display: "flex",
         flexDirection: maxWidth ? "column-reverse" : "row",
-        justifyContent: "flex-start",
+        justifyContent: "space-between",
         alignItems: maxWidth ? "stretch" : "center",
         gap: "20px",
         ...style,

@@ -91,7 +91,7 @@ export interface ISwitchToggle {
 }
 
 export interface ITable {
-  headers: string[];
+  headers: string[] | null;
   propsChildren: JSX.Element[] | JSX.Element;
   first: number;
   last: number;

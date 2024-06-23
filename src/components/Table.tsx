@@ -47,7 +47,7 @@ const Table = ({
       <table>
         <thead>
           <tr>
-            {headers.map((header: string, index: number) => {
+            {headers?.map((header: string, index: number) => {
               return (
                 <th
                   style={{
