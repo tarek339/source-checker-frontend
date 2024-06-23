@@ -1,53 +1,51 @@
 import Footer from "./Footer";
 import Divider from "./Divider";
-import Steps from "./parents/Steps";
-import Input from "./parents/form/Input";
-import FormButton from "./parents/form/FormButton";
+import Input from "./form/Input";
+import FormButton from "./form/FormButton";
 import BackButton from "./buttons/BackButton";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
 import ContinueButton from "./buttons/ContinueButton";
 import CancelButton from "./buttons/CancelButton";
 import SideMenu from "./survey/surveys-manager/add-pages/SideMenu";
 import LoadingPulse from "./LoadingPulse";
-import Card from "./parents/containers/Card";
+import Card from "./containers/Card";
 import Header from "./Header";
-import SubCard from "./parents/containers/SubCard";
-import ContentContainer from "./parents/containers/ContentContainer";
-import Flex from "./parents/containers/Flex";
-import SubTitle from "./parents/SubTitle";
+import SubCard from "./containers/SubCard";
+import ContentContainer from "./containers/ContentContainer";
+import Flex from "./containers/Flex";
+import SubTitle from "./fonts/SubTitle";
 import LoadingBar from "./LoadingBar";
-import FramerMotion from "./parents/containers/FramerMotion";
+import FramerMotion from "./containers/FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
-import Title from "./parents/Title";
+import Title from "./fonts/Title";
 import ContButton from "./buttons/ContButton";
 import AddPage from "./survey/surveys-manager/add-pages/AddPage";
 import NoPages from "./survey/surveys-manager/add-pages/NoPages";
 import PagesHolder from "./survey/surveys-manager/add-pages/PagesHolder";
-import FormContainer from "./parents/form/FormContainer";
-import ButtonContainer from "./parents/containers/ButtonContainer";
+import FormContainer from "./form/FormContainer";
+import ButtonContainer from "./containers/ButtonContainer";
 import ErrorModal from "./survey/surveys-manager/ErrorModal";
-import ModalContent from "./parents/containers/ModalContent";
-import Modal from "./parents/containers/Modal";
+import ModalContent from "./containers/ModalContent";
+import Modal from "./containers/Modal";
 import useCompArray from "./survey/surveys-manager/useCompArray";
 import AppContent from "./AppContent";
-import SwitchToggle from "./parents/form/SwitchToggle";
+import SwitchToggle from "./form/SwitchToggle";
 import CurrentPage from "./survey/survey-control/CurrentPage";
 import SurveyData from "./survey/survey-control/SurveyData";
 import Contorl from "./survey/survey-control/Contorl";
 import PageControl from "./survey/survey-control/PageControl";
 import SurveyStatus from "./survey/survey-control/SurveyStatus";
 import NotStarted from "./survey/student-survey/NotStarted";
-import SpanBold from "./parents/SpanBold";
-import CountDown from "./survey/student-survey/CountDown";
+import Span from "./fonts/Span";
 import SurveyStart from "./survey/student-survey/SurveyStart";
 import SectionHolder from "./survey/survery-summary/SectionHolder";
 import Result from "./survey/survery-summary/Result";
 import Acknowledgement from "./survey/student-survey/Acknowledgement";
+import Link from "./fonts/Link";
 
 export {
   Footer,
   Divider,
-  Steps,
   Input,
   FormButton,
   BackButton,
@@ -84,10 +82,10 @@ export {
   PageControl,
   SurveyStatus,
   NotStarted,
-  SpanBold,
-  CountDown,
+  Span,
   SurveyStart,
   SectionHolder,
   Result,
   Acknowledgement,
+  Link,
 };

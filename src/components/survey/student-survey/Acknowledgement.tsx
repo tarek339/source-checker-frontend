@@ -1,9 +1,9 @@
 import { useSelectors, useStars, useTranslations } from "../../../hooks";
-import SubTitle from "../../parents/SubTitle";
-import Title from "../../parents/Title";
-import Flex from "../../parents/containers/Flex";
-import FramerMotion from "../../parents/containers/FramerMotion";
-import SubCard from "../../parents/containers/SubCard";
+import SubTitle from "../../fonts/SubTitle";
+import Title from "../../fonts/Title";
+import Flex from "../../containers/Flex";
+import FramerMotion from "../../containers/FramerMotion";
+import SubCard from "../../containers/SubCard";
 
 const Acknowledgement = () => {
   const { t } = useTranslations();

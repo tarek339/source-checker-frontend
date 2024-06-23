@@ -1,8 +1,7 @@
-import { IInput } from "../../../types/interfaces/components";
+import { ITextArea } from "../../types/interfaces/components";
 import Flex from "../containers/Flex";
 
-const Input = ({
-  type,
+const InputMessage = ({
   label,
   name,
   htmlFor,
@@ -10,13 +9,13 @@ const Input = ({
   inputErrorStyle,
   value,
   onChange,
-}: IInput) => {
+}: ITextArea) => {
   return (
     <Flex direction={"column"} gap={"3px"}>
       <>
         <label htmlFor={htmlFor}>{label}</label>
-        <input
-          type={!type ? "text" : type}
+        <textarea
+          rows={7}
           name={name}
           id={htmlFor}
           style={{
@@ -32,4 +31,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default InputMessage;

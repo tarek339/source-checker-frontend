@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { IModal } from "../../../types/interfaces/components";
+import { IModal } from "../../types/interfaces/components";
 
 const Modal = ({ children, isVisible, setIsVisible, style }: IModal) => {
   useEffect(() => {

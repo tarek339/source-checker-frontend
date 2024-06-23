@@ -6,10 +6,11 @@ import {
   useStars,
   useTranslations,
 } from "../../../hooks";
-import SpanBold from "../../parents/SpanBold";
-import SubTitle from "../../parents/SubTitle";
-import Flex from "../../parents/containers/Flex";
-import SubCard from "../../parents/containers/SubCard";
+import SubTitle from "../../fonts/SubTitle";
+import Flex from "../../containers/Flex";
+import SubCard from "../../containers/SubCard";
+import Span from "../../fonts/Span";
+import Link from "../../fonts/Link";
 
 const SurveyStatus = () => {
   const { windowWidth } = useBreakPoints();
@@ -53,22 +54,19 @@ const SurveyStatus = () => {
         <>
           <SubTitle title={t("common.surveyStatus")} />
           <Flex direction={"row"} gap={"5px"}>
-            <SpanBold title={`Status:`} />
+            <Span title={`Status:`} fontWeight={600} />
             {status}
           </Flex>
-          <SpanBold
+          <Span
             title={`${t("common.studentQuantity")}: ${students.length}`}
+            fontWeight={600}
           />
           {!survey?.isStarted && starsAmount > 0 ? (
-            <SpanBold
-              title={
-                <a
-                  style={{ fontWeight: 600, textDecoration: "underline" }}
-                  href={`http://localhost:5173/survey-ranking/${survey?._id}`}
-                  target="_blank">
-                  {t("common.summary")}
-                </a>
-              }
+            <Link
+              url={`http://localhost:5173/survey-ranking/${survey?._id}`}
+              title={t("common.summary")}
+              fontWeight={600}
+              fontSize={18}
             />
           ) : null}
         </>

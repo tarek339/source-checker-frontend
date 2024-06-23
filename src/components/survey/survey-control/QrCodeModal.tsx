@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import Modal from "../../parents/containers/Modal";
 import { useSelectors, useDispatches, useScroll } from "../../../hooks";
 import QrCode from "../../QRCode";
+import { Modal } from "../..";
 
 const QrCodeModal = () => {
   const { modal } = useSelectors();

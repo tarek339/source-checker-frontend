@@ -1,11 +1,11 @@
 import axios from "axios";
-import SubTitle from "../../parents/SubTitle";
-import Card from "../../parents/containers/Card";
-import Flex from "../../parents/containers/Flex";
-import ContentContainer from "../../parents/containers/ContentContainer";
-import FormButton from "../../parents/form/FormButton";
-import FormContainer from "../../parents/form/FormContainer";
-import Input from "../../parents/form/Input";
+import SubTitle from "../../fonts/SubTitle";
+import Card from "../../containers/Card";
+import Flex from "../../containers/Flex";
+import ContentContainer from "../../containers/ContentContainer";
+import FormButton from "../../form/FormButton";
+import FormContainer from "../../form/FormContainer";
+import Input from "../../form/Input";
 import {
   useBreakPoints,
   useDispatches,

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Back, SignOut } from "./icons";
 import { useBreakPoints, useSelectors } from "../hooks";
-import Title from "./parents/Title";
-import Flex from "./parents/containers/Flex";
+import Title from "./fonts/Title";
+import Flex from "./containers/Flex";
 import { IHeader } from "../types/interfaces/components";
 
 const Header = ({ title }: IHeader) => {

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
 import { IPages } from "../../../types/interfaces/interfaces";
-import SubTitle from "../../parents/SubTitle";
-import Flex from "../../parents/containers/Flex";
+import SubTitle from "../../fonts/SubTitle";
+import Flex from "../../containers/Flex";
 import OpenGraphHolder from "./OpenGraphHolder";
 import ScreenShotHolder from "./ScreenShotHolder";
 import StarRating from "./StarRating";
 import axios from "axios";
-import FramerMotion from "../../parents/containers/FramerMotion";
+import FramerMotion from "../../containers/FramerMotion";
 
 const SurveyStart = () => {
   const { student, surveyPages, survey, currentPage } = useSelectors();

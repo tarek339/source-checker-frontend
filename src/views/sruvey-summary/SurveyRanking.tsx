@@ -5,7 +5,7 @@ import {
   ContentContainer,
   Flex,
   FramerMotion,
-  SpanBold,
+  Span,
   SubTitle,
   Title,
 } from "../../components";
@@ -73,19 +73,22 @@ const SurveyRanking = () => {
                         padding: "20px 0px 20px 0px",
                       }}>
                       <Flex direction={"row"} gap={"5px"}>
-                        <SpanBold
-                          style={{ fontSize: "22px" }}
+                        <Span
+                          fontSize={22}
                           title={`${i + 1}.`}
+                          fontWeight={600}
                         />
-                        <SpanBold
-                          style={{ fontSize: "22px" }}
+                        <Span
+                          fontSize={22}
                           title={page.title.toUpperCase()}
+                          fontWeight={600}
                         />
                       </Flex>
 
                       <Flex direction={"row"} gap={"0px"} align="center">
-                        <SpanBold
-                          style={{ fontSize: "22px" }}
+                        <Span
+                          fontSize={22}
+                          fontWeight={600}
                           title={page.starsArray
                             .reduce((acc, crr) => {
                               return acc + crr.stars;
@@ -115,7 +118,7 @@ const SurveyRanking = () => {
               gap={"10px"}
               justify="center"
               align="center">
-              <SpanBold title={"Sortieren"} style={{ fontSize: "22px" }} />
+              <Span fontSize={22} title={"Sortieren"} fontWeight={600} />
               <Arrow
                 fontSize={31}
                 onClick={() => setIsSort(!isSort)}

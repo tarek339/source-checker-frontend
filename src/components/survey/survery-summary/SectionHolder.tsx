@@ -1,6 +1,6 @@
 import { useSelectors, useBreakPoints } from "../../../hooks";
 import { ISectionHolder } from "../../../types/interfaces/components";
-import Flex from "../../parents/containers/Flex";
+import Flex from "../../containers/Flex";
 import Section from "./Section";
 
 const SectionHolder = ({

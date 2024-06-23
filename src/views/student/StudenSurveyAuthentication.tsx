@@ -7,6 +7,7 @@ import {
   Input,
   SubTitle,
   ContentContainer,
+  FormContainer,
 } from "../../components";
 import {
   useBreakPoints,
@@ -15,7 +16,6 @@ import {
   useTranslations,
 } from "../../hooks";
 import axios from "axios";
-import FormContainer from "../../components/parents/form/FormContainer";
 import { useNavigate } from "react-router-dom";
 
 const StudenSurveyAuthentication = () => {

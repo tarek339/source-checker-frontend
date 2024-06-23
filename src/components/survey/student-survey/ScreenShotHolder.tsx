@@ -1,6 +1,6 @@
 import { IScreenShotHolder } from "../../../types/interfaces/components";
-import Flex from "../../parents/containers/Flex";
-import SubCard from "../../parents/containers/SubCard";
+import Flex from "../../containers/Flex";
+import SubCard from "../../containers/SubCard";
 
 const ScreenShotHolder = ({ src }: IScreenShotHolder) => {
   return (

@@ -1,4 +1,4 @@
-import { IFlex } from "../../../types/interfaces/components";
+import { IFlex } from "../../types/interfaces/components";
 
 const Flex = ({
   children,

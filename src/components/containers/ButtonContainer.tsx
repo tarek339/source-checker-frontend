@@ -1,5 +1,5 @@
-import { useBreakPoints } from "../../../hooks";
-import { IButtonContainer } from "../../../types/interfaces/components";
+import { useBreakPoints } from "../../hooks";
+import { IButtonContainer } from "../../types/interfaces/components";
 
 const ButtonContainer = ({ children, style }: IButtonContainer) => {
   const { windowWidth } = useBreakPoints();

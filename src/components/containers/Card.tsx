@@ -1,4 +1,4 @@
-import { ICard } from "../../../types/interfaces/components";
+import { ICard } from "../../types/interfaces/components";
 
 const Card = ({ children, style }: ICard) => {
   return (

@@ -1,4 +1,4 @@
-import { IFormContainer } from "../../../types/interfaces/components";
+import { IFormContainer } from "../../types/interfaces/components";
 
 const FormContainer = ({
   onSubmit,

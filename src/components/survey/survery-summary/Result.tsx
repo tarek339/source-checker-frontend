@@ -1,8 +1,9 @@
 import { useSelectors, useTranslations, useBreakPoints } from "../../../hooks";
 import { Next, Prev } from "../../icons";
-import SubTitle from "../../parents/SubTitle";
-import Flex from "../../parents/containers/Flex";
+import SubTitle from "../../fonts/SubTitle";
+import Flex from "../../containers/Flex";
 import { IResult } from "../../../types/interfaces/components";
+import Span from "../../fonts/Span";
 
 const Result = ({
   credible,
@@ -85,13 +86,9 @@ const Result = ({
 
       <Flex direction={"row"} gap={"20px"} justify="flex-end" align="center">
         <Flex direction={"row"} gap={"10px"}>
-          <span style={{ fontSize: "21px", fontWeight: 600 }}>{first + 1}</span>
-          <span style={{ fontSize: "21px", fontWeight: 600 }}>
-            {t("common.of")}
-          </span>
-          <span style={{ fontSize: "21px", fontWeight: 600 }}>
-            {property?.length}
-          </span>
+          <Span title={first + 1} fontSize={21} fontWeight={600} />
+          <Span title={t("common.of")} fontSize={21} fontWeight={600} />
+          <Span title={property?.length} fontSize={21} fontWeight={600} />
         </Flex>
 
         <Prev first={first} onClick={prevPage} fontSize={24} />

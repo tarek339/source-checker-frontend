@@ -1,4 +1,4 @@
-import { ISubCard } from "../../../types/interfaces/components";
+import { ISubCard } from "../../types/interfaces/components";
 
 const SubCard = ({ children, width, style }: ISubCard) => {
   return (

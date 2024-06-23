@@ -7,9 +7,9 @@ import {
 } from "../../../../hooks";
 import OpenGraphView from "../../../OpenGraphView";
 import ScreenShot from "../../../ScreenShot";
-import SubTitle from "../../../parents/SubTitle";
-import Flex from "../../../parents/containers/Flex";
-import SideBar from "../../../parents/containers/SideBar";
+import SubTitle from "../../../fonts/SubTitle";
+import Flex from "../../../containers/Flex";
+import SideBar from "../../../containers/SideBar";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =

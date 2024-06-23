@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ITable } from "../types/interfaces/components";
-import Flex from "./parents/containers/Flex";
+import Flex from "./containers/Flex";
 import { useTranslations } from "../hooks";
 import { Next, Prev } from "./icons";
 

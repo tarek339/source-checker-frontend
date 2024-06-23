@@ -8,6 +8,7 @@ import {
   useBreakPoints,
 } from "../../../../hooks";
 import Table from "../../../Table";
+import Span from "../../../fonts/Span";
 
 const PagesHolder = () => {
   const { surveyPages, survey } = useSelectors();
@@ -93,13 +94,11 @@ const PagesHolder = () => {
                       : "0px",
                   textAlign: "right",
                 }}>
-                <span
-                  style={{
-                    color: "#FF0000",
-                  }}
-                  onClick={() => onDelete(page?._id!)}>
-                  {t("common.delete")}
-                </span>
+                <Span
+                  color="#FF0000"
+                  title={t("common.delete")}
+                  onClick={() => onDelete(page?._id!)}
+                />
               </td>
             </tr>
           );

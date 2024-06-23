@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useSelectors } from "../../../hooks";
-import { IFormButton } from "../../../types/interfaces/components";
+import { useSelectors } from "../../hooks";
+import { IFormButton } from "../../types/interfaces/components";
 
 const FormButton = ({ title, style }: IFormButton) => {
   const { loading } = useSelectors();

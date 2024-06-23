@@ -5,11 +5,11 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import Flex from "../../parents/containers/Flex";
-import ContButton from "../../buttons/ContButton";
 import axios from "axios";
 import { IStarRating } from "../../../types/interfaces/components";
 import { useState } from "react";
+import ContButton from "../../buttons/ContButton";
+import Flex from "../../containers/Flex";
 
 const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   const { t } = useTranslations();

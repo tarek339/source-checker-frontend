@@ -1,8 +1,9 @@
 import { useSelectors, useTranslations } from "../../../hooks";
-import SubTitle from "../../parents/SubTitle";
-import Flex from "../../parents/containers/Flex";
-import FramerMotion from "../../parents/containers/FramerMotion";
-import SubCard from "../../parents/containers/SubCard";
+import SubTitle from "../../fonts/SubTitle";
+import Flex from "../../containers/Flex";
+import FramerMotion from "../../containers/FramerMotion";
+import SubCard from "../../containers/SubCard";
+import Span from "../../fonts/Span";
 
 const NotStarted = () => {
   const { t } = useTranslations();
@@ -25,10 +26,10 @@ const NotStarted = () => {
                 )}`}
               />
               <Flex direction={"column"} gap={"5px"}>
-                <span>{t("surveyControl.introText.first")}</span>
-                <span>{t("surveyControl.introText.second")}</span>
-                <span>{t("surveyControl.introText.third")}</span>
-                <span>{t("surveyControl.introText.fourth")}</span>
+                <Span title={t("surveyControl.introText.first")} />
+                <Span title={t("surveyControl.introText.second")} />
+                <Span title={t("surveyControl.introText.third")} />
+                <Span title={t("surveyControl.introText.fourth")} />
               </Flex>
             </Flex>
             <Flex direction={"row"} gap={"0px"} justify="center">

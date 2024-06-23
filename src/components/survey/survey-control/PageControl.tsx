@@ -5,9 +5,9 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import Flex from "../../parents/containers/Flex";
-import SubCard from "../../parents/containers/SubCard";
-import SubTitle from "../../parents/SubTitle";
+import Flex from "../../containers/Flex";
+import SubCard from "../../containers/SubCard";
+import SubTitle from "../../fonts/SubTitle";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { ContButton } from "../..";

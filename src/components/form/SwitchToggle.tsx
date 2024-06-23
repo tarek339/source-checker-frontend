@@ -1,4 +1,4 @@
-import { ISwitchToggle } from "../../../types/interfaces/components";
+import { ISwitchToggle } from "../../types/interfaces/components";
 
 const SwitchToggle = ({
   label,

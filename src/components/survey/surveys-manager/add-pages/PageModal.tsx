@@ -5,9 +5,9 @@ import {
   useBreakPoints,
   useScroll,
 } from "../../../../hooks";
-import Flex from "../../../parents/containers/Flex";
-import Modal from "../../../parents/containers/Modal";
 import { IPageModal } from "../../../../types/interfaces/components";
+import Flex from "../../../containers/Flex";
+import Modal from "../../../containers/Modal";
 
 const PageModal = ({ children, title }: IPageModal) => {
   const { modal } = useSelectors();

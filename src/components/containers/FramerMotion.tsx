@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { IFramerMotion } from "../../../types/interfaces/components";
+import { IFramerMotion } from "../../types/interfaces/components";
 
 const FramerMotion = ({ children }: IFramerMotion) => {
   return (

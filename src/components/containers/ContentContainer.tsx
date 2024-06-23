@@ -1,4 +1,4 @@
-import { IContentContainer } from "../../../types/interfaces/components";
+import { IContentContainer } from "../../types/interfaces/components";
 
 const ContentContainer = ({
   children,

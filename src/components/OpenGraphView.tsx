@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useDispatches, useSelectors, useTranslations } from "../hooks";
-import Flex from "./parents/containers/Flex";
+import Flex from "./containers/Flex";
 import { IOpenGraphView } from "../types/interfaces/components";
 import { ContButton } from ".";
 

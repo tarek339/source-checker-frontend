@@ -6,11 +6,11 @@ import {
 } from "../../../../hooks";
 import { IPageForm } from "../../../../types/interfaces/components";
 import LoadingPulse from "../../../LoadingPulse";
-import ButtonContainer from "../../../parents/containers/ButtonContainer";
-import FormButton from "../../../parents/form/FormButton";
-import FormContainer from "../../../parents/form/FormContainer";
-import Input from "../../../parents/form/Input";
-import InputMessage from "../../../parents/form/InputMessage";
+import ButtonContainer from "../../../containers/ButtonContainer";
+import FormButton from "../../../form/FormButton";
+import FormContainer from "../../../form/FormContainer";
+import Input from "../../../form/Input";
+import InputMessage from "../../../form/InputMessage";
 
 const PageForm = ({
   onSubmit,

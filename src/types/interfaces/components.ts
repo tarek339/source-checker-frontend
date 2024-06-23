@@ -1,12 +1,6 @@
 import { IPages } from "./interfaces";
 import { IHandleModal } from "./redux/slices";
 
-export interface ISteps {
-  counter: string;
-  text: string;
-  style?: React.CSSProperties;
-}
-
 export interface IInput {
   type?: string;
   label: string;
@@ -240,12 +234,17 @@ export interface IOpenGraphView {
   ogDescription: string;
 }
 
-export interface ISpanBold {
+export interface ISpan {
   title: string | React.ReactNode;
   onClick?: () => void;
   style?: React.CSSProperties;
   onMouseEnter?: React.MouseEventHandler<HTMLSpanElement> | undefined;
   onMouseLeave?: React.MouseEventHandler<HTMLSpanElement> | undefined;
+  fontSize?: number;
+  fontWeight?: number;
+  color?: string;
+  textDecoration?: string;
+  cursor?: string;
 }
 
 export interface IScreenShotHolder {
@@ -300,4 +299,11 @@ export interface ISectionHolder {
   questionable: JSX.Element;
   doubtful: JSX.Element;
   unbelievable: JSX.Element;
+}
+
+export interface ILink {
+  url: string;
+  title: string;
+  fontWeight: number;
+  fontSize: number;
 }

@@ -6,9 +6,9 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import SubTitle from "../../parents/SubTitle";
-import Flex from "../../parents/containers/Flex";
-import SubCard from "../../parents/containers/SubCard";
+import SubTitle from "../../fonts/SubTitle";
+import Flex from "../../containers/Flex";
+import SubCard from "../../containers/SubCard";
 import axios from "axios";
 
 const Contorl = () => {

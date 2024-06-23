@@ -1,9 +1,10 @@
 import { useBreakPoints, useSelectors, useTranslations } from "../../../hooks";
 import { IPages } from "../../../types/interfaces/interfaces";
-import SpanBold from "../../parents/SpanBold";
-import SubTitle from "../../parents/SubTitle";
-import Flex from "../../parents/containers/Flex";
-import SubCard from "../../parents/containers/SubCard";
+import SubTitle from "../../fonts/SubTitle";
+import Flex from "../../containers/Flex";
+import SubCard from "../../containers/SubCard";
+import Span from "../../fonts/Span";
+import Link from "../../fonts/Link";
 
 const CurrentPage = () => {
   const { windowWidth } = useBreakPoints();
@@ -29,8 +30,11 @@ const CurrentPage = () => {
               .map((page: IPages, i: number) => {
                 return (
                   <Flex key={i} direction={"column"} gap={"5px"}>
-                    <SpanBold title={`${t("common.title")}: ${page.title}`} />
-                    <SpanBold
+                    <Span
+                      title={`${t("common.title")}: ${page.title}`}
+                      fontWeight={600}
+                    />
+                    <Span
                       title={`Ansicht: ${
                         page.isMobileView
                           ? "Mobile Screenshot"
@@ -38,15 +42,17 @@ const CurrentPage = () => {
                           ? "Desktop Screenshot"
                           : t("surveyControl.ogData")
                       }`}
+                      fontWeight={600}
                     />
-                    <a
-                      href={page.url}
-                      style={{ textDecoration: "underline" }}
-                      target="_blank">
-                      <SpanBold title={t("surveyControl.sourceURL")} />
-                    </a>
-                    <SpanBold
+                    <Link
+                      url={page.url}
+                      title={t("surveyControl.sourceURL")}
+                      fontWeight={600}
+                      fontSize={18}
+                    />
+                    <Span
                       title={`${t("surveyControl.note")}: ${page.note}`}
+                      fontWeight={600}
                     />
                   </Flex>
                 );

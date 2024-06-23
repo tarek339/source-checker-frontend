@@ -1,17 +1,18 @@
 import moment from "moment";
 import QrCode from "../../QRCode";
-import Flex from "../../parents/containers/Flex";
-import SubCard from "../../parents/containers/SubCard";
+import Flex from "../../containers/Flex";
+import SubCard from "../../containers/SubCard";
 import {
   useBreakPoints,
   useDispatches,
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import SubTitle from "../../parents/SubTitle";
-import SpanBold from "../../parents/SpanBold";
+import SubTitle from "../../fonts/SubTitle";
 import { useState } from "react";
 import QrCodeModal from "./QrCodeModal";
+import Span from "../../fonts/Span";
+import Link from "../../fonts/Link";
 
 const SurveyData = () => {
   const { windowWidth } = useBreakPoints();
@@ -49,34 +50,32 @@ const SurveyData = () => {
               cursor="pointer"
               value={survey?.link!}
             />
-            <SpanBold title={`ID: ${survey?.surveyId}`} />
+            <Span title={`ID: ${survey?.surveyId}`} fontWeight={600} />
           </Flex>
           <Flex direction={"column"} gap={"20px"}>
-            <SpanBold
+            <Span
               title={`${t("studentAuth.validUntil")}: ${moment(
                 survey?.validUntil
               ).format("DD.MM.YYYY")}`}
+              fontWeight={600}
             />
-            <SpanBold
-              title={
-                <a
-                  style={{ fontWeight: 600, textDecoration: "underline" }}
-                  target="_blank"
-                  href={survey?.link}>
-                  {t("studentAuth.studentLink")}
-                </a>
-              }
+
+            <Link
+              url={survey?.link!}
+              title={t("studentAuth.studentLink")}
+              fontWeight={600}
+              fontSize={18}
             />
-            <SpanBold
+
+            <Span
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
               onClick={copyToClipboard}
               title={copied ? t("common.copied") : t("common.copy")}
-              style={{
-                textDecoration: "underline",
-                cursor: "pointer",
-                color: hovered ? "#000c9a" : "#2835c3",
-              }}
+              color={hovered ? "#000c9a" : "#2835c3"}
+              textDecoration="underline"
+              cursor="pointer"
+              fontWeight={600}
             />
           </Flex>
         </Flex>

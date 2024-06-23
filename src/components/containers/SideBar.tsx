@@ -1,6 +1,6 @@
 import { Menu, Sidebar } from "react-pro-sidebar";
-import { useBreakPoints } from "../../../hooks";
-import { ISideBar } from "../../../types/interfaces/components";
+import { useBreakPoints } from "../../hooks";
+import { ISideBar } from "../../types/interfaces/components";
 
 const SideB = ({ children, collapsed, toggled }: ISideBar) => {
   const { windowWidth } = useBreakPoints();
