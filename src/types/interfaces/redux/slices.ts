@@ -102,3 +102,21 @@ export interface IncreaseLastPage {
 export interface ISetPageId {
   pageId: string;
 }
+
+export interface InitialStateSliceNumsSlice {
+  first: number;
+  last: number;
+  isSort: boolean;
+}
+
+export interface IHandleFirst {
+  first: number;
+}
+
+export interface IHandleLast {
+  last: number;
+}
+
+export interface IHandleIsSort {
+  isSort: boolean;
+}

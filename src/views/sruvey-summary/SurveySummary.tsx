@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   useBreakPoints,
+  useDispatches,
   useRequests,
   useSelectors,
   useStars,
@@ -21,28 +22,34 @@ import { Average, Star } from "../../components/icons";
 
 const SurveySummary = () => {
   const { fetchSurvey } = useRequests();
-  const { surveyPages } = useSelectors();
+  const { surveyPages, first, last, isSort } = useSelectors();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { fiveStars, fourStars, oneStar, threeStars, twoStars } = useStars();
+  const { setFirst, setLast } = useDispatches();
 
   const [sumStars, setSumStars] = useState<number[]>([0]);
-  const [first, setFirst] = useState(0);
-  const [last, setLast] = useState(1);
 
   useEffect(() => {
     fetchSurvey();
   }, []);
 
   useEffect(() => {
-    const sum = surveyPages.slice(first, last).map((page: IPages) => {
-      return page.starsArray.reduce((acc, crr) => {
-        return acc + crr.stars;
-      }, 0);
-    });
-    if (sum.length > 0) {
-      setSumStars(sum);
-    }
+    const sum = surveyPages
+      ?.slice()
+      .sort((a, b) =>
+        isSort
+          ? b.starsArray.reduce((acc, crr) => acc + crr.stars, 0) -
+            a.starsArray.reduce((acc, crr) => acc + crr.stars, 0)
+          : 0
+      )
+      .slice(first, last)
+      .map((page: IPages) => {
+        return page.starsArray.reduce((acc, crr) => {
+          return acc + crr.stars;
+        }, 0);
+      });
+    setSumStars(sum);
   }, [surveyPages, first, last]);
 
   return (
@@ -52,48 +59,57 @@ const SurveySummary = () => {
         <FramerMotion>
           <Flex direction={"column"} gap={"30px"}>
             <>
-              {surveyPages.slice(first, last).map((page, index) => {
-                const averageRating = sumStars![index] / page.starsArray.length;
-                return (
-                  <Flex
-                    key={index}
-                    direction={"column"}
-                    gap={"0px"}
-                    style={{
-                      margin: "0 auto",
-                    }}>
+              {surveyPages
+                ?.slice()
+                .sort((a, b) =>
+                  isSort
+                    ? b.starsArray.reduce((acc, crr) => acc + crr.stars, 0) -
+                      a.starsArray.reduce((acc, crr) => acc + crr.stars, 0)
+                    : 0
+                )
+                .slice(first, last)
+                .map((page, index) => {
+                  const averageRating =
+                    sumStars![index] / page.starsArray.length;
+                  return (
                     <Flex
-                      direction={windowWidth >= 470 ? "row" : "column"}
-                      gap={"10px"}
-                      align={windowWidth >= 470 ? "center" : "flex-start"}
-                      height="100%"
+                      key={index}
+                      direction={"column"}
+                      gap={"0px"}
                       style={{
-                        marginBottom: "1em",
+                        margin: "0 auto",
                       }}>
-                      <SubTitle title={`${page.title}`} />
-                      <Flex direction={"row"} gap={"10px"} align="center">
-                        <Average />
-                        <Flex direction={"row"} gap={"0px"}>
-                          <SubTitle
-                            title={averageRating?.toFixed(2).toString()!}
-                          />
-                          <Star />
+                      <Flex
+                        direction={windowWidth >= 470 ? "row" : "column"}
+                        gap={"20px"}
+                        align={windowWidth >= 470 ? "center" : "flex-start"}
+                        height="100%"
+                        style={{
+                          marginBottom: "1em",
+                        }}>
+                        <SubTitle title={`${page.title}`} />
+                        <Flex direction={"row"} gap={"10px"} align="center">
+                          <Average />
+                          <Flex direction={"row"} gap={"0px"}>
+                            <SubTitle
+                              title={averageRating?.toFixed(2).toString()!}
+                            />
+                            <Star />
+                          </Flex>
                         </Flex>
                       </Flex>
+                      <SectionHolder
+                        page={page}
+                        starsArrayLength={page.starsArray.length}
+                        credible={fiveStars}
+                        trustworthy={fourStars}
+                        questionable={threeStars}
+                        doubtful={twoStars}
+                        unbelievable={oneStar}
+                      />
                     </Flex>
-
-                    <SectionHolder
-                      page={page}
-                      starsArrayLength={page.starsArray.length}
-                      credible={fiveStars}
-                      trustworthy={fourStars}
-                      questionable={threeStars}
-                      doubtful={twoStars}
-                      unbelievable={oneStar}
-                    />
-                  </Flex>
-                );
-              })}
+                  );
+                })}
               <Result
                 sumStars={sumStars}
                 credible={fiveStars}

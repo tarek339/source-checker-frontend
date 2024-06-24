@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import {
   Card,
-  ContButton,
   ContentContainer,
   Flex,
   FramerMotion,
   Span,
   SubTitle,
+  Thumbnail,
   Title,
 } from "../../components";
 import {
@@ -14,18 +14,19 @@ import {
   useDispatches,
   useRequests,
   useSelectors,
+  useTranslations,
 } from "../../hooks";
 import { Arrow, Star } from "../../components/icons";
 import { useNavigate } from "react-router-dom";
 
 const SurveyRanking = () => {
-  const { surveyPages, survey } = useSelectors();
+  const { surveyPages, survey, isSort } = useSelectors();
   const { fetchSurvey } = useRequests();
   const { windowWidth } = useBreakPoints();
+  const { setFirst, setLast, setIsSort } = useDispatches();
+  const { t } = useTranslations();
   const navigate = useNavigate();
-  const {} = useDispatches();
 
-  const [isSort, setIsSort] = useState(true);
   const [deg, setDeg] = useState(270);
 
   useEffect(() => {
@@ -40,11 +41,11 @@ const SurveyRanking = () => {
 
   return (
     <ContentContainer>
-      <Title title={"Ranking der Seiten"} />
+      <Title title={"Ranking"} />
       <Card style={{ paddingTop: "30px" }}>
         <FramerMotion>
           <SubTitle
-            title={"Ergebnisse der Seiten"}
+            title={t("surveySummaray.ranking")}
             style={{ paddingBottom: "0.5em", textAlign: "center" }}
           />
           <Flex
@@ -71,17 +72,44 @@ const SurveyRanking = () => {
                       style={{
                         borderBottom: "2px solid #2835c3",
                         padding: "20px 0px 20px 0px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {
+                        setLast(i + 1);
+                        setFirst(i);
+                        navigate(`/survey-summary/${survey?._id}`);
                       }}>
-                      <Flex direction={"row"} gap={"5px"}>
-                        <Span
-                          fontSize={22}
-                          title={`${i + 1}.`}
-                          fontWeight={600}
-                        />
-                        <Span
-                          fontSize={22}
-                          title={page.title.toUpperCase()}
-                          fontWeight={600}
+                      <Flex
+                        direction={"row"}
+                        gap={"0px"}
+                        width="80%"
+                        justify="space-between"
+                        align="center">
+                        <Flex direction={"row"} gap={"5px"}>
+                          <Span
+                            fontSize={22}
+                            title={`${i + 1}.`}
+                            fontWeight={600}
+                          />
+                          <Span
+                            fontSize={22}
+                            title={page.title}
+                            fontWeight={600}
+                          />
+                        </Flex>
+                        <Thumbnail
+                          url={
+                            page.isMobileView
+                              ? page.mobileScreenshot
+                              : page.isMobileView === false
+                              ? page.mobileScreenshot
+                              : page.isMobileView === null &&
+                                page.isOpenGraphView
+                              ? page.openGraph.ogImage.map(
+                                  (img: { url: string }) => img.url
+                                )
+                              : null
+                          }
                         />
                       </Flex>
 
@@ -105,26 +133,12 @@ const SurveyRanking = () => {
 
           <Flex
             direction={"row"}
-            gap={"0px"}
-            justify="space-between"
+            gap={"10px"}
+            justify="flex-end"
             align="center"
             style={{ marginTop: "2em" }}>
-            <ContButton
-              onClick={() => navigate(`/survey-summary/${survey?._id}`)}
-              title={"Einzelansicht"}
-            />
-            <Flex
-              direction={"row"}
-              gap={"10px"}
-              justify="center"
-              align="center">
-              <Span fontSize={22} title={"Sortieren"} fontWeight={600} />
-              <Arrow
-                fontSize={31}
-                onClick={() => setIsSort(!isSort)}
-                deg={deg}
-              />
-            </Flex>
+            <Span fontSize={22} title={"Sortieren"} fontWeight={600} />
+            <Arrow fontSize={31} onClick={() => setIsSort(!isSort)} deg={deg} />
           </Flex>
         </FramerMotion>
       </Card>

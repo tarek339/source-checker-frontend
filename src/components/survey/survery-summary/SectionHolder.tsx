@@ -34,11 +34,7 @@ const SectionHolder = ({
                 }}>
                 <Section
                   style={{ paddingTop: "1.5px" }}
-                  text={
-                    survey?.freeUserNames
-                      ? obj.userName.toUpperCase()
-                      : obj.userNumber
-                  }
+                  text={survey?.freeUserNames ? obj.userName : obj.userNumber}
                 />
                 {obj.stars === 5 ? (
                   <Section text={credible} />

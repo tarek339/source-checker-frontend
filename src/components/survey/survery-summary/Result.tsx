@@ -24,14 +24,14 @@ const Result = ({
 
   const nextPage = () => {
     if (last >= property?.length) return;
-    setFirst((prevNum) => prevNum + 1);
-    setLast((prevNum) => prevNum + 1);
+    setFirst(first + 1);
+    setLast(last + 1);
   };
 
   const prevPage = () => {
     if (first === 0) return;
-    setFirst((prevNum) => prevNum - 1);
-    setLast((prevNum) => prevNum - 1);
+    setFirst(first - 1);
+    setLast(last - 1);
   };
 
   return (

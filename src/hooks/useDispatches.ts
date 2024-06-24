@@ -6,6 +6,9 @@ import {
   getSinglePage,
   handleCountDown,
   handleCurrentPage,
+  handleFirst,
+  handleIsSort,
+  handleLast,
   handleLoading,
   handleModal,
   handlePage,
@@ -90,6 +93,9 @@ const useDispatches = () => {
   const setVotedStars = (votedStars: number) =>
     dispatch(handleVotedStars({ votedStars }));
   const setStars = (stars: number) => dispatch(handleStars({ stars }));
+  const setFirst = (first: number) => dispatch(handleFirst({ first }));
+  const setLast = (last: number) => dispatch(handleLast({ last }));
+  const setIsSort = (isSort: boolean) => dispatch(handleIsSort({ isSort }));
 
   return {
     enableEN,
@@ -113,6 +119,9 @@ const useDispatches = () => {
     setVoted,
     setVotedStars,
     setStars,
+    setFirst,
+    setLast,
+    setIsSort,
   };
 };
 

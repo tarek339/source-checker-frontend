@@ -64,7 +64,7 @@ const CurrentPage = () => {
               .map((page: IPages, i) => {
                 return (
                   <div
-                    className="current-page-screenshot"
+                    className="hide-scroll-bar"
                     key={i}
                     style={{
                       height: windowWidth >= 768 ? "180px" : "300px",

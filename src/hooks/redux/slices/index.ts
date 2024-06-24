@@ -28,6 +28,12 @@ import {
   handleCountDown,
 } from "./surveyController";
 import { addStudent, removeStudent, studenReducer } from "./student";
+import {
+  sliceNumsReducer,
+  handleFirst,
+  handleLast,
+  handleIsSort,
+} from "./sliceNums";
 
 export {
   handleTranslation,
@@ -51,6 +57,10 @@ export {
   handleVoted,
   handleVotedStars,
   handleStars,
+  handleFirst,
+  handleLast,
+  handleIsSort,
+  sliceNumsReducer,
   studenReducer,
   surveyControllerReducer,
   mainPageReducer,

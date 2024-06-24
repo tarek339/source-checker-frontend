@@ -114,12 +114,12 @@ label {
 }
 
 .sub-card::-webkit-scrollbar,
-.current-page-screenshot::-webkit-scrollbar {
+.hide-scroll-bar::-webkit-scrollbar {
   display: none;
 }
 
 .sub-card,
-.current-page-screenshot {
+.hide-scroll-bar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

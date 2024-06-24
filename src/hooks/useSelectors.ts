@@ -37,6 +37,9 @@ const useSelectors = () => {
     (state: RootState) => state.surveyPages.votedStars
   );
   const stars = useSelector((state: RootState) => state.surveyPages.stars);
+  const first = useSelector((state: RootState) => state.sliceNums.first);
+  const last = useSelector((state: RootState) => state.sliceNums.last);
+  const isSort = useSelector((state: RootState) => state.sliceNums.isSort);
 
   return {
     locale,
@@ -58,6 +61,9 @@ const useSelectors = () => {
     voted,
     votedStars,
     stars,
+    first,
+    last,
+    isSort,
   };
 };
 

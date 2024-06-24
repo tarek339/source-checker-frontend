@@ -1,5 +1,5 @@
 import { IPages } from "./interfaces";
-import { IHandleModal } from "./redux/slices";
+import { IHandleFirst, IHandleLast, IHandleModal } from "./redux/slices";
 
 export interface IInput {
   type?: string;
@@ -269,8 +269,14 @@ export interface IResult {
   first: number;
   last: number;
   property: IPages[];
-  setFirst: (value: React.SetStateAction<number>) => void | undefined;
-  setLast: (value: React.SetStateAction<number>) => void | undefined;
+  setFirst: (first: number) => {
+    payload: IHandleFirst;
+    type: "sliceNums/handleFirst";
+  };
+  setLast: (last: number) => {
+    payload: IHandleLast;
+    type: "sliceNums/handleLast";
+  };
 }
 
 export interface ISection {

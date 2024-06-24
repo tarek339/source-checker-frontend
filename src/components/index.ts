@@ -42,6 +42,7 @@ import SectionHolder from "./survey/survery-summary/SectionHolder";
 import Result from "./survey/survery-summary/Result";
 import Acknowledgement from "./survey/student-survey/Acknowledgement";
 import Link from "./fonts/Link";
+import Thumbnail from "./survey/survery-summary/Thumbnail";
 
 export {
   Footer,
@@ -88,4 +89,5 @@ export {
   Result,
   Acknowledgement,
   Link,
+  Thumbnail,
 };

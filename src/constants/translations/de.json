@@ -177,6 +177,7 @@
   },
   "surveySummaray": {
     "title": "Zusammenfassung der Umfrage",
-    "subTitle": "hat eine durchschnittliche Bewertung von"
+    "subTitle": "hat eine durchschnittliche Bewertung von",
+    "ranking": "Gesamtbewertungen der Seiten"
   }
 }

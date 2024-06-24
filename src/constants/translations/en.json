@@ -178,6 +178,7 @@
   },
   "surveySummaray": {
     "title": "Summary of the survey",
-    "subTitle": "has an average rating of"
+    "subTitle": "has an average rating of",
+    "ranking": "Overall ratings of the pages"
   }
 }
