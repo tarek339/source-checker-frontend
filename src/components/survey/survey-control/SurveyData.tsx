@@ -6,6 +6,7 @@ import {
   useBreakPoints,
   useDispatches,
   useSelectors,
+  useStars,
   useTranslations,
 } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
@@ -19,6 +20,8 @@ const SurveyData = () => {
   const { t } = useTranslations();
   const { survey } = useSelectors();
   const { openModal } = useDispatches();
+  const { starsAmount } = useStars();
+
   const [copied, setCopied] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -43,7 +46,7 @@ const SurveyData = () => {
       <Flex direction={"column"} gap={"15px"}>
         <QrCodeModal />
         <SubTitle title={t("common.surveyData")} />
-        <Flex direction={"row"} gap={"10px"}>
+        <Flex direction={"row"} gap={"20px"}>
           <Flex direction={"column"} gap={"0px"}>
             <QrCode
               onClick={openModal}
@@ -59,14 +62,12 @@ const SurveyData = () => {
               ).format("DD.MM.YYYY")}`}
               fontWeight={600}
             />
-
             <Link
               url={survey?.link!}
               title={t("studentAuth.studentLink")}
               fontWeight={600}
               fontSize={18}
             />
-
             <Span
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
@@ -77,6 +78,16 @@ const SurveyData = () => {
               cursor="pointer"
               fontWeight={600}
             />
+            <>
+              {!survey?.isStarted && starsAmount > 0 ? (
+                <Link
+                  url={`http://localhost:5173/survey-ranking/${survey?._id}`}
+                  title={t("common.summary")}
+                  fontWeight={600}
+                  fontSize={18}
+                />
+              ) : null}
+            </>
           </Flex>
         </Flex>
       </Flex>

@@ -3,21 +3,18 @@ import {
   useBreakPoints,
   useRequests,
   useSelectors,
-  useStars,
   useTranslations,
 } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
 import Flex from "../../containers/Flex";
 import SubCard from "../../containers/SubCard";
 import Span from "../../fonts/Span";
-import Link from "../../fonts/Link";
 
 const SurveyStatus = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { survey } = useSelectors();
   const { fetchStudents, students } = useRequests();
-  const { starsAmount } = useStars();
 
   useEffect(() => {
     fetchStudents();
@@ -61,14 +58,6 @@ const SurveyStatus = () => {
             title={`${t("common.studentQuantity")}: ${students.length}`}
             fontWeight={600}
           />
-          {!survey?.isStarted && starsAmount > 0 ? (
-            <Link
-              url={`http://localhost:5173/survey-ranking/${survey?._id}`}
-              title={t("common.summary")}
-              fontWeight={600}
-              fontSize={18}
-            />
-          ) : null}
         </>
       </Flex>
     </SubCard>
