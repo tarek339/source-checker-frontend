@@ -1,6 +1,4 @@
-export interface IThumbnail {
-  url: string;
-}
+import { IThumbnail } from "../../../types/interfaces/components";
 
 const Thumbnail = ({ url }: IThumbnail) => {
   return (

@@ -304,3 +304,7 @@ export interface ILink {
   fontWeight: number;
   fontSize: number;
 }
+
+export interface IThumbnail {
+  url: string;
+}
