@@ -4,7 +4,7 @@ import { IBackContinueButton } from "../../types/interfaces/components";
 
 const BackButton = ({ path }: IBackContinueButton) => {
   const { t } = useTranslations();
-  const naigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <button
@@ -21,7 +21,7 @@ const BackButton = ({ path }: IBackContinueButton) => {
         textTransform: "uppercase",
         fontWeight: 600,
       }}
-      onClick={() => naigate(path)}>
+      onClick={() => navigate(path)}>
       {t("button.back")}
     </button>
   );
