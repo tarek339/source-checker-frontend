@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "./hooks/redux/store.ts";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = import.meta.env.VITE_WEB_SERVER_URL;
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
