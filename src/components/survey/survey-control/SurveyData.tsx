@@ -81,7 +81,9 @@ const SurveyData = () => {
             <>
               {!survey?.isStarted && starsAmount > 0 ? (
                 <Link
-                  url={`http://localhost:5173/survey-ranking/${survey?._id}`}
+                  url={`${import.meta.env.VITE_CLIENT_URL}/survey-ranking/${
+                    survey?._id
+                  }`}
                   title={t("common.summary")}
                   fontWeight={600}
                   fontSize={18}
