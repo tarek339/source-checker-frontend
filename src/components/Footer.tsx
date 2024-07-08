@@ -25,11 +25,17 @@ const Footer = () => {
         <p>{t("footer.public")}</p>
       </section>
       <section className="footer-links">
-        <a href="">{t("footer.imprint")}</a>
+        <a href="https://www.usethenews.de/de/impressum" target="_blank">
+          {t("footer.imprint")}
+        </a>
         <LuDot style={{ color: "#2835c3" }} />
-        <a href="">{t("footer.datapolice")}</a>
+        <a href="https://www.usethenews.de/de/datenschutz" target="_blank">
+          {t("footer.datapolice")}
+        </a>
         <LuDot style={{ color: "#2835c3" }} />
-        <a href="">{t("footer.license")}</a>
+        <a href="" target="_blank">
+          {t("footer.license")}
+        </a>
       </section>
     </div>
   );
