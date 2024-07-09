@@ -45,15 +45,16 @@ const SideMenu = () => {
             return (
               <Flex
                 key={page._id}
-                direction={windowWidth >= 768 ? "row" : "column"}
+                direction={windowWidth > 1200 ? "row" : "column"}
                 gap={"20px"}
                 style={{
                   paddingTop: "20px",
                 }}>
                 <ScreenShot
                   title={"Mobile"}
+                  height={"580px"}
                   width={
-                    windowWidth >= 767 && windowWidth <= 1250
+                    windowWidth >= 768 && windowWidth <= 1250
                       ? "200px"
                       : "250px"
                   }
@@ -64,9 +65,12 @@ const SideMenu = () => {
                 />
                 <ScreenShot
                   title={"Desktop"}
+                  height={windowWidth < 500 ? "auto" : "580px"}
                   width={
-                    windowWidth >= 767 && windowWidth <= 1250
+                    windowWidth >= 768 && windowWidth <= 1250
                       ? "400px"
+                      : windowWidth < 500
+                      ? "100%"
                       : "450px"
                   }
                   id={survey?._id}
@@ -78,7 +82,7 @@ const SideMenu = () => {
                   pageID={page._id}
                   openGraphView={true}
                   ogTitle={page.openGraph?.ogTitle}
-                  url={page.openGraph?.ogImage.map(
+                  url={page.openGraph.ogImage?.map(
                     (img: { url: string }) => img.url
                   )}
                   ogDescription={page.openGraph?.ogDescription}

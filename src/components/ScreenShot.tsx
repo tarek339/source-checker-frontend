@@ -10,6 +10,7 @@ const ScreenShot = ({
   isMobileView,
   pageID,
   url,
+  height,
 }: IScreenShot) => {
   const {
     dispatchSideBar,
@@ -51,7 +52,7 @@ const ScreenShot = ({
         id="capture"
         style={{
           width: width,
-          height: "580px",
+          height: height,
           border: "1px solid transparent",
           marginBottom: "10px",
         }}>

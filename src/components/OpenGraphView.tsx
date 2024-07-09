@@ -47,7 +47,11 @@ const OpenGraphView = ({
     <Flex direction={"column"} gap={"20px"} style={{ height: "600px" }}>
       <>
         <h4>Open-Graph</h4>
-        <div>
+        <div
+        // style={{
+        //   width: windowWidth >= 1000 && windowWidth <= 1200 ? "50%" : "100%",
+        // }}
+        >
           <h3>{ogTitle}</h3>
           <img style={{ maxWidth: "100%", height: "auto" }} src={url} alt="" />
           <p>{ogDescription}</p>

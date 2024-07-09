@@ -8,7 +8,15 @@ const SideB = ({ children, collapsed, toggled }: ISideBar) => {
   return (
     <Sidebar
       width="0px"
-      collapsedWidth={windowWidth >= 768 ? "80%" : "100%"}
+      collapsedWidth={
+        windowWidth >= 1000 && windowWidth <= 1200
+          ? "50%"
+          : windowWidth >= 700 && windowWidth <= 999
+          ? "70%"
+          : windowWidth <= 600
+          ? "100%"
+          : "80%"
+      }
       backgroundColor="#fff"
       collapsed={collapsed}
       toggled={toggled}
@@ -23,7 +31,7 @@ const SideB = ({ children, collapsed, toggled }: ISideBar) => {
       }}>
       <Menu
         rootStyles={{
-          padding: "0px 30px 30px 30px",
+          padding: "0px 15px 30px 15px",
         }}>
         {children}
       </Menu>

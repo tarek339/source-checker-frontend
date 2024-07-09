@@ -101,6 +101,7 @@ export interface IScreenShot {
   isMobileView: boolean;
   pageID: string;
   url: string;
+  height: string;
 }
 
 export interface ILoadingPulse {
