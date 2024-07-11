@@ -28,6 +28,14 @@ const SurveyRanking = () => {
   const navigate = useNavigate();
 
   const [deg, setDeg] = useState(270);
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const handleMouseEnter = (row: number) => {
+    setHovered(row);
+  };
+  const handleMouseLeave = () => {
+    setHovered(null);
+  };
 
   useEffect(() => {
     fetchSurvey();
@@ -52,7 +60,7 @@ const SurveyRanking = () => {
             direction={"column"}
             gap={"10px"}
             style={{ margin: "0 auto", maxWidth: "430px" }}>
-            <Flex direction={"column"} gap={"0px"}>
+            <Flex direction={"column"} gap={"0px"} style={{}}>
               {surveyPages
                 ?.slice()
                 .sort((a, b) =>
@@ -71,9 +79,13 @@ const SurveyRanking = () => {
                       justify={"space-between"}
                       style={{
                         borderBottom: "2px solid #2835c3",
-                        padding: "20px 0px 20px 0px",
+                        padding: "20px 4px 20px 10px",
                         cursor: "pointer",
+                        backgroundColor: hovered === i ? "#2835c320" : "",
+                        transition: "background-color 0.3s",
                       }}
+                      onMouseEnter={() => handleMouseEnter(i)}
+                      onMouseLeave={handleMouseLeave}
                       onClick={() => {
                         setLast(i + 1);
                         setFirst(i);

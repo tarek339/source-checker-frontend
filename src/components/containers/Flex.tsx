@@ -10,6 +10,8 @@ const Flex = ({
   style,
   height,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
 }: IFlex) => {
   return (
     <div
@@ -23,6 +25,8 @@ const Flex = ({
         height: height,
         ...style,
       }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       onClick={onClick}>
       {children}
     </div>

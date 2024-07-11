@@ -182,6 +182,8 @@ export interface IFlex {
   height?: string;
   style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement> | undefined;
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement> | undefined;
 }
 
 export interface IButtonContainer {
