@@ -103,6 +103,7 @@ const useCompArray = () => {
         <SurveyProp
           header={t("common.surveyPIN")}
           child={<Span fontWeight={600} title={survey?.surveyPin!} />}
+          filter={4}
         />
       ),
     },

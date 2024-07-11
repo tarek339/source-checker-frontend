@@ -38,6 +38,7 @@ export interface ISurveyProp {
   header: string;
   child: string | number | boolean | JSX.Element | undefined;
   secondChild?: JSX.Element | string;
+  filter?: number;
 }
 
 export interface IStudent {
