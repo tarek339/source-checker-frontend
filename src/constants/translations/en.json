@@ -5,7 +5,7 @@
     "surveyPIN": "Survey-PIN",
     "survey": "Survey",
     "title": "Title",
-    "url": "Url",
+    "url": "URL",
     "note": "Note (not displayed)",
     "surveyNumber": "Survey nr.",
     "yes": "yes",
@@ -122,7 +122,7 @@
     "chooseName": "Free user names",
     "deleteText": "Do you really want to delete the survey?",
     "deleteSection": "All data will be deleted!",
-    "info": "Survey is automatically deleted after 7 days.",
+    "info": "Survey is automatically deleted after 14 days.",
     "secondInfo": "ID and PIN and keep them safe. Resetting is not possible."
   },
   "addPages": {
@@ -135,7 +135,7 @@
     "createPage": "Create new page",
     "editPage": "Edit Page",
     "sideBar": {
-      "header": "How should the pages be displayed?"
+      "header": "Select one view at a time"
     },
     "shareSurvey": "start survey"
   },
@@ -173,8 +173,7 @@
     },
     "thankYou": "Thank you for taking part in the survey!",
     "ratedInfo": "You have evaluated the sources in different ways.",
-    "savedInfo": "Your results have been saved successfully.",
-    "closeBrowser": "You can now close the browser without any problems."
+    "savedInfo": "Your results have been saved successfully."
   },
   "surveySummaray": {
     "title": "Summary of the survey",

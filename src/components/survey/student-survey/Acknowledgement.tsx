@@ -63,10 +63,6 @@ const Acknowledgement = () => {
                 style={{ color: "#5cb85c" }}
                 title={t("studentSurvey.savedInfo")}
               />
-              <SubTitle
-                style={{ color: "#5cb85c" }}
-                title={t("studentSurvey.closeBrowser")}
-              />
             </Flex>
           </Flex>
         </SubCard>

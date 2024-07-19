@@ -15,6 +15,8 @@ import Mobile from "./Mobile";
 import Desktop from "./Desktop";
 import Image from "./Image";
 import Arrow from "./Arrow";
+import Link from "./Link";
+import Copy from "./Copy";
 
 export {
   Cancel,
@@ -34,4 +36,6 @@ export {
   Desktop,
   Image,
   Arrow,
+  Link,
+  Copy,
 };

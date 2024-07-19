@@ -5,7 +5,7 @@
     "surveyPIN": "Umfrage-PIN",
     "survey": "Umfrage",
     "title": "Titel",
-    "url": "Url",
+    "url": "URL",
     "note": "Notiz (wird nicht angezeigt)",
     "surveyNumber": "Umfrage Nr.",
     "yes": "ja",
@@ -75,7 +75,7 @@
     "license": "Lizenz"
   },
   "survey": {
-    "createManagement": "Umfrage Management",
+    "createManagement": "Umfrage-Management",
     "stepOne": "Schritt 1",
     "stepTwo": "Schritt 2",
     "stepThree": "Schritt 3",
@@ -119,22 +119,22 @@
   "saveSurvey": {
     "saveSurvey": "Umfrage Übersicht",
     "chooseName": "Freie Nutzernamen",
-    "deleteText": "Möchten Sie die Umfrage wirklich löschen?",
+    "deleteText": "Wollen Sie diese Seite wirklich löschen?",
     "deleteSection": "Alle Daten werden dadurch gelöscht!",
-    "info": "Umfrage wird nach 7 Tagen automatisch gelöscht.",
+    "info": "Umfrage wird nach 14 Tagen automatisch gelöscht.",
     "secondInfo": "ID und PIN und sicher aufbewahren. Zurücksetzen nicht möglich."
   },
   "addPages": {
     "header": "Seiten auswählen",
-    "notiHeader": "Es wurden noch keine Seiten zu dieser Umfrage hinzugfügt.",
-    "notiText": "Füge einen Link aus einer beliebigen Quelle hinzu, um eine Umfrage starten zu können.",
-    "addPages": "Neue Seite hinzügfen?",
+    "notiHeader": "Es wurden noch keine Seiten zu dieser Umfrage hinzugefügt.",
+    "notiText": "Füge einen Link zu einer beliebigen Internetseite hinzu, um eine Umfrage starten zu können. Wähle verschiedene Quellen aus, damit die Schüler:innen diese bewerten können.",
+    "addPages": "Neue Seite hinzufügen?",
     "addPagesXs": "Neue Seite?",
     "button": "neue seite",
     "createPage": "Neue Seite anlegen",
     "editPage": "Seite bearbeiten",
     "sideBar": {
-      "header": "Wie sollen die Seiten angezeigt werden?"
+      "header": "Wähle jeweils eine Ansicht"
     },
     "shareSurvey": "umfrage starten"
   },
@@ -172,8 +172,7 @@
     },
     "thankYou": "Vielen Dank für die Teilnahme an der Umfrage!",
     "ratedInfo": "Du hast die Quellen auf unterschiedliche Weise bewertet.",
-    "savedInfo": "Deine Ergebnisse wurden erfolgreich gespeichert.",
-    "closeBrowser": "Du kannst nun den Browser problemlos schließen."
+    "savedInfo": "Deine Ergebnisse wurden erfolgreich gespeichert."
   },
   "surveySummaray": {
     "title": "Zusammenfassung der Umfrage",
