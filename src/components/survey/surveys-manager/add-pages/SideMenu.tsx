@@ -10,6 +10,7 @@ import ScreenShot from "../../../ScreenShot";
 import SubTitle from "../../../fonts/SubTitle";
 import Flex from "../../../containers/Flex";
 import SideBar from "../../../containers/SideBar";
+import { Desktop, Generate, Mobile } from "../../../icons";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -62,6 +63,8 @@ const SideMenu = () => {
                   isMobileView={true}
                   pageID={page._id}
                   url={page.mobileScreenshot}
+                  icon={<Mobile />}
+                  gap="3px"
                 />
                 <ScreenShot
                   title={"Desktop"}
@@ -77,6 +80,8 @@ const SideMenu = () => {
                   isMobileView={false}
                   pageID={page._id}
                   url={page.desktopScreenshot}
+                  icon={<Desktop />}
+                  gap="6px"
                 />
                 <OpenGraphView
                   pageID={page._id}
@@ -86,6 +91,8 @@ const SideMenu = () => {
                     (img: { url: string }) => img.url
                   )}
                   ogDescription={page.openGraph?.ogDescription}
+                  icon={<Generate />}
+                  gap={"6px"}
                 />
               </Flex>
             );

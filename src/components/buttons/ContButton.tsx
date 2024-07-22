@@ -1,6 +1,14 @@
 import { IContButton } from "../../types/interfaces/components";
+import Flex from "../containers/Flex";
 
-const ContButton = ({ onClick, title, type, width }: IContButton) => {
+const ContButton = ({
+  onClick,
+  title,
+  type,
+  width,
+  icon,
+  gap,
+}: IContButton) => {
   return (
     <button
       style={{
@@ -23,7 +31,12 @@ const ContButton = ({ onClick, title, type, width }: IContButton) => {
       }}
       type={type}
       onClick={onClick}>
-      {title}
+      <Flex direction={"row"} gap={gap!} align="center">
+        <>
+          {icon}
+          {title}
+        </>
+      </Flex>
     </button>
   );
 };

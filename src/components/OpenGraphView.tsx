@@ -10,6 +10,8 @@ const OpenGraphView = ({
   ogTitle,
   url,
   ogDescription,
+  gap,
+  icon,
 }: IOpenGraphView) => {
   const { survey, surveyPages, lastSideBarPages } = useSelectors();
   const {
@@ -45,7 +47,12 @@ const OpenGraphView = ({
   return (
     <Flex direction={"column"} gap={"15px"} style={{ height: "600px" }}>
       <Flex direction={"row"} gap={""} justify="flex-start">
-        <ContButton onClick={chooseView} title={"Open-Graph"} />
+        <ContButton
+          gap={gap!}
+          icon={icon}
+          onClick={chooseView}
+          title={"Open-Graph"}
+        />
       </Flex>
       <div>
         <h3>{ogTitle}</h3>

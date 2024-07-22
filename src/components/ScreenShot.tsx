@@ -13,6 +13,8 @@ const ScreenShot = ({
   pageID,
   url,
   height,
+  icon,
+  gap,
 }: IScreenShot) => {
   const {
     dispatchSideBar,
@@ -56,7 +58,7 @@ const ScreenShot = ({
   return (
     <Flex direction={"column"} gap={"20px"}>
       <Flex direction={"row"} gap={""} justify="flex-start">
-        <ContButton onClick={chooseView} title={title} />
+        <ContButton gap={gap!} icon={icon} onClick={chooseView} title={title} />
       </Flex>
       <div
         id="capture"

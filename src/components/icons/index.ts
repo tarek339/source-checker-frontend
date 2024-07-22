@@ -17,6 +17,7 @@ import Image from "./Image";
 import Arrow from "./Arrow";
 import Link from "./Link";
 import Copy from "./Copy";
+import Generate from "./Generate";
 
 export {
   Cancel,
@@ -38,4 +39,5 @@ export {
   Arrow,
   Link,
   Copy,
+  Generate,
 };

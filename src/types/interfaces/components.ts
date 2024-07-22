@@ -31,6 +31,8 @@ export interface IContButton {
   title: string | JSX.Element | JSX.Element[];
   type?: "submit" | "reset" | "button" | undefined;
   width?: string | undefined;
+  icon?: JSX.Element;
+  gap?: string;
 }
 
 export interface ICancelButton {
@@ -102,6 +104,8 @@ export interface IScreenShot {
   pageID: string;
   url: string;
   height: string;
+  icon: JSX.Element;
+  gap?: string;
 }
 
 export interface ILoadingPulse {
@@ -226,6 +230,8 @@ export interface IOpenGraphView {
   ogTitle: string;
   url: string;
   ogDescription: string;
+  icon: JSX.Element;
+  gap: string;
 }
 
 export interface ISpan {
