@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useDispatches, useSelectors, useTranslations } from "../hooks";
+import { useDispatches, useSelectors } from "../hooks";
 import { IScreenShot } from "../types/interfaces/components";
 import ContButton from "./buttons/ContButton";
+import Flex from "./containers/Flex";
 
 const ScreenShot = ({
   title,
@@ -21,7 +22,6 @@ const ScreenShot = ({
   } = useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
-  const { t } = useTranslations();
 
   const chooseView = async () => {
     try {
@@ -46,8 +46,10 @@ const ScreenShot = ({
   };
 
   return (
-    <div>
-      <h4>{title}</h4>
+    <Flex direction={"column"} gap={"20px"}>
+      <Flex direction={"row"} gap={""} justify="flex-start">
+        <ContButton onClick={chooseView} title={title} />
+      </Flex>
       <div
         id="capture"
         style={{
@@ -68,8 +70,7 @@ const ScreenShot = ({
           src={url}
         />
       </div>
-      <ContButton onClick={chooseView} title={t("button.choose")} />
-    </div>
+    </Flex>
   );
 };
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useDispatches, useSelectors, useTranslations } from "../hooks";
+import { useDispatches, useSelectors } from "../hooks";
 import Flex from "./containers/Flex";
 import { IOpenGraphView } from "../types/interfaces/components";
 import { ContButton } from ".";
@@ -19,7 +19,6 @@ const OpenGraphView = ({
     incLastSBPage,
     dispatchSideBar,
   } = useDispatches();
-  const { t } = useTranslations();
 
   const chooseView = async () => {
     try {
@@ -44,22 +43,15 @@ const OpenGraphView = ({
   };
 
   return (
-    <Flex direction={"column"} gap={"20px"} style={{ height: "600px" }}>
-      <>
-        <h4>Open-Graph</h4>
-        <div
-        // style={{
-        //   width: windowWidth >= 1000 && windowWidth <= 1200 ? "50%" : "100%",
-        // }}
-        >
-          <h3>{ogTitle}</h3>
-          <img style={{ maxWidth: "100%", height: "auto" }} src={url} alt="" />
-          <p>{ogDescription}</p>
-        </div>
-      </>
+    <Flex direction={"column"} gap={"15px"} style={{ height: "600px" }}>
       <Flex direction={"row"} gap={""} justify="flex-start">
-        <ContButton onClick={chooseView} title={t("button.choose")} />
+        <ContButton onClick={chooseView} title={"Open-Graph"} />
       </Flex>
+      <div>
+        <h3>{ogTitle}</h3>
+        <img style={{ maxWidth: "100%", height: "auto" }} src={url} alt="" />
+        <p>{ogDescription}</p>
+      </div>
     </Flex>
   );
 };

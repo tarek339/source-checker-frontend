@@ -82,7 +82,7 @@ const SideMenu = () => {
                   pageID={page._id}
                   openGraphView={true}
                   ogTitle={page.openGraph?.ogTitle}
-                  url={page.openGraph.ogImage?.map(
+                  url={page.openGraph?.ogImage?.map(
                     (img: { url: string }) => img.url
                   )}
                   ogDescription={page.openGraph?.ogDescription}
