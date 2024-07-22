@@ -3,6 +3,7 @@ import { useDispatches, useSelectors } from "../hooks";
 import { IScreenShot } from "../types/interfaces/components";
 import ContButton from "./buttons/ContButton";
 import Flex from "./containers/Flex";
+import { useEffect } from "react";
 
 const ScreenShot = ({
   title,
@@ -22,6 +23,13 @@ const ScreenShot = ({
   } = useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
+
+  useEffect(() => {
+    surveyPages.map((page) => {
+      console.log(page.desktopScreenshot);
+      console.log(page.mobileScreenshot);
+    });
+  }, [surveyPages]);
 
   const chooseView = async () => {
     try {
