@@ -18,7 +18,7 @@ import LoadingBar from "./LoadingBar";
 import FramerMotion from "./containers/FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
 import Title from "./fonts/Title";
-import ContButton from "./buttons/ContButton";
+import SubButton from "./buttons/SubButton";
 import AddPage from "./survey/surveys-manager/add-pages/AddPage";
 import NoPages from "./survey/surveys-manager/add-pages/NoPages";
 import PagesHolder from "./survey/surveys-manager/add-pages/PagesHolder";
@@ -67,7 +67,7 @@ export {
   FramerMotion,
   Title,
   AppContent,
-  ContButton,
+  SubButton,
   AddPage,
   NoPages,
   PagesHolder,

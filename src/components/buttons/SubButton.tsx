@@ -1,14 +1,7 @@
-import { IContButton } from "../../types/interfaces/components";
+import { ISubButton } from "../../types/interfaces/components";
 import Flex from "../containers/Flex";
 
-const ContButton = ({
-  onClick,
-  title,
-  type,
-  width,
-  icon,
-  gap,
-}: IContButton) => {
+const SubButton = ({ onClick, title, type, width, icon, gap }: ISubButton) => {
   return (
     <button
       style={{
@@ -41,4 +34,4 @@ const ContButton = ({
   );
 };
 
-export default ContButton;
+export default SubButton;

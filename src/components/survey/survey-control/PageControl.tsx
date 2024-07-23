@@ -10,7 +10,7 @@ import SubCard from "../../containers/SubCard";
 import SubTitle from "../../fonts/SubTitle";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { ContButton } from "../..";
+import { SubButton } from "../..";
 
 const PageControl = () => {
   const { windowWidth } = useBreakPoints();
@@ -52,7 +52,7 @@ const PageControl = () => {
         <SubTitle title={t("common.pageControl")} />
 
         <Flex direction={"column-reverse"} gap={"20px"} width="100%">
-          <ContButton
+          <SubButton
             onClick={prevPage}
             title={
               <>
@@ -61,7 +61,7 @@ const PageControl = () => {
               </>
             }
           />
-          <ContButton
+          <SubButton
             onClick={nextPage}
             title={
               <>

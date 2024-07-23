@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useDispatches, useSelectors } from "../hooks";
 import { IScreenShot } from "../types/interfaces/components";
-import ContButton from "./buttons/ContButton";
+import SubButton from "./buttons/SubButton";
 import Flex from "./containers/Flex";
 import { useEffect } from "react";
 
@@ -58,7 +58,7 @@ const ScreenShot = ({
   return (
     <Flex direction={"column"} gap={"20px"}>
       <Flex direction={"row"} gap={""} justify="flex-start">
-        <ContButton gap={gap!} icon={icon} onClick={chooseView} title={title} />
+        <SubButton gap={gap!} icon={icon} onClick={chooseView} title={title} />
       </Flex>
       <div
         id="capture"

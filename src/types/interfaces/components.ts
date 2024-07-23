@@ -26,7 +26,7 @@ export interface IBackContinueButton {
   path: string;
 }
 
-export interface IContButton {
+export interface ISubButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
   title: string | JSX.Element | JSX.Element[];
   type?: "submit" | "reset" | "button" | undefined;

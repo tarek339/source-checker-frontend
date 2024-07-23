@@ -11,7 +11,7 @@ import {
   Flex,
   PagesHolder,
   NoPages,
-  ContButton,
+  SubButton,
   Divider,
   BackButton,
   ButtonContainer,
@@ -88,7 +88,7 @@ const AddPages = () => {
                 style={{ paddingTop: "0px" }}
                 title={t("addPages.addPages")}
               />
-              <ContButton title={t("addPages.button")} onClick={openModal} />
+              <SubButton title={t("addPages.button")} onClick={openModal} />
             </Flex>
 
             <Divider />
@@ -99,7 +99,7 @@ const AddPages = () => {
               />
               <>
                 {survey && survey?.pages && survey?.pages?.length > 0 && (
-                  <ContButton
+                  <SubButton
                     onClick={
                       viewsSelected
                         ? () => navigate(`/survey-control/${survey._id}`)

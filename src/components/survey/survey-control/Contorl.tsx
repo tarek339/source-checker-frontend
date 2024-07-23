@@ -1,4 +1,4 @@
-import { ContButton, CancelButton, LinkButton } from "../..";
+import { SubButton, CancelButton, LinkButton } from "../..";
 import {
   useBreakPoints,
   useDispatches,
@@ -50,7 +50,7 @@ const Contorl = () => {
       width={windowWidth < 768 ? "" : `${100 / 3}%`}>
       <Flex direction={"column"} gap={"20px"}>
         <SubTitle title={t("common.surveyControl")} />
-        <ContButton onClick={startSurvey} title={t("button.start")} />
+        <SubButton onClick={startSurvey} title={t("button.start")} />
         <>
           {!survey?.isStarted && starsAmount > 0 ? (
             <LinkButton

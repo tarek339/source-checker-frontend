@@ -8,7 +8,7 @@ import {
 import axios from "axios";
 import { IStarRating } from "../../../types/interfaces/components";
 import { useState } from "react";
-import ContButton from "../../buttons/ContButton";
+import SubButton from "../../buttons/SubButton";
 import Flex from "../../containers/Flex";
 
 const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
@@ -68,7 +68,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
           onPointerLeave={onPointerLeave}
         />
         {stars > 0 && !voted ? (
-          <ContButton onClick={handleSubmit} title={t("button.submit")} />
+          <SubButton onClick={handleSubmit} title={t("button.submit")} />
         ) : null}
       </>
     </Flex>
