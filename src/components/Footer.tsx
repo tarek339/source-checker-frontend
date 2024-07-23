@@ -25,7 +25,7 @@ const Footer = () => {
         <p>{t("footer.public")}</p>
       </section>
       <section className="footer-links">
-        <a href="https://www.usethenews.de/de/impressum" target="_blank">
+        <a href="https://portal.hoou.de/impressum/" target="_blank">
           {t("footer.imprint")}
         </a>
         <LuDot style={{ color: "#2835c3" }} />
