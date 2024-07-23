@@ -1,4 +1,5 @@
 import { ISpan } from "../../types/interfaces/components";
+import Flex from "../containers/Flex";
 
 const Span = ({
   title,
@@ -11,6 +12,7 @@ const Span = ({
   color,
   textDecoration,
   cursor,
+  icon,
 }: ISpan) => {
   return (
     <span
@@ -25,7 +27,12 @@ const Span = ({
         cursor: cursor,
         ...style,
       }}>
-      {title}
+      <Flex direction={"row"} gap={"2px"} align="center">
+        <>
+          {icon}
+          {title}
+        </>
+      </Flex>
     </span>
   );
 };

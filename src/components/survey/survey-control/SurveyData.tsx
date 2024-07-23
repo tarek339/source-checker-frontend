@@ -6,21 +6,19 @@ import {
   useBreakPoints,
   useDispatches,
   useSelectors,
-  useStars,
   useTranslations,
 } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
 import { useState } from "react";
 import QrCodeModal from "./QrCodeModal";
 import Span from "../../fonts/Span";
-import Link from "../../fonts/Link";
+import { Copy } from "../../icons";
 
 const SurveyData = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { survey } = useSelectors();
   const { openModal } = useDispatches();
-  const { starsAmount } = useStars();
 
   const [copied, setCopied] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -62,34 +60,22 @@ const SurveyData = () => {
               ).format("DD.MM.YYYY")}`}
               fontWeight={600}
             />
-            <Link
-              url={survey?.link!}
-              title={t("studentAuth.studentLink")}
-              fontWeight={600}
-              fontSize={18}
-            />
+
             <Span
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
               onClick={copyToClipboard}
-              title={copied ? t("common.copied") : t("common.copy")}
+              title={
+                copied
+                  ? t("common.copied").toUpperCase()
+                  : t("studentAuth.studentLink").toUpperCase()
+              }
               color={hovered ? "#000c9a" : "#2835c3"}
               textDecoration="underline"
               cursor="pointer"
               fontWeight={600}
+              icon={<Copy color={hovered ? "#000c9a" : "#2835c3"} />}
             />
-            <>
-              {!survey?.isStarted && starsAmount > 0 ? (
-                <Link
-                  url={`${import.meta.env.VITE_CLIENT_URL}/survey-ranking/${
-                    survey?._id
-                  }`}
-                  title={t("common.summary")}
-                  fontWeight={600}
-                  fontSize={18}
-                />
-              ) : null}
-            </>
           </Flex>
         </Flex>
       </Flex>

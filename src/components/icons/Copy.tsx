@@ -1,7 +1,11 @@
 import { FaRegCopy } from "react-icons/fa";
 
-const Copy = () => {
-  return <FaRegCopy color="#31e981" fontSize="24px" />;
+export interface ICopy {
+  color: string;
+}
+
+const Copy = ({ color }: ICopy) => {
+  return <FaRegCopy color={color} fontSize="20px" />;
 };
 
 export default Copy;

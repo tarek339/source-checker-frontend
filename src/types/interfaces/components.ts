@@ -245,6 +245,7 @@ export interface ISpan {
   color?: string;
   textDecoration?: string;
   cursor?: string;
+  icon?: JSX.Element;
 }
 
 export interface IScreenShotHolder {
@@ -316,4 +317,9 @@ export interface ILink {
 
 export interface IThumbnail {
   url: string;
+}
+
+export interface ILinkButton {
+  url: string;
+  title: string;
 }

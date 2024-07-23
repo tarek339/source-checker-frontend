@@ -43,6 +43,7 @@ import Result from "./survey/survery-summary/Result";
 import Acknowledgement from "./survey/student-survey/Acknowledgement";
 import Link from "./fonts/Link";
 import Thumbnail from "./survey/survery-summary/Thumbnail";
+import LinkButton from "./buttons/LinkButton";
 
 export {
   Footer,
@@ -90,4 +91,5 @@ export {
   Acknowledgement,
   Link,
   Thumbnail,
+  LinkButton,
 };

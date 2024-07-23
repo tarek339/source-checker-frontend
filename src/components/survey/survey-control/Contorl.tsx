@@ -1,9 +1,10 @@
-import { ContButton, CancelButton } from "../..";
+import { ContButton, CancelButton, LinkButton } from "../..";
 import {
   useBreakPoints,
   useDispatches,
   useRequests,
   useSelectors,
+  useStars,
   useTranslations,
 } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
@@ -17,6 +18,7 @@ const Contorl = () => {
   const { survey } = useSelectors();
   const { dispatchSurvey, setCurrentPage } = useDispatches();
   const { fetchSurvey } = useRequests();
+  const { starsAmount } = useStars();
 
   const startSurvey = async () => {
     try {
@@ -49,7 +51,18 @@ const Contorl = () => {
       <Flex direction={"column"} gap={"20px"}>
         <SubTitle title={t("common.surveyControl")} />
         <ContButton onClick={startSurvey} title={t("button.start")} />
-        <CancelButton onClick={finishSurvey} title={t("button.finish")} />
+        <>
+          {!survey?.isStarted && starsAmount > 0 ? (
+            <LinkButton
+              url={`${import.meta.env.VITE_CLIENT_URL}/survey-ranking/${
+                survey?._id
+              }`}
+              title={t("common.summary")}
+            />
+          ) : (
+            <CancelButton onClick={finishSurvey} title={t("button.finish")} />
+          )}
+        </>
       </Flex>
     </SubCard>
   );
