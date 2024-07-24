@@ -60,15 +60,21 @@ const SurveyData = () => {
                   top: 50,
                   left: 50,
                   zIndex: 1,
-                  backgroundColor: "#f5f5f5",
+                  backgroundColor: "#fff",
                   padding: "4px 5px 5px 4px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  borderRadius: "5px",
+                  boxShadow:
+                    "rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px",
                 }}>
                 <ZoomIn />
               </div>
-              <div>
+              <div
+                style={{
+                  filter: "blur(2px)",
+                }}>
                 <QrCode value={survey?.link!} />
               </div>
             </div>
