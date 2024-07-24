@@ -41,7 +41,7 @@ const Authentication = () => {
           </div>
 
           <div className="authentication-image">
-            <img src={imgSrc} />
+            <img src={imgSrc} alt="main image" />
           </div>
         </div>
 
