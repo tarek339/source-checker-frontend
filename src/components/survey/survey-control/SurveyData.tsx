@@ -12,7 +12,7 @@ import SubTitle from "../../fonts/SubTitle";
 import { useState } from "react";
 import QrCodeModal from "./QrCodeModal";
 import Span from "../../fonts/Span";
-import { Copy } from "../../icons";
+import { Copy, ZoomIn } from "../../icons";
 
 const SurveyData = () => {
   const { windowWidth } = useBreakPoints();
@@ -45,12 +45,34 @@ const SurveyData = () => {
         <QrCodeModal />
         <SubTitle title={t("common.surveyData")} />
         <Flex direction={"row"} gap={"20px"}>
-          <Flex direction={"column"} gap={"0px"}>
-            <QrCode
-              onClick={openModal}
-              cursor="pointer"
-              value={survey?.link!}
-            />
+          <Flex
+            onClick={openModal}
+            direction={"column"}
+            gap={"0px"}
+            style={{ cursor: "pointer" }}>
+            <div
+              style={{
+                position: "relative",
+              }}>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 50,
+                  left: 50,
+                  zIndex: 1,
+                  backgroundColor: "#f5f5f5",
+                  padding: "4px 5px 5px 4px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}>
+                <ZoomIn />
+              </div>
+              <div>
+                <QrCode value={survey?.link!} />
+              </div>
+            </div>
+
             <Span title={`ID: ${survey?.surveyId}`} fontWeight={600} />
           </Flex>
           <Flex direction={"column"} gap={"20px"}>

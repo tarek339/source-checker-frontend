@@ -18,6 +18,7 @@ import Arrow from "./Arrow";
 import Link from "./Link";
 import Copy from "./Copy";
 import Generate from "./Generate";
+import ZoomIn from "./ZoomIn";
 
 export {
   Cancel,
@@ -40,4 +41,5 @@ export {
   Link,
   Copy,
   Generate,
+  ZoomIn,
 };
