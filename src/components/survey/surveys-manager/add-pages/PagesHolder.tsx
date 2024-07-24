@@ -8,7 +8,6 @@ import {
   useBreakPoints,
 } from "../../../../hooks";
 import Table from "../../../Table";
-import Span from "../../../fonts/Span";
 
 const PagesHolder = () => {
   const { surveyPages, survey } = useSelectors();
@@ -69,12 +68,16 @@ const PagesHolder = () => {
                       ? "20px"
                       : "0px",
                   width: "40%",
+                  fontSize: "18px",
                 }}>
                 {page?.title}
               </td>
 
               {screenXS ? null : (
-                <td>
+                <td
+                  style={{
+                    fontSize: "18px",
+                  }}>
                   {page?.isMobileView
                     ? t("common.mobileView")
                     : page?.isMobileView === false
@@ -94,11 +97,14 @@ const PagesHolder = () => {
                       : "0px",
                   textAlign: "right",
                 }}>
-                <Span
-                  color="#FF0000"
-                  title={t("common.delete")}
-                  onClick={() => onDelete(page?._id!)}
-                />
+                <span
+                  style={{
+                    color: "#FF0000",
+                    textTransform: "uppercase",
+                  }}
+                  onClick={() => onDelete(page?._id!)}>
+                  {t("common.delete")}
+                </span>
               </td>
             </tr>
           );
