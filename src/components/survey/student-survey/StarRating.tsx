@@ -35,7 +35,6 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   };
 
   const onPointerMove = (value: number) => {
-    console.log(value);
     value === 2 || value === 3 || value === 4
       ? setShowToolTip(false)
       : setShowToolTip(true);

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   useBreakPoints,
   useRequests,
@@ -9,22 +9,46 @@ import SubTitle from "../../fonts/SubTitle";
 import Flex from "../../containers/Flex";
 import SubCard from "../../containers/SubCard";
 import Span from "../../fonts/Span";
+import { IStudent } from "../../../types/interfaces/interfaces";
+import { socket } from "../../../socket";
 
 const SurveyStatus = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { survey } = useSelectors();
   const { fetchStudents, students } = useRequests();
+  const [currentStudents, setCurrentStudents] = useState<IStudent[]>([]);
+  const [participatedStudents, setParticipatedStudents] = useState<IStudent[]>(
+    []
+  );
 
   useEffect(() => {
     fetchStudents();
   }, []);
 
   useEffect(() => {
-    setInterval(() => {
-      fetchStudents();
-    }, 30000);
+    socket.on("fetchStudents", (students) => {
+      if (students) {
+        fetchStudents();
+      }
+    });
   }, []);
+
+  useEffect(() => {
+    setCurrentStudents(
+      students.filter((student: IStudent) => {
+        return student.participated === false;
+      })
+    );
+  }, [currentStudents]);
+
+  useEffect(() => {
+    setParticipatedStudents(
+      students.filter((student: IStudent) => {
+        return student.participated === true;
+      })
+    );
+  }, [participatedStudents]);
 
   const status = (
     <div
@@ -55,7 +79,13 @@ const SurveyStatus = () => {
             {status}
           </Flex>
           <Span
-            title={`${t("common.studentQuantity")}: ${students.length}`}
+            title={`${t("common.studentQuantity")}: ${currentStudents.length}`}
+            fontWeight={600}
+          />
+          <Span
+            title={`${t("common.studentsParticipated")}: ${
+              participatedStudents.length
+            }`}
             fontWeight={600}
           />
         </>

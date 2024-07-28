@@ -1,10 +1,5 @@
 import { useEffect } from "react";
-import {
-  useDispatches,
-  useRequests,
-  useSelectors,
-  useStars,
-} from "../../hooks";
+import { useDispatches, useRequests, useSelectors } from "../../hooks";
 import {
   NotStarted,
   ContentContainer,
@@ -15,11 +10,10 @@ import { socket } from "../../socket";
 import { useParams } from "react-router-dom";
 
 const StudentSurvey = () => {
-  const { isStarted } = useSelectors();
+  const { isStarted, student } = useSelectors();
   const { fetchSurvey, fetchSingleStudent } = useRequests();
   const { setSurveyStatus, setCurrentPage } = useDispatches();
   const { id } = useParams();
-  const { starsAmount } = useStars();
 
   useEffect(() => {
     fetchSurvey();
@@ -27,6 +21,14 @@ const StudentSurvey = () => {
 
   useEffect(() => {
     fetchSingleStudent();
+  }, []);
+
+  useEffect(() => {
+    socket.on("fetchStudent", (student) => {
+      if (student) {
+        fetchSingleStudent();
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -47,10 +49,10 @@ const StudentSurvey = () => {
 
   return (
     <ContentContainer>
-      {!isStarted && starsAmount === 0 ? (
-        <NotStarted />
-      ) : !isStarted && starsAmount > 0 ? (
+      {!isStarted && student?.participated && student.stars > 0 ? (
         <Acknowledgement />
+      ) : !isStarted && !student?.participated ? (
+        <NotStarted />
       ) : (
         <SurveyStart />
       )}

@@ -46,4 +46,6 @@ export interface IStudent {
   freeUserName: string;
   userNumber: string;
   isNameRegistered: boolean;
+  participated: boolean;
+  stars: number;
 }
