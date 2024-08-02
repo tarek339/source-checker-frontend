@@ -4,11 +4,13 @@ import { useBreakPoints, useSelectors } from "../hooks";
 import Title from "./fonts/Title";
 import Flex from "./containers/Flex";
 import { IHeader } from "../types/interfaces/components";
+import { useState } from "react";
 
 const Header = ({ title }: IHeader) => {
   const navigate = useNavigate();
   const { survey, student } = useSelectors();
   const { windowWidth } = useBreakPoints();
+  const [onHover, setOnHover] = useState(false);
 
   return (
     <Flex
@@ -23,14 +25,21 @@ const Header = ({ title }: IHeader) => {
         backgroundColor: "#2834c2",
         boxShadow: "rgba(0, 0, 0, 0.239) 0px 3px 8px",
       }}>
-      <Title
-        style={{
-          color: "#fbfcff",
-          letterSpacing: "1px",
-          padding: "0px",
-        }}
-        title={title}
-      />
+      <div
+        style={{ cursor: "pointer" }}
+        onMouseEnter={() => setOnHover(true)}
+        onMouseLeave={() => setOnHover(false)}
+        onClick={() => navigate("/")}>
+        <Title
+          style={{
+            color: !onHover ? "#fbfcff" : "#31e981",
+            letterSpacing: "1px",
+            padding: "0px",
+            transition: "color 0.2s ease",
+          }}
+          title={title}
+        />
+      </div>
       <Flex
         direction={"row-reverse"}
         gap={"15px"}
