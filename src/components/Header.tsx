@@ -62,7 +62,7 @@ const Header = ({ title }: IHeader) => {
                 <SignOut />
               </div>
 
-              <div onClick={() => history.back()}>
+              <div onClick={() => navigate(-1)}>
                 {location.pathname ===
                 `/surveys-manager/save-survey/${survey?._id}` ? null : (
                   <Back />
@@ -72,7 +72,7 @@ const Header = ({ title }: IHeader) => {
           )}
           {location.pathname === `/survey-summary/${survey?._id}` ||
           location.pathname === `/privacy-policy` ? (
-            <div onClick={() => history.back()}>
+            <div onClick={() => navigate(-1)}>
               <Back />
             </div>
           ) : null}
