@@ -19,6 +19,7 @@ import Link from "./Link";
 import Copy from "./Copy";
 import Generate from "./Generate";
 import ZoomIn from "./ZoomIn";
+import Dot from "./Dot";
 
 export {
   Cancel,
@@ -42,4 +43,5 @@ export {
   Copy,
   Generate,
   ZoomIn,
+  Dot,
 };

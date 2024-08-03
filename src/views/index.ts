@@ -10,6 +10,7 @@ import StudenSurveyAuthentication from "./student/StudenSurveyAuthentication";
 import RegisterStudent from "./student/RegisterStudent";
 import SurveySummary from "./sruvey-summary/SurveySummary";
 import SurveyRanking from "./sruvey-summary/SurveyRanking";
+import DataPrivacy from "./DataPrivacy";
 
 export {
   Authentication,
@@ -24,4 +25,5 @@ export {
   RegisterStudent,
   SurveySummary,
   SurveyRanking,
+  DataPrivacy,
 };

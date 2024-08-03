@@ -289,7 +289,7 @@ export interface IResult {
   };
 }
 
-export interface ISection {
+export interface ISectionChild {
   text: string | JSX.Element;
   color?: string;
   minWidth?: string;
@@ -313,6 +313,7 @@ export interface ILink {
   title: string;
   fontWeight: number;
   fontSize: number;
+  color?: string;
 }
 
 export interface IThumbnail {
@@ -322,4 +323,10 @@ export interface IThumbnail {
 export interface ILinkButton {
   url: string;
   title: string;
+}
+
+export interface ISection {
+  title: string;
+  subTitle?: string;
+  mappedTitle?: React.ReactNode;
 }

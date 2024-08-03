@@ -1,14 +1,14 @@
 import { useBreakPoints } from "../../../hooks";
-import { ISection } from "../../../types/interfaces/components";
+import { ISectionChild } from "../../../types/interfaces/components";
 
-const Section = ({
+const SectionChild = ({
   text,
   color,
   minWidth,
   maxWidth,
   width,
   style,
-}: ISection) => {
+}: ISectionChild) => {
   const { windowWidth } = useBreakPoints();
   return (
     <div
@@ -27,4 +27,4 @@ const Section = ({
   );
 };
 
-export default Section;
+export default SectionChild;

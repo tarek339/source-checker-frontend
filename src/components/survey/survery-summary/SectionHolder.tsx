@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelectors, useBreakPoints } from "../../../hooks";
 import { ISectionHolder } from "../../../types/interfaces/components";
 import Flex from "../../containers/Flex";
-import Section from "./Section";
+import SectionChild from "./SectionChild";
 
 const SectionHolder = ({
   page,
@@ -46,7 +46,7 @@ const SectionHolder = ({
               }}
               onMouseEnter={() => handleMouseEnter(i)}
               onMouseLeave={handleMouseLeave}>
-              <Section
+              <SectionChild
                 style={{ paddingTop: "1.5px", textTransform: "capitalize" }}
                 text={
                   survey?.freeUserNames && !survey?.anonymousResults
@@ -58,15 +58,15 @@ const SectionHolder = ({
                 }
               />
               {obj.stars === 5 ? (
-                <Section text={credible} />
+                <SectionChild text={credible} />
               ) : obj.stars === 4 ? (
-                <Section text={trustworthy} />
+                <SectionChild text={trustworthy} />
               ) : obj.stars === 3 ? (
-                <Section text={questionable} />
+                <SectionChild text={questionable} />
               ) : obj.stars === 2 ? (
-                <Section text={doubtful} />
+                <SectionChild text={doubtful} />
               ) : (
-                <Section text={unbelievable} />
+                <SectionChild text={unbelievable} />
               )}
             </Flex>
           );

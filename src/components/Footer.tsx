@@ -1,8 +1,12 @@
-import { LuDot } from "react-icons/lu";
 import { useTranslations } from "../hooks";
+import { useNavigate } from "react-router-dom";
+import Link from "./fonts/Link";
+import Span from "./fonts/Span";
+import { Dot } from "./icons";
 
 const Footer = () => {
   const { t } = useTranslations();
+  const navigate = useNavigate();
 
   return (
     <div className="footer">
@@ -25,17 +29,31 @@ const Footer = () => {
         <p>{t("footer.public")}</p>
       </section>
       <section className="footer-links">
-        <a href="https://portal.hoou.de/impressum/" target="_blank">
-          {t("footer.imprint")}
-        </a>
-        <LuDot style={{ color: "#2835c3" }} />
-        <a href="https://www.usethenews.de/de/datenschutz" target="_blank">
-          {t("footer.datapolice")}
-        </a>
-        <LuDot style={{ color: "#2835c3" }} />
-        <a href="" target="_blank">
-          {t("footer.license")}
-        </a>
+        <Link
+          url={"https://portal.hoou.de/impressum/"}
+          title={t("footer.imprint")}
+          fontWeight={0}
+          fontSize={14}
+          color="#2835c3"
+        />
+        <Dot />
+        <Link url={""} title={""} fontWeight={0} fontSize={14} />
+        <Span
+          onClick={() => navigate(`/data-privacy`)}
+          color="#2835c3"
+          title={t("footer.datapolice")}
+          fontSize={14}
+          fontWeight={500}
+          style={{ textDecoration: "underline", cursor: "pointer" }}
+        />
+        <Dot />
+        <Link
+          url={""}
+          title={t("footer.license")}
+          fontWeight={0}
+          fontSize={14}
+          color="#2835c3"
+        />
       </section>
     </div>
   );

@@ -5,6 +5,7 @@ import { useTranslations, useSelectors } from "../../../hooks";
 import { Yes, No } from "../../icons";
 import SurveyProp from "./SurveyProp";
 import Span from "../../fonts/Span";
+
 const useCompArray = () => {
   const { t } = useTranslations();
   const { survey } = useSelectors();
