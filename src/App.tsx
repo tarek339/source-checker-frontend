@@ -29,7 +29,7 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={<Authentication />} />
-          <Route path="/data-privacy" element={<DataPrivacy />} />
+          <Route path="/privacy-policy" element={<DataPrivacy />} />
           <Route
             path="/surveys-manager/choose-action"
             element={<ChooseAction />}

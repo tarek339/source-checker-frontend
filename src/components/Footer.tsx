@@ -39,7 +39,7 @@ const Footer = () => {
         <Dot />
         <Link url={""} title={""} fontWeight={0} fontSize={14} />
         <Span
-          onClick={() => navigate(`/data-privacy`)}
+          onClick={() => navigate(`/privacy-policy`)}
           color="#2835c3"
           title={t("footer.datapolice")}
           fontSize={14}

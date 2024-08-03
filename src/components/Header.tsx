@@ -55,7 +55,8 @@ const Header = ({ title }: IHeader) => {
             `/student-survey/${survey?._id}/student-id/${student?._id}` ||
           location.pathname === "/student-survey-authentication" ||
           location.pathname === `/survey-ranking/${survey?._id}` ||
-          location.pathname === `/survey-summary/${survey?._id}` ? null : (
+          location.pathname === `/survey-summary/${survey?._id}` ||
+          location.pathname === `/privacy-policy` ? null : (
             <>
               <div onClick={() => navigate("/surveys-manager/choose-action")}>
                 <SignOut />
@@ -69,7 +70,8 @@ const Header = ({ title }: IHeader) => {
               </div>
             </>
           )}
-          {location.pathname === `/survey-summary/${survey?._id}` ? (
+          {location.pathname === `/survey-summary/${survey?._id}` ||
+          location.pathname === `/privacy-policy` ? (
             <div onClick={() => history.back()}>
               <Back />
             </div>
