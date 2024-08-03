@@ -8,7 +8,7 @@ import {
 } from "../components";
 import { useDispatches } from "../hooks";
 
-const DataPrivacy = () => {
+const PrivacyPolicy = () => {
   const { setMainPage } = useDispatches();
 
   useEffect(() => {
@@ -189,4 +189,4 @@ const DataPrivacy = () => {
   );
 };
 
-export default DataPrivacy;
+export default PrivacyPolicy;

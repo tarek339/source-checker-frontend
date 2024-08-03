@@ -13,7 +13,7 @@ import {
   RegisterStudent,
   SurveySummary,
   SurveyRanking,
-  DataPrivacy,
+  PrivacyPolicy,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
 import { AppContent, Header } from "./components";
@@ -29,7 +29,7 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={<Authentication />} />
-          <Route path="/privacy-policy" element={<DataPrivacy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route
             path="/surveys-manager/choose-action"
             element={<ChooseAction />}
