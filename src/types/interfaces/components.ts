@@ -330,3 +330,10 @@ export interface ISection {
   subTitle?: string;
   mappedTitle?: React.ReactNode;
 }
+
+export interface IIBack {
+  onClick?:
+    | React.MouseEventHandler<HTMLDivElement>
+    | React.MouseEventHandler<HTMLSpanElement>
+    | undefined;
+}

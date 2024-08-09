@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Back, SignOut } from "./icons";
-import { useBreakPoints, useSelectors } from "../hooks";
+import { useBreakPoints } from "../hooks";
 import Title from "./fonts/Title";
 import Flex from "./containers/Flex";
 import { IHeader } from "../types/interfaces/components";
@@ -8,7 +7,6 @@ import { useState } from "react";
 
 const Header = ({ title }: IHeader) => {
   const navigate = useNavigate();
-  const { survey, student } = useSelectors();
   const { windowWidth } = useBreakPoints();
   const [onHover, setOnHover] = useState(false);
 
@@ -46,37 +44,7 @@ const Header = ({ title }: IHeader) => {
         align="center"
         justify="center"
         style={{ paddingTop: windowWidth >= 425 ? "10px" : "0px" }}>
-        <>
-          {location.pathname === "/surveys-manager/choose-action" ||
-          location.pathname === "/surveys-manager/choose-survey" ||
-          location.pathname === "/surveys-manager/new-survey" ||
-          location.pathname === `/register-student/${survey?._id}` ||
-          location.pathname ===
-            `/student-survey/${survey?._id}/student-id/${student?._id}` ||
-          location.pathname === "/student-survey-authentication" ||
-          location.pathname === `/survey-ranking/${survey?._id}` ||
-          location.pathname === `/survey-summary/${survey?._id}` ||
-          location.pathname === `/privacy-policy` ? null : (
-            <>
-              <div onClick={() => navigate("/surveys-manager/choose-action")}>
-                <SignOut />
-              </div>
-
-              <div onClick={() => navigate(-1)}>
-                {location.pathname ===
-                `/surveys-manager/save-survey/${survey?._id}` ? null : (
-                  <Back />
-                )}
-              </div>
-            </>
-          )}
-          {location.pathname === `/survey-summary/${survey?._id}` ||
-          location.pathname === `/privacy-policy` ? (
-            <div onClick={() => navigate(-1)}>
-              <Back />
-            </div>
-          ) : null}
-        </>
+        <></>
       </Flex>
     </Flex>
   );

@@ -35,20 +35,18 @@ const SurveyStatus = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentStudents(
-      students.filter((student: IStudent) => {
-        return student.participated === false;
-      })
-    );
-  }, [currentStudents]);
+    const filteredStudents = students.filter((student: IStudent) => {
+      return student.participated === false;
+    });
+    setCurrentStudents(filteredStudents);
+  }, [students]);
 
   useEffect(() => {
-    setParticipatedStudents(
-      students.filter((student: IStudent) => {
-        return student.participated === true;
-      })
-    );
-  }, [participatedStudents]);
+    const filteredStudents = students.filter((student: IStudent) => {
+      return student.participated === true;
+    });
+    setParticipatedStudents(filteredStudents);
+  }, [students]);
 
   const status = (
     <div
