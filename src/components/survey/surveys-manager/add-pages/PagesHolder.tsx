@@ -48,8 +48,8 @@ const PagesHolder = () => {
       <Table
         headers={
           screenXS
-            ? ["Name", t("common.action")]
-            : ["Name", t("common.view"), t("common.action")]
+            ? ["Titel", t("common.action")]
+            : ["Titel", t("common.view"), t("common.action")]
         }
         propsChildren={surveyPages?.slice(first, last).map((page, i) => {
           return (

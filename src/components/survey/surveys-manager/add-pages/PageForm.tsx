@@ -41,6 +41,7 @@ const PageForm = ({
 
       <Input
         label={t("common.url")}
+        placeHolder="https://www.beispielwebseite.de/123456..."
         name={"url"}
         htmlFor={"url"}
         error={urlError}

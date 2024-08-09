@@ -9,6 +9,7 @@ export interface IInput {
   error: JSX.Element | string | null;
   inputErrorStyle: JSX.Element | string | null;
   value: string;
+  placeHolder?: string;
   onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
 

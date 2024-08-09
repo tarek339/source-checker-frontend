@@ -9,6 +9,7 @@ const Input = ({
   error,
   inputErrorStyle,
   value,
+  placeHolder,
   onChange,
 }: IInput) => {
   return (
@@ -18,6 +19,7 @@ const Input = ({
         <input
           type={!type ? "text" : type}
           name={name}
+          placeholder={placeHolder}
           id={htmlFor}
           style={{
             borderColor: inputErrorStyle ? "#ff0000" : "",
