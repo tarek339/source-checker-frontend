@@ -11,6 +11,7 @@ import SubTitle from "../../../fonts/SubTitle";
 import Flex from "../../../containers/Flex";
 import SideBar from "../../../containers/SideBar";
 import { Desktop, Generate, Mobile } from "../../../icons";
+import EmptyData from "./EmptyData";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -51,49 +52,86 @@ const SideMenu = () => {
                 style={{
                   paddingTop: "20px",
                 }}>
-                <ScreenShot
-                  title={"Mobile"}
-                  height={"580px"}
-                  width={
-                    windowWidth >= 768 && windowWidth <= 1250
-                      ? "200px"
-                      : "250px"
-                  }
-                  id={survey?._id}
-                  isMobileView={true}
-                  pageID={page._id}
-                  url={page.mobileScreenshot}
-                  icon={<Mobile />}
-                  gap="3px"
-                />
-                <ScreenShot
-                  title={"Desktop"}
-                  height={windowWidth < 500 ? "auto" : "580px"}
-                  width={
-                    windowWidth >= 768 && windowWidth <= 1250
-                      ? "400px"
-                      : windowWidth < 500
-                      ? "100%"
-                      : "450px"
-                  }
-                  id={survey?._id}
-                  isMobileView={false}
-                  pageID={page._id}
-                  url={page.desktopScreenshot}
-                  icon={<Desktop />}
-                  gap="6px"
-                />
-                <OpenGraphView
-                  pageID={page._id}
-                  openGraphView={true}
-                  ogTitle={page.openGraph?.ogTitle}
-                  url={page.openGraph?.ogImage?.map(
-                    (img: { url: string }) => img.url
-                  )}
-                  ogDescription={page.openGraph?.ogDescription}
-                  icon={<Generate />}
-                  gap={"6px"}
-                />
+                {page.mobileScreenshot === "" ? (
+                  <EmptyData
+                    title={"Screenshot konnte nicht erstellt werden"}
+                    width={
+                      windowWidth >= 768 && windowWidth <= 1250
+                        ? "200px"
+                        : "250px"
+                    }
+                    height={"580px"}
+                  />
+                ) : (
+                  <ScreenShot
+                    title={"Mobile"}
+                    height={"580px"}
+                    width={
+                      windowWidth >= 768 && windowWidth <= 1250
+                        ? "200px"
+                        : "250px"
+                    }
+                    id={survey?._id}
+                    isMobileView={true}
+                    pageID={page._id}
+                    url={page.mobileScreenshot}
+                    icon={<Mobile />}
+                    gap="3px"
+                  />
+                )}
+
+                {page.desktopScreenshot === "" ? (
+                  <EmptyData
+                    title={"Screenshot konnte nicht erstellt werden"}
+                    width={
+                      windowWidth >= 768 && windowWidth <= 1250
+                        ? "400px"
+                        : windowWidth < 500
+                        ? "100%"
+                        : "450px"
+                    }
+                    height={windowWidth < 500 ? "auto" : "580px"}
+                  />
+                ) : (
+                  <ScreenShot
+                    title={"Desktop"}
+                    height={windowWidth < 500 ? "auto" : "580px"}
+                    width={
+                      windowWidth >= 768 && windowWidth <= 1250
+                        ? "400px"
+                        : windowWidth < 500
+                        ? "100%"
+                        : "450px"
+                    }
+                    id={survey?._id}
+                    isMobileView={false}
+                    pageID={page._id}
+                    url={page.desktopScreenshot}
+                    icon={<Desktop />}
+                    gap="6px"
+                  />
+                )}
+
+                {page.openGraph?.ogTitle === "" ||
+                page.openGraph?.ogDescription === "" ? (
+                  <EmptyData
+                    title={"Opengraphdaten konnten nicht erstellt werden"}
+                    width={""}
+                    height={""}
+                  />
+                ) : (
+                  <OpenGraphView
+                    pageID={page._id}
+                    openGraphView={true}
+                    ogTitle={page.openGraph?.ogTitle}
+                    url={page.openGraph?.ogImage?.map(
+                      (img: { url: string }) => img.url
+                    )}
+                    ogDescription={page.openGraph?.ogDescription}
+                    icon={<Generate />}
+                    gap={"6px"}
+                  />
+                )}
               </Flex>
             );
           })}
