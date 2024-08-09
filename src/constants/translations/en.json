@@ -124,7 +124,8 @@
     "deleteText": "Do you really want to delete the survey?",
     "deleteSection": "All data will be deleted!",
     "info": "Survey is automatically deleted after 14 days.",
-    "secondInfo": "ID and PIN and keep them safe. Resetting is not possible."
+    "secondInfo": "Copy ID and PIN",
+    "thirdInfo": "Keep them in a safe place. Resetting is not possible."
   },
   "addPages": {
     "header": "Choose pages",

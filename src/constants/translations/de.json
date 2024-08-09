@@ -123,7 +123,8 @@
     "deleteText": "Wollen Sie diese Seite wirklich löschen?",
     "deleteSection": "Alle Daten werden dadurch gelöscht!",
     "info": "Umfrage wird nach 14 Tagen automatisch gelöscht.",
-    "secondInfo": "ID und PIN und sicher aufbewahren. Zurücksetzen nicht möglich."
+    "secondInfo": "ID und PIN kopieren",
+    "thirdInfo": "Sicher aufbewahren. Zurücksetzen nicht möglich."
   },
   "addPages": {
     "header": "Seiten auswählen",

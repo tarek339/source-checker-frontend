@@ -5,6 +5,7 @@ import { useTranslations, useSelectors } from "../../../hooks";
 import { Yes, No } from "../../icons";
 import SurveyProp from "./SurveyProp";
 import Span from "../../fonts/Span";
+import { Flex } from "../..";
 
 const useCompArray = () => {
   const { t } = useTranslations();
@@ -73,29 +74,37 @@ const useCompArray = () => {
         <>
           <SurveyProp
             header={t("common.surveyID")}
-            secondChild={
-              copied ? (
-                <FaCheck style={{ fontSize: "20px" }} />
-              ) : (
-                <FaRegCopy
-                  onClick={copyToClipboard}
-                  style={{
-                    fontSize: "20px",
-                    cursor: "pointer",
-                  }}
-                />
-              )
-            }
             child={<Span fontWeight={600} title={survey?.surveyId!} />}
           />
-          <div>
-            <p style={{ color: "#ff0000", fontSize: "16px" }}>
-              {t("saveSurvey.info")}
-            </p>
-            <p style={{ color: "#ff0000", fontSize: "16px" }}>
-              {t("saveSurvey.secondInfo")}
-            </p>
-          </div>
+          <Flex direction={"column"} gap={"0px"}>
+            <Flex direction={"row"} gap={"3px"}>
+              <Span
+                color="#ff0000"
+                fontSize={16}
+                title={t("saveSurvey.secondInfo")}
+              />
+              <div>
+                {copied ? (
+                  <FaCheck color="#ff0000" fontSize="20px" />
+                ) : (
+                  <FaRegCopy
+                    color="#ff0000"
+                    fontSize="20px"
+                    onClick={copyToClipboard}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  />
+                )}
+              </div>
+            </Flex>
+            <Span
+              color="#ff0000"
+              fontSize={16}
+              title={t("saveSurvey.thirdInfo")}
+            />
+            <Span color="#ff0000" fontSize={16} title={t("saveSurvey.info")} />
+          </Flex>
         </>
       ),
     },
