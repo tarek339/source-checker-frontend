@@ -15,7 +15,7 @@ import {
   SwitchToggle,
 } from "../../components";
 import { useDispatches, useTranslations } from "../../hooks";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { FaCircleDot } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
@@ -27,6 +27,12 @@ const NewSurvey = () => {
 
   const [anonymousResults, setAnonymousResults] = useState(false);
   const [freeUserNames, setFreeUserNames] = useState(false);
+  const [status, setStatus] = useState<number | undefined>(0);
+  const [statusText, setStatusText] = useState<string | undefined>("");
+  const [errTitle, setErrTitle] = useState<string | undefined>("");
+  const [errMsg, setErrMsg] = useState<string | undefined>();
+  const [optionOne, setOptionOne] = useState<string | undefined>("");
+  const [optionTwo, setOptionTwo] = useState<string | undefined>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -40,10 +46,56 @@ const NewSurvey = () => {
       dispatchLoading(false);
       navigate(`/surveys-manager/save-survey/${res.data.survey._id}`);
       closeModal();
-    } catch (error) {
+    } catch (err: unknown) {
       dispatchLoading(false);
       openModal();
-      console.log(error);
+      const error = err as AxiosError;
+      setStatus(error.response?.status);
+      setStatusText(
+        error.response?.status === 404
+          ? t("newSurvey.error.404.status")
+          : error.response?.status === 422
+          ? t("newSurvey.error.422.status")
+          : error.response?.status! >= 500 && error.response?.status! <= 511
+          ? t("newSurvey.error.500.status")
+          : t("newSurvey.error.undefined.status")
+      );
+      setErrTitle(
+        error.response?.status === 404
+          ? t("newSurvey.error.404.errTitle")
+          : error.response?.status === 422
+          ? t("newSurvey.error.422.errTitle")
+          : error.response?.status! >= 500 && error.response?.status! <= 511
+          ? t("newSurvey.error.500.errTitle")
+          : t("newSurvey.error.undefined.errTitle")
+      );
+      setErrMsg(
+        error.response?.status === 404
+          ? t("newSurvey.error.404.errMsg")
+          : error.response?.status === 422
+          ? t("newSurvey.error.422.errMsg")
+          : error.response?.status! >= 500 && error.response?.status! <= 511
+          ? t("newSurvey.error.500.errMsg")
+          : t("newSurvey.error.undefined.errMsg")
+      );
+      setOptionOne(
+        error.response?.status === 404
+          ? t("newSurvey.error.404.optionOne")
+          : error.response?.status === 422
+          ? t("newSurvey.error.422.optionOne")
+          : error.response?.status! >= 500 && error.response?.status! <= 511
+          ? t("newSurvey.error.500.optionOne")
+          : t("newSurvey.error.undefined.optionOne")
+      );
+      setOptionTwo(
+        error.response?.status === 404
+          ? t("newSurvey.error.404.optionTwo")
+          : error.response?.status === 422
+          ? t("newSurvey.error.422.optionTwo")
+          : error.response?.status! >= 500 && error.response?.status! <= 511
+          ? t("newSurvey.error.500.optionTwo")
+          : t("newSurvey.error.undefined.optionTwo")
+      );
     }
   };
 
@@ -52,7 +104,15 @@ const NewSurvey = () => {
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
-          <ErrorModal onSubmit={handleSubmit} />
+          <ErrorModal
+            onSubmit={handleSubmit}
+            status={status}
+            statusText={statusText}
+            errTitle={errTitle}
+            errMsg={errMsg}
+            optionOne={optionOne}
+            optionTwo={optionTwo}
+          />
           <Flex
             direction={"column"}
             gap={"25px"}
