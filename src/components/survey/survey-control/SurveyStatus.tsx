@@ -10,13 +10,13 @@ import Flex from "../../containers/Flex";
 import SubCard from "../../containers/SubCard";
 import Span from "../../fonts/Span";
 import { IStudent } from "../../../types/interfaces/interfaces";
-import { socket } from "../../../socket";
 
 const SurveyStatus = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { survey } = useSelectors();
   const { fetchStudents, students } = useRequests();
+
   const [currentStudents, setCurrentStudents] = useState<IStudent[]>([]);
   const [participatedStudents, setParticipatedStudents] = useState<IStudent[]>(
     []
@@ -27,11 +27,9 @@ const SurveyStatus = () => {
   }, []);
 
   useEffect(() => {
-    socket.on("fetchStudents", (students) => {
-      if (students) {
-        fetchStudents();
-      }
-    });
+    setInterval(() => {
+      fetchStudents();
+    }, 30000);
   }, []);
 
   useEffect(() => {
