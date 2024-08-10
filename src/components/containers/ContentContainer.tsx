@@ -11,6 +11,7 @@ const ContentContainer = ({
       style={{
         margin: "0 auto",
         maxWidth: !maxWidth ? "1000px" : `${maxWidth}px`,
+        width: "100%",
         marginTop: !marginTop ? "3em" : `${marginTop}em`,
         marginBottom: "30px",
         ...style,
