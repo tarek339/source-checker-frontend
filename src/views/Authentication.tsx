@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { FramerMotion } from "../components";
 import { useDispatches, useTranslations } from "../hooks";
-import imgSrc from "../assets/images/charisse-kenion-cJkVMAKDYl0-unsplash.jpg";
+import imgSrc from "../assets/images/title-img.jpg";
 import { useEffect } from "react";
 
 const Authentication = () => {
