@@ -116,7 +116,7 @@
     "warningText": "The data cannot be changed later!",
     "error": {
       "undefined": {
-        "status": "Not found",
+        "status": "Connection failed",
         "errTitle": "Oops, request cannot be processed!",
         "errMsg": "Make sure that the Internet connection is established so that you can continue.",
         "optionOne": "If this problem persists,",
@@ -132,12 +132,12 @@
       "422": {
         "status": "Unprocessable Content",
         "errTitle": "Oops, request cannot be processed!",
-        "errMsg": "It seems that the request is incorrect. Please try one of the following options:",
+        "errMsg": "It seems that the contents of the request cannot be processed. Please try one of the following options:",
         "optionOne": "- Refresh the page",
         "optionTwo": "- Contact our support team"
       },
       "500": {
-        "status": "Unprocessable Content",
+        "status": "Internal Server Error",
         "errTitle": "Oops! Something went wrong!",
         "errMsg": "We are currently experiencing problems with our servers.",
         "optionOne": "Our team is aware of the problem and is working to fix it as soon as possible.",
