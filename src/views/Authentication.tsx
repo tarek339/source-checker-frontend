@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Footer, FramerMotion } from "../components";
+import { FramerMotion } from "../components";
 import { useDispatches, useTranslations } from "../hooks";
 import imgSrc from "../assets/images/charisse-kenion-cJkVMAKDYl0-unsplash.jpg";
 import { useEffect } from "react";
