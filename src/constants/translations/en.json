@@ -114,9 +114,36 @@
     "surveyType": "Survey type",
     "sure": "Are you sure?",
     "warningText": "The data cannot be changed later!",
-    "connectionError": "Connection failed",
-    "conErrMsgOne": "An error occurred during creation.",
-    "conErrMsgTwo": "Please try again later."
+    "error": {
+      "undefined": {
+        "status": "Not found",
+        "errTitle": "Oops, request cannot be processed!",
+        "errMsg": "Make sure that the Internet connection is established so that you can continue.",
+        "optionOne": "If this problem persists,",
+        "optionTwo": "please contact our support team."
+      },
+      "404": {
+        "status": "Not found",
+        "errTitle": "Oops, request cannot be processed!",
+        "errMsg": "It seems that the request is incorrect. Please try one of the following options:",
+        "optionOne": "- Refresh the page",
+        "optionTwo": "- Contact our support team"
+      },
+      "422": {
+        "status": "Unprocessable Content",
+        "errTitle": "Oops, request cannot be processed!",
+        "errMsg": "It seems that the request is incorrect. Please try one of the following options:",
+        "optionOne": "- Refresh the page",
+        "optionTwo": "- Contact our support team"
+      },
+      "500": {
+        "status": "Unprocessable Content",
+        "errTitle": "Oops! Something went wrong!",
+        "errMsg": "We are currently experiencing problems with our servers.",
+        "optionOne": "Our team is aware of the problem and is working to fix it as soon as possible.",
+        "optionTwo": "Please try refreshing the page or try again later."
+      }
+    }
   },
   "saveSurvey": {
     "saveSurvey": "Save overview",

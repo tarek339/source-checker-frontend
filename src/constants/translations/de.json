@@ -113,9 +113,36 @@
     "surveyType": "Umfragetyp",
     "sure": "Sind Sie sicher?",
     "warningText": "Die Daten lassen sich später nicht mehr ändern!",
-    "connectionError": "Verbindung fehlgeschlagen",
-    "conErrMsgOne": "Während der Erstellung ist ein Fehler aufgetreten.",
-    "conErrMsgTwo": "Bitte versuche es später erneut."
+    "error": {
+      "undefined": {
+        "status": "Verbindung fehlgeschlafen",
+        "errTitle": "Oops, Anscheinend bist du nicht mit dem Internet verbunden!",
+        "errMsg": "Stelle sicher, dass die Internetverbindung hergestellt ist, damit fortfahren kannst.",
+        "optionOne": "Sollte weiterhin dieses Problem auftauchen,",
+        "optionTwo": "kontaktiere unser Support-Team."
+      },
+      "404": {
+        "status": "Nicht gefunden",
+        "errTitle": "Oops, Anfrage kann nicht bearbeitet werden!",
+        "errMsg": "Es scheint, dass die Anfrage fehlerhaft. Bitte versuche eine der folgenden Optionen:",
+        "optionOne": "- Aktualisiere die Seite",
+        "optionTwo": "- Kontaktiere unser Support-Team"
+      },
+      "422": {
+        "status": "Unverarbeitbare Inhalte",
+        "errTitle": "Oops, Anfrage kann nicht bearbeitet werden!",
+        "errMsg": "Es scheint, dass die Inhalte der Anfrage nicht bearbeitet werden können. Bitte versuche eine der folgenden Optionen:",
+        "optionOne": "- Aktualisiere die Seite",
+        "optionTwo": "- Kontaktiere unser Support-Team"
+      },
+      "500": {
+        "status": "Unverarbeitbare Inhalte",
+        "errTitle": "Oops, Anfrage kann nicht bearbeitet werden!",
+        "errMsg": "Wir haben derzeit Probleme mit unseren Servern.",
+        "optionOne": "Unser Team ist sich des Problems bewusst und arbeitet daran, es so schnell wie möglich zu beheben.",
+        "optionTwo": "Bitte versuche die Seite zu aktualisieren oder versuche es später erneut."
+      }
+    }
   },
   "saveSurvey": {
     "saveSurvey": "Umfrage Übersicht",
