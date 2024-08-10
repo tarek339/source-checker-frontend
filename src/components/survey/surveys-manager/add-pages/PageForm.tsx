@@ -30,9 +30,10 @@ const PageForm = ({
   return (
     <FormContainer onSubmit={onSubmit} gap={"15px"}>
       <Input
-        label={t("common.title")}
-        name={"tile"}
-        htmlFor={"tile"}
+        label={t("common.pageTitle")}
+        placeHolder="Titel..."
+        name={"title"}
+        htmlFor={"title"}
         error={titleError}
         inputErrorStyle={titleError}
         value={inputValue}
@@ -40,7 +41,7 @@ const PageForm = ({
       />
 
       <Input
-        label={t("common.url")}
+        label={t("common.pageUrl")}
         placeHolder="https://www.beispielwebseite.de/123456..."
         name={"url"}
         htmlFor={"url"}
