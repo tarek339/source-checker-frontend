@@ -13,14 +13,14 @@ const useInputErrors = () => {
   const incorrectType = <div style={style}>{t("input.incorrectType")}</div>;
   const fetchError = <div style={style}>{t("input.fetchError")}</div>;
   const fetchIDError = <div style={style}>{t("input.fetchIDError")}</div>;
-  const urlTyoeError = <div style={style}>{t("input.urlTypeError")}</div>;
+  const urlTypeError = <div style={style}>{t("input.urlTypeError")}</div>;
   const studentExists = <div style={style}>{t("input.existingStudent")}</div>;
 
   return {
     emptyInput,
     incorrectType,
     fetchError,
-    urlTyoeError,
+    urlTypeError,
     fetchIDError,
     studentExists,
   };

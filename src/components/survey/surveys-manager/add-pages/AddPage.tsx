@@ -10,14 +10,14 @@ import {
   useInputErrors,
 } from "../../../../hooks";
 
-const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+const urlRegex = /^https:\/\/[^\s/$.?#].[^\s]*$/;
 
 const AddPage = () => {
   const { survey, loading } = useSelectors();
   const { dispatchLoading, dispatchPages, closeModal } = useDispatches();
   const { t } = useTranslations();
   const { fetchSurvey } = useRequests();
-  const { urlTyoeError, emptyInput } = useInputErrors();
+  const { urlTypeError, emptyInput } = useInputErrors();
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
@@ -33,10 +33,11 @@ const AddPage = () => {
     try {
       if (!loading) {
         e.preventDefault();
+
         !title ? setTitleErrorMessage(emptyInput) : null;
         !url ? setUrlErrorMessage(emptyInput) : null;
         if (!url.match(urlRegex)) {
-          setIsUrl(urlTyoeError);
+          setIsUrl(urlTypeError);
         }
         if (!title || !url || !url.match(urlRegex)) return;
         dispatchLoading(true);
