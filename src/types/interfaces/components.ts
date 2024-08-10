@@ -90,7 +90,7 @@ export interface ITable {
 
 export interface IErrorModal {
   onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
-  status: number | undefined;
+  status: number | string | null | undefined;
   statusText: string | undefined;
   errTitle: string | undefined;
   errMsg: string | undefined;
