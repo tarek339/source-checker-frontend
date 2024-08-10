@@ -44,8 +44,6 @@ const Authentication = () => {
             <img src={imgSrc} alt="main image" />
           </div>
         </div>
-
-        <Footer />
       </div>
     </FramerMotion>
   );

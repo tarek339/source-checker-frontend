@@ -26,6 +26,7 @@ function App() {
   return (
     <AppContent>
       <>{mainPage ? null : <Header title={t("common.sourceChecker")} />}</>
+
       <AnimatePresence mode="wait">
         <Routes>
           <Route path="/" element={<Authentication />} />
