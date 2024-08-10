@@ -16,7 +16,7 @@ import {
   PrivacyPolicy,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
-import { AppContent, Header } from "./components";
+import { AppContent, Footer, Header } from "./components";
 import { useSelectors, useTranslations } from "./hooks";
 
 function App() {
@@ -58,6 +58,7 @@ function App() {
           <Route path="/survey-ranking/:id" element={<SurveyRanking />} />
         </Routes>
       </AnimatePresence>
+      <Footer />
     </AppContent>
   );
 }
