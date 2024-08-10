@@ -27,7 +27,7 @@ const NewSurvey = () => {
 
   const [anonymousResults, setAnonymousResults] = useState(false);
   const [freeUserNames, setFreeUserNames] = useState(false);
-  const [status, setStatus] = useState<number | undefined>(0);
+  const [status, setStatus] = useState<number | undefined | null>(null);
   const [statusText, setStatusText] = useState<string | undefined>("");
   const [errTitle, setErrTitle] = useState<string | undefined>("");
   const [errMsg, setErrMsg] = useState<string | undefined>();
@@ -50,7 +50,9 @@ const NewSurvey = () => {
       dispatchLoading(false);
       openModal();
       const error = err as AxiosError;
-      setStatus(error.response?.status);
+      setStatus(
+        error.response?.status === undefined ? null : error.response?.status
+      );
       setStatusText(
         error.response?.status === 404
           ? t("newSurvey.error.404.status")
@@ -106,7 +108,7 @@ const NewSurvey = () => {
         <FramerMotion>
           <ErrorModal
             onSubmit={handleSubmit}
-            status={status}
+            status={status!}
             statusText={statusText}
             errTitle={errTitle}
             errMsg={errMsg}
