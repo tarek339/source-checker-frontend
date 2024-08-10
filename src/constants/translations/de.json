@@ -33,7 +33,9 @@
     "result": "Ergebnis",
     "logOut": "ausloggen",
     "active": "aktiv",
-    "unActive": "unaktiv"
+    "unActive": "unaktiv",
+    "pageTitle": "Titel der Seite",
+    "pageUrl": "URL der Seite"
   },
   "button": {
     "continue": "Weiter",
