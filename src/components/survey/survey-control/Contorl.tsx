@@ -22,8 +22,9 @@ const Contorl = () => {
 
   const startSurvey = async () => {
     try {
-      const res = await axios.post(`/survey/set-survey-status/${survey?._id}`, {
+      const res = await axios.put(`/survey/set-survey-status/${survey?._id}`, {
         isStarted: true,
+        expiryDate: null,
       });
       dispatchSurvey(res.data.survey);
     } catch (error) {
@@ -33,8 +34,9 @@ const Contorl = () => {
 
   const finishSurvey = async () => {
     try {
-      const res = await axios.post(`/survey/set-survey-status/${survey?._id}`, {
+      const res = await axios.put(`/survey/set-survey-status/${survey?._id}`, {
         isStarted: false,
+        expiryDate: new Date(new Date().getTime() + 14 * 24 * 60 * 60 * 1000),
       });
       dispatchSurvey(res.data.survey);
       fetchSurvey();
