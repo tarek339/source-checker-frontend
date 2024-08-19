@@ -29,7 +29,7 @@ const SurveyStatus = () => {
   useEffect(() => {
     setInterval(() => {
       fetchStudents();
-    }, 30000);
+    }, 10000);
   }, []);
 
   useEffect(() => {
