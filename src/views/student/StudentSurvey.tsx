@@ -24,8 +24,8 @@ const StudentSurvey = () => {
   }, []);
 
   useEffect(() => {
-    socket.on("fetchStudent", (student) => {
-      if (student) {
+    socket.on("isStudentUpdated", ({ isStudentUpdated }) => {
+      if (isStudentUpdated) {
         fetchSingleStudent();
       }
     });
