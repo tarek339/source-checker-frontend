@@ -6,6 +6,7 @@ import MIT from "./MIT";
 import Apache from "./Apache";
 import ApacheTwo from "./ApacheTwo";
 import ISC from "./ISC";
+import "./table.css";
 
 const LicenseNotes = () => {
   const { setMainPage } = useDispatches();
@@ -16,7 +17,7 @@ const LicenseNotes = () => {
 
   return (
     <FramerMotion>
-      <ContentContainer>
+      <ContentContainer maxWidth={1200}>
         <Title
           title={
             "License Information for this website and used icons on this website"

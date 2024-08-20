@@ -1,5 +1,17 @@
+import {
+  FaCheck,
+  FaDesktop,
+  FaExternalLinkAlt,
+  FaImage,
+  FaMobileAlt,
+  FaRegCopy,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import { Flex, Link, Span } from "../../components";
 import TextSmall from "../../components/fonts/TextSmall";
+import IconsListing from "./IconsListing";
+import { FaCircleDot } from "react-icons/fa6";
+import { ImCancelCircle } from "react-icons/im";
 
 const ApacheTwo = () => {
   return (
@@ -137,6 +149,99 @@ const ApacheTwo = () => {
             </span>
           </div>
         </Flex>
+        <IconsListing
+          children={
+            <>
+              <tr>
+                <td>
+                  <FaRegCopy />
+                </td>
+                <td>FaRegCopy</td>
+                <td>Font Awesome</td>
+                <td>
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td>
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td>
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <FaDesktop />
+                </td>
+                <td>FaDesktop</td>
+              </tr>
+              <tr>
+                <td>
+                  <FaImage />
+                </td>
+                <td>FaImage</td>
+              </tr>
+              <tr>
+                <td>
+                  <FaExternalLinkAlt />
+                </td>
+                <td>FaExternalLinkAlt</td>
+              </tr>
+              <tr>
+                <td>
+                  <FaMobileAlt />
+                </td>
+                <td>FaMobileAlt</td>
+              </tr>
+              <tr>
+                <td>
+                  <FaSignOutAlt />
+                </td>
+                <td>FaSignOutAlt</td>
+              </tr>
+              <tr>
+                <td>
+                  <FaCheck />
+                </td>
+                <td>FaCheck</td>
+              </tr>
+              <tr>
+                <td>
+                  <FaCircleDot />
+                </td>
+                <td>FaCircleDot</td>
+              </tr>
+              <tr>
+                <td>
+                  <ImCancelCircle />
+                </td>
+                <td>ImCancelCircle</td>
+                <td>IcoMoon Free</td>
+                <td>
+                  <a href="https://github.com/Keyamoon/IcoMoon-Free">
+                    https://github.com/Keyamoon/IcoMoon-Free
+                  </a>
+                </td>
+                <td>
+                  Copyright (c)
+                  <a href="http://keyamoon.com/"> Keyamoon</a>
+                </td>
+                <td>
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
+              </tr>
+            </>
+          }
+        />
       </Flex>
     </section>
   );

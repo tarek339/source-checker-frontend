@@ -1,5 +1,7 @@
+import { LuCircleSlash2, LuDot } from "react-icons/lu";
 import { Flex, Link, Span } from "../../components";
 import TextSmall from "../../components/fonts/TextSmall";
+import IconsListing from "./IconsListing";
 
 const ISC = () => {
   return (
@@ -32,6 +34,34 @@ const ISC = () => {
             DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
              ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             `}
+        />
+        <IconsListing
+          children={
+            <>
+              <tr>
+                <td>
+                  <LuCircleSlash2 />
+                </td>
+                <td>LuCircleSlash2</td>
+                <td>Lucide</td>
+                <td>
+                  <a href="https://lucide.dev/">https://lucide.dev/</a>
+                </td>
+                <td>Copyright (c) 2022 Lucide Contributors</td>
+                <td>
+                  <a href="https://opensource.org/license/isc-license-txt">
+                    https://opensource.org/license/isc-license-txt
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <LuDot />
+                </td>
+                <td>LuDot</td>
+              </tr>
+            </>
+          }
         />
       </Flex>
     </section>

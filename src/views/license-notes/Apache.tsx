@@ -1,5 +1,14 @@
+import {
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
+  MdOutlineCancel,
+  MdOutlineCheckCircle,
+} from "react-icons/md";
 import { Flex, Link, Span } from "../../components";
 import TextSmall from "../../components/fonts/TextSmall";
+import IconsListing from "./IconsListing";
+import { RiDeleteBin5Fill, RiStarSFill } from "react-icons/ri";
+import { GrZoomIn } from "react-icons/gr";
 
 const Apache = () => {
   return (
@@ -324,8 +333,104 @@ const Apache = () => {
             </>
           }
         />
+        <TextSmall text={`END OF TERMS AND CONDITIONS`} uppercase />
+        <IconsListing
+          children={
+            <>
+              <tr>
+                <td>
+                  <MdOutlineArrowForwardIos />
+                </td>
+                <td>MdOutlineArrowForwardIos</td>
+                <td>Material Design icons</td>
+                <td>
+                  <a href="https://google.github.io/material-design-icons/">
+                    https://google.github.io/material-design-icons/
+                  </a>
+                </td>
+                <td>
+                  Copyright (c) Material Design icons by Google (Material
+                  Symbols)
+                </td>
+                <td>
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <MdOutlineCancel />
+                </td>
+                <td>MdOutlineCancel</td>
+              </tr>
+              <tr>
+                <td>
+                  <MdOutlineCheckCircle />{" "}
+                </td>
+                <td>MdOutlineCheckCircle</td>
+              </tr>
+              <tr>
+                <td>
+                  <MdOutlineArrowForwardIos />
+                </td>
+                <td>MdOutlineArrowForwardIos</td>
+              </tr>
+              <tr>
+                <td>
+                  <MdOutlineArrowBackIos />
+                </td>
+                <td>MdOutlineArrowBackIos</td>
+              </tr>
+              <tr>
+                <td>
+                  <RiDeleteBin5Fill />
+                </td>
+                <td>RiDeleteBin5Fill</td>
+                <td>Remix Icon</td>
+                <td>
+                  <a href="https://github.com/Remix-Design/RemixIcon">
+                    https://github.com/Remix-Design/RemixIcon
+                  </a>
+                </td>
+                <td>Copyright (c) Remix Icon</td>
+                <td>
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <RiStarSFill />
+                </td>
+                <td>RiStarSFill</td>
+              </tr>
+              <tr>
+                <td>
+                  <GrZoomIn />
+                </td>
+                <td>GrZoomIn</td>
+                <td>Grommet-Icons</td>
+                <td>
+                  <a href="https://github.com/grommet/grommet-icons">
+                    https://github.com/grommet/grommet-icons
+                  </a>
+                </td>
+                <td>
+                  Copyright (c) 2017-2024 Hewlett Packard Enterprise Development
+                  LP.
+                </td>
+                <td>
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
+              </tr>
+            </>
+          }
+        />
       </Flex>
-      <TextSmall text={`END OF TERMS AND CONDITIONS`} uppercase />
     </section>
   );
 };
