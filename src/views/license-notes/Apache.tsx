@@ -362,7 +362,7 @@ const Apache = () => {
                 <td className="td">
                   <MdOutlineCancel />
                 </td>
-                <td>MdOutlineCancel</td>
+                <td className="td">MdOutlineCancel</td>
               </tr>
               <tr className="tr">
                 <td className="td">
