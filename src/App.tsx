@@ -14,6 +14,7 @@ import {
   SurveySummary,
   SurveyRanking,
   PrivacyPolicy,
+  LicenseNotes,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
 import { AppContent, Flex, Footer, Header } from "./components";
@@ -32,6 +33,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Authentication />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/licence-notes" element={<LicenseNotes />} />
             <Route
               path="/surveys-manager/choose-action"
               element={<ChooseAction />}

@@ -47,12 +47,13 @@ const Footer = () => {
           style={{ textDecoration: "underline", cursor: "pointer" }}
         />
         <Dot />
-        <Link
-          url={""}
-          title={t("footer.license")}
-          fontWeight={0}
-          fontSize={14}
+        <Span
+          onClick={() => navigate(`/licence-notes`)}
           color="#2835c3"
+          title={t("footer.license")}
+          fontSize={14}
+          fontWeight={500}
+          style={{ textDecoration: "underline", cursor: "pointer" }}
         />
       </section>
     </div>
