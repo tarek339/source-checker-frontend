@@ -344,3 +344,9 @@ export interface IIBack {
     | React.MouseEventHandler<HTMLSpanElement>
     | undefined;
 }
+
+export interface ITextSmall {
+  text: string | JSX.Element;
+  uppercase?: boolean;
+  bold?: boolean;
+}
