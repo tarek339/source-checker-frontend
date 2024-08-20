@@ -38,27 +38,27 @@ const ISC = () => {
         <IconsListing
           children={
             <>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <LuCircleSlash2 />
                 </td>
-                <td>LuCircleSlash2</td>
-                <td>Lucide</td>
-                <td>
+                <td className="td">LuCircleSlash2</td>
+                <td className="td">Lucide</td>
+                <td className="td">
                   <a href="https://lucide.dev/">https://lucide.dev/</a>
                 </td>
-                <td>Copyright (c) 2022 Lucide Contributors</td>
-                <td>
+                <td className="td">Copyright (c) 2022 Lucide Contributors</td>
+                <td className="td">
                   <a href="https://opensource.org/license/isc-license-txt">
                     https://opensource.org/license/isc-license-txt
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <LuDot />
                 </td>
-                <td>LuDot</td>
+                <td className="td">LuDot</td>
               </tr>
             </>
           }

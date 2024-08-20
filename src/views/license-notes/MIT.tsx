@@ -50,82 +50,82 @@ const MIT = () => {
         <IconsListing
           children={
             <>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <IoAlertSharp />
                 </td>
-                <td>IoAlertSharp</td>
-                <td>Ionicons</td>
-                <td>
+                <td className="td">IoAlertSharp</td>
+                <td className="td">Ionicons</td>
+                <td className="td">
                   <a href="https://ionic.io/ionicons">
                     https://ionic.io/ionicons
                   </a>
                 </td>
-                <td>
+                <td className="td">
                   Copyright (c) 2015-present Ionic{" "}
                   <a href="http://ionic.io/">http://ionic.io/</a>
                 </td>
-                <td>
+                <td className="td">
                   <a href="https://opensource.org/license/mit">
                     https://opensource.org/license/mit
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <IoMdArrowRoundBack />
                 </td>
-                <td>IoMdArrowRoundBack</td>
+                <td className="td">IoMdArrowRoundBack</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <IoArrowBackSharp />{" "}
                 </td>
-                <td>IoArrowBackSharp</td>
+                <td className="td">IoArrowBackSharp</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <IoArrowForwardSharp />
                 </td>
-                <td>IoArrowForwardSharp</td>
+                <td className="td">IoArrowForwardSharp</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <IoAddOutline />
                 </td>
-                <td>IoAddOutline</td>
+                <td className="td">IoAddOutline</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <BiLoaderAlt />
                 </td>
-                <td>BiLoaderAlt</td>
-                <td>BoxIcons</td>
-                <td>
+                <td className="td">BiLoaderAlt</td>
+                <td className="td">BoxIcons</td>
+                <td className="td">
                   <a href="https://github.com/atisawd/boxicons">
                     https://github.com/atisawd/boxicons
                   </a>
                 </td>
-                <td>Copyright (c) 2015-2021 Aniket Suvarna </td>
-                <td>
+                <td className="td">Copyright (c) 2015-2021 Aniket Suvarna </td>
+                <td className="td">
                   <a href="https://opensource.org/license/mit">
                     https://opensource.org/license/mit
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FiArrowUp />
                 </td>
-                <td>FiArrowUp</td>
-                <td>Feather</td>
-                <td>
+                <td className="td">FiArrowUp</td>
+                <td className="td">Feather</td>
+                <td className="td">
                   <a href="https://feathericons.com/">
                     https://feathericons.com/
                   </a>
                 </td>
-                <td>Copyright (c) 2013-2023 Cole Bemis</td>
-                <td>
+                <td className="td">Copyright (c) 2013-2023 Cole Bemis</td>
+                <td className="td">
                   <a href="https://opensource.org/license/mit">
                     https://opensource.org/license/mit
                   </a>

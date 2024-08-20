@@ -1,4 +1,4 @@
-table {
+.table {
   width: 100%;
   text-align: left;
   border-spacing: 1px;
@@ -11,7 +11,7 @@ table {
   font-size: 12px;
 }
 
-thead th {
+.thead .th {
   border-spacing: 0;
   padding: 9px 10px 7px;
   background-color: darkgrey;
@@ -19,12 +19,12 @@ thead th {
   border-bottom: 0px;
 }
 
-tbody td {
+.tbody .td {
   border-spacing: 1px;
   padding: 10px;
   cursor: pointer;
 }
 
-tr {
+.tr {
   background: #fff;
 }

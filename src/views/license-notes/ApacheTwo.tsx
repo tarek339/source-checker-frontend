@@ -152,88 +152,88 @@ const ApacheTwo = () => {
         <IconsListing
           children={
             <>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FaRegCopy />
                 </td>
-                <td>FaRegCopy</td>
-                <td>Font Awesome</td>
-                <td>
+                <td className="td">FaRegCopy</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
                   <a href="https://fontawesome.com/">
                     https://fontawesome.com/
                   </a>
                 </td>
-                <td>
+                <td className="td">
                   Copyright (c) 2024 Fonticons, Inc.
                   <a href=" https://fontawesome.com">
                     {" "}
                     https://fontawesome.com
                   </a>
                 </td>
-                <td>
+                <td className="td">
                   <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
                     https://creativecommons.org/licenses/by/4.0/deed.en
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FaDesktop />
                 </td>
-                <td>FaDesktop</td>
+                <td className="td">FaDesktop</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FaImage />
                 </td>
-                <td>FaImage</td>
+                <td className="td">FaImage</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FaExternalLinkAlt />
                 </td>
-                <td>FaExternalLinkAlt</td>
+                <td className="td">FaExternalLinkAlt</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FaMobileAlt />
                 </td>
-                <td>FaMobileAlt</td>
+                <td className="td">FaMobileAlt</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FaSignOutAlt />
                 </td>
-                <td>FaSignOutAlt</td>
+                <td className="td">FaSignOutAlt</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FaCheck />
                 </td>
-                <td>FaCheck</td>
+                <td className="td">FaCheck</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <FaCircleDot />
                 </td>
-                <td>FaCircleDot</td>
+                <td className="td">FaCircleDot</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <ImCancelCircle />
                 </td>
-                <td>ImCancelCircle</td>
-                <td>IcoMoon Free</td>
-                <td>
+                <td className="td">ImCancelCircle</td>
+                <td className="td">IcoMoon Free</td>
+                <td className="td">
                   <a href="https://github.com/Keyamoon/IcoMoon-Free">
                     https://github.com/Keyamoon/IcoMoon-Free
                   </a>
                 </td>
-                <td>
+                <td className="td">
                   Copyright (c)
                   <a href="http://keyamoon.com/"> Keyamoon</a>
                 </td>
-                <td>
+                <td className="td">
                   <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
                     https://creativecommons.org/licenses/by/4.0/deed.en
                   </a>

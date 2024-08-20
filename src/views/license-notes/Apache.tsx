@@ -337,91 +337,91 @@ const Apache = () => {
         <IconsListing
           children={
             <>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <MdOutlineArrowForwardIos />
                 </td>
-                <td>MdOutlineArrowForwardIos</td>
-                <td>Material Design icons</td>
-                <td>
+                <td className="td">MdOutlineArrowForwardIos</td>
+                <td className="td">Material Design icons</td>
+                <td className="td">
                   <a href="https://google.github.io/material-design-icons/">
                     https://google.github.io/material-design-icons/
                   </a>
                 </td>
-                <td>
+                <td className="td">
                   Copyright (c) Material Design icons by Google (Material
                   Symbols)
                 </td>
-                <td>
+                <td className="td">
                   <a href="https://www.apache.org/licenses/LICENSE-2.0">
                     https://www.apache.org/licenses/LICENSE-2.0
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <MdOutlineCancel />
                 </td>
                 <td>MdOutlineCancel</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <MdOutlineCheckCircle />{" "}
                 </td>
-                <td>MdOutlineCheckCircle</td>
+                <td className="td">MdOutlineCheckCircle</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <MdOutlineArrowForwardIos />
                 </td>
-                <td>MdOutlineArrowForwardIos</td>
+                <td className="td">MdOutlineArrowForwardIos</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <MdOutlineArrowBackIos />
                 </td>
-                <td>MdOutlineArrowBackIos</td>
+                <td className="td">MdOutlineArrowBackIos</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <RiDeleteBin5Fill />
                 </td>
-                <td>RiDeleteBin5Fill</td>
-                <td>Remix Icon</td>
-                <td>
+                <td className="td">RiDeleteBin5Fill</td>
+                <td className="td">Remix Icon</td>
+                <td className="td">
                   <a href="https://github.com/Remix-Design/RemixIcon">
                     https://github.com/Remix-Design/RemixIcon
                   </a>
                 </td>
-                <td>Copyright (c) Remix Icon</td>
-                <td>
+                <td className="td">Copyright (c) Remix Icon</td>
+                <td className="td">
                   <a href="https://www.apache.org/licenses/LICENSE-2.0">
                     https://www.apache.org/licenses/LICENSE-2.0
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <RiStarSFill />
                 </td>
-                <td>RiStarSFill</td>
+                <td className="td">RiStarSFill</td>
               </tr>
-              <tr>
-                <td>
+              <tr className="tr">
+                <td className="td">
                   <GrZoomIn />
                 </td>
-                <td>GrZoomIn</td>
-                <td>Grommet-Icons</td>
-                <td>
+                <td className="td">GrZoomIn</td>
+                <td className="td">Grommet-Icons</td>
+                <td className="td">
                   <a href="https://github.com/grommet/grommet-icons">
                     https://github.com/grommet/grommet-icons
                   </a>
                 </td>
-                <td>
+                <td className="td">
                   Copyright (c) 2017-2024 Hewlett Packard Enterprise Development
                   LP.
                 </td>
-                <td>
+                <td className="td">
                   <a href="https://www.apache.org/licenses/LICENSE-2.0">
                     https://www.apache.org/licenses/LICENSE-2.0
                   </a>
