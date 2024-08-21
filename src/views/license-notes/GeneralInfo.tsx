@@ -52,7 +52,7 @@ const GeneralInfo = () => {
     DEALINGS IN THE SOFTWARE`}
         />
         <Span
-          title={"Icons used in the tool Quellenchecker (Source Checker)"}
+          title={"B. Icons used in the tool Quellenchecker (Source Checker)"}
           fontSize={18}
         />
         <Span title={"Please note: Used Icons available at:"} fontSize={18} />
