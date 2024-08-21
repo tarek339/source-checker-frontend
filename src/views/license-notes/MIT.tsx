@@ -76,24 +76,84 @@ const MIT = () => {
                   <IoMdArrowRoundBack />
                 </td>
                 <td className="td">IoMdArrowRoundBack</td>
+                <td className="td">Ionicons</td>
+                <td className="td">
+                  <a href="https://ionic.io/ionicons">
+                    https://ionic.io/ionicons
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2015-present Ionic{" "}
+                  <a href="http://ionic.io/">http://ionic.io/</a>
+                </td>
+                <td className="td">
+                  <a href="https://opensource.org/license/mit">
+                    https://opensource.org/license/mit
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <IoArrowBackSharp />{" "}
                 </td>
                 <td className="td">IoArrowBackSharp</td>
+                <td className="td">Ionicons</td>
+                <td className="td">
+                  <a href="https://ionic.io/ionicons">
+                    https://ionic.io/ionicons
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2015-present Ionic{" "}
+                  <a href="http://ionic.io/">http://ionic.io/</a>
+                </td>
+                <td className="td">
+                  <a href="https://opensource.org/license/mit">
+                    https://opensource.org/license/mit
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <IoArrowForwardSharp />
                 </td>
                 <td className="td">IoArrowForwardSharp</td>
+                <td className="td">Ionicons</td>
+                <td className="td">
+                  <a href="https://ionic.io/ionicons">
+                    https://ionic.io/ionicons
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2015-present Ionic{" "}
+                  <a href="http://ionic.io/">http://ionic.io/</a>
+                </td>
+                <td className="td">
+                  <a href="https://opensource.org/license/mit">
+                    https://opensource.org/license/mit
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <IoAddOutline />
                 </td>
                 <td className="td">IoAddOutline</td>
+                <td className="td">Ionicons</td>
+                <td className="td">
+                  <a href="https://ionic.io/ionicons">
+                    https://ionic.io/ionicons
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2015-present Ionic{" "}
+                  <a href="http://ionic.io/">http://ionic.io/</a>
+                </td>
+                <td className="td">
+                  <a href="https://opensource.org/license/mit">
+                    https://opensource.org/license/mit
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">

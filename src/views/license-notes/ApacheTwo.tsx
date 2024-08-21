@@ -19,13 +19,16 @@ const ApacheTwo = () => {
       <Flex direction={"column"} gap={"10px"}>
         <div>
           <Span title={"III."} />
-          <Span title={"Icons under Apache License Version 2.0"} />
-          <Link
-            url={"https://creativecommons.org/licenses/by/4.0/legalcode.en"}
-            title={"License Deed (See the legal code)"}
-            fontWeight={0}
-            fontSize={14}
+          <Span title={"Icons under Creative Commons CC BY 4.0"} />
+          <Span
+            title={"Creative Commons Attribution 4.0 International License"}
           />
+          <span>
+            License Deed{" "}
+            <a href="https://creativecommons.org/licenses/by/4.0/legalcode.en">
+              (See the legal code)
+            </a>
+          </span>
         </div>
         <Flex direction={"column"} gap={"10px"}>
           <Span title={"You are free to:"} />
@@ -181,42 +184,168 @@ const ApacheTwo = () => {
                   <FaDesktop />
                 </td>
                 <td className="td">FaDesktop</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td className="td">
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <FaImage />
                 </td>
                 <td className="td">FaImage</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td className="td">
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <FaExternalLinkAlt />
                 </td>
                 <td className="td">FaExternalLinkAlt</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td className="td">
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <FaMobileAlt />
                 </td>
                 <td className="td">FaMobileAlt</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td className="td">
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <FaSignOutAlt />
                 </td>
                 <td className="td">FaSignOutAlt</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td className="td">
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <FaCheck />
                 </td>
                 <td className="td">FaCheck</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td className="td">
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <FaCircleDot />
                 </td>
                 <td className="td">FaCircleDot</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td className="td">
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">

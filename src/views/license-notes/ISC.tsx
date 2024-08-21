@@ -9,7 +9,7 @@ const ISC = () => {
       <Flex direction={"column"} gap={"10px"}>
         <div>
           <Span title={"IV."} />
-          <Span title={"Icons under Creative Commons CC BY 4.0"} />
+          <Span title={"Icons under ISC License"} />
           <Span title={"ISC License"} />
           <Link
             url={"https://opensource.org/license/isc-license-txt "}
@@ -59,6 +59,16 @@ const ISC = () => {
                   <LuDot />
                 </td>
                 <td className="td">LuDot</td>
+                <td className="td">Lucide</td>
+                <td className="td">
+                  <a href="https://lucide.dev/">https://lucide.dev/</a>
+                </td>
+                <td className="td">Copyright (c) 2022 Lucide Contributors</td>
+                <td className="td">
+                  <a href="https://opensource.org/license/isc-license-txt">
+                    https://opensource.org/license/isc-license-txt
+                  </a>
+                </td>
               </tr>
             </>
           }

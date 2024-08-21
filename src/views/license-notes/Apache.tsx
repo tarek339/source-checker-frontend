@@ -16,10 +16,7 @@ const Apache = () => {
       <Flex direction={"column"} gap={"10px"}>
         <div>
           <Span title={"II."} />
-          <Span title={"Icons under Creative Commons CC BY 4.0"} />
-          <Span
-            title={"Creative Commons Attribution 4.0 International License"}
-          />
+          <Span title={"Icons under Apache License Version 2.0"} />
         </div>
         <Span title={"Apache License"} />
         <TextSmall text="Version 2.0, January 2004" />
@@ -363,24 +360,84 @@ const Apache = () => {
                   <MdOutlineCancel />
                 </td>
                 <td className="td">MdOutlineCancel</td>
+                <td className="td">Material Design icons</td>
+                <td className="td">
+                  <a href="https://google.github.io/material-design-icons/">
+                    https://google.github.io/material-design-icons/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) Material Design icons by Google (Material
+                  Symbols)
+                </td>
+                <td className="td">
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <MdOutlineCheckCircle />{" "}
                 </td>
                 <td className="td">MdOutlineCheckCircle</td>
+                <td className="td">Material Design icons</td>
+                <td className="td">
+                  <a href="https://google.github.io/material-design-icons/">
+                    https://google.github.io/material-design-icons/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) Material Design icons by Google (Material
+                  Symbols)
+                </td>
+                <td className="td">
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <MdOutlineArrowForwardIos />
                 </td>
                 <td className="td">MdOutlineArrowForwardIos</td>
+                <td className="td">Material Design icons</td>
+                <td className="td">
+                  <a href="https://google.github.io/material-design-icons/">
+                    https://google.github.io/material-design-icons/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) Material Design icons by Google (Material
+                  Symbols)
+                </td>
+                <td className="td">
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
                   <MdOutlineArrowBackIos />
                 </td>
                 <td className="td">MdOutlineArrowBackIos</td>
+                <td className="td">Material Design icons</td>
+                <td className="td">
+                  <a href="https://google.github.io/material-design-icons/">
+                    https://google.github.io/material-design-icons/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) Material Design icons by Google (Material
+                  Symbols)
+                </td>
+                <td className="td">
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">
@@ -405,6 +462,18 @@ const Apache = () => {
                   <RiStarSFill />
                 </td>
                 <td className="td">RiStarSFill</td>
+                <td className="td">Remix Icon</td>
+                <td className="td">
+                  <a href="https://github.com/Remix-Design/RemixIcon">
+                    https://github.com/Remix-Design/RemixIcon
+                  </a>
+                </td>
+                <td className="td">Copyright (c) Remix Icon</td>
+                <td className="td">
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
               </tr>
               <tr className="tr">
                 <td className="td">

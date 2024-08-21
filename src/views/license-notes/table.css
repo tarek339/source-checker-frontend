@@ -6,7 +6,7 @@
   border-radius: 0px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  background: #d3d3d3;
+  background: darkgray;
   box-shadow: none;
   font-size: 12px;
 }
@@ -14,7 +14,7 @@
 .thead .th {
   border-spacing: 0;
   padding: 9px 10px 7px;
-  background-color: darkgrey;
+  background-color: lightgray;
   font-weight: 0;
   border-bottom: 0px;
 }
