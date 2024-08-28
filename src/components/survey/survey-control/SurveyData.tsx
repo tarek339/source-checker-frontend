@@ -41,7 +41,7 @@ const SurveyData = () => {
 
   const dateToDisplay = formattedDate.isValid()
     ? formattedDate.format("DD.MM.YYYY")
-    : "wartend";
+    : "ausstehend";
 
   return (
     <SubCard
