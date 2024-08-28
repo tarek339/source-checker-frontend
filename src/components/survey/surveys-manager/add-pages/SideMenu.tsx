@@ -54,7 +54,9 @@ const SideMenu = () => {
                 }}>
                 {page.mobileScreenshot === "" ? (
                   <EmptyData
-                    title={"Screenshot konnte nicht erstellt werden"}
+                    title={
+                      "Screenshot konnte nicht erstellt werden. Bitte eine andere Darstellung auswählen."
+                    }
                     width={
                       windowWidth >= 768 && windowWidth <= 1250
                         ? "200px"
@@ -82,7 +84,9 @@ const SideMenu = () => {
 
                 {page.desktopScreenshot === "" ? (
                   <EmptyData
-                    title={"Screenshot konnte nicht erstellt werden"}
+                    title={
+                      "Screenshot konnte nicht erstellt werden. Bitte eine andere Darstellung auswählen."
+                    }
                     width={
                       windowWidth >= 768 && windowWidth <= 1250
                         ? "400px"
@@ -115,7 +119,9 @@ const SideMenu = () => {
                 {page.openGraph?.ogTitle === "" ||
                 page.openGraph?.ogDescription === "" ? (
                   <EmptyData
-                    title={"Opengraphdaten konnten nicht erstellt werden"}
+                    title={
+                      "Opengraph-Ansicht konnte nicht erstellt werden. Bitte eine andere Darstellung auswählen."
+                    }
                     width={""}
                     height={""}
                   />
