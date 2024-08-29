@@ -55,6 +55,8 @@ const Footer = () => {
           fontWeight={500}
           style={{ textDecoration: "underline", cursor: "pointer" }}
         />
+        <Dot />
+        <Link url={""} title={"Quellcode"} fontWeight={0} fontSize={14} />
       </section>
     </div>
   );
