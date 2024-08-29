@@ -1,220 +1,27 @@
-file to work on: /views/Authentication.tsx
-css file to style: /assets/styles/views/authentication.css
-the image: /assets/images/...
+PRIO 1
+Zusammenfassung ändern zu Ergebnisse anzeigen
 
-check screenshots and video on whatapp
-
-#FF0000
-
-
-            {/* <div className="steps-holder">
-            {steps.map((step, index) => {
-              return (
-                <div
-                  className="steps"
-                  style={{
-                    transition: "border-top 0.2s",
-                    borderLeft:
-                      windowWidth < 768
-                        ? `4px solid ${
-                            page === index
-                              ? "#2834c2"
-                              : stepDone && page === index + 1
-                              ? "#2834c2"
-                              : stepDone && page === index + 2
-                              ? "#2834c2"
-                              : stepDone && page === index + 3
-                              ? "#2834c2"
-                              : stepDone && page === index + 4
-                              ? "#2834c2"
-                              : "#D5D5D5"
-                          }`
-                        : "transparent",
-                    borderTop:
-                      windowWidth >= 768
-                        ? `4px solid ${
-                            page === index
-                              ? "#2834c2"
-                              : stepDone && page === index + 1
-                              ? "#2834c2"
-                              : stepDone && page === index + 2
-                              ? "#2834c2"
-                              : stepDone && page === index + 3
-                              ? "#2834c2"
-                              : stepDone && page === index + 4
-                              ? "#2834c2"
-                              : "#D5D5D5"
-                          }`
-                        : "transparent",
-                  }}
-                  key={index}>
-                  {step.comp}
-                </div>
-              );
-            })}
-          </div> */}
+Jeder Durchgang einzeln
+Zusammenfassung Screenshot button
+Nach Start neuer Durchgang alte Daten löschen
+...
+Ergebniss button grüne farbe blaue Schrift
+Rankingseite nur Durchschnittswerte nicht Anzhal Sterne
+Ergebnissseite Screenshot neben Schülnernamen
+Gesamtergebniss mit Sterne löschen
 
 
-            const steps = [
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepOne")}
-          text={t("survey.stepOneText")}
-          style={{
-            color:
-              page === 0
-                ? "#2834c2"
-                : (stepDone && page === 1) ||
-                  (stepDone && page === 2) ||
-                  (stepDone && page === 3) ||
-                  (stepDone && page === 4)
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepTwo")}
-          text={t("survey.stepTwoText")}
-          style={{
-            color:
-              page === 1
-                ? "#2834c2"
-                : (stepDone && page === 2) ||
-                  (stepDone && page === 3) ||
-                  (stepDone && page === 4)
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepThree")}
-          text={t("survey.stepThreeText")}
-          style={{
-            color:
-              page === 2
-                ? "#2834c2"
-                : (stepDone && page === 3) || (stepDone && page === 4)
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepFour")}
-          text={t("survey.stepFourText")}
-          style={{
-            color:
-              page === 3
-                ? "#2834c2"
-                : stepDone && page === 4
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-    {
-      comp: (
-        <Steps
-          counter={t("survey.stepFive")}
-          text={t("survey.stepFiveText")}
-          style={{
-            color:
-              page === 4
-                ? "#2834c2"
-                : stepDone && page === 4
-                ? "#2834c2"
-                : "darkgray",
-          }}
-        />
-      ),
-    },
-  ];
-
-    const surveysOptions = [
-    {
-      option: t("newSurvey.rating"),
-    },
-  ];
-  const resultsOptions = [
-    {
-      option: t("newSurvey.afterSurvey"),
-    },
-  ];
+Schüler nach Bewertung einer Seite Modal anzeigen mit Warteinfo
+Nach letzter Seite und Bewertung ebenfalls Warteinfo
+Danksagunginfo mit Screenshot neben Titel
+Hinweis Titel löschen
 
 
-  possible error type
-  500 server error (not available)
-  404 nicht gefunden (wrong req)
-  422 Unprocessable Entity (server found but couldnt handle data)
+PRIO 1.5
+Datenschutz
+Lizenzhinweise √
+Impressum
+Quellcodelink zu GitLab
 
-  to start the survey a state global isStarted needed
-  onClick start set isStarted to true
-  if true remove NoStarted component and show survey pages to the students
-  slice the survey pages to one each slice
-  onClick next show next slice
-  for that a global state nextSurveyPage is needed
-
-  useEffect(() => {
-    surveyPages.slice(currentPage - 1, currentPage).map((sp) => {
-      return sp.starsArray.filter((sa) => {
-        return setVoted(sa.studentId === student?._id!);
-      });
-    });
-    surveyPages.slice(currentPage - 1, currentPage).forEach((sp) => {
-      const foundId = sp.starsArray.find((sa) => {
-        return sa.studentId === student?._id;
-      });
-      if (foundId) {
-        setVotedStars(foundId.stars);
-      }
-    });
-  }, [student, surveyPages, voted, votedStars, currentPage]);
-
-  useEffect(() => {
-    surveyPages.slice(currentPage - 1, currentPage).map((page) => {
-      const findObj = page.starsArray.find((obj) => {
-        return obj;
-      });
-      if (!findObj) {
-        setVotedStars(0);
-        setVoted(false);
-      }
-    });
-  }, [surveyPages, currentPage, stars, voted, votedStars]);
-
-  anonymous results and no user names
-
-  anonymousResults state
-  freeUserNames state
-   {surveyPages.slice(first, last).map((page, index) => {
-            const averageRating = sumStars![index] / page.starsArray.length;
-            if (averageRating >= 4.5 && averageRating <= 5) {
-              credible;
-              // setColor("#28a745");
-            } else if (averageRating >= 3.5 && averageRating <= 4.4) {
-              trustworthy;
-              // setColor("#4cd137");
-            } else if (averageRating >= 2.5 && averageRating <= 3.4) {
-              questionable;
-              // setColor("#f1a545");
-            } else if (averageRating >= 1.5 && averageRating <= 2.4) {
-              doubtful;
-              // setColor("#ff7f00");
-            } else {
-              unbelievable;
-              // setColor("#ff0000");
-            }
-          })}
+PRIO 2
+Controll UI umdesignen

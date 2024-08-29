@@ -13,18 +13,19 @@ const Footer = () => {
       <div className="divider"></div>
       <section className="footer-section">
         <p>
-          {t("footer.header")}&nbsp;
+          <span>{t("footer.header")} </span>
           <span>
-            <a href="https://www.usethenews.de/de" target="_blank">
-              #UseTheNews
-            </a>
+            <a href="https://www.usethenews.de/de">#UseTheNews</a>
           </span>
-          &nbsp;/&nbsp;
+          <span> / </span>
           <span>
-            <a href="https://www.haw-hamburg.de/" target="_blank">
-              HAW Hamburg
-            </a>
+            <a href="https://www.haw-hamburg.de/">HAW Hamburg</a>
           </span>
+          <span> und der </span>
+          <span>
+            <a href="https://portal.hoou.de/">Hamburg Open Online University</a>
+          </span>
+          <span> (HOOU@HAW).</span>
         </p>
         <p>{t("footer.public")}</p>
       </section>
@@ -37,7 +38,6 @@ const Footer = () => {
           color="#2835c3"
         />
         <Dot />
-        <Link url={""} title={""} fontWeight={0} fontSize={14} />
         <Span
           onClick={() => navigate(`/privacy-policy`)}
           color="#2835c3"
