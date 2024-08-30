@@ -38,13 +38,11 @@ const Contorl = () => {
   };
 
   useEffect(() => {
-    console.log(
-      surveyPages.map((page) => {
-        if (page.starsArray.length < 1) {
-          return setNoStars(true);
-        } else setNoStars(false);
-      })
-    );
+    surveyPages.map((page) => {
+      if (page.starsArray.length < 1) {
+        return setNoStars(true);
+      } else setNoStars(false);
+    });
   }, [surveyPages, noStars]);
 
   const finishSurvey = async () => {
