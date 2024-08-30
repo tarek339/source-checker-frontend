@@ -16,8 +16,13 @@ const PageControl = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { surveyPages, currentPage } = useSelectors();
-  const { setCurrentPage, dispatchSurvey, setVoted, setVotedStars } =
-    useDispatches();
+  const {
+    setCurrentPage,
+    dispatchSurvey,
+    setVoted,
+    setVotedStars,
+    closeModal,
+  } = useDispatches();
   const { id } = useParams();
 
   const handleCurrentPage = async (pageNum: number) => {
@@ -36,12 +41,14 @@ const PageControl = () => {
 
   const nextPage = () => {
     if (currentPage !== surveyPages.length) {
+      closeModal();
       handleCurrentPage(currentPage + 1);
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
+      closeModal();
       handleCurrentPage(currentPage - 1);
     }
   };

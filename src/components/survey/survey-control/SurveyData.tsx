@@ -37,12 +37,6 @@ const SurveyData = () => {
     }, 1500);
   };
 
-  const formattedDate = moment(survey?.validUntil);
-
-  const dateToDisplay = formattedDate.isValid()
-    ? formattedDate.format("DD.MM.YYYY")
-    : "ausstehend";
-
   return (
     <SubCard
       width={windowWidth < 768 ? "" : "40%"}
@@ -89,7 +83,9 @@ const SurveyData = () => {
           </Flex>
           <Flex direction={"column"} gap={"20px"}>
             <Span
-              title={`${t("studentAuth.validUntil")}: ${dateToDisplay}`}
+              title={`${t("studentAuth.validUntil")}: ${moment(
+                survey?.validUntil
+              ).format("DD.MM.YYYY")}`}
               fontWeight={600}
             />
 

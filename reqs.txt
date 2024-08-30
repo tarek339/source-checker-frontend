@@ -1,27 +1,25 @@
 PRIO 1
-Zusammenfassung ändern zu Ergebnisse anzeigen
 
-Jeder Durchgang einzeln
-Zusammenfassung Screenshot button
-Nach Start neuer Durchgang alte Daten löschen
+Jeder Durchgang einzeln √
+Zusammenfassung Screenshot √
+Nach Start neuer Durchgang alte Daten löschen √
 ...
-Ergebniss button grüne farbe blaue Schrift
-Rankingseite nur Durchschnittswerte nicht Anzhal Sterne
-Ergebnissseite Screenshot neben Schülnernamen
-Gesamtergebniss mit Sterne löschen
+Ergebniss button grüne farbe blaue Schrift √
+Rankingseite nur Durchschnittswerte nicht Anzhal Sterne √
+Ergebnissseite Screenshot neben Schülnernamen √
+Gesamtergebniss mit Sterne löschen √
 
 
-Schüler nach Bewertung einer Seite Modal anzeigen mit Warteinfo
-Nach letzter Seite und Bewertung ebenfalls Warteinfo
-Danksagunginfo mit Screenshot neben Titel
-Hinweis Titel löschen
+Schüler nach Bewertung einer Seite Modal anzeigen mit Warteinfo √
+Danksagunginfo mit Screenshot neben Titel √
+Hinweis Titel löschen √
 
 
 PRIO 1.5
 Datenschutz
 Lizenzhinweise √
 Impressum
-Quellcodelink zu GitLab
+Quellcodelink zu GitLab √
 
 PRIO 2
 Controll UI umdesignen

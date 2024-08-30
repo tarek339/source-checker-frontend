@@ -1,24 +1,24 @@
-import { useSelectors, useTranslations, useBreakPoints } from "../../../hooks";
+import { useTranslations, useBreakPoints } from "../../../hooks";
 import { Next, Prev } from "../../icons";
-import SubTitle from "../../fonts/SubTitle";
+// import SubTitle from "../../fonts/SubTitle";
 import Flex from "../../containers/Flex";
 import { IResult } from "../../../types/interfaces/components";
 import Span from "../../fonts/Span";
 
 const Result = ({
-  credible,
-  questionable,
-  doubtful,
-  sumStars,
-  trustworthy,
-  unbelievable,
+  // credible,
+  // questionable,
+  // doubtful,
+  // sumStars,
+  // trustworthy,
+  // unbelievable,
   first,
   last,
   setFirst,
   setLast,
   property,
 }: IResult) => {
-  const { surveyPages } = useSelectors();
+  // const { surveyPages } = useSelectors();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
 
@@ -41,7 +41,7 @@ const Result = ({
       gap={windowWidth <= 470 ? "10px" : "0px"}
       justify="space-between"
       align={windowWidth <= 470 ? "flex-start" : "center"}>
-      <Flex
+      {/* <Flex
         direction={windowWidth >= 400 ? "row" : "column"}
         gap={"5px"}
         align={"flex-start"}>
@@ -82,9 +82,14 @@ const Result = ({
             }
           })}
         </>
-      </Flex>
+      </Flex> */}
 
-      <Flex direction={"row"} gap={"20px"} justify="flex-end" align="center">
+      <Flex
+        direction={"row"}
+        gap={"20px"}
+        justify="flex-end"
+        align="center"
+        width="100%">
         <Flex direction={"row"} gap={"10px"}>
           <Span title={first + 1} fontSize={21} fontWeight={600} />
           <Span title={t("common.of")} fontSize={21} fontWeight={600} />

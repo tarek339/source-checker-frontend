@@ -4,24 +4,29 @@ import {
   useDispatches,
   useRequests,
   useSelectors,
-  useStars,
   useTranslations,
 } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
 import Flex from "../../containers/Flex";
 import SubCard from "../../containers/SubCard";
 import axios from "axios";
+import NoteModal from "./NoteModal";
+import { useEffect, useState } from "react";
 
 const Contorl = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
-  const { survey } = useSelectors();
-  const { dispatchSurvey, setCurrentPage } = useDispatches();
+  const { survey, surveyPages } = useSelectors();
+  const { dispatchSurvey, setCurrentPage, closeModal, openModal } =
+    useDispatches();
   const { fetchSurvey } = useRequests();
-  const { starsAmount } = useStars();
+
+  const [noStars, setNoStars] = useState(false);
 
   const startSurvey = async () => {
     try {
+      closeModal();
+      await fetchSurvey();
       const res = await axios.put(`/survey/set-survey-status/${survey?._id}`, {
         isStarted: true,
         expiryDate: null,
@@ -31,6 +36,16 @@ const Contorl = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    console.log(
+      surveyPages.map((page) => {
+        if (page.starsArray.length < 1) {
+          return setNoStars(true);
+        } else setNoStars(false);
+      })
+    );
+  }, [surveyPages, noStars]);
 
   const finishSurvey = async () => {
     try {
@@ -50,16 +65,26 @@ const Contorl = () => {
     <SubCard
       style={{ paddingLeft: "20px", paddingRight: "20px" }}
       width={windowWidth < 768 ? "" : `${100 / 3}%`}>
+      <NoteModal onClick={startSurvey} />
       <Flex direction={"column"} gap={"20px"}>
         <SubTitle title={t("common.surveyControl")} />
-        <SubButton onClick={startSurvey} title={t("button.start")} />
+        <SubButton
+          onClick={() => {
+            if (!noStars) {
+              openModal();
+            } else startSurvey();
+          }}
+          title={t("button.start")}
+        />
         <>
-          {!survey?.isStarted && starsAmount > 0 ? (
+          {!survey?.isStarted && !noStars ? (
             <LinkButton
+              color="#2835c3"
+              bgColor="#31e981"
               url={`${import.meta.env.VITE_CLIENT_URL}/survey-ranking/${
                 survey?._id
               }`}
-              title={t("common.summary")}
+              title={"Ergebnisse anzeigen"}
             />
           ) : (
             <CancelButton onClick={finishSurvey} title={t("button.finish")} />

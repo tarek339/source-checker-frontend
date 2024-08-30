@@ -325,11 +325,15 @@ export interface ILink {
 
 export interface IThumbnail {
   url: string;
+  width?: string;
+  height?: string;
 }
 
 export interface ILinkButton {
   url: string;
   title: string;
+  color?: string;
+  bgColor?: string;
 }
 
 export interface ISection {

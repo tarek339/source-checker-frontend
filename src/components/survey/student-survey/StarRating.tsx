@@ -7,15 +7,25 @@ import {
 } from "../../../hooks";
 import axios from "axios";
 import { IStarRating } from "../../../types/interfaces/components";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SubButton from "../../buttons/SubButton";
 import Flex from "../../containers/Flex";
+import WaitMessage from "./WaitMessage";
 
 const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   const { t } = useTranslations();
-  const { dispatchSurvey, setStars, setVoted, setVotedStars } = useDispatches();
-  const { voted, votedStars, stars } = useSelectors();
+
+  const {
+    dispatchSurvey,
+    setStars,
+    setVoted,
+    setVotedStars,
+    openModal,
+    closeModal,
+  } = useDispatches();
+  const { voted, votedStars, stars, modal, currentPage } = useSelectors();
   const { fetchSurvey } = useRequests();
+  const prevPageRef = useRef(currentPage);
   const [showToolTip, setShowToolTip] = useState(false);
 
   const handleRating = (star: number) => {
@@ -25,6 +35,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
 
   const handleSubmit = async () => {
     setVoted(true);
+    openModal();
     const res = await axios.post(`/survey/push-stars/${surveyId}`, {
       pageId,
       stars,
@@ -41,9 +52,20 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   };
   const onPointerLeave = () => setShowToolTip(false);
 
+  useEffect(() => {
+    if (
+      currentPage === prevPageRef.current + 1 ||
+      currentPage === prevPageRef.current - 1
+    ) {
+      closeModal();
+    }
+    prevPageRef.current = currentPage;
+  }, [currentPage, modal, closeModal]);
+
   return (
     <Flex direction={"row"} gap={"20px"} align="center">
       <>
+        <WaitMessage />
         <Rating
           className="react-simple-star-rating"
           initialValue={!voted ? stars : votedStars}

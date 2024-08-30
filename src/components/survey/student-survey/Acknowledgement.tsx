@@ -4,6 +4,7 @@ import Title from "../../fonts/Title";
 import Flex from "../../containers/Flex";
 import FramerMotion from "../../containers/FramerMotion";
 import SubCard from "../../containers/SubCard";
+import Thumbnail from "../survery-summary/Thumbnail";
 
 const Acknowledgement = () => {
   const { t } = useTranslations();
@@ -29,14 +30,24 @@ const Acknowledgement = () => {
                   return page.starsArray.map((obj, i) => {
                     if (obj.userNumber === student?.userNumber.toString()) {
                       return (
-                        <Flex
-                          key={i}
-                          direction={"row"}
-                          gap={"10px"}
-                          justify="flex-start">
-                          <SubTitle
-                            title={`${t("common.title")} - ${page.title}`}
+                        <Flex key={i} direction={"row"} gap={"10px"}>
+                          <Thumbnail
+                            height="40px"
+                            width="60px"
+                            url={
+                              page.isMobileView
+                                ? page.mobileScreenshot
+                                : page.isMobileView === false
+                                ? page.mobileScreenshot
+                                : page.isMobileView === null &&
+                                  page.isOpenGraphView
+                                ? page.openGraph.ogImage.map(
+                                    (img: { url: string }) => img.url
+                                  )
+                                : null
+                            }
                           />
+                          <SubTitle title={page.title} />
                           <SubTitle
                             title={
                               obj.stars === 5

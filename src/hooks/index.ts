@@ -7,6 +7,7 @@ import useRequests from "./useRequests";
 import useInputErrors from "./useInputErrors";
 import useScroll from "./useScroll";
 import useStars from "./useStars";
+import useScreenshot from "./useScreenshot";
 
 export {
   useTranslations,
@@ -18,4 +19,5 @@ export {
   useInputErrors,
   useScroll,
   useStars,
+  useScreenshot,
 };
