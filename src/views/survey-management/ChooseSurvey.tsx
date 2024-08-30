@@ -1,16 +1,15 @@
 import { useState } from "react";
 import {
-  BackButton,
   Card,
   Divider,
   Flex,
-  FormButton,
   FormContainer,
   FramerMotion,
   Input,
   SubTitle,
   Title,
   ContentContainer,
+  Button,
 } from "../../components";
 import { useTranslations, useInputErrors, useDispatches } from "../../hooks";
 import axios from "axios";
@@ -119,8 +118,12 @@ const ChooseSurvey = () => {
               />
               <Divider />
               <Flex direction={"column"} gap={"15px"}>
-                <FormButton title={t("button.callUp")} />
-                <BackButton path={"/surveys-manager/choose-action"} />
+                <Button type="submit" title={t("button.callUp")} />
+                <Button
+                  error
+                  onClick={() => navigate(-1)}
+                  title={t("button.back")}
+                />
               </Flex>
             </FormContainer>
           </Flex>

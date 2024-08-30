@@ -13,14 +13,14 @@ import {
   Flex,
   SubTitle,
   Divider,
-  CancelButton,
-  ContinueButton,
   ButtonContainer,
   useCompArray,
   Modal,
   ModalContent,
   Title,
+  Button,
 } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 const SaveSurvey = () => {
   const { t } = useTranslations();
@@ -29,6 +29,7 @@ const SaveSurvey = () => {
   const { surveyArray } = useCompArray();
   const { fetchSurvey } = useRequests();
   const { handleScroll } = useScroll();
+  const navigate = useNavigate();
 
   useEffect(() => {
     handleScroll();
@@ -73,9 +74,12 @@ const SaveSurvey = () => {
             </>
             <Divider />
             <ButtonContainer>
-              <CancelButton onClick={openModal} title={t("button.delete")} />
-              <ContinueButton
-                path={`/surveys-manager/add-pages/${survey?._id}`}
+              <Button error onClick={openModal} title={t("button.delete")} />
+              <Button
+                onClick={() =>
+                  navigate(`/surveys-manager/add-pages/${survey?._id}`)
+                }
+                title={t("button.continue")}
               />
             </ButtonContainer>
           </Flex>

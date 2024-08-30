@@ -1,18 +1,17 @@
 import { useState } from "react";
 import {
-  BackButton,
   ButtonContainer,
   Card,
   Divider,
   ErrorModal,
   Flex,
-  FormButton,
   FormContainer,
   FramerMotion,
   SubTitle,
   Title,
   ContentContainer,
   SwitchToggle,
+  Button,
 } from "../../components";
 import { useDispatches, useTranslations } from "../../hooks";
 import axios, { AxiosError } from "axios";
@@ -178,8 +177,12 @@ const NewSurvey = () => {
               <Divider />
 
               <ButtonContainer>
-                <BackButton path={"/surveys-manager/choose-action"} />
-                <FormButton title={t("button.create")} />
+                <Button
+                  error
+                  onClick={() => navigate(-1)}
+                  title={t("button.back")}
+                />
+                <Button type="submit" title={t("button.create")} />
               </ButtonContainer>
             </FormContainer>
           </Flex>

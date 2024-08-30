@@ -1,4 +1,4 @@
-import { CancelButton } from "../../..";
+import { Button } from "../../..";
 import {
   useTranslations,
   useSelectors,
@@ -7,7 +7,6 @@ import {
 import { IPageForm } from "../../../../types/interfaces/components";
 import LoadingPulse from "../../../LoadingPulse";
 import ButtonContainer from "../../../containers/ButtonContainer";
-import FormButton from "../../../form/FormButton";
 import FormContainer from "../../../form/FormContainer";
 import Input from "../../../form/Input";
 import InputMessage from "../../../form/InputMessage";
@@ -62,17 +61,16 @@ const PageForm = ({
       />
 
       <ButtonContainer>
-        <CancelButton
+        <Button
+          error
           onClick={() => {
             closeModal();
           }}
           title={t("button.back")}
         />
-        <FormButton
-          style={{
-            width: "160px",
-            height: "37px",
-          }}
+
+        <Button
+          type="submit"
           title={
             loading ? (
               <LoadingPulse color={"#fff"} size={10} />

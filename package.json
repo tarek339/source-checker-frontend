@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@headlessui/react": "^2.0.4",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.0.1",
+    "@mui/styled-engine-sc": "^6.0.1",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
     "framer-motion": "^11.2.6",
@@ -28,6 +31,7 @@
     "react-simple-star-rating": "^5.1.7",
     "react-spinners": "^0.13.8",
     "socket.io-client": "^4.7.5",
+    "styled-components": "^6.1.13",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

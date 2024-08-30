@@ -1,11 +1,7 @@
 import Footer from "./Footer";
 import Divider from "./Divider";
 import Input from "./form/Input";
-import FormButton from "./form/FormButton";
-import BackButton from "./buttons/BackButton";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
-import ContinueButton from "./buttons/ContinueButton";
-import CancelButton from "./buttons/CancelButton";
 import SideMenu from "./survey/surveys-manager/add-pages/SideMenu";
 import LoadingPulse from "./LoadingPulse";
 import Card from "./containers/Card";
@@ -18,7 +14,6 @@ import LoadingBar from "./LoadingBar";
 import FramerMotion from "./containers/FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
 import Title from "./fonts/Title";
-import SubButton from "./buttons/SubButton";
 import AddPage from "./survey/surveys-manager/add-pages/AddPage";
 import NoPages from "./survey/surveys-manager/add-pages/NoPages";
 import PagesHolder from "./survey/surveys-manager/add-pages/PagesHolder";
@@ -45,16 +40,13 @@ import Link from "./fonts/Link";
 import Thumbnail from "./survey/survery-summary/Thumbnail";
 import LinkButton from "./buttons/LinkButton";
 import Section from "./containers/Section";
+import StyledButton from "./buttons/StyledButton";
 
 export {
   Footer,
   Divider,
   Input,
-  FormButton,
-  BackButton,
   SurveyProp,
-  ContinueButton,
-  CancelButton,
   SideMenu,
   LoadingPulse,
   Card,
@@ -68,7 +60,6 @@ export {
   FramerMotion,
   Title,
   AppContent,
-  SubButton,
   AddPage,
   NoPages,
   PagesHolder,
@@ -94,4 +85,5 @@ export {
   Thumbnail,
   LinkButton,
   Section,
+  StyledButton as Button,
 };

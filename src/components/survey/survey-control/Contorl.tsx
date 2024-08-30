@@ -1,4 +1,4 @@
-import { SubButton, CancelButton, LinkButton } from "../..";
+import { LinkButton, Button } from "../..";
 import {
   useBreakPoints,
   useDispatches,
@@ -68,7 +68,7 @@ const Contorl = () => {
       <NoteModal onClick={startSurvey} />
       <Flex direction={"column"} gap={"20px"}>
         <SubTitle title={t("common.surveyControl")} />
-        <SubButton
+        <Button
           onClick={() => {
             if (!noStars) {
               openModal();
@@ -79,15 +79,13 @@ const Contorl = () => {
         <>
           {!survey?.isStarted && !noStars ? (
             <LinkButton
-              color="#2835c3"
-              bgColor="#31e981"
               url={`${import.meta.env.VITE_CLIENT_URL}/survey-ranking/${
                 survey?._id
               }`}
               title={"Ergebnisse anzeigen"}
             />
           ) : (
-            <CancelButton onClick={finishSurvey} title={t("button.finish")} />
+            <Button error onClick={finishSurvey} title={t("button.finish")} />
           )}
         </>
       </Flex>

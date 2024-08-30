@@ -3,7 +3,6 @@ import SubTitle from "../../fonts/SubTitle";
 import Card from "../../containers/Card";
 import Flex from "../../containers/Flex";
 import ContentContainer from "../../containers/ContentContainer";
-import FormButton from "../../form/FormButton";
 import FormContainer from "../../form/FormContainer";
 import Input from "../../form/Input";
 import {
@@ -16,6 +15,7 @@ import {
 } from "../../../hooks";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../..";
 
 const NameRegister = () => {
   const { t } = useTranslations();
@@ -96,10 +96,10 @@ const NameRegister = () => {
             />
             {windowWidth > 425 ? (
               <Flex direction={"row"} gap={""} width="100%" justify="flex-end">
-                <FormButton title={t("button.register")} />
+                <Button type="submit" title={t("button.register")} />
               </Flex>
             ) : (
-              <FormButton title={t("button.register")} />
+              <Button type="submit" title={t("button.register")} />
             )}
           </FormContainer>
         </Card>

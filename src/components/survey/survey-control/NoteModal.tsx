@@ -1,5 +1,3 @@
-import CancelButton from "../../buttons/CancelButton";
-import SubButton from "../../buttons/SubButton";
 import ButtonContainer from "../../containers/ButtonContainer";
 import Flex from "../../containers/Flex";
 import Modal from "../../containers/Modal";
@@ -7,10 +5,8 @@ import Span from "../../fonts/Span";
 import { useDispatches, useSelectors } from "../../../hooks";
 import { Alert } from "../../icons";
 import SubTitle from "../../fonts/SubTitle";
-
-export interface INoteModal {
-  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-}
+import { Button } from "../..";
+import { INoteModal } from "../../../types/interfaces/components";
 
 const NoteModal = ({ onClick }: INoteModal) => {
   const { closeModal } = useDispatches();
@@ -30,8 +26,8 @@ const NoteModal = ({ onClick }: INoteModal) => {
           />
           <Span title={"Zurücksetzen ist nich möglich"} />
           <ButtonContainer style={{ justifyContent: "flex-end" }}>
-            <CancelButton onClick={closeModal} title={"Zurück"} />
-            <SubButton onClick={onClick} title={"Neuer Durchgang"} />
+            <Button error onClick={closeModal} title={"Zurück"} />
+            <Button onClick={onClick} title={"Neuer Durchgang"} />
           </ButtonContainer>
         </Flex>
       </Flex>
