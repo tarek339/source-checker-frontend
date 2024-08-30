@@ -3,10 +3,10 @@ import Flex from "../../containers/Flex";
 import { useEffect } from "react";
 import { useSelectors, useDispatches, useScroll } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
-import SubButton from "../../buttons/SubButton";
 import ButtonContainer from "../../containers/ButtonContainer";
 import Span from "../../fonts/Span";
 import { Check } from "../../icons";
+import { Button } from "../..";
 
 const WaitMessage = () => {
   const { modal } = useSelectors();
@@ -34,7 +34,7 @@ const WaitMessage = () => {
             />
           </Flex>
           <ButtonContainer style={{ justifyContent: "flex-end" }}>
-            <SubButton onClick={closeModal} title={"Okay"} />
+            <Button onClick={closeModal} title={"Okay"} />
           </ButtonContainer>
         </Flex>
       </Flex>

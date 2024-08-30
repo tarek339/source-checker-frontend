@@ -8,9 +8,9 @@ import {
 import axios from "axios";
 import { IStarRating } from "../../../types/interfaces/components";
 import { useEffect, useRef, useState } from "react";
-import SubButton from "../../buttons/SubButton";
 import Flex from "../../containers/Flex";
 import WaitMessage from "./WaitMessage";
+import { Button } from "../..";
 
 const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   const { t } = useTranslations();
@@ -89,7 +89,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
           onPointerLeave={onPointerLeave}
         />
         {stars > 0 && !voted ? (
-          <SubButton onClick={handleSubmit} title={t("button.submit")} />
+          <Button onClick={handleSubmit} title={t("button.submit")} />
         ) : null}
       </>
     </Flex>

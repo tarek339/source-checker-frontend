@@ -1,11 +1,11 @@
 import { MutableRefObject, useEffect, useState } from "react";
 import {
+  Button,
   Card,
   ContentContainer,
   Flex,
   FramerMotion,
   Span,
-  SubButton,
   SubTitle,
   Thumbnail,
   Title,
@@ -157,7 +157,7 @@ const SurveyRanking = () => {
             justify="space-between"
             align="center"
             style={{ marginTop: "2em" }}>
-            <SubButton onClick={handleScreenshot} title={"Screenshot"} />
+            <Button onClick={handleScreenshot} title={"Screenshot"} />
 
             <Flex direction={"row"} gap={"10px"}>
               <Span fontSize={22} title={"Sortieren"} fontWeight={600} />

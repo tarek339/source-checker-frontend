@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatches, useSelectors } from "../hooks";
 import Flex from "./containers/Flex";
 import { IOpenGraphView } from "../types/interfaces/components";
-import { SubButton } from ".";
+import { Button } from ".";
 
 const OpenGraphView = ({
   pageID,
@@ -50,7 +50,7 @@ const OpenGraphView = ({
       gap={"15px"}
       style={{ height: "600px", maxWidth: "600px" }}>
       <Flex direction={"row"} gap={""} justify="flex-start">
-        <SubButton
+        <Button
           gap={gap!}
           icon={icon}
           onClick={chooseView}

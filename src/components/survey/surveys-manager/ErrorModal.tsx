@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import {
   ButtonContainer,
-  CancelButton,
-  SubButton,
   Flex,
   FormContainer,
   Modal,
   SubTitle,
   Span,
+  Button,
 } from "../..";
 import {
   useSelectors,
@@ -59,8 +58,8 @@ const ErrorModal = ({
             onSubmit={onSubmit}
             gap={"0px"}>
             <ButtonContainer>
-              <CancelButton onClick={closeModal} title={t("button.cancel")} />
-              <SubButton
+              <Button error onClick={closeModal} title={t("button.cancel")} />
+              <Button
                 type="submit"
                 onClick={() => {
                   onSubmit;

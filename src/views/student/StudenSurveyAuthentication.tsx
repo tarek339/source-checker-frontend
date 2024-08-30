@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import {
   Card,
   Flex,
-  FormButton,
   FramerMotion,
   Input,
   SubTitle,
   ContentContainer,
   FormContainer,
+  Button,
 } from "../../components";
 import {
   useBreakPoints,
@@ -96,10 +96,10 @@ const StudenSurveyAuthentication = () => {
                   gap={""}
                   width="100%"
                   justify="flex-end">
-                  <FormButton title={t("button.register")} />
+                  <Button type="submit" title={t("button.register")} />
                 </Flex>
               ) : (
-                <FormButton title={t("button.register")} />
+                <Button type="submit" title={t("button.register")} />
               )}
             </FormContainer>
           </FramerMotion>

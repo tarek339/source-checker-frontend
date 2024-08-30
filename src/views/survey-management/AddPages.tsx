@@ -11,10 +11,9 @@ import {
   Flex,
   PagesHolder,
   NoPages,
-  SubButton,
   Divider,
-  BackButton,
   ButtonContainer,
+  Button,
 } from "../../components";
 import {
   useDispatches,
@@ -88,18 +87,22 @@ const AddPages = () => {
                 style={{ paddingTop: "0px" }}
                 title={t("addPages.addPages")}
               />
-              <SubButton title={t("addPages.button")} onClick={openModal} />
+              <Button title={t("addPages.button")} onClick={openModal} />
             </Flex>
 
             <Divider />
 
             <ButtonContainer>
-              <BackButton
-                path={`/surveys-manager/save-survey/${survey?._id}`}
+              <Button
+                error
+                onClick={() =>
+                  navigate(`/surveys-manager/save-survey/${survey?._id}`)
+                }
+                title={t("button.back")}
               />
               <>
                 {survey && survey?.pages && survey?.pages?.length > 0 && (
-                  <SubButton
+                  <Button
                     onClick={
                       viewsSelected
                         ? () => navigate(`/survey-control/${survey._id}`)

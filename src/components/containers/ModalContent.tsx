@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatches, useTranslations } from "../../hooks";
 import { IModalContent } from "../../types/interfaces/components";
 import { Alert } from "../icons";
-import { ButtonContainer, CancelButton, Flex, SubButton, SubTitle } from "..";
+import { Button, ButtonContainer, Flex, Span, SubTitle } from "..";
 
 const ModalContent = ({ header, url }: IModalContent) => {
   const { closeModal } = useDispatches();
@@ -24,11 +24,11 @@ const ModalContent = ({ header, url }: IModalContent) => {
           style={{ paddingTop: "0px" }}
           title={`${`${header} ${t("common.delete")}`}?`}
         />
-        <p>{t("saveSurvey.deleteText")}</p>
-        <p>{t("saveSurvey.deleteSection")}</p>
+        <Span title={t("saveSurvey.deleteText")} />
+        <Span title={t("saveSurvey.deleteSection")} />
         <ButtonContainer style={{ paddingTop: "1em" }}>
-          <SubButton onClick={closeModal} title={t("button.cancel")} />
-          <CancelButton onClick={deleteSurvey} title={t("button.delete")} />
+          <Button error onClick={closeModal} title={t("button.cancel")} />
+          <Button onClick={deleteSurvey} title={t("button.delete")} />
         </ButtonContainer>
       </Flex>
     </Flex>

@@ -23,25 +23,6 @@ export interface ITextArea {
   onChange: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
 }
 
-export interface IBackContinueButton {
-  path: string;
-}
-
-export interface ISubButton {
-  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  title: string | JSX.Element | JSX.Element[];
-  type?: "submit" | "reset" | "button" | undefined;
-  width?: string | undefined;
-  icon?: JSX.Element;
-  gap?: string;
-}
-
-export interface ICancelButton {
-  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  title: string;
-  style?: React.CSSProperties;
-}
-
 export interface IModal {
   children: JSX.Element | JSX.Element[];
   isVisible?: boolean;
@@ -96,11 +77,6 @@ export interface IErrorModal {
   errMsg: string | undefined;
   optionOne: string | undefined;
   optionTwo: string | undefined;
-}
-
-export interface IFormButton {
-  title: string | JSX.Element;
-  style?: React.CSSProperties;
 }
 
 export interface IScreenShot {
@@ -332,8 +308,6 @@ export interface IThumbnail {
 export interface ILinkButton {
   url: string;
   title: string;
-  color?: string;
-  bgColor?: string;
 }
 
 export interface ISection {
@@ -353,4 +327,17 @@ export interface ITextSmall {
   text: string | JSX.Element;
   uppercase?: boolean;
   bold?: boolean;
+}
+
+export interface INoteModal {
+  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+}
+
+export interface IButton {
+  title: string | JSX.Element;
+  type?: "submit" | "button" | "reset" | undefined;
+  error?: boolean;
+  icon?: JSX.Element;
+  gap?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }

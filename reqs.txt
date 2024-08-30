@@ -23,3 +23,6 @@ Quellcodelink zu GitLab √
 
 PRIO 2
 Controll UI umdesignen
+
+PRIO 3
+New Buttons
