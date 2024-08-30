@@ -1,13 +1,13 @@
 import { ILinkButton } from "../../types/interfaces/components";
 
-const LinkButton = ({ url, title }: ILinkButton) => {
+const LinkButton = ({ url, title, color, bgColor }: ILinkButton) => {
   return (
     <a
       href={url}
       target="_blank"
       style={{
-        backgroundColor: "#2835c3",
-        color: "#fff",
+        backgroundColor: !bgColor ? "#2835c3" : bgColor,
+        color: !color ? "#fff" : color,
         borderColor: "transparent",
         borderRadius: "45px",
         padding: "6px 20px",

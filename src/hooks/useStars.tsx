@@ -65,6 +65,7 @@ const useStars = () => {
     twoStars,
     oneStar,
     starsAmount,
+    setStarsAmount,
   };
 };
 

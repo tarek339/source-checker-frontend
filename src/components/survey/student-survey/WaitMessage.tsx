@@ -1,0 +1,45 @@
+import Modal from "../../containers/Modal";
+import Flex from "../../containers/Flex";
+import { useEffect } from "react";
+import { useSelectors, useDispatches, useScroll } from "../../../hooks";
+import SubTitle from "../../fonts/SubTitle";
+import SubButton from "../../buttons/SubButton";
+import ButtonContainer from "../../containers/ButtonContainer";
+import Span from "../../fonts/Span";
+import { Check } from "../../icons";
+
+const WaitMessage = () => {
+  const { modal } = useSelectors();
+  const { handleScroll } = useScroll();
+  const { closeModal } = useDispatches();
+
+  useEffect(() => {
+    handleScroll();
+  }, [modal]);
+
+  return (
+    <Modal
+      isVisible={modal}
+      setIsVisible={closeModal}
+      style={{ maxWidth: "600px" }}>
+      <Flex direction={"row"} gap={"10px"} align="flex-start">
+        <Check />
+        <Flex direction={"column"} gap={"15px"}>
+          <Flex direction={"column"} gap={"5px"}>
+            <SubTitle title={"Bitte warte"} />
+            <Span
+              title={
+                "Bitte warte bis der Lehrer auf die nächste Seite wechselt oder die Umfrage beendet."
+              }
+            />
+          </Flex>
+          <ButtonContainer style={{ justifyContent: "flex-end" }}>
+            <SubButton onClick={closeModal} title={"Okay"} />
+          </ButtonContainer>
+        </Flex>
+      </Flex>
+    </Modal>
+  );
+};
+
+export default WaitMessage;
