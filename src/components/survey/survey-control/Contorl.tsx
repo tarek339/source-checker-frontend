@@ -80,7 +80,7 @@ const Contorl = () => {
               url={`${import.meta.env.VITE_CLIENT_URL}/survey-ranking/${
                 survey?._id
               }`}
-              title={"Ergebnisse anzeigen"}
+              title={"Ergebnisse"}
             />
           ) : (
             <Button error onClick={finishSurvey} title={t("button.finish")} />
