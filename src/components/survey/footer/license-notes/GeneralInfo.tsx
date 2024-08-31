@@ -53,6 +53,7 @@ const GeneralInfo = () => {
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
     DEALINGS IN THE SOFTWARE`}
         />
+        <div style={{ paddingTop: "10px" }}></div>
         <Span
           title={"B. Icons used in the tool Quellenchecker (Source Checker)"}
           fontSize={18}
