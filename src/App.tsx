@@ -15,6 +15,7 @@ import {
   SurveyRanking,
   PrivacyPolicy,
   LicenseNotes,
+  Imprint,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
 import { AppContent, Flex, Footer, Header } from "./components";
@@ -34,6 +35,7 @@ function App() {
             <Route path="/" element={<Authentication />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/licence-notes" element={<LicenseNotes />} />
+            <Route path="/imprint" element={<Imprint />} />
             <Route
               path="/surveys-manager/choose-action"
               element={<ChooseAction />}

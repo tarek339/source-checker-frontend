@@ -1,7 +1,9 @@
 import { LuCircleSlash2, LuDot } from "react-icons/lu";
-import { Flex, Link, Span } from "../../components";
-import TextSmall from "../../components/fonts/TextSmall";
 import IconsListing from "./IconsListing";
+import Link from "../../../fonts/Link";
+import Flex from "../../../containers/Flex";
+import Span from "../../../fonts/Span";
+import TextSmall from "../../../fonts/TextSmall";
 
 const ISC = () => {
   return (

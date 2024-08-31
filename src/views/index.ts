@@ -11,7 +11,8 @@ import RegisterStudent from "./student/RegisterStudent";
 import SurveySummary from "./sruvey-summary/SurveySummary";
 import SurveyRanking from "./sruvey-summary/SurveyRanking";
 import PrivacyPolicy from "./PrivacyPolicy";
-import LicenseNotes from "./license-notes/LicenseNotes";
+import LicenseNotes from "./LicenseNotes";
+import Imprint from "./Imprint";
 
 export {
   Authentication,
@@ -28,4 +29,5 @@ export {
   SurveyRanking,
   PrivacyPolicy,
   LicenseNotes,
+  Imprint,
 };

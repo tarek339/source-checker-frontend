@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import { useDispatches } from "../../hooks";
-import { FramerMotion, ContentContainer, Title, Flex } from "../../components";
-import GeneralInfo from "./GeneralInfo";
-import MIT from "./MIT";
-import Apache from "./Apache";
-import ApacheTwo from "./ApacheTwo";
-import ISC from "./ISC";
-import "./table.css";
+import { useDispatches } from "../hooks";
+import { FramerMotion, ContentContainer, Title, Flex } from "../components";
+import "../components/survey/footer/license-notes/table.css";
+import {
+  GeneralInfo,
+  MIT,
+  Apache,
+  ApacheTwo,
+  ISC,
+} from "../components/survey/footer/license-notes";
 
 const LicenseNotes = () => {
   const { setMainPage } = useDispatches();
