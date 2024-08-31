@@ -19,7 +19,9 @@ const LicenseNotes = () => {
 
   return (
     <FramerMotion>
-      <ContentContainer maxWidth={1200}>
+      <ContentContainer
+        maxWidth={1200}
+        style={{ paddingLeft: "10px", paddingRight: "10px" }}>
         <Title
           title={
             "License Information for this website and used icons on this website"

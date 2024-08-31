@@ -11,7 +11,9 @@ import {
 const Imprint = () => {
   return (
     <FramerMotion>
-      <ContentContainer maxWidth={1200}>
+      <ContentContainer
+        maxWidth={1200}
+        style={{ paddingLeft: "10px", paddingRight: "10px" }}>
         <Flex direction={"column"} gap={"70px"}>
           <ImprintInformation />
           <RightsOwner />
