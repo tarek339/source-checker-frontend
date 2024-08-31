@@ -26,26 +26,35 @@ const StyledMUIButton = styled(Button)`
   }
 `;
 
-const StyledButton = ({ title, type, error, icon, gap, onClick }: IButton) => {
+const StyledButton = ({
+  title,
+  type,
+  error,
+  icon,
+  gap,
+  disabled,
+  onClick,
+}: IButton) => {
   const [hovered, setHovered] = useState(false);
   const { loading } = useSelectors();
 
   return (
     <StyledMUIButton
       style={{
-        backgroundColor: error
+        backgroundColor: hovered
+          ? error
+            ? "#cc0000"
+            : "#1420ae"
+          : error
           ? "#ff0000"
-          : error && hovered
-          ? "#cc0000"
-          : hovered
-          ? "#1420ae"
           : "#2835c3",
         cursor: loading ? "default" : "pointer",
       }}
       type={!type ? "button" : type}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={onClick}>
+      onClick={onClick}
+      disabled={disabled}>
       <Flex direction={"row"} gap={gap!} align="center">
         <>
           {icon}

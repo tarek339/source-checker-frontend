@@ -339,5 +339,6 @@ export interface IButton {
   error?: boolean;
   icon?: JSX.Element;
   gap?: string;
+  disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }

@@ -71,6 +71,7 @@ const PageForm = ({
 
         <Button
           type="submit"
+          disabled={loading ? true : false}
           title={
             loading ? (
               <LoadingPulse color={"#fff"} size={10} />
