@@ -1,5 +1,7 @@
-import { Flex, Link, Span } from "../../components";
-import TextSmall from "../../components/fonts/TextSmall";
+import Flex from "../../../containers/Flex";
+import Link from "../../../fonts/Link";
+import Span from "../../../fonts/Span";
+import TextSmall from "../../../fonts/TextSmall";
 
 const GeneralInfo = () => {
   return (

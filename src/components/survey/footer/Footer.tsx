@@ -1,8 +1,8 @@
-import { useTranslations } from "../hooks";
 import { useNavigate } from "react-router-dom";
-import Link from "./fonts/Link";
-import Span from "./fonts/Span";
-import { Dot } from "./icons";
+import { useTranslations } from "../../../hooks";
+import Link from "../../fonts/Link";
+import Span from "../../fonts/Span";
+import { Dot } from "../../icons";
 
 const Footer = () => {
   const { t } = useTranslations();
@@ -30,12 +30,13 @@ const Footer = () => {
         <p>{t("footer.public")}</p>
       </section>
       <section className="footer-links">
-        <Link
-          url={"https://portal.hoou.de/impressum/"}
-          title={t("footer.imprint")}
-          fontWeight={0}
-          fontSize={14}
+        <Span
+          onClick={() => navigate(`/imprint`)}
           color="#2835c3"
+          title={t("footer.imprint")}
+          fontSize={14}
+          fontWeight={500}
+          style={{ textDecoration: "underline", cursor: "pointer" }}
         />
         <Dot />
         <Span

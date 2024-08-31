@@ -7,11 +7,13 @@ import {
   FaRegCopy,
   FaSignOutAlt,
 } from "react-icons/fa";
-import { Flex, Link, Span } from "../../components";
-import TextSmall from "../../components/fonts/TextSmall";
 import IconsListing from "./IconsListing";
 import { FaCircleDot } from "react-icons/fa6";
 import { ImCancelCircle } from "react-icons/im";
+import Link from "../../../fonts/Link";
+import Flex from "../../../containers/Flex";
+import Span from "../../../fonts/Span";
+import TextSmall from "../../../fonts/TextSmall";
 
 const ApacheTwo = () => {
   return (

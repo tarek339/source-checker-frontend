@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import { useDispatches } from "../../hooks";
-import { FramerMotion, ContentContainer, Title, Flex } from "../../components";
-import GeneralInfo from "./GeneralInfo";
-import MIT from "./MIT";
-import Apache from "./Apache";
-import ApacheTwo from "./ApacheTwo";
-import ISC from "./ISC";
-import "./table.css";
+import { useDispatches } from "../hooks";
+import { FramerMotion, ContentContainer, Title, Flex } from "../components";
+import "../components/survey/footer/license-notes/table.css";
+import {
+  GeneralInfo,
+  MIT,
+  Apache,
+  ApacheTwo,
+  ISC,
+} from "../components/survey/footer/license-notes";
 
 const LicenseNotes = () => {
   const { setMainPage } = useDispatches();
@@ -17,7 +19,9 @@ const LicenseNotes = () => {
 
   return (
     <FramerMotion>
-      <ContentContainer maxWidth={1200}>
+      <ContentContainer
+        maxWidth={1200}
+        style={{ paddingLeft: "10px", paddingRight: "10px" }}>
         <Title
           title={
             "License Information for this website and used icons on this website"

@@ -1,4 +1,4 @@
-import Footer from "./Footer";
+import Footer from "./survey/footer/Footer";
 import Divider from "./Divider";
 import Input from "./form/Input";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
@@ -41,6 +41,7 @@ import Thumbnail from "./survey/survery-summary/Thumbnail";
 import LinkButton from "./buttons/LinkButton";
 import Section from "./containers/Section";
 import StyledButton from "./buttons/StyledButton";
+import TextSmall from "./fonts/TextSmall";
 
 export {
   Footer,
@@ -86,4 +87,5 @@ export {
   LinkButton,
   Section,
   StyledButton as Button,
+  TextSmall,
 };

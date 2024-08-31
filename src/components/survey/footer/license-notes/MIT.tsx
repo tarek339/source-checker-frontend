@@ -4,12 +4,14 @@ import {
   IoArrowBackSharp,
   IoArrowForwardSharp,
 } from "react-icons/io5";
-import { Flex, Link, Span } from "../../components";
-import TextSmall from "../../components/fonts/TextSmall";
 import IconsListing from "./IconsListing";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { BiLoaderAlt } from "react-icons/bi";
 import { FiArrowUp } from "react-icons/fi";
+import Link from "../../../fonts/Link";
+import Flex from "../../../containers/Flex";
+import Span from "../../../fonts/Span";
+import TextSmall from "../../../fonts/TextSmall";
 
 const MIT = () => {
   return (
