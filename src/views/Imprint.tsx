@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { FramerMotion, ContentContainer, Flex } from "../components";
 import {
   Contact,
@@ -7,8 +8,15 @@ import {
   RightsOwner,
   TechnicalRealization,
 } from "../components/survey/footer/imprint";
+import { useDispatches } from "../hooks";
 
 const Imprint = () => {
+  const { setMainPage } = useDispatches();
+
+  useEffect(() => {
+    setMainPage(false);
+  }, []);
+
   return (
     <FramerMotion>
       <ContentContainer
