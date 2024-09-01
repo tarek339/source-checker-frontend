@@ -53,7 +53,10 @@ const useDispatches = () => {
   const incFirstSBPage = () =>
     dispatch(increaseFirstPage(firstSideBarPages + 1));
   const incLastSBPage = () => dispatch(increaseLastPage(lastSideBarPages + 1));
-
+  const resetSBPages = () => {
+    dispatch(increaseFirstPage(0));
+    dispatch(increaseLastPage(1));
+  };
   const fetchPageId = (pageId: string) => dispatch(setPageId({ pageId }));
   const fetchSinglePage = (page: IPages) =>
     dispatch(
@@ -122,6 +125,7 @@ const useDispatches = () => {
     setFirst,
     setLast,
     setIsSort,
+    resetSBPages,
   };
 };
 

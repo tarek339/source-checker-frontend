@@ -10,7 +10,6 @@ import SubCard from "./containers/SubCard";
 import ContentContainer from "./containers/ContentContainer";
 import Flex from "./containers/Flex";
 import SubTitle from "./fonts/SubTitle";
-import LoadingBar from "./LoadingBar";
 import FramerMotion from "./containers/FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
 import Title from "./fonts/Title";
@@ -56,7 +55,6 @@ export {
   ContentContainer,
   Flex,
   SubTitle,
-  LoadingBar,
   LoadingSpinner,
   FramerMotion,
   Title,

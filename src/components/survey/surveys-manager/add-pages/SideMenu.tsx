@@ -6,12 +6,12 @@ import {
   useTranslations,
 } from "../../../../hooks";
 import OpenGraphView from "../../../OpenGraphView";
-import ScreenShot from "../../../ScreenShot";
 import SubTitle from "../../../fonts/SubTitle";
 import Flex from "../../../containers/Flex";
 import SideBar from "../../../containers/SideBar";
 import { Desktop, Generate, Mobile } from "../../../icons";
 import EmptyData from "./EmptyData";
+import Screenshot from "../../../ScreenShot";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -65,7 +65,7 @@ const SideMenu = () => {
                     height={"580px"}
                   />
                 ) : (
-                  <ScreenShot
+                  <Screenshot
                     title={"Mobile"}
                     height={"580px"}
                     width={
@@ -97,7 +97,7 @@ const SideMenu = () => {
                     height={windowWidth < 500 ? "auto" : "580px"}
                   />
                 ) : (
-                  <ScreenShot
+                  <Screenshot
                     title={"Desktop"}
                     height={windowWidth < 500 ? "auto" : "580px"}
                     width={

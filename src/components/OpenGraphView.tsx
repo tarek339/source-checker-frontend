@@ -20,6 +20,7 @@ const OpenGraphView = ({
     incFirstSBPage,
     incLastSBPage,
     dispatchSideBar,
+    resetSBPages,
   } = useDispatches();
 
   const chooseView = async () => {
@@ -38,6 +39,7 @@ const OpenGraphView = ({
         incLastSBPage();
       } else {
         dispatchSideBar(false);
+        resetSBPages();
       }
     } catch (error) {
       console.log(error);

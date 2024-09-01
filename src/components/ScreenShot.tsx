@@ -2,10 +2,9 @@ import axios from "axios";
 import { useDispatches, useSelectors } from "../hooks";
 import { IScreenShot } from "../types/interfaces/components";
 import Flex from "./containers/Flex";
-import { useEffect } from "react";
 import { Button } from ".";
 
-const ScreenShot = ({
+const Screenshot = ({
   title,
   width,
   id,
@@ -22,16 +21,10 @@ const ScreenShot = ({
     incLastSBPage,
     dispatchSurvey,
     dispatchPages,
+    resetSBPages,
   } = useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
-
-  useEffect(() => {
-    surveyPages.map((page) => {
-      console.log(page.desktopScreenshot);
-      console.log(page.mobileScreenshot);
-    });
-  }, [surveyPages]);
 
   const chooseView = async () => {
     try {
@@ -49,6 +42,7 @@ const ScreenShot = ({
         incLastSBPage();
       } else {
         dispatchSideBar(false);
+        resetSBPages();
       }
     } catch (error) {
       console.log(error);
@@ -84,4 +78,4 @@ const ScreenShot = ({
   );
 };
 
-export default ScreenShot;
+export default Screenshot;

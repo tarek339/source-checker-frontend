@@ -193,11 +193,6 @@ export interface ISubTitle {
   style?: React.CSSProperties;
 }
 
-export interface ILoadingBar {
-  percent: number;
-  marginTop: number;
-}
-
 export interface IFramerMotion {
   children: JSX.Element | JSX.Element[];
 }
