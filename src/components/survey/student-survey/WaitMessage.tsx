@@ -28,9 +28,7 @@ const WaitMessage = () => {
           <Flex direction={"column"} gap={"5px"}>
             <SubTitle title={"Bitte warte"} />
             <Span
-              title={
-                "Bitte warte bis der Lehrer auf die nächste Seite wechselt oder die Umfrage beendet."
-              }
+              title={"Einen Moment bitte, gleich kommt das nächste Beispiel."}
             />
           </Flex>
           <ButtonContainer style={{ justifyContent: "flex-end" }}>
