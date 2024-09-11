@@ -1,4 +1,3 @@
-import Footer from "./survey/footer/Footer";
 import Divider from "./Divider";
 import Input from "./form/Input";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
@@ -41,6 +40,7 @@ import LinkButton from "./buttons/LinkButton";
 import Section from "./containers/Section";
 import StyledButton from "./buttons/StyledButton";
 import TextSmall from "./fonts/TextSmall";
+import Footer from "./footer/Footer";
 
 export {
   Footer,

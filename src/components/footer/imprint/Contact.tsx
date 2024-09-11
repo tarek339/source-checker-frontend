@@ -1,6 +1,6 @@
-import Flex from "../../../containers/Flex";
-import Span from "../../../fonts/Span";
-import SubTitle from "../../../fonts/SubTitle";
+import Flex from "../../containers/Flex";
+import Span from "../../fonts/Span";
+import SubTitle from "../../fonts/SubTitle";
 
 const Contact = () => {
   return (

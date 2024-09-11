@@ -1,6 +1,6 @@
-import Flex from "../../../containers/Flex";
-import Span from "../../../fonts/Span";
-import Title from "../../../fonts/Title";
+import Flex from "../../containers/Flex";
+import Span from "../../fonts/Span";
+import Title from "../../fonts/Title";
 
 const ImprintInformation = () => {
   return (

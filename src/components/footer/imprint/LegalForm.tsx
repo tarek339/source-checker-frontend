@@ -1,5 +1,5 @@
-import Flex from "../../../containers/Flex";
-import Span from "../../../fonts/Span";
+import Flex from "../../containers/Flex";
+import Span from "../../fonts/Span";
 
 const LegalForm = () => {
   return (

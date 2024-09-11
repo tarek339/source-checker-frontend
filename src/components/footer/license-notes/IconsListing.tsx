@@ -1,6 +1,4 @@
-interface IIconsListing {
-  children: JSX.Element[] | JSX.Element | undefined;
-}
+import { IIconsListing } from "../../../types/interfaces/components";
 
 const IconsListing = ({ children }: IIconsListing) => {
   return (

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { useTranslations } from "../../../hooks";
-import Link from "../../fonts/Link";
-import Span from "../../fonts/Span";
-import { Dot } from "../../icons";
+import Link from "../fonts/Link";
+import { useTranslations } from "../../hooks";
+import Span from "../fonts/Span";
+import { Dot } from "../icons";
 
 const Footer = () => {
   const { t } = useTranslations();

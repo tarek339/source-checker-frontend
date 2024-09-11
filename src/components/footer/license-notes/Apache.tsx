@@ -7,10 +7,10 @@ import {
 import IconsListing from "./IconsListing";
 import { RiDeleteBin5Fill, RiStarSFill } from "react-icons/ri";
 import { GrZoomIn } from "react-icons/gr";
-import Flex from "../../../containers/Flex";
-import Span from "../../../fonts/Span";
-import TextSmall from "../../../fonts/TextSmall";
-import Link from "../../../fonts/Link";
+import Link from "../../fonts/Link";
+import Flex from "../../containers/Flex";
+import Span from "../../fonts/Span";
+import TextSmall from "../../fonts/TextSmall";
 
 const Apache = () => {
   return (

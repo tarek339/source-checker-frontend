@@ -337,3 +337,7 @@ export interface IButton {
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
+
+export interface IIconsListing {
+  children: JSX.Element[] | JSX.Element | undefined;
+}

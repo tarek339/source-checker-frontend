@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useDispatches } from "../hooks";
 import { FramerMotion, ContentContainer, Title, Flex } from "../components";
-import "../components/survey/footer/license-notes/table.css";
+import "../components/footer/license-notes/table.css";
 import {
   GeneralInfo,
   MIT,
   Apache,
   ApacheTwo,
   ISC,
-} from "../components/survey/footer/license-notes";
+} from "../components/footer/license-notes";
 
 const LicenseNotes = () => {
   const { setMainPage } = useDispatches();
