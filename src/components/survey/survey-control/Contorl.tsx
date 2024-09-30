@@ -12,17 +12,22 @@ import SubCard from "../../containers/SubCard";
 import axios from "axios";
 import NoteModal from "./NoteModal";
 import { useEffect, useState } from "react";
-import QrCodeModal from "./QrCodeModal";
 import { Copy, ZoomIn } from "../../icons";
 import QrCode from "../../QRCode";
 import moment from "moment";
+import QrCodeComp from "./QrCodeComp";
 
 const Contorl = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
-  const { survey, surveyPages } = useSelectors();
-  const { dispatchSurvey, setCurrentPage, closeModal, openModal } =
-    useDispatches();
+  const { survey, surveyPages, qrCode } = useSelectors();
+  const {
+    dispatchSurvey,
+    setCurrentPage,
+    closeModal,
+    openModal,
+    openQrCodeModal,
+  } = useDispatches();
   const { fetchSurvey } = useRequests();
 
   const [noStars, setNoStars] = useState(false);
@@ -48,6 +53,10 @@ const Contorl = () => {
       } else setNoStars(false);
     });
   }, [surveyPages, noStars]);
+
+  useEffect(() => {
+    console.log(qrCode);
+  }, [qrCode]);
 
   const finishSurvey = async () => {
     try {
@@ -111,11 +120,10 @@ const Contorl = () => {
         </Flex>
 
         <Flex direction={"column"} gap={"15px"}>
-          <QrCodeModal />
-
+          <QrCodeComp />
           <Flex direction={"row"} gap={"20px"}>
             <Flex
-              onClick={openModal}
+              onClick={openQrCodeModal}
               direction={"column"}
               gap={"0px"}
               style={{ cursor: "pointer" }}>

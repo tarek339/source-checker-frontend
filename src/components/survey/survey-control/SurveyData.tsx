@@ -10,7 +10,7 @@ import {
 } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
 import { useState } from "react";
-import QrCodeModal from "./QrCodeModal";
+import QrCodeModal from "./QrCodeComp";
 import Span from "../../fonts/Span";
 import { Copy, ZoomIn } from "../../icons";
 

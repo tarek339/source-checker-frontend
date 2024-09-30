@@ -43,6 +43,10 @@ export interface IHandleModal {
   isVisible: boolean;
 }
 
+export interface IHandleQrCode {
+  visible: boolean;
+}
+
 export interface InitialStateSurvey {
   pages: IPages[];
   sideBarFirstPage: number;

@@ -34,6 +34,7 @@ import {
   handleLast,
   handleIsSort,
 } from "./sliceNums";
+import { handleQrCode, qrCodeReducer } from "./qrCode";
 
 export {
   handleTranslation,
@@ -60,6 +61,7 @@ export {
   handleFirst,
   handleLast,
   handleIsSort,
+  handleQrCode,
   sliceNumsReducer,
   studenReducer,
   surveyControllerReducer,
@@ -72,4 +74,5 @@ export {
   translationsReducer,
   loadingReducer,
   sideBarPageReducer,
+  qrCodeReducer,
 };

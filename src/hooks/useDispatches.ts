@@ -22,6 +22,7 @@ import {
   increaseFirstPage,
   increaseLastPage,
   setPageId,
+  handleQrCode,
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
 import { IPages, IStudent, ISurvey } from "../types/interfaces/interfaces";
@@ -39,6 +40,8 @@ const useDispatches = () => {
     dispatch(addSurveyPages({ pages: pages }));
 
   const openModal = () => dispatch(handleModal({ isVisible: true }));
+  const openQrCodeModal = () => dispatch(handleQrCode({ visible: true }));
+  const closeQrCodeModal = () => dispatch(handleQrCode({ visible: false }));
   const closeModal = () => dispatch(handleModal({ isVisible: false }));
 
   const dispatchLoading = (loading: boolean) =>
@@ -126,6 +129,8 @@ const useDispatches = () => {
     setLast,
     setIsSort,
     resetSBPages,
+    openQrCodeModal,
+    closeQrCodeModal,
   };
 };
 
