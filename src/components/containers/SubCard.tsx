@@ -1,6 +1,6 @@
 import { ISubCard } from "../../types/interfaces/components";
 
-const SubCard = ({ children, width, style }: ISubCard) => {
+const SubCard = ({ children, width, style, height }: ISubCard) => {
   return (
     <div
       className="sub-card"
@@ -10,6 +10,7 @@ const SubCard = ({ children, width, style }: ISubCard) => {
         borderRadius: "20px",
         boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
         width: width,
+        height: height,
         ...style,
       }}>
       {children}
