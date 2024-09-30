@@ -157,7 +157,7 @@ const SurveyRanking = () => {
             justify="space-between"
             align="center"
             style={{ marginTop: "2em" }}>
-            <Button onClick={handleScreenshot} title={"Screenshot"} />
+            <Button onClick={handleScreenshot} title={"Ergebnisse speichern"} />
 
             <Flex direction={"row"} gap={"10px"}>
               <Span fontSize={22} title={"Sortieren"} fontWeight={600} />

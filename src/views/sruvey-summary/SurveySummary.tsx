@@ -68,7 +68,7 @@ const SurveySummary = () => {
                   return (
                     <Thumbnail
                       width={windowWidth < 691 ? "294px" : "50%"}
-                      height={windowWidth < 691 ? "165px" : "auto"}
+                      height={windowWidth < 691 ? "165px" : "250px"}
                       url={
                         page.isMobileView
                           ? page.mobileScreenshot
