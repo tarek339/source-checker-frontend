@@ -24,7 +24,7 @@ const NoteModal = ({ onClick }: INoteModal) => {
               "Wenn du das bestätigst werden die Daten von dem vorherigen Durchlauf gelöscht."
             }
           />
-          <Span title={"Zurücksetzen ist nich möglich"} />
+          <Span title={"Zurücksetzen ist nich möglich."} />
           <ButtonContainer style={{ justifyContent: "flex-end" }}>
             <Button error onClick={closeModal} title={"Zurück"} />
             <Button onClick={onClick} title={"Neuer Durchgang"} />
