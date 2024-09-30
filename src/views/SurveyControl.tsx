@@ -4,10 +4,8 @@ import {
   Flex,
   FramerMotion,
   CurrentPage,
-  PageControl,
   SubTitle,
   ContentContainer,
-  SurveyData,
   SurveyStatus,
 } from "../components";
 import {
@@ -56,13 +54,13 @@ const SurveyControl = () => {
           style={{
             marginTop: "1em",
           }}>
-          <Flex direction={windowWidth < 768 ? "column" : "row"} gap={"20px"}>
-            <CurrentPage />
-            <SurveyData />
-          </Flex>
+          {/* <Flex direction={windowWidth < 768 ? "column" : "row"} gap={"20px"}> */}
+          <CurrentPage />
+          {/* <SurveyData /> */}
+          {/* </Flex> */}
           <Flex direction={windowWidth < 768 ? "column" : "row"} gap={"20px"}>
             <Contorl />
-            <PageControl />
+            {/* <PageControl /> */}
             <SurveyStatus />
           </Flex>
         </Flex>

@@ -1,35 +1,96 @@
-import { useBreakPoints, useSelectors, useTranslations } from "../../../hooks";
+import {
+  useBreakPoints,
+  useDispatches,
+  useSelectors,
+  useTranslations,
+} from "../../../hooks";
 import { IPages } from "../../../types/interfaces/interfaces";
 import SubTitle from "../../fonts/SubTitle";
 import Flex from "../../containers/Flex";
 import SubCard from "../../containers/SubCard";
 import Span from "../../fonts/Span";
 import Link from "../../fonts/Link";
+import { Button } from "../..";
+import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const CurrentPage = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
   const { surveyPages, currentPage } = useSelectors();
+  const {
+    setCurrentPage,
+    dispatchSurvey,
+    setVoted,
+    setVotedStars,
+    closeModal,
+  } = useDispatches();
+  const { id } = useParams();
+
+  const handleCurrentPage = async (pageNum: number) => {
+    try {
+      setVoted(false);
+      setVotedStars(0);
+      const res = await axios.post(`/survey/set-current-page/${id}`, {
+        pageNum,
+      });
+      dispatchSurvey(res.data.survey);
+      setCurrentPage(res.data.survey.pageNum);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage !== surveyPages.length) {
+      closeModal();
+      handleCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      closeModal();
+      handleCurrentPage(currentPage - 1);
+    }
+  };
 
   return (
-    <SubCard width={windowWidth < 768 ? "" : "60%"}>
-      <Flex direction={"column"} gap={"10px"}>
-        <Flex
-          direction={"row"}
-          gap={"5px"}
-          align="center"
-          justify="space-between">
+    <SubCard height="35vh">
+      <Flex direction={"row"} gap={"20px"} justify="space-between">
+        <Flex direction={"row"} gap={"0px"}>
           <SubTitle title={t("surveyControl.currentPage")} />
-          <SubTitle title={`${`${currentPage}/${surveyPages.length}`}`} />
         </Flex>
 
-        <Flex direction={windowWidth >= 768 ? "row" : "column"} gap={"10px"}>
-          <div style={{ width: windowWidth >= 768 ? "50%" : "100%" }}>
+        <Flex direction={"column"} gap={"40px"}>
+          <Flex direction={"row"} gap={"20px"} justify="space-between">
+            <Button
+              onClick={prevPage}
+              title={
+                <>
+                  <IoArrowBackSharp fontSize={"22px"} />
+                  <span>{t("button.back")}</span>
+                </>
+              }
+            />
+            <Button
+              onClick={nextPage}
+              title={
+                <>
+                  <span>{t("button.next")}</span>
+                  <IoArrowForwardSharp fontSize={"22px"} />
+                </>
+              }
+            />
+            <SubTitle title={`${`${currentPage}/${surveyPages.length}`}`} />
+          </Flex>
+          <div>
             {surveyPages
               .slice(currentPage - 1, currentPage)
               .map((page: IPages, i: number) => {
                 return (
-                  <Flex key={i} direction={"column"} gap={"5px"}>
+                  <Flex key={i} direction={"column"} gap={"10px"}>
                     <Span
                       title={`${t("common.title")}: ${page.title}`}
                       fontWeight={600}
@@ -58,38 +119,39 @@ const CurrentPage = () => {
                 );
               })}
           </div>
-          <div style={{ width: windowWidth >= 768 ? "50%" : "100%" }}>
-            {surveyPages
-              .slice(currentPage - 1, currentPage)
-              .map((page: IPages, i) => {
-                return (
-                  <div
-                    className="hide-scroll-bar"
-                    key={i}
-                    style={{
-                      height: windowWidth >= 768 ? "180px" : "300px",
-                      overflow: "scroll",
-                    }}>
-                    <img
-                      src={
-                        page.isMobileView
-                          ? page.mobileScreenshot
-                          : page.isMobileView === false
-                          ? page.desktopScreenshot
-                          : page.isMobileView === null && page.isOpenGraphView
-                          ? page.openGraph.ogImage.map(
-                              (img: { url: string }) => img.url
-                            )
-                          : null
-                      }
-                      style={{ width: "100%", height: "auto" }}
-                      alt=""
-                    />
-                  </div>
-                );
-              })}
-          </div>
         </Flex>
+
+        <div style={{ width: windowWidth >= 768 ? "45%" : "100%" }}>
+          {surveyPages
+            .slice(currentPage - 1, currentPage)
+            .map((page: IPages, i) => {
+              return (
+                <div
+                  className="hide-scroll-bar"
+                  key={i}
+                  style={{
+                    height: windowWidth >= 768 ? "270px" : "300px",
+                    overflow: "scroll",
+                  }}>
+                  <img
+                    src={
+                      page.isMobileView
+                        ? page.mobileScreenshot
+                        : page.isMobileView === false
+                        ? page.desktopScreenshot
+                        : page.isMobileView === null && page.isOpenGraphView
+                        ? page.openGraph.ogImage.map(
+                            (img: { url: string }) => img.url
+                          )
+                        : null
+                    }
+                    style={{ width: "100%", height: "auto" }}
+                    alt=""
+                  />
+                </div>
+              );
+            })}
+        </div>
       </Flex>
     </SubCard>
   );

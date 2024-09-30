@@ -144,6 +144,7 @@ export interface ISubCard {
   children: JSX.Element | JSX.Element[];
   width?: string;
   style?: React.CSSProperties;
+  height?: string;
 }
 
 export interface IFlex {
