@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelectors, useBreakPoints } from "../../../hooks";
 import { ISectionHolder } from "../../../types/interfaces/components";
 import Flex from "../../containers/Flex";
@@ -15,15 +14,6 @@ const SectionHolder = ({
   const { survey } = useSelectors();
   const { windowWidth } = useBreakPoints();
 
-  const [hovered, setHovered] = useState<number | null>(null);
-
-  const handleMouseEnter = (row: number) => {
-    setHovered(row);
-  };
-  const handleMouseLeave = () => {
-    setHovered(null);
-  };
-
   return (
     <>
       {page.starsArray
@@ -39,13 +29,9 @@ const SectionHolder = ({
               justify={"space-between"}
               style={{
                 borderBottom: "2px solid #2835c3",
-                cursor: "pointer",
                 padding: "5px 5px 5px 10px",
-                backgroundColor: hovered === i ? "#2835c320" : "",
                 transition: "background-color 0.3s",
-              }}
-              onMouseEnter={() => handleMouseEnter(i)}
-              onMouseLeave={handleMouseLeave}>
+              }}>
               <SectionChild
                 style={{ paddingTop: "1.5px", textTransform: "capitalize" }}
                 text={

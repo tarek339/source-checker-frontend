@@ -127,11 +127,11 @@ const CurrentPage = () => {
             .map((page: IPages, i) => {
               return (
                 <div
-                  className="hide-scroll-bar"
+                  // className="hide-scroll-bar"
                   key={i}
                   style={{
                     height: windowWidth >= 768 ? "270px" : "300px",
-                    overflow: "scroll",
+                    overflowY: "scroll",
                   }}>
                   <img
                     src={
