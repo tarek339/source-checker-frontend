@@ -30,6 +30,13 @@ export interface IModal {
   style?: React.CSSProperties;
 }
 
+export interface IQrCodeModal {
+  children: JSX.Element | JSX.Element[];
+  isVisible?: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  style?: React.CSSProperties;
+}
+
 export interface IModals {
   children: JSX.Element | JSX.Element[];
   isOpen: boolean;

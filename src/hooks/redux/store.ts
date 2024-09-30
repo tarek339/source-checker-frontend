@@ -3,6 +3,7 @@ import {
   loadingReducer,
   mainPageReducer,
   modalReducer,
+  qrCodeReducer,
   sideBarPageReducer,
   sideBarReducer,
   sliceNumsReducer,
@@ -28,6 +29,7 @@ export const store = configureStore({
     surveyController: surveyControllerReducer,
     student: studenReducer,
     sliceNums: sliceNumsReducer,
+    qrCode: qrCodeReducer,
   },
 });
 
