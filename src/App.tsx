@@ -18,7 +18,7 @@ import {
   Imprint,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
-import { AppContent, Flex, Footer, Header } from "./components";
+import { AppContent, Flex, Footer, Header, ScrollToTop } from "./components";
 import { useSelectors, useTranslations } from "./hooks";
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
   return (
     <AppContent>
       <>{mainPage ? null : <Header title={t("common.sourceChecker")} />}</>
-
+      <ScrollToTop />
       <Flex direction={"column"} gap={""} height="90vh" justify="space-between">
         <AnimatePresence mode="wait">
           <Routes>
