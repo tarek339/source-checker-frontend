@@ -41,6 +41,7 @@ import Section from "./containers/Section";
 import StyledButton from "./buttons/StyledButton";
 import TextSmall from "./fonts/TextSmall";
 import Footer from "./footer/Footer";
+import ScrollToTop from "./ScrollToTop";
 
 export {
   Footer,
@@ -86,4 +87,5 @@ export {
   Section,
   StyledButton as Button,
   TextSmall,
+  ScrollToTop,
 };
