@@ -12,6 +12,12 @@ import SideBar from "../../../containers/SideBar";
 import { Desktop, Generate, Mobile } from "../../../icons";
 import EmptyData from "./EmptyData";
 import Screenshot from "../../../ScreenShot";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {
+  increaseFirstPage,
+  increaseLastPage,
+} from "../../../../hooks/redux/slices";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -19,6 +25,15 @@ const SideMenu = () => {
   const { dispatchSideBar } = useDispatches();
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const selectedIndex = surveyPages?.findIndex(
+      (page) => !page.isSelectedView
+    );
+    dispatch(increaseFirstPage(selectedIndex));
+    dispatch(increaseLastPage(selectedIndex + 1));
+  }, [surveyPages]);
 
   return (
     <SideBar collapsed={sideBar} toggled={sideBar}>
@@ -43,6 +58,10 @@ const SideMenu = () => {
       <>
         {surveyPages
           ?.slice(firstSideBarPages, lastSideBarPages)
+          ?.filter(
+            (page) =>
+              page.isMobileView === null || page.isOpenGraphView !== false
+          )
           ?.map((page) => {
             return (
               <Flex

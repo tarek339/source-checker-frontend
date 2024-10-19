@@ -1,13 +1,13 @@
 import useSelectors from "./useSelectors";
 
 const useScroll = () => {
-  const { modal } = useSelectors();
+  const { modal, viewsModal, qrCode } = useSelectors();
 
   const handleScroll = () => {
-    if (modal) {
+    if (modal || viewsModal || qrCode) {
       document.body.style.overflow = "hidden";
     }
-    if (!modal) {
+    if (!modal && !viewsModal && !qrCode) {
       document.body.style.overflow = "auto";
     }
   };

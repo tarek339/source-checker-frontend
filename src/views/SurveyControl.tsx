@@ -54,13 +54,9 @@ const SurveyControl = () => {
           style={{
             marginTop: "1em",
           }}>
-          {/* <Flex direction={windowWidth < 768 ? "column" : "row"} gap={"20px"}> */}
           <CurrentPage />
-          {/* <SurveyData /> */}
-          {/* </Flex> */}
-          <Flex direction={windowWidth < 768 ? "column" : "row"} gap={"20px"}>
+          <Flex direction={windowWidth < 880 ? "column" : "row"} gap={"20px"}>
             <Contorl />
-            {/* <PageControl /> */}
             <SurveyStatus />
           </Flex>
         </Flex>

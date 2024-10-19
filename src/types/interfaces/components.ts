@@ -1,5 +1,10 @@
 import { IPages } from "./interfaces";
-import { IHandleFirst, IHandleLast, IHandleModal } from "./redux/slices";
+import {
+  IHandleFirst,
+  IHandleLast,
+  IHandleModal,
+  IHandleViewsModal,
+} from "./redux/slices";
 
 export interface IInput {
   type?: string;
@@ -31,6 +36,13 @@ export interface IModal {
 }
 
 export interface IQrCodeModal {
+  children: JSX.Element | JSX.Element[];
+  isVisible?: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  style?: React.CSSProperties;
+}
+
+export interface IChangeViewsModal {
   children: JSX.Element | JSX.Element[];
   isVisible?: boolean;
   setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -96,6 +108,10 @@ export interface IScreenShot {
   height: string;
   icon: JSX.Element;
   gap?: string;
+  closeModal?: () => {
+    payload: IHandleViewsModal;
+    type: "viewsModal/handleViewsModal";
+  };
 }
 
 export interface ILoadingPulse {
@@ -348,4 +364,8 @@ export interface IButton {
 
 export interface IIconsListing {
   children: JSX.Element[] | JSX.Element | undefined;
+}
+
+export interface IViewsModal {
+  pageId: string;
 }

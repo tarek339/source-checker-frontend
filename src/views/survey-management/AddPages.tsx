@@ -24,7 +24,7 @@ import {
 } from "../../hooks";
 
 const AddPages = () => {
-  const { openModal, dispatchSideBar } = useDispatches();
+  const { openModal, dispatchSideBar, resetSBPages } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { survey, surveyPages } = useSelectors();
@@ -49,6 +49,12 @@ const AddPages = () => {
       setViewsSelected(false);
     }
   }, [viewsSelected, survey]);
+
+  useEffect(() => {
+    if (surveyPages?.length === 0) {
+      resetSBPages();
+    }
+  });
 
   return (
     <ContentContainer style={{ position: "relative" }}>

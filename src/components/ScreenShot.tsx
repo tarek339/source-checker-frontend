@@ -15,14 +15,8 @@ const Screenshot = ({
   icon,
   gap,
 }: IScreenShot) => {
-  const {
-    dispatchSideBar,
-    incFirstSBPage,
-    incLastSBPage,
-    dispatchSurvey,
-    dispatchPages,
-    resetSBPages,
-  } = useDispatches();
+  const { dispatchSideBar, dispatchSurvey, dispatchPages, closeViewsModal } =
+    useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
 
@@ -36,13 +30,10 @@ const Screenshot = ({
       if (res.data.survey) {
         dispatchSurvey(res.data.survey);
         dispatchPages(res.data.survey.pages);
+        closeViewsModal();
       }
-      if (surveyPages.length !== lastSideBarPages) {
-        incFirstSBPage();
-        incLastSBPage();
-      } else {
+      if (surveyPages.length === lastSideBarPages) {
         dispatchSideBar(false);
-        resetSBPages();
       }
     } catch (error) {
       console.log(error);

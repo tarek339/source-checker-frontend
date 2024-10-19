@@ -14,14 +14,8 @@ const OpenGraphView = ({
   icon,
 }: IOpenGraphView) => {
   const { survey, surveyPages, lastSideBarPages } = useSelectors();
-  const {
-    dispatchSurvey,
-    dispatchPages,
-    incFirstSBPage,
-    incLastSBPage,
-    dispatchSideBar,
-    resetSBPages,
-  } = useDispatches();
+  const { dispatchSurvey, dispatchPages, dispatchSideBar, closeViewsModal } =
+    useDispatches();
 
   const chooseView = async () => {
     try {
@@ -33,13 +27,10 @@ const OpenGraphView = ({
       if (res.data.survey) {
         dispatchSurvey(res.data.survey);
         dispatchPages(res.data.survey.pages);
+        closeViewsModal();
       }
-      if (surveyPages.length !== lastSideBarPages) {
-        incFirstSBPage();
-        incLastSBPage();
-      } else {
+      if (surveyPages.length === lastSideBarPages) {
         dispatchSideBar(false);
-        resetSBPages();
       }
     } catch (error) {
       console.log(error);

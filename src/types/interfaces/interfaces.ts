@@ -8,6 +8,7 @@ export interface IPages {
   isMobileView: boolean | null;
   openGraph: any;
   isOpenGraphView: boolean;
+  isSelectedView: boolean;
   starsArray: [
     {
       studentId: string;

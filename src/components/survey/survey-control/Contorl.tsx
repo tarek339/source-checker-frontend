@@ -92,10 +92,16 @@ const Contorl = () => {
   return (
     <SubCard
       style={{ paddingLeft: "20px", paddingRight: "20px" }}
-      width={windowWidth < 768 ? "" : `${75}%`}>
+      width={windowWidth < 880 ? "100%" : `${75}%`}>
       <NoteModal onClick={startSurvey} />
-      <Flex direction={"row"} gap={"30px"} justify="space-between">
-        <Flex direction={"column"} gap={"20px"} width="50%">
+      <Flex
+        direction={windowWidth < 880 ? "column" : "row"}
+        gap={"30px"}
+        justify="space-between">
+        <Flex
+          direction={"column"}
+          gap={"20px"}
+          width={windowWidth > 880 ? "50%" : "100%"}>
           <SubTitle title={t("common.surveyControl")} />
           <Button
             onClick={() => {
@@ -121,7 +127,9 @@ const Contorl = () => {
 
         <Flex direction={"column"} gap={"15px"}>
           <QrCodeComp />
-          <Flex direction={"row"} gap={"20px"}>
+          <Flex
+            direction={windowWidth > 400 ? "row" : "column-reverse"}
+            gap={"20px"}>
             <Flex
               onClick={openQrCodeModal}
               direction={"column"}
