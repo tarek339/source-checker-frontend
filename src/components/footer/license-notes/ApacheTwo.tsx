@@ -5,6 +5,7 @@ import {
   FaImage,
   FaMobileAlt,
   FaRegCopy,
+  FaRegEdit,
   FaSignOutAlt,
 } from "react-icons/fa";
 import IconsListing from "./IconsListing";
@@ -329,6 +330,30 @@ const ApacheTwo = () => {
                   <FaCircleDot />
                 </td>
                 <td className="td">FaCircleDot</td>
+                <td className="td">Font Awesome</td>
+                <td className="td">
+                  <a href="https://fontawesome.com/">
+                    https://fontawesome.com/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) 2024 Fonticons, Inc.
+                  <a href=" https://fontawesome.com">
+                    {" "}
+                    https://fontawesome.com
+                  </a>
+                </td>
+                <td className="td">
+                  <a href="https://creativecommons.org/licenses/by/4.0/deed.en">
+                    https://creativecommons.org/licenses/by/4.0/deed.en
+                  </a>
+                </td>
+              </tr>
+              <tr className="tr">
+                <td className="td">
+                  <FaRegEdit />
+                </td>
+                <td className="td">FaRegEdit</td>
                 <td className="td">Font Awesome</td>
                 <td className="td">
                   <a href="https://fontawesome.com/">

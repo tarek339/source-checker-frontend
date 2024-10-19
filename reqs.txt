@@ -16,15 +16,15 @@ Hinweis Titel löschen √
 
 
 PRIO 1.5
-Datenschutz
+Datenschutz √
 Lizenzhinweise √
-Impressum
+Impressum √
 Quellcodelink zu GitLab √
 
 PRIO 2
-Controll UI umdesignen
+Controll UI umdesignen √
 
 PRIO 3
-New Buttons
+New Buttons √
 
  
