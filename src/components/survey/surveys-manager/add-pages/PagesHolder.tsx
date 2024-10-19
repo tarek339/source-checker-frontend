@@ -8,11 +8,15 @@ import {
   useBreakPoints,
 } from "../../../../hooks";
 import Table from "../../../Table";
+import { Edit } from "../../../icons";
+import Flex from "../../../containers/Flex";
+import ViewsModal from "./ViewsModal";
+import { IPages } from "../../../../types/interfaces/interfaces";
 
 const PagesHolder = () => {
   const { surveyPages, survey } = useSelectors();
   const { t } = useTranslations();
-  const { dispatchSurvey } = useDispatches();
+  const { dispatchSurvey, openViewsModal } = useDispatches();
   const { fetchSurvey } = useRequests();
   const { windowWidth } = useBreakPoints();
 
@@ -21,6 +25,7 @@ const PagesHolder = () => {
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
   const [first, setFirst] = useState(0);
   const [last, setLast] = useState(5);
+  const [pageID, setpageID] = useState("");
 
   const handleMouseEnter = (row: number) => {
     setHoveredRow(row);
@@ -43,8 +48,22 @@ const PagesHolder = () => {
     }
   };
 
+  const selectPage = async (pageId: string) => {
+    try {
+      surveyPages.filter((page: IPages) => {
+        if (page._id === pageId) {
+          setpageID(page._id);
+        }
+      });
+      openViewsModal();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
+      <ViewsModal pageId={pageID} />
       <Table
         headers={
           screenXS
@@ -78,13 +97,30 @@ const PagesHolder = () => {
                   style={{
                     fontSize: "18px",
                   }}>
-                  {page?.isMobileView
-                    ? t("common.mobileView")
-                    : page?.isMobileView === false
-                    ? t("common.desktopView")
-                    : page?.isOpenGraphView
-                    ? "open graph"
-                    : null}
+                  <Flex
+                    direction={"row"}
+                    gap={"3px"}
+                    align="center"
+                    onClick={() => selectPage(page._id)}>
+                    <>
+                      {page?.isMobileView ||
+                      page?.isMobileView === false ||
+                      page?.isOpenGraphView ? (
+                        <div style={{ paddingTop: "5px" }}>
+                          <Edit />
+                        </div>
+                      ) : null}
+                    </>
+                    <>
+                      {page?.isMobileView
+                        ? t("common.mobileView")
+                        : page?.isMobileView === false
+                        ? t("common.desktopView")
+                        : page?.isOpenGraphView
+                        ? "open graph"
+                        : null}
+                    </>
+                  </Flex>
                 </td>
               )}
 

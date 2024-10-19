@@ -14,7 +14,10 @@ const useSelectors = () => {
     (state: RootState) => state.sideBarPage.sideBarLastPage
   );
   const modal = useSelector((state: RootState) => state.modal.isVisible);
-  const qrCode = useSelector((state: RootState) => state.qrCode.visible);
+  const qrCode = useSelector((state: RootState) => state.qrCode.isVisible);
+  const viewsModal = useSelector(
+    (state: RootState) => state.viewsModal.isVisible
+  );
   const loading = useSelector((state: RootState) => state.loading.loading);
   const onSubmit = useSelector((state: RootState) => state.submit.submit);
   const sideBar = useSelector((state: RootState) => state.sideBar.open);
@@ -66,6 +69,7 @@ const useSelectors = () => {
     last,
     isSort,
     qrCode,
+    viewsModal,
   };
 };
 

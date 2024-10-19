@@ -93,6 +93,17 @@
   padding: 10px;
 }
 
+@media screen and (max-width: 444px) {
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 10px 20px 10px;
+  }
+}
+
 @media screen and (min-width: 500px) {
   .auth-buttons {
     display: flex;

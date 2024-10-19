@@ -35,6 +35,7 @@ import {
   handleIsSort,
 } from "./sliceNums";
 import { handleQrCode, qrCodeReducer } from "./qrCode";
+import { viewsModalReducer, handleViewsModal } from "./viewsModal";
 
 export {
   handleTranslation,
@@ -62,6 +63,8 @@ export {
   handleLast,
   handleIsSort,
   handleQrCode,
+  handleViewsModal,
+  viewsModalReducer,
   sliceNumsReducer,
   studenReducer,
   surveyControllerReducer,

@@ -4,11 +4,11 @@ import { IHandleQrCode } from "../../../types/interfaces/redux/slices";
 const qrCodeSlice = createSlice({
   name: "qrCode",
   initialState: {
-    visible: false,
+    isVisible: false,
   },
   reducers: {
     handleQrCode: (state, action: PayloadAction<IHandleQrCode>) => {
-      state.visible = action.payload.visible;
+      state.isVisible = action.payload.isVisible;
     },
   },
 });

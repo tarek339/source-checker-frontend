@@ -66,7 +66,7 @@ const SurveyStatus = () => {
   );
 
   return (
-    <SubCard width={windowWidth < 768 ? "" : `${100 / 3}%`}>
+    <SubCard width={windowWidth < 880 ? "100%" : `${100 / 3}%`}>
       <Flex direction={"column"} gap={"15px"}>
         <>
           <SubTitle title={t("common.surveyStatus")} />

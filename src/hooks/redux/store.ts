@@ -13,6 +13,7 @@ import {
   surveyPagesReducer,
   surveyReducer,
   translationsReducer,
+  viewsModalReducer,
 } from "./slices";
 
 export const store = configureStore({
@@ -30,6 +31,7 @@ export const store = configureStore({
     student: studenReducer,
     sliceNums: sliceNumsReducer,
     qrCode: qrCodeReducer,
+    viewsModal: viewsModalReducer,
   },
 });
 

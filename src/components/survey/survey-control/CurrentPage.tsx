@@ -57,14 +57,25 @@ const CurrentPage = () => {
   };
 
   return (
-    <SubCard height="35vh">
-      <Flex direction={"row"} gap={"20px"} justify="space-between">
-        <Flex direction={"row"} gap={"0px"}>
-          <SubTitle title={t("surveyControl.currentPage")} />
+    <SubCard height={windowWidth > 1550 ? "35vh" : "auto"}>
+      <Flex
+        direction={windowWidth > 800 ? "row" : "column"}
+        gap={"20px"}
+        justify="space-between">
+        <SubTitle title={t("surveyControl.currentPage")} />
+        <Flex direction={"row"} gap={"0px"} justify="space-between">
+          {windowWidth < 800 ? (
+            <SubTitle title={`${`${currentPage}/${surveyPages.length}`}`} />
+          ) : (
+            <div></div>
+          )}
         </Flex>
 
-        <Flex direction={"column"} gap={"40px"}>
-          <Flex direction={"row"} gap={"20px"} justify="space-between">
+        <Flex direction={"column"} gap={windowWidth < 800 ? "15px" : "40px"}>
+          <Flex
+            direction={windowWidth > 800 ? "row" : "column"}
+            gap={"20px"}
+            justify="space-between">
             <Button
               onClick={prevPage}
               title={
@@ -83,7 +94,11 @@ const CurrentPage = () => {
                 </>
               }
             />
-            <SubTitle title={`${`${currentPage}/${surveyPages.length}`}`} />
+            {windowWidth > 800 ? (
+              <SubTitle title={`${`${currentPage}/${surveyPages.length}`}`} />
+            ) : (
+              <div></div>
+            )}
           </Flex>
           <div>
             {surveyPages
@@ -121,7 +136,11 @@ const CurrentPage = () => {
           </div>
         </Flex>
 
-        <div style={{ width: windowWidth >= 768 ? "45%" : "100%" }}>
+        <div
+          style={{
+            width: "100%",
+            paddingTop: windowWidth < 800 ? "15px" : "0px",
+          }}>
           {surveyPages
             .slice(currentPage - 1, currentPage)
             .map((page: IPages, i) => {

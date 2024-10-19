@@ -43,8 +43,12 @@ export interface IHandleModal {
   isVisible: boolean;
 }
 
+export interface IHandleViewsModal {
+  isVisible: boolean;
+}
+
 export interface IHandleQrCode {
-  visible: boolean;
+  isVisible: boolean;
 }
 
 export interface InitialStateSurvey {

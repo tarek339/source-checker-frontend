@@ -1,12 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import Link from "../fonts/Link";
 import { useTranslations } from "../../hooks";
-import Span from "../fonts/Span";
 import { Dot } from "../icons";
 
 const Footer = () => {
   const { t } = useTranslations();
-  const navigate = useNavigate();
 
   return (
     <div className="footer">
@@ -30,31 +27,25 @@ const Footer = () => {
         <p>{t("footer.public")}</p>
       </section>
       <section className="footer-links">
-        <Span
-          onClick={() => navigate(`/imprint`)}
-          color="#2835c3"
+        <Link
+          url={`${import.meta.env.VITE_CLIENT_URL}/imprint`}
           title={t("footer.imprint")}
           fontSize={14}
-          fontWeight={500}
-          style={{ textDecoration: "underline", cursor: "pointer" }}
+          fontWeight={0}
         />
         <Dot />
-        <Span
-          onClick={() => navigate(`/privacy-policy`)}
-          color="#2835c3"
+        <Link
           title={t("footer.datapolice")}
           fontSize={14}
-          fontWeight={500}
-          style={{ textDecoration: "underline", cursor: "pointer" }}
+          fontWeight={0}
+          url={`${import.meta.env.VITE_CLIENT_URL}/privacy-policy`}
         />
         <Dot />
-        <Span
-          onClick={() => navigate(`/licence-notes`)}
-          color="#2835c3"
+        <Link
           title={t("footer.license")}
+          url={`${import.meta.env.VITE_CLIENT_URL}/licence-notes`}
+          fontWeight={0}
           fontSize={14}
-          fontWeight={500}
-          style={{ textDecoration: "underline", cursor: "pointer" }}
         />
         <Dot />
         <Link url={""} title={"Quellcode"} fontWeight={0} fontSize={14} />

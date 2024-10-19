@@ -20,6 +20,7 @@ import Copy from "./Copy";
 import Generate from "./Generate";
 import ZoomIn from "./ZoomIn";
 import Dot from "./Dot";
+import Edit from "./Edit";
 
 export {
   Cancel,
@@ -44,4 +45,5 @@ export {
   Generate,
   ZoomIn,
   Dot,
+  Edit,
 };
