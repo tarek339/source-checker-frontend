@@ -42,6 +42,7 @@ import StyledButton from "./buttons/StyledButton";
 import TextSmall from "./fonts/TextSmall";
 import Footer from "./footer/Footer";
 import ScrollToTop from "./ScrollToTop";
+import SwitchButton from "./form/SwitchButton";
 
 export {
   Footer,
@@ -88,4 +89,5 @@ export {
   StyledButton as Button,
   TextSmall,
   ScrollToTop,
+  SwitchButton,
 };
