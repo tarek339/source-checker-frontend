@@ -22,7 +22,6 @@ import ModalContent from "./containers/ModalContent";
 import Modal from "./containers/Modal";
 import useCompArray from "./survey/surveys-manager/useCompArray";
 import AppContent from "./AppContent";
-import SwitchToggle from "./form/SwitchToggle";
 import CurrentPage from "./survey/survey-control/CurrentPage";
 import SurveyData from "./survey/survey-control/SurveyData";
 import Contorl from "./survey/survey-control/Contorl";
@@ -70,7 +69,6 @@ export {
   Modal,
   ModalContent,
   useCompArray,
-  SwitchToggle,
   CurrentPage,
   SurveyData,
   Contorl,
