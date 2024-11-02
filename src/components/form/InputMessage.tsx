@@ -8,6 +8,7 @@ const InputMessage = ({
   error,
   inputErrorStyle,
   value,
+  disabled,
   onChange,
 }: ITextArea) => {
   return (
@@ -23,6 +24,7 @@ const InputMessage = ({
             boxShadow: inputErrorStyle ? "0px 0px 0px 1px #ff0000 inset" : "",
           }}
           value={value}
+          disabled={disabled}
           onChange={onChange}
         />
         {error}

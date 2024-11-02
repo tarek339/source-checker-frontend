@@ -57,7 +57,7 @@ const CurrentPage = () => {
   };
 
   return (
-    <SubCard height={windowWidth > 1550 ? "35vh" : "auto"}>
+    <SubCard height="auto">
       <Flex
         direction={windowWidth > 800 ? "row" : "column"}
         gap={"20px"}

@@ -15,6 +15,7 @@ export interface IInput {
   inputErrorStyle: JSX.Element | string | null;
   value: string;
   placeHolder?: string;
+  disabled?: boolean;
   onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
 
@@ -25,6 +26,7 @@ export interface ITextArea {
   error: JSX.Element | null;
   inputErrorStyle: JSX.Element | null;
   value: string;
+  disabled?: boolean;
   onChange: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
 }
 
@@ -258,6 +260,7 @@ export interface IOpenGraphHolder {
   ogTitle: string;
   ogImage: string;
   ogDescription: string;
+  url: string;
 }
 
 export interface IStarRating {

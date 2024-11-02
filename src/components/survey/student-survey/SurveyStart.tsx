@@ -85,6 +85,7 @@ const SurveyStart = () => {
                             (img: { url: string }) => img.url
                           )}
                           ogDescription={page.openGraph.ogDescription}
+                          url={page.url}
                         />
                       ) : null}
                     </div>

@@ -10,6 +10,7 @@ const Input = ({
   inputErrorStyle,
   value,
   placeHolder,
+  disabled,
   onChange,
 }: IInput) => {
   return (
@@ -26,6 +27,7 @@ const Input = ({
             boxShadow: inputErrorStyle ? "0px 0px 0px 1px #ff0000 inset" : "",
           }}
           value={value}
+          disabled={disabled}
           onChange={onChange}
         />
         {error}

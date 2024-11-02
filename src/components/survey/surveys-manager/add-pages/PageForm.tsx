@@ -36,6 +36,7 @@ const PageForm = ({
         error={titleError}
         inputErrorStyle={titleError}
         value={inputValue}
+        disabled={loading ? true : false}
         onChange={onChangeTitle}
       />
 
@@ -47,6 +48,7 @@ const PageForm = ({
         error={urlError}
         inputErrorStyle={urlError}
         value={urlValue}
+        disabled={loading ? true : false}
         onChange={onChangeUrl}
       />
 
@@ -57,6 +59,7 @@ const PageForm = ({
         error={null}
         inputErrorStyle={null}
         value={textAreaValue}
+        disabled={loading ? true : false}
         onChange={onChangeTextArea}
       />
 

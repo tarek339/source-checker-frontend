@@ -32,10 +32,10 @@ const useCompArray = () => {
     {
       comp: (
         <SurveyProp
-          header={t("newSurvey.anonymous")}
+          header={t("saveSurvey.chooseName")}
           child={
             <div style={{ display: "flex", alignItems: "center" }}>
-              {survey?.anonymousResults ? <Yes /> : <No />}
+              {survey?.freeUserNames ? <Yes /> : <No />}
             </div>
           }
         />
@@ -44,10 +44,10 @@ const useCompArray = () => {
     {
       comp: (
         <SurveyProp
-          header={t("saveSurvey.chooseName")}
+          header={t("newSurvey.anonymous")}
           child={
             <div style={{ display: "flex", alignItems: "center" }}>
-              {survey?.freeUserNames ? <Yes /> : <No />}
+              {survey?.anonymousResults ? <Yes /> : <No />}
             </div>
           }
         />
