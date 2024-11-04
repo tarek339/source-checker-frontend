@@ -20,7 +20,7 @@ import QrCodeComp from "./QrCodeComp";
 const Contorl = () => {
   const { windowWidth } = useBreakPoints();
   const { t } = useTranslations();
-  const { survey, surveyPages, qrCode } = useSelectors();
+  const { survey, surveyPages } = useSelectors();
   const {
     dispatchSurvey,
     setCurrentPage,
@@ -53,10 +53,6 @@ const Contorl = () => {
       } else setNoStars(false);
     });
   }, [surveyPages, noStars]);
-
-  useEffect(() => {
-    console.log(qrCode);
-  }, [qrCode]);
 
   const finishSurvey = async () => {
     try {

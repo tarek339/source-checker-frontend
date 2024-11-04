@@ -16,7 +16,8 @@ import {
   useTranslations,
 } from "../hooks";
 import { socket } from "../socket";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { Back } from "../components/icons";
 
 const SurveyControl = () => {
   const { t } = useTranslations();
@@ -25,6 +26,7 @@ const SurveyControl = () => {
   const { fetchSurvey } = useRequests();
   const { setCurrentPage } = useDispatches();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchSurvey();
@@ -43,10 +45,18 @@ const SurveyControl = () => {
       <ContentContainer
         maxWidth={1150}
         style={{ paddingLeft: "20px", paddingRight: "20px" }}>
-        <SubTitle
-          style={{ fontSize: "31px" }}
-          title={`${t("common.surveyID")}: ${survey?.surveyId}`}
-        />
+        <Flex direction={"row"} gap={"0px"} align="center">
+          <Back
+            style={{ paddingTop: "7px" }}
+            onClick={() =>
+              navigate(`/surveys-manager/add-pages/${survey?._id}`)
+            }
+          />
+          <SubTitle
+            style={{ fontSize: "31px" }}
+            title={`${t("common.surveyID")}: ${survey?.surveyId}`}
+          />
+        </Flex>
         <Flex
           direction={"column"}
           gap={"20px"}
