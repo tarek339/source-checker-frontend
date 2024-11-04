@@ -339,10 +339,8 @@ export interface ISection {
 }
 
 export interface IIBack {
-  onClick?:
-    | React.MouseEventHandler<HTMLDivElement>
-    | React.MouseEventHandler<HTMLSpanElement>
-    | undefined;
+  onClick?: React.MouseEventHandler<SVGElement>;
+  style?: React.CSSProperties;
 }
 
 export interface ITextSmall {

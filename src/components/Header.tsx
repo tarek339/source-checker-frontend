@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { useBreakPoints, useSelectors } from "../hooks";
+import { useBreakPoints } from "../hooks";
 import Title from "./fonts/Title";
 import Flex from "./containers/Flex";
 import { IHeader } from "../types/interfaces/components";
 import { useState } from "react";
-import { Back } from "./icons";
 
 const Header = ({ title }: IHeader) => {
   const navigate = useNavigate();
   const { windowWidth } = useBreakPoints();
-  const { survey } = useSelectors();
   const [onHover, setOnHover] = useState(false);
 
   return (
@@ -46,7 +44,7 @@ const Header = ({ title }: IHeader) => {
             title={title}
           />
         </div>
-        {location.pathname === `/survey-control/${survey?._id}` ? (
+        {/* {location.pathname === `/survey-control/${survey?._id}` ? (
           <div
             onClick={() =>
               navigate(`/surveys-manager/add-pages/${survey?._id}`)
@@ -56,7 +54,7 @@ const Header = ({ title }: IHeader) => {
           </div>
         ) : (
           <span></span>
-        )}
+        )} */}
       </Flex>
       <Flex
         direction={"row-reverse"}

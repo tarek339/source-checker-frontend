@@ -1,25 +1,20 @@
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { useBreakPoints, useTranslations } from "../../hooks";
-import { useState } from "react";
+
 import { IIBack } from "../../types/interfaces/components";
 
-const Back = ({ onClick }: IIBack) => {
-  const [hovered, setHovered] = useState(false);
-  const { windowWidth } = useBreakPoints();
-  const { t } = useTranslations();
+const Back = ({ onClick, style }: IIBack) => {
   return (
     <div
       style={{
         position: "relative",
       }}>
       <IoMdArrowRoundBack
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        color={windowWidth >= 1024 && hovered ? "#31e981" : "#fff"}
-        fontSize="42px"
+        fontSize="48px"
         cursor="pointer"
+        onClick={onClick}
+        style={style}
       />
-      {windowWidth >= 1024 && hovered ? (
+      {/* {windowWidth >= 1024 && hovered ? (
         <div
           style={{
             position: "absolute",
@@ -33,7 +28,7 @@ const Back = ({ onClick }: IIBack) => {
           }}>
           <span onClick={onClick}>{t("button.back").toUpperCase()}</span>
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };
