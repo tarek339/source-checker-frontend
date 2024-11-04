@@ -17,7 +17,7 @@ const OpenGraphHolder = ({
     // Get the length of the string
     const length = url.length;
     // Calculate the midpoint
-    const midpoint = Math.floor(length / 4);
+    const midpoint = Math.floor(length / 2);
     // Return the first half of the string
     return url.substring(0, midpoint);
   }
