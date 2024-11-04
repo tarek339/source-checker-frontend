@@ -5,6 +5,7 @@ export interface ISwitchButton {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
   ifOnText: string;
   ifOffText: string;
+  type?: "submit" | "button";
 }
 
 const SwitchButton = ({
@@ -14,6 +15,7 @@ const SwitchButton = ({
   toggled,
   label,
   labelText,
+  type,
 }: ISwitchButton) => {
   return (
     <div className="switch-holder">
@@ -27,7 +29,7 @@ const SwitchButton = ({
         <button
           className={`toggle-btn ${toggled ? "toggled" : ""}`}
           onClick={onClick}
-          type="button">
+          type={!type ? "button" : type}>
           <div className="thumb"></div>
         </button>
         <span style={{ color: "#17181d" }} className="text">

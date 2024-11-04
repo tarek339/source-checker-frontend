@@ -1,17 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaRegCopy } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
-import { useTranslations, useSelectors } from "../../../hooks";
+import { useTranslations, useSelectors, useDispatches } from "../../../hooks";
 import { Yes, No } from "../../icons";
 import SurveyProp from "./SurveyProp";
 import Span from "../../fonts/Span";
-import { Flex } from "../..";
+import { Flex, FormContainer, SwitchButton } from "../..";
+import axios from "axios";
 
 const useCompArray = () => {
   const { t } = useTranslations();
   const { survey } = useSelectors();
+  const { dispatchSurvey } = useDispatches();
 
   const [copied, setCopied] = useState(false);
+  const [freeUserNames, setFreeUserNames] = useState(survey?.freeUserNames);
+  const [anonymousResults, setAnonymousResults] = useState(
+    survey?.anonymousResults
+  );
+
+  useEffect(() => {
+    setFreeUserNames(survey?.freeUserNames);
+    setAnonymousResults(survey?.anonymousResults);
+  }, [survey]);
 
   const copyToClipboard = () => {
     let id = `ID: ${survey?.surveyId}`;
@@ -28,15 +39,46 @@ const useCompArray = () => {
     }, 1500);
   };
 
+  const editFreeUsernames = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const res = await axios.put(`survey/edit-freeUserNames/${survey?._id}`, {
+      freeUserNames,
+    });
+    dispatchSurvey(res.data.survey);
+  };
+
+  const editAnonymousResults = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const res = await axios.put(`survey/edit-anonymousResults/${survey?._id}`, {
+      anonymousResults,
+    });
+    dispatchSurvey(res.data.survey);
+  };
+
   const surveyArray = [
     {
       comp: (
         <SurveyProp
           header={t("saveSurvey.chooseName")}
           child={
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <Flex direction={"row"} gap={""} align="center">
+              <FormContainer
+                onSubmit={editFreeUsernames}
+                gap={""}
+                style={{ paddingBottom: "4px" }}>
+                <SwitchButton
+                  label={""}
+                  toggled={freeUserNames!}
+                  onClick={() => {
+                    setFreeUserNames(!freeUserNames);
+                  }}
+                  ifOnText={""}
+                  ifOffText={""}
+                  type="submit"
+                />
+              </FormContainer>
               {survey?.freeUserNames ? <Yes /> : <No />}
-            </div>
+            </Flex>
           }
         />
       ),
@@ -46,9 +88,24 @@ const useCompArray = () => {
         <SurveyProp
           header={t("newSurvey.anonymous")}
           child={
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <Flex direction={"row"} gap={""} align="center">
+              <FormContainer
+                onSubmit={editAnonymousResults}
+                gap={""}
+                style={{ paddingBottom: "4px" }}>
+                <SwitchButton
+                  label={""}
+                  toggled={anonymousResults!}
+                  onClick={() => {
+                    setAnonymousResults(!anonymousResults);
+                  }}
+                  ifOnText={""}
+                  ifOffText={""}
+                  type="submit"
+                />
+              </FormContainer>
               {survey?.anonymousResults ? <Yes /> : <No />}
-            </div>
+            </Flex>
           }
         />
       ),
