@@ -10,7 +10,7 @@ import {
   useInputErrors,
 } from "../../../../hooks";
 
-const urlRegex = /^https:\/\/[^\s/$.?#].[^\s]*$/;
+const combinedUrlRegex = /^(https:\/\/|http:\/\/|www\.)[^\s/$.?#].[^\s]*$/;
 
 const AddPage = () => {
   const { survey, loading } = useSelectors();
@@ -34,12 +34,25 @@ const AddPage = () => {
       if (!loading) {
         e.preventDefault();
 
-        !title ? setTitleErrorMessage(emptyInput) : null;
-        !url ? setUrlErrorMessage(emptyInput) : null;
-        if (!url.match(urlRegex)) {
-          setIsUrl(urlTypeError);
+        // empty validation
+        if (!url && !title) {
+          setTitleErrorMessage(emptyInput);
+          setUrlErrorMessage(emptyInput);
+          return;
         }
-        if (!title || !url || !url.match(urlRegex)) return;
+        if (!title) {
+          setTitleErrorMessage(emptyInput);
+          return;
+        }
+        if (!url) {
+          setUrlErrorMessage(emptyInput);
+          return;
+        }
+        // url validation
+        if (!url.match(combinedUrlRegex)) {
+          setIsUrl(urlTypeError);
+          return;
+        }
         dispatchLoading(true);
         const res = await axios.put(`/survey/complete/${survey?.surveyId}`, {
           page: {
