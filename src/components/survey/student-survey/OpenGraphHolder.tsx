@@ -2,7 +2,6 @@ import { IOpenGraphHolder } from "../../../types/interfaces/components";
 import SubTitle from "../../fonts/SubTitle";
 import Flex from "../../containers/Flex";
 import SubCard from "../../containers/SubCard";
-import Span from "../../fonts/Span";
 import { useEffect, useState } from "react";
 
 const OpenGraphHolder = ({
