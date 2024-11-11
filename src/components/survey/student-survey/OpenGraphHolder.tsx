@@ -31,11 +31,7 @@ const OpenGraphHolder = ({
     <SubCard>
       <Flex direction={"column"} gap={"10px"} justify="center">
         <SubTitle title={ogTitle} />
-        <Span
-          title={`URL: ${newUrl.replace(newUrl, newUrl + "...")}`}
-          fontSize={18}
-          fontWeight={600}
-        />
+        <span>URL: {newUrl.replace(newUrl, newUrl + "...")}</span>
         <img
           style={{
             width: "100%",
