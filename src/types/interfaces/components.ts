@@ -361,6 +361,7 @@ export interface IButton {
   gap?: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  style?: React.CSSProperties;
 }
 
 export interface IIconsListing {

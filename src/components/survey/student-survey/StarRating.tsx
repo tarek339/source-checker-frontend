@@ -1,5 +1,6 @@
 import { Rating } from "react-simple-star-rating";
 import {
+  useBreakPoints,
   useDispatches,
   useRequests,
   useSelectors,
@@ -25,6 +26,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   } = useDispatches();
   const { voted, votedStars, stars, modal, currentPage } = useSelectors();
   const { fetchSurvey } = useRequests();
+  const { windowWidth } = useBreakPoints();
   const prevPageRef = useRef(currentPage);
   const [showToolTip, setShowToolTip] = useState(false);
 
@@ -63,34 +65,51 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   }, [currentPage, modal, closeModal]);
 
   return (
-    <Flex direction={"row"} gap={"20px"} align="center">
+    <Flex
+      direction={"row"}
+      gap={"20px"}
+      align="center"
+      justify={windowWidth <= 430 ? "center" : "flex-start"}
+      width="100%"
+      style={{ marginBottom: windowWidth <= 430 ? "10px" : "0px" }}>
       <>
         <WaitMessage />
-        <Rating
-          className="react-simple-star-rating"
-          initialValue={!voted ? stars : votedStars}
-          onClick={handleRating}
-          SVGstyle={{ paddingTop: "7px" }}
-          size={50}
-          tooltipArray={[
-            t("studentSurvey.rating.unbelievable"),
-            "",
-            "",
-            "",
-            t("studentSurvey.rating.credible"),
-          ]}
-          tooltipStyle={{ marginLeft: "10px" }}
-          showTooltip={showToolTip}
-          disableFillHover={voted ? true : false}
-          readonly={voted ? true : false}
-          allowHover={voted ? false : true}
-          transition={true}
-          onPointerMove={onPointerMove}
-          onPointerLeave={onPointerLeave}
-        />
-        {stars > 0 && !voted ? (
-          <Button onClick={handleSubmit} title={t("button.submit")} />
-        ) : null}
+        <Flex
+          direction={windowWidth <= 430 ? "column" : "row"}
+          align="center"
+          gap={windowWidth <= 430 ? "10px" : ""}>
+          <Rating
+            className="react-simple-star-rating"
+            initialValue={!voted ? stars : votedStars}
+            onClick={handleRating}
+            SVGstyle={{ paddingTop: "7px" }}
+            size={50}
+            tooltipArray={[
+              t("studentSurvey.rating.unbelievable"),
+              "",
+              "",
+              "",
+              t("studentSurvey.rating.credible"),
+            ]}
+            tooltipStyle={{ marginLeft: "10px" }}
+            showTooltip={showToolTip}
+            disableFillHover={voted ? true : false}
+            readonly={voted ? true : false}
+            allowHover={voted ? false : true}
+            transition={true}
+            onPointerMove={onPointerMove}
+            onPointerLeave={onPointerLeave}
+          />
+          <>
+            {stars > 0 && !voted ? (
+              <Button
+                style={{ width: "100%" }}
+                onClick={handleSubmit}
+                title={t("button.submit")}
+              />
+            ) : null}
+          </>
+        </Flex>
       </>
     </Flex>
   );

@@ -34,6 +34,7 @@ const StyledButton = ({
   gap,
   disabled,
   onClick,
+  style,
 }: IButton) => {
   const [hovered, setHovered] = useState(false);
   const { loading } = useSelectors();
@@ -49,6 +50,7 @@ const StyledButton = ({
           ? "#ff0000"
           : "#2835c3",
         cursor: loading ? "default" : "pointer",
+        ...style,
       }}
       type={!type ? "button" : type}
       onMouseEnter={() => setHovered(true)}
