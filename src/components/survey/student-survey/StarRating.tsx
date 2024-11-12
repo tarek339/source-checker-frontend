@@ -28,7 +28,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   const { fetchSurvey } = useRequests();
   const { windowWidth } = useBreakPoints();
   const prevPageRef = useRef(currentPage);
-  const [showToolTip, setShowToolTip] = useState(false);
+  const [_showToolTip, setShowToolTip] = useState(false);
 
   const handleRating = (star: number) => {
     setStars(star);
@@ -77,7 +77,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
         <Flex
           direction={windowWidth <= 430 ? "column" : "row"}
           align="center"
-          gap={windowWidth <= 430 ? "10px" : ""}>
+          gap={windowWidth <= 430 ? "20px" : "20px"}>
           <Rating
             className="react-simple-star-rating"
             initialValue={!voted ? stars : votedStars}
@@ -92,7 +92,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
               t("studentSurvey.rating.credible"),
             ]}
             tooltipStyle={{ marginLeft: "10px" }}
-            showTooltip={showToolTip}
+            // showTooltip={showToolTip}
             disableFillHover={voted ? true : false}
             readonly={voted ? true : false}
             allowHover={voted ? false : true}

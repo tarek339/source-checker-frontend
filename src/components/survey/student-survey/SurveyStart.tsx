@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
+import {
+  useBreakPoints,
+  useDispatches,
+  useSelectors,
+  useTranslations,
+} from "../../../hooks";
 import { IPages } from "../../../types/interfaces/interfaces";
 import SubTitle from "../../fonts/SubTitle";
 import Flex from "../../containers/Flex";
@@ -13,6 +18,7 @@ const SurveyStart = () => {
   const { student, surveyPages, survey, currentPage } = useSelectors();
   const { setVotedStars, setVoted, setStars } = useDispatches();
   const { t } = useTranslations();
+  const { windowWidth } = useBreakPoints();
   const [pageId, setPageId] = useState("");
 
   const user = survey?.freeUserNames
@@ -53,10 +59,34 @@ const SurveyStart = () => {
   return (
     <FramerMotion>
       <Flex direction={"column"} gap={"20px"}>
-        <SubTitle
-          style={{ marginLeft: "20px", marginRight: "20px" }}
-          title={`${user?.toUpperCase()}, ${t("studentSurvey.title")}`}
-        />
+        <Flex direction={"column"} gap={"5px"}>
+          <SubTitle
+            style={{
+              marginLeft: "20px",
+              marginRight: "20px",
+              fontSize: windowWidth <= 380 ? "22px" : "",
+            }}
+            title={`${user?.charAt(0).toUpperCase() + user?.slice(1)!}, ${t(
+              "studentSurvey.title"
+            )}`}
+          />
+          <SubTitle
+            style={{
+              marginLeft: "20px",
+              marginRight: "20px",
+              fontSize: windowWidth <= 380 ? "20px" : "",
+            }}
+            title={"1 - nicht vertrauenswürdig"}
+          />
+          <SubTitle
+            style={{
+              marginLeft: "20px",
+              marginRight: "20px",
+              fontSize: windowWidth <= 380 ? "20px" : "",
+            }}
+            title={"5 - vertrauenswürdig"}
+          />
+        </Flex>
         <FramerMotion>
           <Flex direction={"column"} gap={"10px"}>
             <Flex direction={"row"} gap={"0px"} style={{ marginLeft: "20px" }}>
