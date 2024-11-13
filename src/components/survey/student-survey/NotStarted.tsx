@@ -21,9 +21,9 @@ const NotStarted = () => {
           <Flex direction={"column"} gap={"20px"}>
             <Flex direction={"column"} gap={"15px"}>
               <SubTitle
-                title={`${t("common.hello")} ${user?.toUpperCase()}, ${t(
-                  "studentSurvey.welcome"
-                )}`}
+                title={`${t("common.hello")} ${
+                  user?.charAt(0).toUpperCase() + user?.slice(1)!
+                }, ${t("studentSurvey.welcome")}`}
               />
               <Flex direction={"column"} gap={"5px"}>
                 <Span title={t("surveyControl.introText.first")} />
