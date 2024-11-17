@@ -129,7 +129,6 @@ const Contorl = () => {
             <Flex
               onClick={openQrCodeModal}
               direction={"column"}
-              gap={"0px"}
               style={{ cursor: "pointer" }}>
               <div
                 style={{

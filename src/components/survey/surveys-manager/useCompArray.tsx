@@ -61,10 +61,9 @@ const useCompArray = () => {
         <SurveyProp
           header={t("saveSurvey.chooseName")}
           child={
-            <Flex direction={"row"} gap={""} align="center">
+            <Flex direction={"row"} align="center">
               <FormContainer
                 onSubmit={editFreeUsernames}
-                gap={""}
                 style={{ paddingBottom: "4px" }}>
                 <SwitchButton
                   label={""}
@@ -88,10 +87,9 @@ const useCompArray = () => {
         <SurveyProp
           header={t("newSurvey.anonymous")}
           child={
-            <Flex direction={"row"} gap={""} align="center">
+            <Flex direction={"row"} align="center">
               <FormContainer
                 onSubmit={editAnonymousResults}
-                gap={""}
                 style={{ paddingBottom: "4px" }}>
                 <SwitchButton
                   label={""}
@@ -133,7 +131,7 @@ const useCompArray = () => {
             header={t("common.surveyID")}
             child={<Span fontWeight={600} title={survey?.surveyId!} />}
           />
-          <Flex direction={"column"} gap={"0px"}>
+          <Flex direction={"column"}>
             <Flex direction={"row"} gap={"3px"}>
               <Span
                 color="#ff0000"

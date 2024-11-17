@@ -42,7 +42,7 @@ const OpenGraphView = ({
       direction={"column"}
       gap={"15px"}
       style={{ height: "600px", maxWidth: "600px" }}>
-      <Flex direction={"row"} gap={""} justify="flex-start">
+      <Flex direction={"row"} justify="flex-start">
         <Button
           gap={gap!}
           icon={icon}

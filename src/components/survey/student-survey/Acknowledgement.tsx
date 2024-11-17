@@ -13,11 +13,11 @@ const Acknowledgement = () => {
 
   return (
     <FramerMotion>
-      <Flex direction={"column"} gap={"0px"}>
+      <Flex direction={"column"}>
         <Title title={t("studentSurvey.thankYou")} />
         <SubCard style={{ marginLeft: "20px", marginRight: "20px" }}>
           <Flex direction={"column"} gap={"20px"} align="center">
-            <Flex direction={"row"} gap={""} justify="center">
+            <Flex direction={"row"} justify="center">
               <SubTitle title={t("studentSurvey.ratedInfo")} />
             </Flex>
 
@@ -69,7 +69,7 @@ const Acknowledgement = () => {
               </>
             </Flex>
 
-            <Flex direction={"column"} gap={"0px"}>
+            <Flex direction={"column"}>
               <SubTitle
                 style={{ color: "#5cb85c" }}
                 title={t("studentSurvey.savedInfo")}

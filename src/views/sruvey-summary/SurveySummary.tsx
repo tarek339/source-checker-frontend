@@ -105,7 +105,6 @@ const SurveySummary = () => {
                         <Flex
                           key={index}
                           direction={"column"}
-                          gap={"0px"}
                           style={{
                             margin: "0 auto",
                           }}>
@@ -120,7 +119,7 @@ const SurveySummary = () => {
                             <SubTitle title={`${page.title}`} />
                             <Flex direction={"row"} gap={"10px"} align="center">
                               <Average />
-                              <Flex direction={"row"} gap={"0px"}>
+                              <Flex direction={"row"}>
                                 <SubTitle
                                   title={averageRating?.toFixed(2).toString()!}
                                 />

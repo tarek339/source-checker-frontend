@@ -29,7 +29,7 @@ function App() {
     <AppContent>
       <>{mainPage ? null : <Header title={t("common.sourceChecker")} />}</>
       <ScrollToTop />
-      <Flex direction={"column"} gap={""} height="90vh" justify="space-between">
+      <Flex direction={"column"} height="90vh" justify="space-between">
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Authentication />} />

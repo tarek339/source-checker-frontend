@@ -13,7 +13,6 @@ const EmptyData = ({ title, width, height }: IEmptyData) => {
       direction={"row"}
       align="center"
       justify="center"
-      gap={""}
       style={{
         width: width,
         height: height,

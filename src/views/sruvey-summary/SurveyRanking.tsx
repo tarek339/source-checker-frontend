@@ -64,7 +64,7 @@ const SurveyRanking = () => {
               direction={"column"}
               gap={"10px"}
               style={{ margin: "0 auto", maxWidth: "430px" }}>
-              <Flex direction={"column"} gap={"0px"} style={{}}>
+              <Flex direction={"column"} style={{}}>
                 {surveyPages
                   ?.slice()
                   .sort((a, b) =>
@@ -78,7 +78,6 @@ const SurveyRanking = () => {
                       <Flex
                         key={i}
                         direction={windowWidth >= 570 ? "row" : "column"}
-                        gap="0px"
                         align="center"
                         justify={"space-between"}
                         style={{
@@ -97,7 +96,6 @@ const SurveyRanking = () => {
                         }}>
                         <Flex
                           direction={"row"}
-                          gap={"0px"}
                           width="80%"
                           justify="space-between"
                           align="center">
@@ -131,7 +129,6 @@ const SurveyRanking = () => {
 
                         <Flex
                           direction={"row"}
-                          gap={"0px"}
                           align="center"
                           style={{ paddingLeft: "5px" }}>
                           <Span
@@ -153,7 +150,6 @@ const SurveyRanking = () => {
           </div>
           <Flex
             direction={"row"}
-            gap={""}
             justify="space-between"
             align="center"
             style={{ marginTop: "2em" }}>

@@ -13,7 +13,6 @@ const Header = ({ title }: IHeader) => {
   return (
     <Flex
       direction={windowWidth >= 425 ? "row" : "column"}
-      gap={"0px"}
       width="100%"
       justify={windowWidth >= 425 ? "space-between" : "center"}
       align={windowWidth >= 425 ? "center" : "flex-start"}
@@ -25,7 +24,6 @@ const Header = ({ title }: IHeader) => {
       }}>
       <Flex
         direction={"row"}
-        gap={""}
         justify="space-between"
         align="center"
         width="100%">

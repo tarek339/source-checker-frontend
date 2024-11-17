@@ -15,35 +15,35 @@ const useStars = () => {
   ];
 
   const fiveStars = (
-    <Flex direction={"row"} gap={"0px"}>
+    <Flex direction={"row"}>
       {stars.map((star) => {
         return <div key={star.id}>{star.icon}</div>;
       })}
     </Flex>
   );
   const fourStars = (
-    <Flex direction={"row"} gap={"0px"}>
+    <Flex direction={"row"}>
       {stars.slice(0, 4).map((star) => {
         return <div key={star.id}>{star.icon}</div>;
       })}
     </Flex>
   );
   const threeStars = (
-    <Flex direction={"row"} gap={"0px"}>
+    <Flex direction={"row"}>
       {stars.slice(0, 3).map((star) => {
         return <div key={star.id}>{star.icon}</div>;
       })}
     </Flex>
   );
   const twoStars = (
-    <Flex direction={"row"} gap={"0px"}>
+    <Flex direction={"row"}>
       {stars.slice(0, 2).map((star) => {
         return <div key={star.id}>{star.icon}</div>;
       })}
     </Flex>
   );
   const oneStar = (
-    <Flex direction={"row"} gap={"0px"}>
+    <Flex direction={"row"}>
       {stars.slice(0, 1).map((star) => {
         return <div key={star.id}>{star.icon}</div>;
       })}

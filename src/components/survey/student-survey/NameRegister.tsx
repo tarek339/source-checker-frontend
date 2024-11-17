@@ -95,7 +95,7 @@ const NameRegister = () => {
               }}
             />
             {windowWidth > 425 ? (
-              <Flex direction={"row"} gap={""} width="100%" justify="flex-end">
+              <Flex direction={"row"} width="100%" justify="flex-end">
                 <Button type="submit" title={t("button.register")} />
               </Flex>
             ) : (

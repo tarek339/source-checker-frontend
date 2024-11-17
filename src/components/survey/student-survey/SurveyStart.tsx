@@ -89,7 +89,7 @@ const SurveyStart = () => {
         </Flex>
         <FramerMotion>
           <Flex direction={"column"} gap={"10px"}>
-            <Flex direction={"row"} gap={"0px"} style={{ marginLeft: "20px" }}>
+            <Flex direction={"row"} style={{ marginLeft: "20px" }}>
               <StarRating
                 pageId={pageId}
                 surveyId={survey?._id!}

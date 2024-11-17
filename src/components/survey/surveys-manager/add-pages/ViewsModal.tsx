@@ -43,11 +43,7 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
           height: windowWidth < 1200 ? "80vh" : "auto",
         }}>
         <Flex direction={"column"} gap={"10px"}>
-          <Flex
-            direction={"row"}
-            gap={""}
-            justify="space-between"
-            align="center">
+          <Flex direction={"row"} justify="space-between" align="center">
             <SubTitle title={"Wähle eine neue Ansicht"} />
             <ImCancelCircle
               cursor="pointer"

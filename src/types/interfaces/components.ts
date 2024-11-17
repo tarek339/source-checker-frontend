@@ -175,7 +175,7 @@ export interface ISubCard {
 export interface IFlex {
   children: JSX.Element[] | JSX.Element;
   direction: "row" | "column" | "column-reverse" | "row-reverse";
-  gap: string;
+  gap?: string;
   justify?:
     | "flex-start"
     | "flex-end"
@@ -207,7 +207,7 @@ export interface IButtonContainer {
 export interface IFormContainer {
   onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
   children: JSX.Element | JSX.Element[];
-  gap: string;
+  gap?: string;
   style?: React.CSSProperties;
   maxWidth?: number;
   margin?: string;

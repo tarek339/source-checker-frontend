@@ -42,7 +42,7 @@ const Screenshot = ({
 
   return (
     <Flex direction={"column"} gap={"20px"}>
-      <Flex direction={"row"} gap={""} justify="flex-start">
+      <Flex direction={"row"} justify="flex-start">
         <Button gap={gap!} icon={icon} onClick={chooseView} title={title} />
       </Flex>
       <div

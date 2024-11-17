@@ -136,7 +136,6 @@ const NewSurvey = () => {
               }}>
               <Flex
                 direction={"row"}
-                gap={"0px"}
                 justify="flex-start"
                 align="flex-start"
                 style={{
