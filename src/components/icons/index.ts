@@ -21,6 +21,7 @@ import Generate from "./Generate";
 import ZoomIn from "./ZoomIn";
 import Dot from "./Dot";
 import Edit from "./Edit";
+import Home from "./Home";
 
 export {
   Cancel,
@@ -46,4 +47,5 @@ export {
   ZoomIn,
   Dot,
   Edit,
+  Home,
 };

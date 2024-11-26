@@ -1,36 +1,18 @@
 import { useEffect } from "react";
-import {
-  ButtonContainer,
-  Flex,
-  FormContainer,
-  Modal,
-  SubTitle,
-  Span,
-  Button,
-} from "../..";
+import { ButtonContainer, Flex, Modal, Span, Button } from "../..";
 import {
   useSelectors,
   useTranslations,
   useDispatches,
-  useBreakPoints,
   useScroll,
 } from "../../../hooks";
 import { IErrorModal } from "../../../types/interfaces/components";
 import { Alert } from "../../icons";
 
-const ErrorModal = ({
-  onSubmit,
-  status,
-  statusText,
-  errTitle,
-  errMsg,
-  optionOne,
-  optionTwo,
-}: IErrorModal) => {
+const ErrorModal = ({ onClick, errTitle, errMsg }: IErrorModal) => {
   const { modal } = useSelectors();
   const { t } = useTranslations();
   const { closeModal } = useDispatches();
-  const { windowWidth } = useBreakPoints();
   const { handleScroll } = useScroll();
 
   useEffect(() => {
@@ -41,33 +23,13 @@ const ErrorModal = ({
     <Modal isVisible={modal} setIsVisible={closeModal}>
       <Flex direction={"row"} gap={"10px"} align="flex-start">
         <Alert />
-        <Flex direction={"column"} gap={"5px"}>
-          <SubTitle
-            style={{ paddingTop: "3px" }}
-            title={`${t("common.error")} ${status} ${statusText}`}
-          />
+        <Flex direction={"column"} gap={"20px"}>
           <Span fontSize={20} fontWeight={600} title={errTitle} />
           <Span title={errMsg} />
-          <Span title={optionOne} />
-          <Span title={optionTwo} />
-          <FormContainer
-            style={{
-              paddingTop: "10px",
-              alignItems: windowWidth <= 500 ? "" : "flex-end",
-            }}
-            onSubmit={onSubmit}>
-            <ButtonContainer>
-              <Button error onClick={closeModal} title={t("button.cancel")} />
-              <Button
-                type="submit"
-                onClick={() => {
-                  onSubmit;
-                  closeModal();
-                }}
-                title={t("button.retry")}
-              />
-            </ButtonContainer>
-          </FormContainer>
+          <ButtonContainer>
+            <Button error onClick={closeModal} title={t("button.cancel")} />
+            <Button onClick={onClick} title={t("button.retry")} />
+          </ButtonContainer>
         </Flex>
       </Flex>
     </Modal>

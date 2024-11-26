@@ -21,6 +21,7 @@ import {
   Button,
 } from "../../components";
 import { useNavigate } from "react-router-dom";
+import { FaCircleDot } from "react-icons/fa6";
 
 const SaveSurvey = () => {
   const { t } = useTranslations();
@@ -60,6 +61,30 @@ const SaveSurvey = () => {
               maxWidth: "1000px",
             }}>
             <SubTitle title={t("saveSurvey.saveSurvey")} />
+            <Flex
+              direction={"row"}
+              gap={"10px"}
+              justify="flex-start"
+              style={{
+                border: "1.5px solid rgb(40, 53, 195, 0.2)",
+                color: "#2835c3",
+                backgroundColor: "rgb(40, 53, 195, 0.05)",
+                padding: "15px 20px",
+              }}>
+              <Flex
+                direction={"row"}
+                justify="flex-start"
+                align="flex-start"
+                style={{
+                  paddingTop: "8px",
+                }}>
+                <FaCircleDot />
+              </Flex>
+              <div>
+                <h4 style={{ fontSize: "22px", color: "#2835c3" }}>Rating</h4>
+                <p style={{ color: "#2835c3" }}>{t("newSurvey.ratingText")}</p>
+              </div>
+            </Flex>
             <>
               {surveyArray.map((survey, index) => {
                 return (

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { IQrCodeModal } from "../../types/interfaces/components";
+import { Cancel } from "../icons";
 
 const QrCodeModal = ({
   setIsVisible,
@@ -22,6 +23,15 @@ const QrCodeModal = ({
       style={{
         display: isVisible ? "flex" : "none",
       }}>
+      <div
+        style={{
+          position: "absolute",
+          top: "250px",
+          left: "1015px",
+          cursor: "pointer",
+        }}>
+        <Cancel onClick={() => setIsVisible(false)} />
+      </div>
       <div
         className="modal-children"
         style={{
