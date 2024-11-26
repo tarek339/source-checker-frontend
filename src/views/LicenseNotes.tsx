@@ -8,6 +8,8 @@ import {
   Apache,
   ApacheTwo,
   ISC,
+  Dependencies,
+  DevDependencies,
 } from "../components/footer/license-notes";
 
 const LicenseNotes = () => {
@@ -34,6 +36,8 @@ const LicenseNotes = () => {
           <Apache />
           <ApacheTwo />
           <ISC />
+          <Dependencies />
+          <DevDependencies />
         </Flex>
       </ContentContainer>
     </FramerMotion>
