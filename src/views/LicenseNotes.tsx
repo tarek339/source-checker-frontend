@@ -4,10 +4,10 @@ import { FramerMotion, ContentContainer, Title, Flex } from "../components";
 import "../components/footer/license-notes/table.css";
 import {
   GeneralInfo,
-  MIT,
+  Mit,
   Apache,
   ApacheTwo,
-  ISC,
+  Isc,
   Dependencies,
   DevDependencies,
 } from "../components/footer/license-notes";
@@ -17,7 +17,7 @@ const LicenseNotes = () => {
 
   useEffect(() => {
     setMainPage(false);
-  }, []);
+  }, [setMainPage]);
 
   return (
     <FramerMotion>
@@ -32,10 +32,10 @@ const LicenseNotes = () => {
         />
         <Flex style={{ paddingLeft: "20px" }} direction={"column"} gap={"30px"}>
           <GeneralInfo />
-          <MIT />
+          <Mit />
           <Apache />
           <ApacheTwo />
-          <ISC />
+          <Isc />
           <Dependencies />
           <DevDependencies />
         </Flex>

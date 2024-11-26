@@ -32,7 +32,7 @@ const Table = ({
       setFirst((prevNum) => prevNum + 5);
       setLast((prevNum) => prevNum + 5);
     }
-  }, [property?.length]);
+  }, [last, property.length, setFirst, setLast]);
 
   return (
     <Flex

@@ -254,7 +254,7 @@ export interface IScreenShotHolder {
 
 export interface IOpenGraphHolder {
   ogTitle: string;
-  ogImage: string;
+  ogImage: string | string[] | null;
   ogDescription: string;
   url: string;
 }
@@ -318,7 +318,7 @@ export interface ILink {
 }
 
 export interface IThumbnail {
-  url: string;
+  url: string | string[] | null;
   width?: string;
   height?: string;
 }

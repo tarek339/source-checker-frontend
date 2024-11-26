@@ -36,7 +36,7 @@ const Result = ({ first, last, setFirst, setLast, property }: IResult) => {
         justify="flex-end"
         align="center"
         width="100%">
-        <Button title={"zurück zur Übersicht"} onClick={() => navigate(-1)} />
+        <Button title={"zurück"} onClick={() => navigate(-1)} />
         <Flex direction={"row"} gap={"10px"}>
           <Span title={first + 1} fontSize={21} fontWeight={600} />
           <Span title={t("common.of")} fontSize={21} fontWeight={600} />

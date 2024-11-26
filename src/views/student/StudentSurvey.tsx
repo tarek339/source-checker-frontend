@@ -37,7 +37,7 @@ const StudentSurvey = () => {
         setSurveyStatus(surveyInfo.isStarted);
       }
     });
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     socket.on("surveyPageNumber", (surveyInfo) => {
@@ -45,7 +45,7 @@ const StudentSurvey = () => {
         setCurrentPage(surveyInfo.pageNum);
       }
     });
-  }, []);
+  }, [id]);
 
   return (
     <ContentContainer>

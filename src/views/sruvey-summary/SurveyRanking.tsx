@@ -55,7 +55,7 @@ const SurveyRanking = () => {
       <Title title={"Ranking"} />
       <Card style={{ paddingTop: "30px" }}>
         <FramerMotion>
-          <div ref={screenshotRef as MutableRefObject<any>}>
+          <div ref={screenshotRef as MutableRefObject<never>}>
             <SubTitle
               title={t("surveySummaray.ranking")}
               style={{ paddingBottom: "0.5em", textAlign: "center" }}

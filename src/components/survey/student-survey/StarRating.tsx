@@ -8,7 +8,7 @@ import {
 } from "../../../hooks";
 import axios from "axios";
 import { IStarRating } from "../../../types/interfaces/components";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Flex from "../../containers/Flex";
 import WaitMessage from "./WaitMessage";
 import { Button } from "../..";
@@ -28,7 +28,6 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   const { fetchSurvey } = useRequests();
   const { windowWidth } = useBreakPoints();
   const prevPageRef = useRef(currentPage);
-  const [_showToolTip, setShowToolTip] = useState(false);
 
   const handleRating = (star: number) => {
     setStars(star);
@@ -46,13 +45,6 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
     dispatchSurvey(res.data.survey);
     fetchSurvey();
   };
-
-  const onPointerMove = (value: number) => {
-    value === 2 || value === 3 || value === 4
-      ? setShowToolTip(false)
-      : setShowToolTip(true);
-  };
-  const onPointerLeave = () => setShowToolTip(false);
 
   useEffect(() => {
     if (
@@ -84,21 +76,10 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
             onClick={handleRating}
             SVGstyle={{ paddingTop: "7px" }}
             size={50}
-            tooltipArray={[
-              t("studentSurvey.rating.unbelievable"),
-              "",
-              "",
-              "",
-              t("studentSurvey.rating.credible"),
-            ]}
-            tooltipStyle={{ marginLeft: "10px" }}
-            // showTooltip={showToolTip}
             disableFillHover={voted ? true : false}
             readonly={voted ? true : false}
             allowHover={voted ? false : true}
             transition={true}
-            onPointerMove={onPointerMove}
-            onPointerLeave={onPointerLeave}
           />
           <>
             {stars > 0 && !voted ? (

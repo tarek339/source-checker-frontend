@@ -5,7 +5,7 @@ import Flex from "../../containers/Flex";
 import Span from "../../fonts/Span";
 import TextSmall from "../../fonts/TextSmall";
 
-const ISC = () => {
+const Isc = () => {
   return (
     <section>
       <Flex direction={"column"} gap={"10px"}>
@@ -80,4 +80,4 @@ const ISC = () => {
   );
 };
 
-export default ISC;
+export default Isc;

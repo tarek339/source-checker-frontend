@@ -56,7 +56,7 @@ const useStars = () => {
         return setStarsAmount(star.stars);
       });
     });
-  }, [survey, starsAmount]);
+  }, [survey, starsAmount, surveyPages]);
 
   return {
     fiveStars,

@@ -9,7 +9,7 @@ const QrCodeModal = ({
   style,
 }: IQrCodeModal) => {
   useEffect(() => {
-    let modal = document.getElementById("qrCode");
+    const modal = document.getElementById("qrCode");
     window.onclick = function (event) {
       if (modal && event.target == modal) {
         setIsVisible(true);
