@@ -45,7 +45,7 @@ const SurveyControl = () => {
       <ContentContainer
         maxWidth={1150}
         style={{ paddingLeft: "20px", paddingRight: "20px" }}>
-        <Flex direction={"row"} gap={"0px"} align="center">
+        <Flex direction={"row"} align="center">
           <Back
             style={{ paddingTop: "7px" }}
             onClick={() =>

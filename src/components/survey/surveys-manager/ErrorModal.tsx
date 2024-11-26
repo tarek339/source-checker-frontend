@@ -55,8 +55,7 @@ const ErrorModal = ({
               paddingTop: "10px",
               alignItems: windowWidth <= 500 ? "" : "flex-end",
             }}
-            onSubmit={onSubmit}
-            gap={"0px"}>
+            onSubmit={onSubmit}>
             <ButtonContainer>
               <Button error onClick={closeModal} title={t("button.cancel")} />
               <Button

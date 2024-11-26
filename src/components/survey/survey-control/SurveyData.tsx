@@ -48,7 +48,6 @@ const SurveyData = () => {
           <Flex
             onClick={openModal}
             direction={"column"}
-            gap={"0px"}
             style={{ cursor: "pointer" }}>
             <div
               style={{

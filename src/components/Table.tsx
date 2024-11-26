@@ -37,7 +37,6 @@ const Table = ({
   return (
     <Flex
       direction={"column"}
-      gap={"0px"}
       justify="space-between"
       style={{
         height: "auto",

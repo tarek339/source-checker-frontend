@@ -32,7 +32,7 @@ const NotStarted = () => {
                 <Span title={t("surveyControl.introText.fourth")} />
               </Flex>
             </Flex>
-            <Flex direction={"row"} gap={"0px"} justify="center">
+            <Flex direction={"row"} justify="center">
               <SubTitle
                 style={{ color: "#ff0000" }}
                 title={t("studentSurvey.notStartedInfo")}

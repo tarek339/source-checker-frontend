@@ -168,7 +168,7 @@ const MIT = () => {
                     https://github.com/atisawd/boxicons
                   </a>
                 </td>
-                <td className="td">Copyright (c) 2015-2021 Aniket Suvarna </td>
+                <td className="td">Copyright (c) 2015-2021 Aniket Suvarna</td>
                 <td className="td">
                   <a href="https://opensource.org/license/mit">
                     https://opensource.org/license/mit

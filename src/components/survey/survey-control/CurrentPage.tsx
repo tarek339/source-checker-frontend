@@ -63,7 +63,7 @@ const CurrentPage = () => {
         gap={"20px"}
         justify="space-between">
         <SubTitle title={t("surveyControl.currentPage")} />
-        <Flex direction={"row"} gap={"0px"} justify="space-between">
+        <Flex direction={"row"} justify="space-between">
           {windowWidth < 800 ? (
             <SubTitle title={`${`${currentPage}/${surveyPages.length}`}`} />
           ) : (
