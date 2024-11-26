@@ -1,7 +1,11 @@
 import { MdOutlineCancel } from "react-icons/md";
 
-const Cancel = () => {
-  return <MdOutlineCancel color="#FF0000" fontSize="24px" />;
+interface ICancel {
+  onClick?: React.MouseEventHandler<SVGElement> | undefined;
+}
+
+const Cancel = ({ onClick }: ICancel) => {
+  return <MdOutlineCancel color="#17181d" fontSize="48px" onClick={onClick} />;
 };
 
 export default Cancel;

@@ -77,8 +77,6 @@ const Table = ({
         }}>
         <Flex direction={"row"} gap={"10px"}>
           <span>{first + 1}</span>
-          <span>-</span>
-          <span>{last}</span>
           <span>{t("common.of")}</span>
           <span>{property?.length}</span>
         </Flex>

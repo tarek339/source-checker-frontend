@@ -60,6 +60,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("saveSurvey.chooseName")}
+          secondChild={t("newSurvey.labelTextOne")}
           child={
             <Flex direction={"row"} align="center">
               <FormContainer
@@ -86,6 +87,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("newSurvey.anonymous")}
+          secondChild={t("newSurvey.labelTextTwo")}
           child={
             <Flex direction={"row"} align="center">
               <FormContainer

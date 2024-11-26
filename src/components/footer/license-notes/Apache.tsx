@@ -1,4 +1,5 @@
 import {
+  MdHome,
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
   MdOutlineCancel,
@@ -491,6 +492,28 @@ const Apache = () => {
                 <td className="td">
                   Copyright (c) 2017-2024 Hewlett Packard Enterprise Development
                   LP.
+                </td>
+                <td className="td">
+                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+                    https://www.apache.org/licenses/LICENSE-2.0
+                  </a>
+                </td>
+              </tr>
+
+              <tr className="tr">
+                <td className="td">
+                  <MdHome />
+                </td>
+                <td className="td">MdHome</td>
+                <td className="td">Material Design icons</td>
+                <td className="td">
+                  <a href="http://google.github.io/material-design-icons/">
+                    http://google.github.io/material-design-icons/
+                  </a>
+                </td>
+                <td className="td">
+                  Copyright (c) Material Design icons by Google (Material
+                  Symbols)
                 </td>
                 <td className="td">
                   <a href="https://www.apache.org/licenses/LICENSE-2.0">

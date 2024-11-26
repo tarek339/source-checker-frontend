@@ -20,7 +20,7 @@
     "error": "Fehler",
     "of": "von",
     "surveyData": "Umfragedaten",
-    "surveyControl": "Umfragesteuerung",
+    "surveyControl": "Umfrage-Management",
     "pageControl": "Seitensteuerung",
     "page": "Seite",
     "surveyStatus": "Umfragestatus",
@@ -57,9 +57,9 @@
   },
   "auth": {
     "question": "Welchen Online-Quellen traust du?",
-    "teacherButton": "Ich bin Lehrer:in",
-    "studentButton": "Ich bin Schüler:in",
-    "mainText": "Quellenchecker ist ein Online-Tool für den Unterricht, bei dem die Schüler:innen über die Glaubwürdigkeit von realen Internet-Inhalten abstimmen. Ein YouTube-Video, ein Instagram-Post oder ein Artikel einer unbekannten Nachrichtenseite - welchen Quellen vertrauen die Jugendlichen, welchen weniger? Das lässt sich mit Quellenchecker spielerisch abfragen. Ziel ist ein leichter Einstieg ins Thema Informations- und Nachrichtenkompetenz und die Auseinandersetzung mit der Glaubwürdigkeit unterschiedlicher Internet-Quellen."
+    "teacherButton": "Ich bin Lehrer*in",
+    "studentButton": "Ich bin Schüler*in",
+    "mainText": "Quellenchecker ist ein Online-Tool für den Unterricht, bei dem die Schüler*innen über die Glaubwürdigkeit von realen Internet-Inhalten abstimmen. Ein YouTube-Video, ein Instagram-Post oder ein Artikel einer unbekannten Nachrichtenseite - welchen Quellen vertrauen die Jugendlichen, welchen weniger? Das lässt sich mit Quellenchecker spielerisch abfragen. Ziel ist ein leichter Einstieg ins Thema Informations- und Nachrichtenkompetenz und die Auseinandersetzung mit der Glaubwürdigkeit unterschiedlicher Internet-Quellen."
   },
   "input": {
     "select": "Bitte auswählen",
@@ -100,14 +100,14 @@
   },
   "newSurvey": {
     "headerOne": "Umfrageeinstellung",
-    "headerTwo": "Schüler:innen Einstellung",
-    "labelTextOne": "Sollen Schüler:innen die Möglichkeit haben, eigene Benutzernamen zu wählen? Wenn diese Option deaktiviert ist, werden den Schülern automatisch Nummern zugewiesen.",
-    "labelTextTwo": "Sollen in den Ergebnissen, welche den Schülern angezeigt werden, die Namen angezeigt werden? Wenn, nein werden nur die kumulierten Ergebnisse angezeigt.",
+    "headerTwo": "Schüler*innen Einstellung",
+    "labelTextOne": "Sollen Schüler*innen die Möglichkeit haben, eigene Benutzernamen zu wählen? Wenn diese Option deaktiviert ist, werden den Schüler*innen automatisch Nummern zugewiesen.",
+    "labelTextTwo": "Sollen in den Ergebnissen, welche den Schüler*innen angezeigt werden, die Namen angezeigt werden? Wenn diese Option deaktiviert ist, werden nur die kumulierten Ergebnisse angezeigt.",
     "resultsType": "Ergebnistyp",
     "rating": "Bewertung",
-    "ratingText": "Bei diesem Umfragetyp müssen die Schüler:innen die vorgegebenen Seiten nach Vertrauenswürdigkeit bewerten. Dies geschieht mittels Skala von 1 - 5 Sternen. (Nicht vertrauenswürdig - vertrauenswürdig)",
+    "ratingText": "Bei diesem Umfragetyp müssen die Schüler*innen die vorgegebenen Seiten nach Vertrauenswürdigkeit bewerten. Dies geschieht mittels Skala von 1 - 5 Sternen. (Nicht vertrauenswürdig - vertrauenswürdig)",
     "afterSurvey": "Nach Umfrage",
-    "anonymous": "Anonyme Ergebnisse",
+    "anonymous": "Kumulierte Ergebnisse",
     "yes": "Aktiviert",
     "no": "Deaktiviert",
     "userName": "Benutzernamen",
@@ -158,7 +158,7 @@
   "addPages": {
     "header": "Seiten auswählen",
     "notiHeader": "Es wurden noch keine Seiten zu dieser Umfrage hinzugefügt.",
-    "notiText": "Füge einen Link zu einer beliebigen Internetseite hinzu, um eine Umfrage starten zu können. Wähle verschiedene Quellen aus, damit die Schüler:innen diese bewerten können.",
+    "notiText": "Füge einen Link zu einer beliebigen Internetseite hinzu, um eine Umfrage starten zu können. Wähle verschiedene Quellen aus, damit die Schüler*innen diese bewerten können.",
     "addPages": "Neue Seite hinzufügen?",
     "addPagesXs": "Neue Seite?",
     "button": "neue seite",

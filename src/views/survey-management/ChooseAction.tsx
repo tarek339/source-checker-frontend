@@ -10,7 +10,9 @@ import {
   SubTitle,
   Title,
   ContentContainer,
+  ErrorModal,
 } from "../../components";
+import axios from "axios";
 
 const style: React.CSSProperties = {
   border: "2px dashed lightgray",
@@ -31,14 +33,42 @@ const ChooseAction = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const navigate = useNavigate();
-  const { setMainPage } = useDispatches();
+  const {
+    dispatchLoading,
+    setMainPage,
+    dispatchSurvey,
+    openModal,
+    closeModal,
+  } = useDispatches();
 
   useEffect(() => {
     setMainPage(false);
   }, []);
 
+  const handleSubmit = async () => {
+    try {
+      dispatchLoading(true);
+      const res = await axios.post("/survey/create", {
+        anonymousResults: false,
+        freeUserNames: false,
+      });
+      dispatchSurvey(res.data.survey);
+      dispatchLoading(false);
+      navigate(`/surveys-manager/save-survey/${res.data.survey._id}`);
+      closeModal();
+    } catch (err: unknown) {
+      dispatchLoading(false);
+      openModal();
+    }
+  };
+
   return (
     <ContentContainer>
+      <ErrorModal
+        onClick={handleSubmit}
+        errTitle="Verbindungsfehler"
+        errMsg="Umfrage konnte nicht angelegt werden. Bitte versuche es später nochmal."
+      />
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
@@ -48,9 +78,7 @@ const ChooseAction = () => {
             gap={"20px"}
             style={{ marginTop: "1em" }}>
             <div
-              onClick={() => {
-                navigate("/surveys-manager/new-survey");
-              }}
+              onClick={handleSubmit}
               onMouseEnter={() => setIsHoveredAdd(true)}
               onMouseLeave={() => setIsHoveredAdd(false)}
               style={{

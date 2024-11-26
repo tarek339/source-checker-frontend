@@ -5,7 +5,6 @@ import {
   ChooseAction,
   StudenSurveyAuthentication,
   SurveyControl,
-  NewSurvey,
   SaveSurvey,
   ChooseSurvey,
   AddPages,
@@ -44,7 +43,6 @@ function App() {
               path="/surveys-manager/choose-survey"
               element={<ChooseSurvey />}
             />
-            <Route path="/surveys-manager/new-survey" element={<NewSurvey />} />
             <Route
               path="/surveys-manager/save-survey/:id"
               element={<SaveSurvey />}

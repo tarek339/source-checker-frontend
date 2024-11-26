@@ -106,6 +106,7 @@ const Contorl = () => {
               } else startSurvey();
             }}
             title={t("button.start")}
+            style={{ color: survey?.isStarted ? "#31e981" : "" }}
           />
           <>
             {!survey?.isStarted && !noStars ? (

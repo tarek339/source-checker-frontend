@@ -91,13 +91,9 @@ export interface ITable {
 }
 
 export interface IErrorModal {
-  onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
-  status: number | string | null | undefined;
-  statusText: string | undefined;
+  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
   errTitle: string | undefined;
   errMsg: string | undefined;
-  optionOne: string | undefined;
-  optionTwo: string | undefined;
 }
 
 export interface IScreenShot {
