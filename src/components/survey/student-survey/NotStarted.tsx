@@ -13,6 +13,8 @@ const NotStarted = () => {
     ? student?.freeUserName
     : `User ${student?.userNumber}`;
 
+  const slicedUser = user ? user.slice(1) : undefined;
+
   return (
     <FramerMotion>
       <Flex direction={"column"} gap={"20px"} align="center" justify="center">
@@ -22,7 +24,7 @@ const NotStarted = () => {
             <Flex direction={"column"} gap={"15px"}>
               <SubTitle
                 title={`${t("common.hello")} ${
-                  user?.charAt(0).toUpperCase() + user?.slice(1)!
+                  user?.charAt(0).toUpperCase() + slicedUser!
                 }, ${t("studentSurvey.welcome")}`}
               />
               <Flex direction={"column"} gap={"5px"}>

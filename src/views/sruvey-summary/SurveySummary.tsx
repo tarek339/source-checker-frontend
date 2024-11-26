@@ -51,7 +51,7 @@ const SurveySummary = () => {
         }, 0);
       });
     setSumStars(sum);
-  }, [surveyPages, first, last]);
+  }, [surveyPages, first, last, isSort]);
 
   return (
     <ContentContainer>
@@ -121,7 +121,9 @@ const SurveySummary = () => {
                               <Average />
                               <Flex direction={"row"}>
                                 <SubTitle
-                                  title={averageRating?.toFixed(2).toString()!}
+                                  title={
+                                    averageRating?.toFixed(2).toString() ?? ""
+                                  }
                                 />
                                 <Star />
                               </Flex>

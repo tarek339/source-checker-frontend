@@ -11,7 +11,7 @@ const Authentication = () => {
 
   useEffect(() => {
     setMainPage(true);
-  }, []);
+  }, [setMainPage]);
 
   return (
     <FramerMotion>

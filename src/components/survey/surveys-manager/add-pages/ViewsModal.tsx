@@ -26,7 +26,7 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
 
   useEffect(() => {
     handleScroll();
-  }, [viewsModal]);
+  }, [handleScroll, viewsModal]);
 
   useEffect(() => {
     const pageFound = surveyPages?.find((page: IPages) => page._id === pageId);
@@ -77,8 +77,8 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
                 }
                 id={survey?._id}
                 isMobileView={true}
-                pageID={filteredPage?._id!}
-                url={filteredPage?.mobileScreenshot!}
+                pageID={filteredPage?._id ?? ""}
+                url={filteredPage?.mobileScreenshot ?? ""}
                 icon={<Mobile />}
                 gap="3px"
               />
@@ -111,8 +111,8 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
                 }
                 id={survey?._id}
                 isMobileView={false}
-                pageID={filteredPage?._id!}
-                url={filteredPage?.desktopScreenshot!}
+                pageID={filteredPage?._id ?? ""}
+                url={filteredPage?.desktopScreenshot ?? ""}
                 icon={<Desktop />}
                 gap="6px"
               />
@@ -129,13 +129,15 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
               />
             ) : (
               <OpenGraphView
-                pageID={filteredPage?._id!}
+                pageID={filteredPage?._id ?? ""}
                 openGraphView={true}
-                ogTitle={filteredPage?.openGraph?.ogTitle}
-                url={filteredPage?.openGraph?.ogImage?.map(
-                  (img: { url: string }) => img.url
-                )}
-                ogDescription={filteredPage?.openGraph?.ogDescription}
+                ogTitle={filteredPage?.openGraph?.ogTitle ?? ""}
+                url={
+                  filteredPage?.openGraph?.ogImage?.map(
+                    (img: { url: string }) => img.url
+                  ) as unknown as string
+                }
+                ogDescription={filteredPage?.openGraph?.ogDescription ?? ""}
                 icon={<Generate />}
                 gap={"6px"}
               />

@@ -11,11 +11,11 @@ const QrCodeComp = () => {
 
   useEffect(() => {
     handleScroll();
-  }, [qrCode]);
+  }, [handleScroll, qrCode]);
 
   return (
     <QrCodeModal isVisible={qrCode} setIsVisible={closeQrCodeModal}>
-      <QrCode size={300} value={survey?.link!} />
+      <QrCode size={300} value={survey?.link ?? ""} />
     </QrCodeModal>
   );
 };

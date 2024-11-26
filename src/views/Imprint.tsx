@@ -15,7 +15,7 @@ const Imprint = () => {
 
   useEffect(() => {
     setMainPage(false);
-  }, []);
+  }, [setMainPage]);
 
   return (
     <FramerMotion>

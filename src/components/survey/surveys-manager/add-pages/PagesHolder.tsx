@@ -138,7 +138,7 @@ const PagesHolder = () => {
                     color: "#FF0000",
                     textTransform: "uppercase",
                   }}
-                  onClick={() => onDelete(page?._id!)}>
+                  onClick={() => onDelete(page?._id ?? "")}>
                   {t("common.delete")}
                 </span>
               </td>
@@ -149,7 +149,7 @@ const PagesHolder = () => {
         last={last}
         setFirst={setFirst}
         setLast={setLast}
-        property={survey?.pages!}
+        property={survey?.pages ?? []}
       />
     </>
   );

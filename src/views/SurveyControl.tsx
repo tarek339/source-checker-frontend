@@ -38,7 +38,7 @@ const SurveyControl = () => {
         setCurrentPage(surveyInfo.pageNum);
       }
     });
-  }, []);
+  }, [id]);
 
   return (
     <FramerMotion>

@@ -6,7 +6,12 @@ export interface IPages {
   mobileScreenshot: string;
   desktopScreenshot: string;
   isMobileView: boolean | null;
-  openGraph: any;
+  openGraph: {
+    ogTitle: string;
+    ogDescription: string;
+    ogImage: URL[];
+    url: string;
+  };
   isOpenGraphView: boolean;
   isSelectedView: boolean;
   starsArray: [
@@ -17,6 +22,10 @@ export interface IPages {
       stars: number;
     }
   ];
+}
+
+interface URL {
+  url: string;
 }
 
 export interface ISurvey {

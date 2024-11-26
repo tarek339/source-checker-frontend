@@ -141,35 +141,32 @@ const CurrentPage = () => {
             width: "100%",
             paddingTop: windowWidth < 800 ? "15px" : "0px",
           }}>
-          {surveyPages
-            .slice(currentPage - 1, currentPage)
-            .map((page: IPages, i) => {
-              return (
-                <div
-                  // className="hide-scroll-bar"
-                  key={i}
-                  style={{
-                    height: windowWidth >= 768 ? "270px" : "300px",
-                    overflowY: "scroll",
-                  }}>
-                  <img
-                    src={
-                      page.isMobileView
-                        ? page.mobileScreenshot
-                        : page.isMobileView === false
-                        ? page.desktopScreenshot
-                        : page.isMobileView === null && page.isOpenGraphView
-                        ? page.openGraph.ogImage.map(
-                            (img: { url: string }) => img.url
-                          )
-                        : null
-                    }
-                    style={{ width: "100%", height: "auto" }}
-                    alt=""
-                  />
-                </div>
-              );
-            })}
+          {surveyPages.slice(currentPage - 1, currentPage).map((page, i) => {
+            return (
+              <div
+                key={i}
+                style={{
+                  height: windowWidth >= 768 ? "270px" : "300px",
+                  overflowY: "scroll",
+                }}>
+                <img
+                  src={
+                    page.isMobileView
+                      ? page.mobileScreenshot
+                      : page.isMobileView === false
+                      ? page.desktopScreenshot
+                      : page.isMobileView === null && page.isOpenGraphView
+                      ? (page.openGraph.ogImage.map(
+                          (img: { url: string }) => img.url
+                        ) as unknown as string)
+                      : undefined
+                  }
+                  style={{ width: "100%", height: "auto" }}
+                  alt=""
+                />
+              </div>
+            );
+          })}
         </div>
       </Flex>
     </SubCard>

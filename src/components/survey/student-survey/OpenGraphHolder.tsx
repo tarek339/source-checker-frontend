@@ -36,7 +36,7 @@ const OpenGraphHolder = ({
             width: "100%",
             height: "auto",
           }}
-          src={ogImage}
+          src={ogImage as string}
           alt=""
         />
         <p>{ogDescription}</p>

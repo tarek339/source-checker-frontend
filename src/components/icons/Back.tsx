@@ -14,21 +14,6 @@ const Back = ({ onClick, style }: IIBack) => {
         color={"#17181d"}
         style={style}
       />
-      {/* {windowWidth >= 1024 && hovered ? (
-        <div
-          style={{
-            position: "absolute",
-            top: 3,
-            right: 50,
-            backgroundColor: "#fff",
-            color: "#2835c3",
-            padding: "5px",
-            borderRadius: "4px",
-            fontWeight: 600,
-          }}>
-          <span onClick={onClick}>{t("button.back").toUpperCase()}</span>
-        </div>
-      ) : null} */}
     </div>
   );
 };

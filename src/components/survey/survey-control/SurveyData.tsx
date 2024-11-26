@@ -24,8 +24,8 @@ const SurveyData = () => {
   const [hovered, setHovered] = useState(false);
 
   const copyToClipboard = () => {
-    let link = survey?.link;
-    let input = document.createElement("input");
+    const link = survey?.link;
+    const input = document.createElement("input");
     input.value = `${link}`;
     document.body.appendChild(input);
     input.select();
@@ -74,7 +74,7 @@ const SurveyData = () => {
                 style={{
                   filter: "blur(2px)",
                 }}>
-                <QrCode value={survey?.link!} />
+                <QrCode value={survey?.link ?? ""} />
               </div>
             </div>
 

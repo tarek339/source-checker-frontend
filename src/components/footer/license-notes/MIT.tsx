@@ -13,7 +13,7 @@ import Flex from "../../containers/Flex";
 import Span from "../../fonts/Span";
 import TextSmall from "../../fonts/TextSmall";
 
-const MIT = () => {
+const Mit = () => {
   return (
     <section>
       <Flex direction={"column"} gap={"10px"}>
@@ -201,4 +201,4 @@ const MIT = () => {
   );
 };
 
-export default MIT;
+export default Mit;

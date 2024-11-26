@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
 
   useEffect(() => {
     setMainPage(false);
-  }, []);
+  }, [setMainPage]);
 
   return (
     <FramerMotion>

@@ -121,7 +121,7 @@ const ApacheTwo = () => {
             <span style={{ fontSize: "14px" }}>
               You do not have to comply with the license for elements of the
               material in the public domain or where your use is permitted by an
-              applicable {" "}
+              applicable{" "}
             </span>
             <span style={{ fontSize: "14px" }}>
               <Link

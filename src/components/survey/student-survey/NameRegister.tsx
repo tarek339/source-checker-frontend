@@ -36,15 +36,6 @@ const NameRegister = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (
-      survey?.freeUserNames === false &&
-      survey?.freeUserNames !== undefined
-    ) {
-      handleSubmit();
-    }
-  }, [survey]);
-
   const handleSubmit = async () => {
     try {
       if (!freeUserName && survey?.freeUserNames) {
@@ -64,6 +55,15 @@ const NameRegister = () => {
       setUserExistsMsg(studentExists);
     }
   };
+
+  useEffect(() => {
+    if (
+      survey?.freeUserNames === false &&
+      survey?.freeUserNames !== undefined
+    ) {
+      handleSubmit();
+    }
+  }, [survey]);
 
   return (
     <ContentContainer>

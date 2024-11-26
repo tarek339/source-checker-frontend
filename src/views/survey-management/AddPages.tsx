@@ -54,7 +54,7 @@ const AddPages = () => {
     if (surveyPages?.length === 0) {
       resetSBPages();
     }
-  });
+  }, []);
 
   return (
     <ContentContainer style={{ position: "relative" }}>

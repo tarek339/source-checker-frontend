@@ -17,7 +17,7 @@ const PageModal = ({ children, title }: IPageModal) => {
 
   useEffect(() => {
     handleScroll();
-  }, [modal]);
+  }, [handleScroll, modal]);
 
   return (
     <Modal

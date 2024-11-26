@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   useBreakPoints,
   useDispatches,
@@ -31,7 +31,7 @@ const SurveyStart = () => {
     });
   }, [surveyPages, currentPage, pageId]);
 
-  const fetchStars = async () => {
+  const fetchStars = useCallback(async () => {
     try {
       const res = await axios.get(
         `/survey/get-student-page-stars/${survey?._id}/${pageId}/${student?._id}`
@@ -48,13 +48,15 @@ const SurveyStart = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [pageId, setStars, setVoted, setVotedStars, student?._id, survey?._id]);
 
   useEffect(() => {
     if (student?._id !== undefined && pageId !== "") {
       fetchStars();
     }
   }, [student?._id, pageId]);
+
+  const slicedUser = user ? user.slice(1) : undefined;
 
   return (
     <FramerMotion>
@@ -66,7 +68,7 @@ const SurveyStart = () => {
               marginRight: "20px",
               fontSize: windowWidth <= 380 ? "22px" : "",
             }}
-            title={`${user?.charAt(0).toUpperCase() + user?.slice(1)!}, ${t(
+            title={`${user?.charAt(0).toUpperCase() + slicedUser!}, ${t(
               "studentSurvey.title"
             )}`}
           />
@@ -92,8 +94,8 @@ const SurveyStart = () => {
             <Flex direction={"row"} style={{ marginLeft: "20px" }}>
               <StarRating
                 pageId={pageId}
-                surveyId={survey?._id!}
-                studentId={student?._id!}
+                surveyId={survey?._id ?? ""}
+                studentId={student?._id ?? ""}
               />
             </Flex>
             <>

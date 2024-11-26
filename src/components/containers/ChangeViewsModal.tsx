@@ -8,7 +8,7 @@ const ChangeViewsModal = ({
   style,
 }: IChangeViewsModal) => {
   useEffect(() => {
-    let modal = document.getElementById("viewsModal");
+    const modal = document.getElementById("viewsModal");
     window.onclick = function (event) {
       if (modal && event.target == modal) {
         setIsVisible(true);

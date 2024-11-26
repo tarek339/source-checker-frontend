@@ -1,4 +1,4 @@
-const SVG = () => {
+const Svg = () => {
   return (
     <div
       style={{
@@ -38,4 +38,4 @@ const SVG = () => {
   );
 };
 
-export default SVG;
+export default Svg;

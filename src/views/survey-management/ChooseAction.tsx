@@ -43,7 +43,7 @@ const ChooseAction = () => {
 
   useEffect(() => {
     setMainPage(false);
-  }, []);
+  }, [setMainPage]);
 
   const handleSubmit = async () => {
     try {

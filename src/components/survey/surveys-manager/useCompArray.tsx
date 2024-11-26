@@ -25,9 +25,9 @@ const useCompArray = () => {
   }, [survey]);
 
   const copyToClipboard = () => {
-    let id = `ID: ${survey?.surveyId}`;
-    let pin = `PIN: ${survey?.surveyPin}`;
-    let input = document.createElement("input");
+    const id = `ID: ${survey?.surveyId}`;
+    const pin = `PIN: ${survey?.surveyPin}`;
+    const input = document.createElement("input");
     input.value = `${id}, ${pin}`;
     document.body.appendChild(input);
     input.select();
@@ -131,7 +131,7 @@ const useCompArray = () => {
         <>
           <SurveyProp
             header={t("common.surveyID")}
-            child={<Span fontWeight={600} title={survey?.surveyId!} />}
+            child={<Span fontWeight={600} title={survey?.surveyId ?? ""} />}
           />
           <Flex direction={"column"}>
             <Flex direction={"row"} gap={"3px"}>
@@ -169,7 +169,7 @@ const useCompArray = () => {
       comp: (
         <SurveyProp
           header={t("common.surveyPIN")}
-          child={<Span fontWeight={600} title={survey?.surveyPin!} />}
+          child={<Span fontWeight={600} title={survey?.surveyPin ?? ""} />}
         />
       ),
     },
