@@ -119,7 +119,7 @@ const SurveyRanking = () => {
                                 ? page.mobileScreenshot
                                 : page.isMobileView === null &&
                                   page.isOpenGraphView
-                                ? page.openGraph.ogImage.map(
+                                ? page.openGraph.ogImage?.map(
                                     (img: { url: string }) => img.url
                                   )
                                 : null

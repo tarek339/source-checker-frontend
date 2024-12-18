@@ -134,7 +134,7 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
                 ogTitle={filteredPage?.openGraph?.ogTitle ?? ""}
                 url={
                   filteredPage?.openGraph?.ogImage
-                    .map((img: { url: string }) => img.url)
+                    ?.map((img: { url: string }) => img.url)
                     .toString() ?? ""
                 }
                 ogDescription={filteredPage?.openGraph?.ogDescription ?? ""}

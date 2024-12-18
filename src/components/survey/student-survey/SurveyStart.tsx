@@ -113,7 +113,7 @@ const SurveyStart = () => {
                       ) : page.isMobileView === null && page.isOpenGraphView ? (
                         <OpenGraphHolder
                           ogTitle={page.openGraph.ogTitle}
-                          ogImage={page.openGraph.ogImage.map(
+                          ogImage={page.openGraph.ogImage?.map(
                             (img: { url: string }) => img.url
                           )}
                           ogDescription={page.openGraph.ogDescription}

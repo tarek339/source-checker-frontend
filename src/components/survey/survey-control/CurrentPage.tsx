@@ -156,9 +156,9 @@ const CurrentPage = () => {
                       : page.isMobileView === false
                       ? page.desktopScreenshot
                       : page.isMobileView === null && page.isOpenGraphView
-                      ? (page.openGraph.ogImage.map(
-                          (img: { url: string }) => img.url
-                        ) as unknown as string)
+                      ? page.openGraph.ogImage
+                          ?.map((img: { url: string }) => img.url)
+                          .toString()
                       : undefined
                   }
                   style={{ width: "100%", height: "auto" }}
