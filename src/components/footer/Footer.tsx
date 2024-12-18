@@ -48,7 +48,19 @@ const Footer = () => {
           fontSize={14}
         />
         <Dot />
-        <Link url={""} title={"Quellcode"} fontWeight={0} fontSize={14} />
+        <Link
+          url={"https://git.hoou.de/quellenchecker/source-checker-frontend"}
+          title={"UI-Architektur"}
+          fontWeight={0}
+          fontSize={14}
+        />
+        <Dot />
+        <Link
+          url={"https://git.hoou.de/quellenchecker/source-checker-backend"}
+          title={"API-Architektur"}
+          fontWeight={0}
+          fontSize={14}
+        />
       </section>
     </div>
   );
