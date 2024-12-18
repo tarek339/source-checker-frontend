@@ -149,11 +149,9 @@ const SideMenu = () => {
                     pageID={page._id}
                     openGraphView={true}
                     ogTitle={page.openGraph?.ogTitle}
-                    url={
-                      page.openGraph.ogImage.map(
-                        (img: { url: string }) => img.url
-                      ) as unknown as string
-                    }
+                    url={page.openGraph.ogImage
+                      ?.map((img: { url: string }) => img.url)
+                      .toString()}
                     ogDescription={page.openGraph?.ogDescription}
                     icon={<Generate />}
                     gap={"6px"}

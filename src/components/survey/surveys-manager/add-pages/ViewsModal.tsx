@@ -133,9 +133,9 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
                 openGraphView={true}
                 ogTitle={filteredPage?.openGraph?.ogTitle ?? ""}
                 url={
-                  filteredPage?.openGraph?.ogImage?.map(
-                    (img: { url: string }) => img.url
-                  ) as unknown as string
+                  filteredPage?.openGraph?.ogImage
+                    .map((img: { url: string }) => img.url)
+                    .toString() ?? ""
                 }
                 ogDescription={filteredPage?.openGraph?.ogDescription ?? ""}
                 icon={<Generate />}
