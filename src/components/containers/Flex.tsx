@@ -9,6 +9,7 @@ const Flex = ({
   width,
   style,
   height,
+  flexWrap,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -17,6 +18,7 @@ const Flex = ({
     <div
       style={{
         display: "flex",
+        flexWrap: flexWrap,
         flexDirection: direction,
         gap: gap,
         justifyContent: justify,

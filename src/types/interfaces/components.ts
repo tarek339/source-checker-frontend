@@ -170,7 +170,8 @@ export interface ISubCard {
 
 export interface IFlex {
   children: JSX.Element[] | JSX.Element;
-  direction: "row" | "column" | "column-reverse" | "row-reverse";
+  direction?: "row" | "column" | "column-reverse" | "row-reverse";
+  flexWrap?: "wrap" | "nowrap" | "wrap-reverse";
   gap?: string;
   justify?:
     | "flex-start"

@@ -149,7 +149,7 @@ const SurveyRanking = () => {
             </Flex>
           </div>
           <Flex
-            direction={"row"}
+            flexWrap="wrap"
             justify="space-between"
             align="center"
             style={{ marginTop: "2em" }}>
