@@ -159,14 +159,18 @@ const SurveyRanking = () => {
               title={windowWidth >= 540 ? "Ergebnisse speichern" : "speichern"}
             />
 
-            <Flex direction={"row"} gap={"10px"}>
-              <Span fontSize={22} title={"Sortieren"} fontWeight={600} />
-              <Arrow
-                fontSize={31}
-                onClick={() => setIsSort(!isSort)}
-                deg={deg}
-              />
-            </Flex>
+            {surveyPages.length > 1 ? (
+              <Flex direction={"row"} gap={"10px"}>
+                <Span fontSize={22} title={"Sortieren"} fontWeight={600} />
+                <Arrow
+                  fontSize={31}
+                  onClick={() => setIsSort(!isSort)}
+                  deg={deg}
+                />
+              </Flex>
+            ) : (
+              <></>
+            )}
           </Flex>
         </FramerMotion>
       </Card>
