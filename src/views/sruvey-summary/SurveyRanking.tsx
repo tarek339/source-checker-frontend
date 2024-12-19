@@ -150,7 +150,8 @@ const SurveyRanking = () => {
           </div>
           <Flex
             flexWrap="wrap"
-            justify="space-between"
+            justify="center"
+            gap="20px"
             align="center"
             style={{ marginTop: "2em" }}>
             <Button
