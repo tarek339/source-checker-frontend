@@ -1,5 +1,4 @@
 import Flex from "../../containers/Flex";
-import Link from "../../fonts/Link";
 import Span from "../../fonts/Span";
 import Title from "../../fonts/Title";
 
@@ -8,18 +7,22 @@ const PrivacyInfo = () => {
     <Flex direction={"column"} gap={"15px"}>
       <Title style={{ padding: "0px" }} title={"Datenschutzhinweise"} />
       <Flex direction={"row"} gap={"5px"}>
-        <Span fontSize={18} title={"für Quellenchecker"} />
-        <Link
-          url={"https://quellenchecker.hoou.tech/"}
-          title={"https://quellenchecker.hoou.tech"}
-          fontWeight={600}
-          fontSize={18}
-        />
+        <span style={{ fontSize: "18px" }}>
+          Für Quellenchecker{" "}
+          <span>
+            <a
+              style={{ fontSize: "18px" }}
+              href="mailto:https://quellenchecker.hoou.tech/">
+              https://quellenchecker.hoou.tech
+            </a>
+          </span>
+          .
+        </span>
       </Flex>
       <Span
         fontSize={18}
         title={
-          "ein Projekt von #UseTheNews / HAW Hamburg und der Hamburg Open Online University (HOOU@HAW)"
+          "Ein Projekt von #UseTheNews / HAW Hamburg und der Hamburg Open Online University (HOOU@HAW)"
         }
       />
     </Flex>
