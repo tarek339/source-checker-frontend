@@ -1,44 +1,50 @@
 import Flex from "../../containers/Flex";
 import Span from "../../fonts/Span";
-import TextSmall from "../../fonts/TextSmall";
 
 const SurveyData = () => {
   return (
     <Flex direction={"column"} gap={"15px"}>
-      <Span title={"Umfragedaten"} />
+      <Span fontSize={18} title={"Umfragedaten"} />
       <Flex direction={"column"} gap={"10px"}>
-        <TextSmall
-          text={
+        <Span
+          fontSize={16}
+          title={
             "Um das Tool nutzen zu können ist keine Registrierung erforderlich."
           }
         />
-        <TextSmall
-          text={`
+        <Span
+          fontSize={16}
+          title={`
         Von Nutzer:innen (bspw. Lehrkräften) angelegte Umfragen können zwecks 
         Unterrichtsvorbereitung im Vorfeld der geplanten Nutzung gespeichert und zu einem späteren Zeitpunkt gestartet werden. 
         Zu diesem Zweck wird eine zufällig generierte PIN vergeben.`}
         />
-        <TextSmall
-          text={`
+        <Span
+          fontSize={16}
+          title={`
         Teilnehmer:innen einer Umfrage können sich optional selbst einen Nutzernamen (Pseudonym) wählen.`}
         />
-        <TextSmall
-          text={`
+        <Span
+          fontSize={16}
+          title={`
         Die Speicherung des Umfragefortschritts beinhaltet (vorbehaltlich eines eventuell 
         vergebenen Nutzernamens) keine personenbezogenen Daten.`}
         />
-        <TextSmall
-          text={`
+        <Span
+          fontSize={16}
+          title={`
         Die Umfrage-Antworten der Nutzer:innen können von der Lehrkraft eingesehen und nach Abschluss der Umfrage 
         für alle Teilnehmer:innen angezeigt werden. Ein Personenbezug kann nicht hergestellt werden (es sei denn, 
         ein selbstgewählter Nutzername wurde mitgeteilt).`}
         />
-        <TextSmall
-          text={`
+        <Span
+          fontSize={16}
+          title={`
         Angelegte Umfragen werden 14 Tage nach dem Anlegen gelöscht.`}
         />
-        <TextSmall
-          text={`
+        <Span
+          fontSize={16}
+          title={`
         Erfolgt die Durchführung einer Umfrage nicht am Tag des Anlegens, sondern innerhalb der nachfolgenden 14 Tage, 
         so verlängert sich die Löschfrist um 14 Tage, 
         gerechnet ab dem Tag der Durchführung der Umfrage.`}
