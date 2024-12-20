@@ -6,10 +6,10 @@ import {
   GeneralInfo,
   Mit,
   Apache,
-  ApacheTwo,
   Isc,
   Dependencies,
   DevDependencies,
+  Ccby,
 } from "../components/footer/license-notes";
 
 const LicenseNotes = () => {
@@ -22,7 +22,7 @@ const LicenseNotes = () => {
   return (
     <FramerMotion>
       <ContentContainer
-        maxWidth={1200}
+        maxWidth={1000}
         style={{ paddingLeft: "10px", paddingRight: "10px" }}>
         <Title title={"Lizenzhinweise"} />
         <Title
@@ -34,7 +34,7 @@ const LicenseNotes = () => {
           <GeneralInfo />
           <Mit />
           <Apache />
-          <ApacheTwo />
+          <Ccby />
           <Isc />
           <Dependencies />
           <DevDependencies />

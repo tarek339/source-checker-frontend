@@ -313,8 +313,8 @@ export interface ISectionHolder {
 export interface ILink {
   url: string;
   title: string;
-  fontWeight: number;
-  fontSize: number;
+  fontWeight?: number;
+  fontSize?: number;
   color?: string;
 }
 
@@ -367,4 +367,10 @@ export interface IIconsListing {
 
 export interface IViewsModal {
   pageId: string;
+}
+
+export interface BasicTableProps {
+  header: string[];
+  children: JSX.Element;
+  minWidth: number;
 }
