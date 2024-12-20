@@ -1,5 +1,5 @@
 import Apache from "./Apache";
-import ApacheTwo from "./ApacheTwo";
+import Ccby from "./CCBY";
 import GeneralInfo from "./GeneralInfo";
 import IconsListing from "./IconsListing";
 import Isc from "./ISC";
@@ -9,7 +9,7 @@ import DevDependencies from "./DevDependencies";
 
 export {
   Apache,
-  ApacheTwo,
+  Ccby,
   GeneralInfo,
   Isc,
   IconsListing,

@@ -1,9 +1,54 @@
 import { LuCircleSlash2, LuDot } from "react-icons/lu";
-import IconsListing from "./IconsListing";
 import Link from "../../fonts/Link";
 import Flex from "../../containers/Flex";
 import Span from "../../fonts/Span";
 import TextSmall from "../../fonts/TextSmall";
+import BasicTable from "./Table";
+import { TableBody, TableCell, TableRow } from "@mui/material";
+
+function createData(
+  IconVisualized: JSX.Element,
+  IconName: string,
+  OfferedBy: string,
+  Website: string,
+  CopyrightNotice: string | JSX.Element,
+  LinkLicense: string
+) {
+  return {
+    IconVisualized,
+    IconName,
+    OfferedBy,
+    Website,
+    CopyrightNotice,
+    LinkLicense,
+  };
+}
+
+const sx: React.CSSProperties = {
+  fontSize: "12px",
+  textTransform: "none",
+  border: "1px solid darkgray",
+  cursor: "default",
+};
+
+const rows = [
+  createData(
+    <LuCircleSlash2 />,
+    "LuCircleSlash2",
+    "Lucide",
+    "https://lucide.dev/",
+    "Copyright (c) 2022 Lucide Contributors",
+    "https://opensource.org/license/isc-license-txt"
+  ),
+  createData(
+    <LuDot />,
+    "LuDot",
+    "Lucide",
+    "https://lucide.dev/",
+    "Copyright (c) 2022 Lucide Contributors",
+    "https://opensource.org/license/isc-license-txt"
+  ),
+];
 
 const Isc = () => {
   return (
@@ -37,44 +82,35 @@ const Isc = () => {
              ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             `}
         />
-        <IconsListing
-          children={
-            <>
-              <tr className="tr">
-                <td className="td">
-                  <LuCircleSlash2 />
-                </td>
-                <td className="td">LuCircleSlash2</td>
-                <td className="td">Lucide</td>
-                <td className="td">
-                  <a href="https://lucide.dev/">https://lucide.dev/</a>
-                </td>
-                <td className="td">Copyright (c) 2022 Lucide Contributors</td>
-                <td className="td">
-                  <a href="https://opensource.org/license/isc-license-txt">
-                    https://opensource.org/license/isc-license-txt
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <LuDot />
-                </td>
-                <td className="td">LuDot</td>
-                <td className="td">Lucide</td>
-                <td className="td">
-                  <a href="https://lucide.dev/">https://lucide.dev/</a>
-                </td>
-                <td className="td">Copyright (c) 2022 Lucide Contributors</td>
-                <td className="td">
-                  <a href="https://opensource.org/license/isc-license-txt">
-                    https://opensource.org/license/isc-license-txt
-                  </a>
-                </td>
-              </tr>
-            </>
-          }
-        />
+        <BasicTable
+          header={[
+            "Icon: visualized",
+            "Icon: name",
+            "Offered by",
+            "Website	Copyright notice",
+            "Copyright notice",
+            "Link License (text)",
+          ]}
+          minWidth={1100}>
+          <TableBody>
+            {rows.map((row, i) => {
+              return (
+                <TableRow key={i}>
+                  <TableCell sx={sx}>{row.IconVisualized}</TableCell>
+                  <TableCell sx={sx}>{row.IconName}</TableCell>
+                  <TableCell sx={sx}>{row.OfferedBy}</TableCell>
+                  <TableCell sx={sx}>
+                    <Link url={row.Website} title={row.Website} />
+                  </TableCell>
+                  <TableCell sx={sx}>{row.CopyrightNotice}</TableCell>
+                  <TableCell sx={sx}>
+                    <Link url={row.LinkLicense} title={row.LinkLicense} />
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </BasicTable>
       </Flex>
     </section>
   );

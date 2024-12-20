@@ -4,7 +4,6 @@ import {
   IoArrowBackSharp,
   IoArrowForwardSharp,
 } from "react-icons/io5";
-import IconsListing from "./IconsListing";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { BiLoaderAlt } from "react-icons/bi";
 import { FiArrowUp } from "react-icons/fi";
@@ -12,6 +11,124 @@ import Link from "../../fonts/Link";
 import Flex from "../../containers/Flex";
 import Span from "../../fonts/Span";
 import TextSmall from "../../fonts/TextSmall";
+import { TableBody, TableCell, TableRow } from "@mui/material";
+import BasicTable from "./Table";
+
+function createData(
+  IconVisualized: JSX.Element,
+  IconName: string,
+  OfferedBy: string,
+  Website: string,
+  CopyrightNotice: string | JSX.Element,
+  LinkLicense: string
+) {
+  return {
+    IconVisualized,
+    IconName,
+    OfferedBy,
+    Website,
+    CopyrightNotice,
+    LinkLicense,
+  };
+}
+const style: React.CSSProperties = {
+  fontSize: "12px",
+};
+
+const sx: React.CSSProperties = {
+  fontSize: "12px",
+  textTransform: "none",
+  border: "1px solid darkgray",
+  cursor: "default",
+};
+
+const rows = [
+  createData(
+    <IoAlertSharp />,
+    "IoAlertSharp",
+    "Ionicons",
+    "https://ionic.io/ionicons",
+    <span style={style}>
+      Copyright (c) 2015-present Ionic{" "}
+      <a target="_blank" href="http://ionic.io/">
+        http://ionic.io/
+      </a>
+    </span>,
+    "https://opensource.org/license/mit"
+  ),
+  createData(
+    <IoMdArrowRoundBack />,
+    "IoMdArrowRoundBack",
+    "Ionicons",
+    "https://ionic.io/ionicons",
+
+    <span style={style}>
+      Copyright (c) 2015-present Ionic{" "}
+      <a target="_blank" href="http://ionic.io/">
+        http://ionic.io/
+      </a>
+    </span>,
+    "https://opensource.org/license/mit"
+  ),
+  createData(
+    <IoArrowBackSharp />,
+    "IoArrowBackSharp",
+    "Ionicons",
+    "https://ionic.io/ionicons",
+
+    <span style={style}>
+      Copyright (c) 2015-present Ionic{" "}
+      <a target="_blank" href="http://ionic.io/">
+        http://ionic.io/
+      </a>
+    </span>,
+    "https://opensource.org/license/mit"
+  ),
+  createData(
+    <IoArrowForwardSharp />,
+    "IoArrowForwardSharp",
+    "Ionicons",
+    "https://ionic.io/ionicons",
+
+    <span style={style}>
+      Copyright (c) 2015-present Ionic{" "}
+      <a target="_blank" href="http://ionic.io/">
+        http://ionic.io/
+      </a>
+    </span>,
+    "https://opensource.org/license/mit"
+  ),
+  createData(
+    <IoAddOutline />,
+    "IoAddOutline",
+    "Ionicons",
+    "https://ionic.io/ionicons",
+
+    <span style={style}>
+      Copyright (c) 2015-present Ionic{" "}
+      <a target="_blank" href="http://ionic.io/">
+        http://ionic.io/
+      </a>
+    </span>,
+    "https://opensource.org/license/mit"
+  ),
+  createData(
+    <BiLoaderAlt />,
+    "BiLoaderAlt",
+    "BoxIcons",
+    "https://github.com/atisawd/boxicons",
+    "Copyright (c) 2015-2021 Aniket Suvarna",
+    "https://opensource.org/license/mit"
+  ),
+  createData(
+    <FiArrowUp />,
+    "FiArrowUp",
+    "Feather",
+    "https://feathericons.com/",
+    "Copyright (c) 2013-2023 Cole Bemis",
+    "https://opensource.org/license/mit"
+  ),
+];
 
 const Mit = () => {
   return (
@@ -49,153 +166,35 @@ const Mit = () => {
           WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
           OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`}
         />
-        <IconsListing
-          children={
-            <>
-              <tr className="tr">
-                <td className="td">
-                  <IoAlertSharp />
-                </td>
-                <td className="td">IoAlertSharp</td>
-                <td className="td">Ionicons</td>
-                <td className="td">
-                  <a href="https://ionic.io/ionicons">
-                    https://ionic.io/ionicons
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) 2015-present Ionic{" "}
-                  <a href="http://ionic.io/">http://ionic.io/</a>
-                </td>
-                <td className="td">
-                  <a href="https://opensource.org/license/mit">
-                    https://opensource.org/license/mit
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <IoMdArrowRoundBack />
-                </td>
-                <td className="td">IoMdArrowRoundBack</td>
-                <td className="td">Ionicons</td>
-                <td className="td">
-                  <a href="https://ionic.io/ionicons">
-                    https://ionic.io/ionicons
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) 2015-present Ionic{" "}
-                  <a href="http://ionic.io/">http://ionic.io/</a>
-                </td>
-                <td className="td">
-                  <a href="https://opensource.org/license/mit">
-                    https://opensource.org/license/mit
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <IoArrowBackSharp />{" "}
-                </td>
-                <td className="td">IoArrowBackSharp</td>
-                <td className="td">Ionicons</td>
-                <td className="td">
-                  <a href="https://ionic.io/ionicons">
-                    https://ionic.io/ionicons
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) 2015-present Ionic{" "}
-                  <a href="http://ionic.io/">http://ionic.io/</a>
-                </td>
-                <td className="td">
-                  <a href="https://opensource.org/license/mit">
-                    https://opensource.org/license/mit
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <IoArrowForwardSharp />
-                </td>
-                <td className="td">IoArrowForwardSharp</td>
-                <td className="td">Ionicons</td>
-                <td className="td">
-                  <a href="https://ionic.io/ionicons">
-                    https://ionic.io/ionicons
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) 2015-present Ionic{" "}
-                  <a href="http://ionic.io/">http://ionic.io/</a>
-                </td>
-                <td className="td">
-                  <a href="https://opensource.org/license/mit">
-                    https://opensource.org/license/mit
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <IoAddOutline />
-                </td>
-                <td className="td">IoAddOutline</td>
-                <td className="td">Ionicons</td>
-                <td className="td">
-                  <a href="https://ionic.io/ionicons">
-                    https://ionic.io/ionicons
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) 2015-present Ionic{" "}
-                  <a href="http://ionic.io/">http://ionic.io/</a>
-                </td>
-                <td className="td">
-                  <a href="https://opensource.org/license/mit">
-                    https://opensource.org/license/mit
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <BiLoaderAlt />
-                </td>
-                <td className="td">BiLoaderAlt</td>
-                <td className="td">BoxIcons</td>
-                <td className="td">
-                  <a href="https://github.com/atisawd/boxicons">
-                    https://github.com/atisawd/boxicons
-                  </a>
-                </td>
-                <td className="td">Copyright (c) 2015-2021 Aniket Suvarna</td>
-                <td className="td">
-                  <a href="https://opensource.org/license/mit">
-                    https://opensource.org/license/mit
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <FiArrowUp />
-                </td>
-                <td className="td">FiArrowUp</td>
-                <td className="td">Feather</td>
-                <td className="td">
-                  <a href="https://feathericons.com/">
-                    https://feathericons.com/
-                  </a>
-                </td>
-                <td className="td">Copyright (c) 2013-2023 Cole Bemis</td>
-                <td className="td">
-                  <a href="https://opensource.org/license/mit">
-                    https://opensource.org/license/mit
-                  </a>
-                </td>
-              </tr>
-            </>
-          }
-        />
+        <BasicTable
+          header={[
+            "Icon: visualized",
+            "Icon: name",
+            "Offered by",
+            "Website	Copyright notice",
+            "Copyright notice",
+            "Link License (text)",
+          ]}
+          minWidth={1200}>
+          <TableBody>
+            {rows.map((row, i) => {
+              return (
+                <TableRow key={i}>
+                  <TableCell sx={sx}>{row.IconVisualized}</TableCell>
+                  <TableCell sx={sx}>{row.IconName}</TableCell>
+                  <TableCell sx={sx}>{row.OfferedBy}</TableCell>
+                  <TableCell sx={sx}>
+                    <Link url={row.Website} title={row.Website} />
+                  </TableCell>
+                  <TableCell sx={sx}>{row.CopyrightNotice}</TableCell>
+                  <TableCell sx={sx}>
+                    <Link url={row.LinkLicense} title={row.LinkLicense} />
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </BasicTable>
       </Flex>
     </section>
   );

@@ -5,13 +5,106 @@ import {
   MdOutlineCancel,
   MdOutlineCheckCircle,
 } from "react-icons/md";
-import IconsListing from "./IconsListing";
 import { RiDeleteBin5Fill, RiStarSFill } from "react-icons/ri";
 import { GrZoomIn } from "react-icons/gr";
 import Link from "../../fonts/Link";
 import Flex from "../../containers/Flex";
 import Span from "../../fonts/Span";
 import TextSmall from "../../fonts/TextSmall";
+import BasicTable from "./Table";
+import { TableBody, TableCell, TableRow } from "@mui/material";
+
+function createData(
+  IconVisualized: JSX.Element,
+  IconName: string,
+  OfferedBy: string,
+  Website: string,
+  CopyrightNotice: string | JSX.Element,
+  LinkLicense: string
+) {
+  return {
+    IconVisualized,
+    IconName,
+    OfferedBy,
+    Website,
+    CopyrightNotice,
+    LinkLicense,
+  };
+}
+
+const sx: React.CSSProperties = {
+  fontSize: "12px",
+  textTransform: "none",
+  border: "1px solid darkgray",
+  cursor: "default",
+};
+
+const rows = [
+  createData(
+    <MdOutlineCancel />,
+    "MdOutlineCancel",
+    "Material Design icons",
+    "https://google.github.io/material-design-icons/",
+    "Copyright (c) Material Design icons by Google (Material Symbols)",
+    "https://www.apache.org/licenses/LICENSE-2.0"
+  ),
+  createData(
+    <MdOutlineCheckCircle />,
+    "MdOutlineCheckCircle",
+    "Material Design icons",
+    "https://google.github.io/material-design-icons/",
+    "Copyright (c) Material Design icons by Google (Material Symbols)",
+    "https://www.apache.org/licenses/LICENSE-2.0"
+  ),
+  createData(
+    <MdOutlineArrowForwardIos />,
+    "MdOutlineArrowForwardIos",
+    "Material Design icons",
+    "https://google.github.io/material-design-icons/",
+    "Copyright (c) Material Design icons by Google (Material Symbols)",
+    "https://www.apache.org/licenses/LICENSE-2.0"
+  ),
+  createData(
+    <MdOutlineArrowBackIos />,
+    "MdOutlineArrowBackIos",
+    "Material Design icons",
+    "https://google.github.io/material-design-icons/",
+    "Copyright (c) Material Design icons by Google (Material Symbols)",
+    "https://www.apache.org/licenses/LICENSE-2.0"
+  ),
+  createData(
+    <MdHome />,
+    "MdHome",
+    "Material Design icons",
+    "https://google.github.io/material-design-icons/",
+    "Copyright (c) Material Design icons by Google (Material Symbols)",
+    "https://www.apache.org/licenses/LICENSE-2.0"
+  ),
+  createData(
+    <RiDeleteBin5Fill />,
+    "RiDeleteBin5Fill",
+    "Remix Icon",
+    "https://github.com/Remix-Design/RemixIcon",
+    "Copyright (c) Remix Icon",
+    "https://www.apache.org/licenses/LICENSE-2.0"
+  ),
+  createData(
+    <RiStarSFill />,
+    "RiStarSFill",
+    "Remix Icon",
+    "https://github.com/Remix-Design/RemixIcon",
+    "Copyright (c) Remix Icon",
+    "https://www.apache.org/licenses/LICENSE-2.0"
+  ),
+  createData(
+    <GrZoomIn />,
+    "GrZoomIn",
+    "Grommet-Icons",
+    "https://github.com/grommet/grommet-icons",
+    "Copyright (c) 2017-2024 Hewlett Packard Enterprise Development LP.",
+    "https://www.apache.org/licenses/LICENSE-2.0"
+  ),
+];
 
 const Apache = () => {
   return (
@@ -334,196 +427,36 @@ const Apache = () => {
           }
         />
         <TextSmall text={`END OF TERMS AND CONDITIONS`} uppercase />
-        <IconsListing
-          children={
-            <>
-              <tr className="tr">
-                <td className="td">
-                  <MdOutlineArrowForwardIos />
-                </td>
-                <td className="td">MdOutlineArrowForwardIos</td>
-                <td className="td">Material Design icons</td>
-                <td className="td">
-                  <a href="https://google.github.io/material-design-icons/">
-                    https://google.github.io/material-design-icons/
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) Material Design icons by Google (Material
-                  Symbols)
-                </td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <MdOutlineCancel />
-                </td>
-                <td className="td">MdOutlineCancel</td>
-                <td className="td">Material Design icons</td>
-                <td className="td">
-                  <a href="https://google.github.io/material-design-icons/">
-                    https://google.github.io/material-design-icons/
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) Material Design icons by Google (Material
-                  Symbols)
-                </td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <MdOutlineCheckCircle />{" "}
-                </td>
-                <td className="td">MdOutlineCheckCircle</td>
-                <td className="td">Material Design icons</td>
-                <td className="td">
-                  <a href="https://google.github.io/material-design-icons/">
-                    https://google.github.io/material-design-icons/
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) Material Design icons by Google (Material
-                  Symbols)
-                </td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <MdOutlineArrowForwardIos />
-                </td>
-                <td className="td">MdOutlineArrowForwardIos</td>
-                <td className="td">Material Design icons</td>
-                <td className="td">
-                  <a href="https://google.github.io/material-design-icons/">
-                    https://google.github.io/material-design-icons/
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) Material Design icons by Google (Material
-                  Symbols)
-                </td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <MdOutlineArrowBackIos />
-                </td>
-                <td className="td">MdOutlineArrowBackIos</td>
-                <td className="td">Material Design icons</td>
-                <td className="td">
-                  <a href="https://google.github.io/material-design-icons/">
-                    https://google.github.io/material-design-icons/
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) Material Design icons by Google (Material
-                  Symbols)
-                </td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <RiDeleteBin5Fill />
-                </td>
-                <td className="td">RiDeleteBin5Fill</td>
-                <td className="td">Remix Icon</td>
-                <td className="td">
-                  <a href="https://github.com/Remix-Design/RemixIcon">
-                    https://github.com/Remix-Design/RemixIcon
-                  </a>
-                </td>
-                <td className="td">Copyright (c) Remix Icon</td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <RiStarSFill />
-                </td>
-                <td className="td">RiStarSFill</td>
-                <td className="td">Remix Icon</td>
-                <td className="td">
-                  <a href="https://github.com/Remix-Design/RemixIcon">
-                    https://github.com/Remix-Design/RemixIcon
-                  </a>
-                </td>
-                <td className="td">Copyright (c) Remix Icon</td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
-              <tr className="tr">
-                <td className="td">
-                  <GrZoomIn />
-                </td>
-                <td className="td">GrZoomIn</td>
-                <td className="td">Grommet-Icons</td>
-                <td className="td">
-                  <a href="https://github.com/grommet/grommet-icons">
-                    https://github.com/grommet/grommet-icons
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) 2017-2024 Hewlett Packard Enterprise Development
-                  LP.
-                </td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
 
-              <tr className="tr">
-                <td className="td">
-                  <MdHome />
-                </td>
-                <td className="td">MdHome</td>
-                <td className="td">Material Design icons</td>
-                <td className="td">
-                  <a href="http://google.github.io/material-design-icons/">
-                    http://google.github.io/material-design-icons/
-                  </a>
-                </td>
-                <td className="td">
-                  Copyright (c) Material Design icons by Google (Material
-                  Symbols)
-                </td>
-                <td className="td">
-                  <a href="https://www.apache.org/licenses/LICENSE-2.0">
-                    https://www.apache.org/licenses/LICENSE-2.0
-                  </a>
-                </td>
-              </tr>
-            </>
-          }
-        />
+        <BasicTable
+          header={[
+            "Icon: visualized",
+            "Icon: name",
+            "Offered by",
+            "Website	Copyright notice",
+            "Copyright notice",
+            "Link License (text)",
+          ]}
+          minWidth={1500}>
+          <TableBody>
+            {rows.map((row, i) => {
+              return (
+                <TableRow key={i}>
+                  <TableCell sx={sx}>{row.IconVisualized}</TableCell>
+                  <TableCell sx={sx}>{row.IconName}</TableCell>
+                  <TableCell sx={sx}>{row.OfferedBy}</TableCell>
+                  <TableCell sx={sx}>
+                    <Link url={row.Website} title={row.Website} />
+                  </TableCell>
+                  <TableCell sx={sx}>{row.CopyrightNotice}</TableCell>
+                  <TableCell sx={sx}>
+                    <Link url={row.LinkLicense} title={row.LinkLicense} />
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </BasicTable>
       </Flex>
     </section>
   );
