@@ -191,7 +191,7 @@ const DevDependencies = () => {
           />
         </div>
         <BasicTable
-          minWidth={1500}
+          minWidth={1600}
           header={["Name", "Website", "GitHub", "License", "License Text"]}>
           <TableBody>
             {rows.map((row, i) => (
