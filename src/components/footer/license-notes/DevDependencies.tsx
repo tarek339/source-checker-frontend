@@ -198,7 +198,7 @@ const DevDependencies = () => {
               <TableRow key={i}>
                 <TableCell sx={sx}>{row.name}</TableCell>
                 <TableCell sx={sx}>
-                  <Link fontSize={12} url={row.website} title={row.website} />
+                  <Link url={row.website} title={row.website} />
                 </TableCell>
                 <TableCell sx={sx}>
                   <Link url={row.gitHub} title={row.gitHub} />
