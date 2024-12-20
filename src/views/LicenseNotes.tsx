@@ -22,15 +22,17 @@ const LicenseNotes = () => {
   return (
     <FramerMotion>
       <ContentContainer
-        maxWidth={1000}
-        style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+        style={{
+          paddingLeft: "10px",
+          paddingRight: "10px",
+        }}>
         <Title title={"Lizenzhinweise"} />
         <Title
           title={
             "License Information for this website and used icons on this website"
           }
         />
-        <Flex style={{ paddingLeft: "20px" }} direction={"column"} gap={"30px"}>
+        <Flex direction={"column"} gap={"30px"}>
           <GeneralInfo />
           <Mit />
           <Apache />
