@@ -191,14 +191,14 @@ const DevDependencies = () => {
           />
         </div>
         <BasicTable
-          minWidth={1600}
+          minWidth={1700}
           header={["Name", "Website", "GitHub", "License", "License Text"]}>
           <TableBody>
             {rows.map((row, i) => (
               <TableRow key={i}>
                 <TableCell sx={sx}>{row.name}</TableCell>
                 <TableCell sx={sx}>
-                  <Link url={row.website} title={row.website} />
+                  <Link fontSize={12} url={row.website} title={row.website} />
                 </TableCell>
                 <TableCell sx={sx}>
                   <Link url={row.gitHub} title={row.gitHub} />

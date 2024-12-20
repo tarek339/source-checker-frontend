@@ -327,7 +327,7 @@ const Ccby = () => {
             "Copyright notice",
             "Link License (text)",
           ]}
-          minWidth={1500}>
+          minWidth={1400}>
           <TableBody>
             {rows.map((row, i) => {
               return (

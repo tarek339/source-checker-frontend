@@ -445,7 +445,7 @@ const Apache = () => {
                   <TableCell sx={sx}>{row.IconVisualized}</TableCell>
                   <TableCell sx={sx}>{row.IconName}</TableCell>
                   <TableCell sx={sx}>{row.OfferedBy}</TableCell>
-                  <TableCell sx={sx}>
+                  <TableCell style={{ fontSize: 12 }} sx={sx}>
                     <Link url={row.Website} title={row.Website} />
                   </TableCell>
                   <TableCell sx={sx}>{row.CopyrightNotice}</TableCell>
