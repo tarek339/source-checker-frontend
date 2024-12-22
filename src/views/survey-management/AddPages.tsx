@@ -9,11 +9,11 @@ import {
   SubTitle,
   AddPage,
   Flex,
-  PagesHolder,
   NoPages,
   Divider,
   ButtonContainer,
   Button,
+  PageTable,
 } from "../../components";
 import {
   useDispatches,
@@ -75,7 +75,7 @@ const AddPages = () => {
               paddingTop: "1em",
             }}>
             {survey && survey?.pages && survey?.pages?.length > 0 ? (
-              <PagesHolder />
+              <PageTable />
             ) : (
               <NoPages />
             )}
