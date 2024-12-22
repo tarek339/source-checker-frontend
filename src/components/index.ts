@@ -19,14 +19,14 @@ import ButtonContainer from "./containers/ButtonContainer";
 import ErrorModal from "./survey/surveys-manager/ErrorModal";
 import ModalContent from "./containers/ModalContent";
 import Modal from "./containers/Modal";
-import useCompArray from "./survey/surveys-manager/useCompArray";
+import SurveyProfileData from "./survey/surveys-manager/SurveyProfileData";
 import AppContent from "./AppContent";
 import CurrentPage from "./survey/survey-control/CurrentPage";
 import SurveyData from "./survey/survey-control/SurveyData";
 import Contorl from "./survey/survey-control/Contorl";
 import PageControl from "./survey/survey-control/PageControl";
 import SurveyStatus from "./survey/survey-control/SurveyStatus";
-import NotStarted from "./survey/student-survey/NotStarted";
+import StandbyStatus from "./survey/student-survey/StandbyStatus";
 import Span from "./fonts/Span";
 import SurveyStart from "./survey/student-survey/SurveyStart";
 import SectionHolder from "./survey/survery-summary/SectionHolder";
@@ -42,6 +42,7 @@ import Footer from "./footer/Footer";
 import ScrollToTop from "./ScrollToTop";
 import SwitchButton from "./form/SwitchButton";
 import PageTable from "./survey/surveys-manager/add-pages/table/PageTable";
+import RegisterUserName from "./survey/student-survey/RegisterUserName";
 
 export {
   Footer,
@@ -67,13 +68,13 @@ export {
   ErrorModal,
   Modal,
   ModalContent,
-  useCompArray,
+  SurveyProfileData,
   CurrentPage,
   SurveyData,
   Contorl,
   PageControl,
   SurveyStatus,
-  NotStarted,
+  StandbyStatus,
   Span,
   SurveyStart,
   SectionHolder,
@@ -88,4 +89,5 @@ export {
   ScrollToTop,
   SwitchButton,
   PageTable,
+  RegisterUserName,
 };

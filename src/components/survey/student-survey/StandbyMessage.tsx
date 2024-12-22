@@ -8,7 +8,7 @@ import Span from "../../fonts/Span";
 import { Check } from "../../icons";
 import { Button } from "../..";
 
-const WaitMessage = () => {
+const StandbyMessage = () => {
   const { modal } = useSelectors();
   const { handleScroll } = useScroll();
   const { closeModal } = useDispatches();
@@ -40,4 +40,4 @@ const WaitMessage = () => {
   );
 };
 
-export default WaitMessage;
+export default StandbyMessage;

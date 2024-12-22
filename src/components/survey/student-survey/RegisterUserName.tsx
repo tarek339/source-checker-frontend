@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../..";
 
-const NameRegister = () => {
+const RegisterUserName = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { dispatchStudent } = useDispatches();
@@ -66,46 +66,45 @@ const NameRegister = () => {
   }, [survey]);
 
   return (
-    <ContentContainer>
-      <div style={{ margin: "0 auto", maxWidth: "900px" }}>
-        <Card>
-          <SubTitle title={t("chooseSurvey.surveyData")} />
-          <FormContainer
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit();
+    <ContentContainer maxWidth={900}>
+      <Card>
+        <SubTitle title={t("chooseSurvey.surveyData")} />
+        <FormContainer
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+          style={{
+            maxWidth: "400px",
+            margin: "0 auto",
+            paddingTop: "2em",
+          }}
+          gap={"20px"}>
+          <Input
+            label={`${t("common.freeName")}*`}
+            name={"surveyID"}
+            htmlFor={"surveyID"}
+            placeHolder="Max Musterman"
+            error={inputError ? inputError : userExistsMsg}
+            hasError={inputError ? inputError : userExistsMsg}
+            value={freeUserName}
+            onChange={(e) => {
+              setFreeUserName(e.target.value);
+              setUserExistsMsg(null);
+              setInputError(null);
             }}
-            style={{
-              maxWidth: "400px",
-              margin: "0 auto",
-              paddingTop: "2em",
-            }}
-            gap={"20px"}>
-            <Input
-              label={t("common.freeName")}
-              name={"surveyID"}
-              htmlFor={"surveyID"}
-              error={inputError ? inputError : userExistsMsg}
-              inputErrorStyle={inputError ? inputError : userExistsMsg}
-              value={freeUserName}
-              onChange={(e) => {
-                setFreeUserName(e.target.value);
-                setUserExistsMsg(null);
-                setInputError(null);
-              }}
-            />
-            {windowWidth > 425 ? (
-              <Flex direction={"row"} width="100%" justify="flex-end">
-                <Button type="submit" title={t("button.register")} />
-              </Flex>
-            ) : (
+          />
+          {windowWidth > 425 ? (
+            <Flex direction={"row"} width="100%" justify="flex-end">
               <Button type="submit" title={t("button.register")} />
-            )}
-          </FormContainer>
-        </Card>
-      </div>
+            </Flex>
+          ) : (
+            <Button type="submit" title={t("button.register")} />
+          )}
+        </FormContainer>
+      </Card>
     </ContentContainer>
   );
 };
 
-export default NameRegister;
+export default RegisterUserName;

@@ -1,23 +1,23 @@
 import { useEffect } from "react";
-import {
-  Contorl,
-  Flex,
-  FramerMotion,
-  CurrentPage,
-  SubTitle,
-  ContentContainer,
-  SurveyStatus,
-} from "../components";
-import {
-  useBreakPoints,
-  useDispatches,
-  useRequests,
-  useSelectors,
-  useTranslations,
-} from "../hooks";
-import { socket } from "../socket";
 import { useNavigate, useParams } from "react-router-dom";
-import { Back } from "../components/icons";
+import {
+  FramerMotion,
+  ContentContainer,
+  Flex,
+  SubTitle,
+  CurrentPage,
+  Contorl,
+  SurveyStatus,
+} from "../../components";
+import { Back } from "../../components/icons";
+import {
+  useTranslations,
+  useBreakPoints,
+  useSelectors,
+  useRequests,
+  useDispatches,
+} from "../../hooks";
+import { socket } from "../../socket";
 
 const SurveyControl = () => {
   const { t } = useTranslations();

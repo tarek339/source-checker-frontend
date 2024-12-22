@@ -14,7 +14,7 @@ import {
   SubTitle,
   Divider,
   ButtonContainer,
-  useCompArray,
+  SurveyProfileData,
   Modal,
   ModalContent,
   Title,
@@ -23,11 +23,11 @@ import {
 import { useNavigate } from "react-router-dom";
 import { FaCircleDot } from "react-icons/fa6";
 
-const SaveSurvey = () => {
+const SurveyProfile = () => {
   const { t } = useTranslations();
   const { survey, modal } = useSelectors();
   const { closeModal, openModal } = useDispatches();
-  const { surveyArray } = useCompArray();
+  const { surveyArray } = SurveyProfileData();
   const { fetchSurvey } = useRequests();
   const { handleScroll } = useScroll();
   const navigate = useNavigate();
@@ -112,4 +112,4 @@ const SaveSurvey = () => {
   );
 };
 
-export default SaveSurvey;
+export default SurveyProfile;

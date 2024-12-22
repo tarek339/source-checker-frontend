@@ -15,7 +15,7 @@ import { useTranslations, useInputErrors, useDispatches } from "../../hooks";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const ChooseSurvey = () => {
+const LogInSurvey = () => {
   const { t } = useTranslations();
   const { emptyInput, incorrectType, fetchError } = useInputErrors();
   const { dispatchLoading } = useDispatches();
@@ -64,9 +64,10 @@ const ChooseSurvey = () => {
             }}>
             <FormContainer onSubmit={handleSubmit} gap={"15px"}>
               <Input
-                label={t("common.surveyID")}
+                label={`${t("common.surveyID")}*`}
                 name={surveyId}
                 htmlFor={"survey-id"}
+                placeHolder="z. Bsp. 1234..."
                 error={
                   IDErrMsg
                     ? IDErrMsg
@@ -74,7 +75,7 @@ const ChooseSurvey = () => {
                     ? idTypeErrMsg
                     : fetchErrMsg
                 }
-                inputErrorStyle={
+                hasError={
                   IDErrMsg
                     ? IDErrMsg
                     : idTypeErrMsg
@@ -91,9 +92,10 @@ const ChooseSurvey = () => {
               />
               <Input
                 type="password"
-                label={t("common.surveyPIN")}
+                label={`${t("common.surveyPIN")}*`}
                 name={surveyPin}
                 htmlFor={"survey-pin"}
+                placeHolder="z. Bsp. 1234..."
                 error={
                   PINErrMsg
                     ? PINErrMsg
@@ -101,7 +103,7 @@ const ChooseSurvey = () => {
                     ? pinTypeErrMsg
                     : fetchErrMsg
                 }
-                inputErrorStyle={
+                hasError={
                   PINErrMsg
                     ? PINErrMsg
                     : pinTypeErrMsg
@@ -133,4 +135,4 @@ const ChooseSurvey = () => {
   );
 };
 
-export default ChooseSurvey;
+export default LogInSurvey;

@@ -10,7 +10,7 @@ import axios from "axios";
 import { IStarRating } from "../../../types/interfaces/components";
 import { useEffect, useRef } from "react";
 import Flex from "../../containers/Flex";
-import WaitMessage from "./WaitMessage";
+import StandbyMessage from "./StandbyMessage";
 import { Button } from "../..";
 
 const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
@@ -65,7 +65,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
       width="100%"
       style={{ marginBottom: windowWidth <= 430 ? "10px" : "0px" }}>
       <>
-        <WaitMessage />
+        <StandbyMessage />
         <Flex
           direction={windowWidth <= 430 ? "column" : "row"}
           align="center"

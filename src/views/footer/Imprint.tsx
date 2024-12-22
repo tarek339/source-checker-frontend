@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { FramerMotion, ContentContainer, Flex } from "../components";
-import { useDispatches } from "../hooks";
+import { useDispatches } from "../../hooks";
+import { FramerMotion, ContentContainer, Flex } from "../../components";
 import {
   ImprintInformation,
   RightsOwner,
@@ -8,7 +8,7 @@ import {
   ProjectOwner,
   TechnicalRealization,
   Contact,
-} from "../components/footer/imprint";
+} from "../../components/footer/imprint";
 
 const Imprint = () => {
   const { setMainPage } = useDispatches();

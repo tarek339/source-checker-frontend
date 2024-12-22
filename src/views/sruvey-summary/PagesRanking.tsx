@@ -21,7 +21,7 @@ import {
 import { Arrow, Star } from "../../components/icons";
 import { useNavigate } from "react-router-dom";
 
-const SurveyRanking = () => {
+const PagesRanking = () => {
   const { surveyPages, survey, isSort } = useSelectors();
   const { fetchSurvey } = useRequests();
   const { windowWidth } = useBreakPoints();
@@ -178,4 +178,4 @@ const SurveyRanking = () => {
   );
 };
 
-export default SurveyRanking;
+export default PagesRanking;

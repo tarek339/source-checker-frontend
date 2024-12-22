@@ -18,7 +18,7 @@ import {
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const StudenSurveyAuthentication = () => {
+const StudentSurveyAuth = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const [surveyId, setSurveyId] = useState("");
@@ -53,56 +53,47 @@ const StudenSurveyAuthentication = () => {
     setMainPage(false);
   }, []);
   return (
-    <ContentContainer>
-      <ContentContainer maxWidth={900}>
-        <Card>
-          <FramerMotion>
-            <SubTitle title={t("studentSurvey.joinSurvey")} />
-            <FormContainer
-              onSubmit={handleSubmit}
-              margin="0 auto"
-              maxWidth={400}
-              paddingTop="2em"
-              gap={"20px"}>
-              <Input
-                label={t("common.surveyID")}
-                name={"surveyID"}
-                htmlFor={"surveyID"}
-                error={
-                  IdErrMsg
-                    ? IdErrMsg
-                    : IdTypeErrMsg
-                    ? IdTypeErrMsg
-                    : fetchErrMsg
-                }
-                inputErrorStyle={
-                  IdErrMsg
-                    ? IdErrMsg
-                    : IdTypeErrMsg
-                    ? IdTypeErrMsg
-                    : fetchErrMsg
-                }
-                value={surveyId}
-                onChange={(e) => {
-                  setSurveyId(e.target.value);
-                  setIdErrMsg(null);
-                  setIdTypeErrMsg(null);
-                  setFetchErrMsg(null);
-                }}
-              />
-              {windowWidth > 425 ? (
-                <Flex direction={"row"} width="100%" justify="flex-end">
-                  <Button type="submit" title={t("button.register")} />
-                </Flex>
-              ) : (
+    <ContentContainer maxWidth={900}>
+      <Card>
+        <FramerMotion>
+          <SubTitle title={t("studentSurvey.joinSurvey")} />
+          <FormContainer
+            onSubmit={handleSubmit}
+            margin="0 auto"
+            maxWidth={400}
+            paddingTop="2em"
+            gap={"20px"}>
+            <Input
+              label={`${t("common.surveyID")}*`}
+              name={"surveyID"}
+              htmlFor={"surveyID"}
+              placeHolder="z. Bsp. 1234..."
+              error={
+                IdErrMsg ? IdErrMsg : IdTypeErrMsg ? IdTypeErrMsg : fetchErrMsg
+              }
+              hasError={
+                IdErrMsg ? IdErrMsg : IdTypeErrMsg ? IdTypeErrMsg : fetchErrMsg
+              }
+              value={surveyId}
+              onChange={(e) => {
+                setSurveyId(e.target.value);
+                setIdErrMsg(null);
+                setIdTypeErrMsg(null);
+                setFetchErrMsg(null);
+              }}
+            />
+            {windowWidth > 425 ? (
+              <Flex direction={"row"} width="100%" justify="flex-end">
                 <Button type="submit" title={t("button.register")} />
-              )}
-            </FormContainer>
-          </FramerMotion>
-        </Card>
-      </ContentContainer>
+              </Flex>
+            ) : (
+              <Button type="submit" title={t("button.register")} />
+            )}
+          </FormContainer>
+        </FramerMotion>
+      </Card>
     </ContentContainer>
   );
 };
 
-export default StudenSurveyAuthentication;
+export default StudentSurveyAuth;

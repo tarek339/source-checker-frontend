@@ -1,14 +1,19 @@
 import { useEffect } from "react";
-import { ContentContainer, Flex, FramerMotion, SubTitle } from "../components";
-import { useDispatches } from "../hooks";
+import { useDispatches } from "../../hooks";
 import {
-  ContactData,
-  Cookies,
-  PrivacyInfo,
-  Protocol,
-  RightAffected,
+  FramerMotion,
+  ContentContainer,
+  Flex,
+  SubTitle,
   SurveyData,
-} from "../components/footer/data-privacy";
+} from "../../components";
+import {
+  PrivacyInfo,
+  ContactData,
+  Protocol,
+  Cookies,
+  RightAffected,
+} from "../../components/footer/data-privacy";
 
 const PrivacyPolicy = () => {
   const { setMainPage } = useDispatches();
