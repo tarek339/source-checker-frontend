@@ -1,30 +1,30 @@
 import Authentication from "./Authentication";
-import StudentSurvey from "./student/StudentSurvey";
-import SurveyControl from "./SurveyControl";
-import ChooseAction from "./survey-management/ChooseAction";
-import SaveSurvey from "./survey-management/SaveSurvey";
-import ChooseSurvey from "./survey-management/ChooseSurvey";
+import StudentRatingWidget from "./student/StudentRatingWidget";
+import SurveyControl from "./survey-management/SurveyControl";
+import SurveyEntryPoint from "./survey-management/SurveyEntryPoint";
+import SurveyProfile from "./survey-management/SurveyProfile";
+import LogInSurvey from "./survey-management/LogInSurvey";
 import AddPages from "./survey-management/AddPages";
-import StudenSurveyAuthentication from "./student/StudenSurveyAuthentication";
-import RegisterStudent from "./student/RegisterStudent";
+import StudentSurveyAuth from "./student/StudentSurveyAuth";
+import StudentRegister from "./student/StudentRegister";
 import SurveySummary from "./sruvey-summary/SurveySummary";
-import SurveyRanking from "./sruvey-summary/SurveyRanking";
-import PrivacyPolicy from "./PrivacyPolicy";
-import LicenseNotes from "./LicenseNotes";
-import Imprint from "./Imprint";
+import PagesRanking from "./sruvey-summary/PagesRanking";
+import PrivacyPolicy from "./footer/PrivacyPolicy";
+import LicenseNotes from "./footer/LicenseNotes";
+import Imprint from "./footer/Imprint";
 
 export {
   Authentication,
-  StudentSurvey,
+  StudentRatingWidget,
   SurveyControl,
-  ChooseAction,
-  SaveSurvey,
-  ChooseSurvey,
+  SurveyEntryPoint,
+  SurveyProfile,
+  LogInSurvey,
   AddPages,
-  StudenSurveyAuthentication,
-  RegisterStudent,
+  StudentSurveyAuth,
+  StudentRegister,
   SurveySummary,
-  SurveyRanking,
+  PagesRanking,
   PrivacyPolicy,
   LicenseNotes,
   Imprint,

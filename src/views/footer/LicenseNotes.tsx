@@ -1,16 +1,15 @@
 import { useEffect } from "react";
-import { useDispatches } from "../hooks";
-import { FramerMotion, ContentContainer, Title, Flex } from "../components";
-import "../components/footer/license-notes/table.css";
+import { useDispatches } from "../../hooks";
+import { FramerMotion, ContentContainer, Title, Flex } from "../../components";
 import {
   GeneralInfo,
   Mit,
   Apache,
+  Ccby,
   Isc,
   Dependencies,
   DevDependencies,
-  Ccby,
-} from "../components/footer/license-notes";
+} from "../../components/footer/license-notes";
 
 const LicenseNotes = () => {
   const { setMainPage } = useDispatches();

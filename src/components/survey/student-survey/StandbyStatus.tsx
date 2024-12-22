@@ -5,7 +5,7 @@ import FramerMotion from "../../containers/FramerMotion";
 import SubCard from "../../containers/SubCard";
 import Span from "../../fonts/Span";
 
-const NotStarted = () => {
+const StandbyStatus = () => {
   const { t } = useTranslations();
   const { student, survey } = useSelectors();
 
@@ -47,4 +47,4 @@ const NotStarted = () => {
   );
 };
 
-export default NotStarted;
+export default StandbyStatus;

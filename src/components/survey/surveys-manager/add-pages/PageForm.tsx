@@ -29,24 +29,24 @@ const PageForm = ({
   return (
     <FormContainer onSubmit={onSubmit} gap={"15px"}>
       <Input
-        label={t("common.pageTitle")}
+        label={`${t("common.pageTitle")}*`}
         placeHolder="Titel..."
         name={"title"}
         htmlFor={"title"}
         error={titleError}
-        inputErrorStyle={titleError}
+        hasError={titleError}
         value={inputValue}
         disabled={loading ? true : false}
         onChange={onChangeTitle}
       />
 
       <Input
-        label={t("common.pageUrl")}
+        label={`${t("common.pageUrl")}*`}
         placeHolder="https://www.beispielwebseite.de/123456..."
         name={"url"}
         htmlFor={"url"}
         error={urlError}
-        inputErrorStyle={urlError}
+        hasError={urlError}
         value={urlValue}
         disabled={loading ? true : false}
         onChange={onChangeUrl}
@@ -57,7 +57,7 @@ const PageForm = ({
         name={"note"}
         htmlFor={"note"}
         error={null}
-        inputErrorStyle={null}
+        hasError={null}
         value={textAreaValue}
         disabled={loading ? true : false}
         onChange={onChangeTextArea}

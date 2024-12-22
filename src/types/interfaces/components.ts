@@ -12,7 +12,7 @@ export interface IInput {
   name: string;
   htmlFor: string;
   error: JSX.Element | string | null;
-  inputErrorStyle: JSX.Element | string | null;
+  hasError: JSX.Element | string | null;
   value: string;
   placeHolder?: string;
   disabled?: boolean;
@@ -24,7 +24,7 @@ export interface ITextArea {
   name: string;
   htmlFor: string;
   error: JSX.Element | null;
-  inputErrorStyle: JSX.Element | null;
+  hasError: JSX.Element | null;
   value: string;
   disabled?: boolean;
   onChange: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;

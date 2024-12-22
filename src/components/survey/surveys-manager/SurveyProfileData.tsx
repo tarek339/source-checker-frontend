@@ -8,7 +8,7 @@ import Span from "../../fonts/Span";
 import { Flex, FormContainer, SwitchButton } from "../..";
 import axios from "axios";
 
-const useCompArray = () => {
+const SurveyProfileData = () => {
   const { t } = useTranslations();
   const { survey } = useSelectors();
   const { dispatchSurvey } = useDispatches();
@@ -180,4 +180,4 @@ const useCompArray = () => {
   };
 };
 
-export default useCompArray;
+export default SurveyProfileData;

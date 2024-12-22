@@ -27,7 +27,7 @@ const style: React.CSSProperties = {
   cursor: "pointer",
 };
 
-const ChooseAction = () => {
+const SurveyEntryPoint = () => {
   const [isHoveredNew, setIsHoveredNew] = useState(false);
   const [isHoveredAdd, setIsHoveredAdd] = useState(false);
   const { t } = useTranslations();
@@ -114,4 +114,4 @@ const ChooseAction = () => {
   );
 };
 
-export default ChooseAction;
+export default SurveyEntryPoint;

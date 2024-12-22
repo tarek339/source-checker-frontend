@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatches, useRequests, useSelectors } from "../../hooks";
 import {
-  NotStarted,
+  StandbyStatus,
   ContentContainer,
   SurveyStart,
   Acknowledgement,
@@ -9,7 +9,7 @@ import {
 import { socket } from "../../socket";
 import { useParams } from "react-router-dom";
 
-const StudentSurvey = () => {
+const StudentRatingWidget = () => {
   const { isStarted, student } = useSelectors();
   const { fetchSurvey, fetchSingleStudent } = useRequests();
   const { setSurveyStatus, setCurrentPage } = useDispatches();
@@ -52,7 +52,7 @@ const StudentSurvey = () => {
       {!isStarted && student?.participated && student.stars > 0 ? (
         <Acknowledgement />
       ) : !isStarted && !student?.participated ? (
-        <NotStarted />
+        <StandbyStatus />
       ) : (
         <SurveyStart />
       )}
@@ -60,4 +60,4 @@ const StudentSurvey = () => {
   );
 };
 
-export default StudentSurvey;
+export default StudentRatingWidget;

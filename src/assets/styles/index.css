@@ -123,6 +123,10 @@ label {
   font-size: 18px;
 }
 
+.input-error::placeholder {
+  color: #ff0000;
+}
+
 .sub-card::-webkit-scrollbar,
 .hide-scroll-bar::-webkit-scrollbar {
   display: none;

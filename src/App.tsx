@@ -2,16 +2,16 @@ import { Route, Routes } from "react-router-dom";
 import "./assets/styles/App.css";
 import {
   Authentication,
-  ChooseAction,
-  StudenSurveyAuthentication,
+  SurveyEntryPoint,
+  StudentSurveyAuth,
   SurveyControl,
-  SaveSurvey,
-  ChooseSurvey,
+  SurveyProfile,
+  LogInSurvey,
   AddPages,
-  StudentSurvey,
-  RegisterStudent,
+  StudentRatingWidget,
+  StudentRegister,
   SurveySummary,
-  SurveyRanking,
+  PagesRanking,
   PrivacyPolicy,
   LicenseNotes,
   Imprint,
@@ -37,15 +37,15 @@ function App() {
             <Route path="/imprint" element={<Imprint />} />
             <Route
               path="/surveys-manager/choose-action"
-              element={<ChooseAction />}
+              element={<SurveyEntryPoint />}
             />
             <Route
               path="/surveys-manager/choose-survey"
-              element={<ChooseSurvey />}
+              element={<LogInSurvey />}
             />
             <Route
               path="/surveys-manager/save-survey/:id"
-              element={<SaveSurvey />}
+              element={<SurveyProfile />}
             />
             <Route
               path="/surveys-manager/add-pages/:id"
@@ -54,15 +54,15 @@ function App() {
             <Route path="/survey-control/:id" element={<SurveyControl />} />
             <Route
               path="/student-survey-authentication"
-              element={<StudenSurveyAuthentication />}
+              element={<StudentSurveyAuth />}
             />
-            <Route path="/register-student/:id" element={<RegisterStudent />} />
+            <Route path="/register-student/:id" element={<StudentRegister />} />
             <Route
               path="/student-survey/:id/student-id/:studentId"
-              element={<StudentSurvey />}
+              element={<StudentRatingWidget />}
             />
             <Route path="/survey-summary/:id" element={<SurveySummary />} />
-            <Route path="/survey-ranking/:id" element={<SurveyRanking />} />
+            <Route path="/survey-ranking/:id" element={<PagesRanking />} />
           </Routes>
         </AnimatePresence>
         <Footer />
