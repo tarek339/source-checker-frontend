@@ -374,3 +374,14 @@ export interface BasicTableProps {
   children: JSX.Element;
   minWidth: number;
 }
+
+export interface EnhancedTableHeadProps {
+  numSelected: number;
+  onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  rowCount: number;
+}
+
+export interface EnhancedTableToolbarProps {
+  numSelected: number;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}

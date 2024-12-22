@@ -1,25 +1,7 @@
-table {
-  width: 100%;
-  text-align: left;
-  border-spacing: 0;
-  text-transform: uppercase;
-  border-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  background-color: #fff;
-  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.13), 0 1px 2px 0 rgba(0, 0, 0, 0.11);
+.css-wlsqrd-MuiButtonBase-root-MuiMenuItem-root-MuiTablePagination-menuItem.Mui-selected {
+  background-color: rgb(40, 53, 195, 0.08) !important;
 }
 
-thead th {
-  border-spacing: 0;
-  padding: 18px 20px 14px;
-  background-color: #d3d3d3;
-  font-weight: 500;
-  border-bottom: 1px solid #000;
-}
-
-tbody td {
-  border-spacing: 0;
-  padding: 20px;
-  cursor: pointer;
+.css-1tktgsa-MuiPaper-root-MuiPopover-paper-MuiMenu-paper.MuiMenu-paper {
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.13), 0 1px 2px 0 rgba(0, 0, 0, 0.11) !important;
 }

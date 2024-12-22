@@ -1,11 +1,12 @@
 import {
+  MdDelete,
   MdHome,
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
   MdOutlineCancel,
   MdOutlineCheckCircle,
 } from "react-icons/md";
-import { RiDeleteBin5Fill, RiStarSFill } from "react-icons/ri";
+import { RiStarSFill } from "react-icons/ri";
 import { GrZoomIn } from "react-icons/gr";
 import Link from "../../fonts/Link";
 import Flex from "../../containers/Flex";
@@ -81,11 +82,11 @@ const rows = [
     "https://www.apache.org/licenses/LICENSE-2.0"
   ),
   createData(
-    <RiDeleteBin5Fill />,
-    "RiDeleteBin5Fill",
-    "Remix Icon",
-    "https://github.com/Remix-Design/RemixIcon",
-    "Copyright (c) Remix Icon",
+    <MdDelete />,
+    "MdDelete",
+    "Material Design icons",
+    "https://google.github.io/material-design-icons/",
+    "Copyright (c) Material Design icons by Google (Material Symbols)",
     "https://www.apache.org/licenses/LICENSE-2.0"
   ),
   createData(

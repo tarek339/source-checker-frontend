@@ -14,7 +14,6 @@ import LoadingSpinner from "./LoadingSpinner";
 import Title from "./fonts/Title";
 import AddPage from "./survey/surveys-manager/add-pages/AddPage";
 import NoPages from "./survey/surveys-manager/add-pages/NoPages";
-import PagesHolder from "./survey/surveys-manager/add-pages/PagesHolder";
 import FormContainer from "./form/FormContainer";
 import ButtonContainer from "./containers/ButtonContainer";
 import ErrorModal from "./survey/surveys-manager/ErrorModal";
@@ -42,6 +41,7 @@ import TextSmall from "./fonts/TextSmall";
 import Footer from "./footer/Footer";
 import ScrollToTop from "./ScrollToTop";
 import SwitchButton from "./form/SwitchButton";
+import PageTable from "./survey/surveys-manager/add-pages/table/PageTable";
 
 export {
   Footer,
@@ -62,7 +62,6 @@ export {
   AppContent,
   AddPage,
   NoPages,
-  PagesHolder,
   FormContainer,
   ButtonContainer,
   ErrorModal,
@@ -88,4 +87,5 @@ export {
   TextSmall,
   ScrollToTop,
   SwitchButton,
+  PageTable,
 };
