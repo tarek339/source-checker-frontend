@@ -1,5 +1,7 @@
+import { IconButton } from "@mui/material";
 import { IInput } from "../../types/interfaces/components";
 import Flex from "../containers/Flex";
+import { Close } from "../icons";
 
 const Input = ({
   type,
@@ -11,10 +13,27 @@ const Input = ({
   value,
   placeHolder,
   disabled,
+  icon,
   onChange,
+  onClickIcon,
 }: IInput) => {
   return (
-    <Flex direction={"column"} gap={"3px"}>
+    <Flex direction={"column"} gap={"3px"} style={{ position: "relative" }}>
+      <>
+        {icon && (
+          <div
+            style={{
+              position: "absolute",
+              right: 0,
+              bottom: -1,
+            }}>
+            <IconButton onClick={onClickIcon}>
+              <Close size={24} color="" />
+            </IconButton>
+          </div>
+        )}
+      </>
+
       <label style={{ color: hasError ? "#ff0000" : "" }} htmlFor={htmlFor}>
         {label}
       </label>

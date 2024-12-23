@@ -7,7 +7,7 @@ import {
   SurveyControl,
   SurveyProfile,
   LogInSurvey,
-  AddPages,
+  PagesOverview,
   StudentRatingWidget,
   StudentRegister,
   SurveySummary,
@@ -49,7 +49,7 @@ function App() {
             />
             <Route
               path="/surveys-manager/add-pages/:id"
-              element={<AddPages />}
+              element={<PagesOverview />}
             />
             <Route path="/survey-control/:id" element={<SurveyControl />} />
             <Route
