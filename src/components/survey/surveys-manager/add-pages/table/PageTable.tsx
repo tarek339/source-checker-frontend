@@ -17,7 +17,7 @@ import { useDispatches, useRequests, useSelectors } from "../../../../../hooks";
 import axios from "axios";
 import { IPages } from "../../../../../types/interfaces/interfaces";
 import ViewsModal from "../ViewsModal";
-import "../../../../../assets/styles/table.css";
+import "../../../../../../public/table.css";
 
 const PageTable = () => {
   const [selected, setSelected] = useState<readonly number[]>([]);
