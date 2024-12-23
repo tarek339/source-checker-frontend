@@ -17,8 +17,8 @@ export interface IInput {
   placeHolder?: string;
   disabled?: boolean;
   icon?: boolean;
-  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
-  onClickIcon: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  onClickIcon?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 export interface ITextArea {
