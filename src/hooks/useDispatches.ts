@@ -3,7 +3,6 @@ import {
   addStudent,
   addSurvey,
   addSurveyPages,
-  getSinglePage,
   handleCountDown,
   handleCurrentPage,
   handleFirst,
@@ -65,27 +64,7 @@ const useDispatches = () => {
     dispatch(increaseLastPage(1));
   };
   const fetchPageId = (pageId: string) => dispatch(setPageId({ pageId }));
-  const fetchSinglePage = (page: IPages) =>
-    dispatch(
-      getSinglePage({
-        _id: page._id,
-        title: page.title,
-        url: page.url,
-        note: page.note,
-        mobileScreenshot: page.mobileScreenshot,
-        desktopScreenshot: page.desktopScreenshot,
-        isMobileView: page.isMobileView,
-        openGraph: page.openGraph,
-        isOpenGraphView: page.isOpenGraphView,
-        starsArray: [
-          {
-            studentId: "",
-            userName: "",
-            stars: "",
-          },
-        ],
-      })
-    );
+
   const setMainPage = (arg: boolean) => dispatch(handlePage({ mainPage: arg }));
 
   const setSurveyStatus = (isStarted: boolean) =>
@@ -120,7 +99,6 @@ const useDispatches = () => {
     incFirstSBPage,
     incLastSBPage,
     fetchPageId,
-    fetchSinglePage,
     setMainPage,
     setSurveyStatus,
     setCoundDownStatus,

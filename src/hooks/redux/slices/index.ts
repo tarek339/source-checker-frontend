@@ -5,7 +5,6 @@ import { addSurvey, removeSurvey } from "./survey";
 import {
   addSurveyPages,
   setPageId,
-  getSinglePage,
   surveyPagesReducer,
   handleCurrentPage,
   handleVoted,
@@ -49,7 +48,6 @@ export {
   increaseLastPage,
   increaseFirstPage,
   setPageId,
-  getSinglePage,
   handlePage,
   handleSurveyStatus,
   handleCountDown,

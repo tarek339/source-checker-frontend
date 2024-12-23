@@ -24,18 +24,36 @@ const PageTable = () => {
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [rowId, setRowId] = useState<readonly number[]>([]);
+  // const [rowId, setRowId] = useState<readonly number[]>([]);
   const [surveyIds, setSurveyIds] = useState<string[]>([]);
   const [pageId, setPageId] = useState("");
+  const [rowsInPage, setRowsInPage] = useState(0);
 
   const { survey, surveyPages } = useSelectors();
   const { dispatchSurvey, openViewsModal } = useDispatches();
   const { fetchSurvey } = useRequests();
 
+  // useEffect(() => {
+  //   const newId = surveyPages?.map((page) => page.number);
+  //   setRowId(newId);
+  // }, [surveyPages]);
+
   useEffect(() => {
-    const newId = surveyPages?.map((_page, index) => index + 1);
-    setRowId(newId);
-  }, [surveyPages]);
+    // Calculate the starting index of the current page
+    const startIndex = page * rowsPerPage;
+    // Calculate the ending index for the current page
+    const endIndex = startIndex + rowsPerPage;
+    // Get the actual rows that should be displayed for the current page
+    const currentRows = surveyPages?.slice(startIndex, endIndex);
+    // If you want to set the number of rows in the current page
+    setRowsInPage(currentRows?.length);
+  }, [page, rowsPerPage, surveyPages]);
+
+  useEffect(() => {
+    if (page !== 0 && rowsInPage === 0) {
+      setPage((prev) => prev - 1);
+    }
+  }, [page, rowsInPage]);
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
@@ -51,12 +69,12 @@ const PageTable = () => {
     setSelected([]);
   };
 
-  const handleClick = (_event: React.MouseEvent<unknown>, id: number) => {
-    const selectedIndex = selected.indexOf(id);
-    let newSelected: readonly number[] = [];
+  const handleClick = (_event: React.MouseEvent<unknown>, number: number) => {
+    const selectedIndex = selected.indexOf(number);
+    let newSelected: number[] = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id);
+      newSelected = newSelected.concat(selected, number);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -67,6 +85,7 @@ const PageTable = () => {
         selected.slice(selectedIndex + 1)
       );
     }
+
     setSelected(newSelected);
   };
 
@@ -84,6 +103,7 @@ const PageTable = () => {
   const onDelete = async () => {
     await axios.post(`/survey/delete-page/${survey?._id}`, { surveyIds });
     setSurveyIds([]);
+    setSelected([]);
     const res = await axios.get(`/survey/get-profile/${survey?._id}`);
     fetchSurvey();
     dispatchSurvey(res.data.survey);
@@ -104,7 +124,7 @@ const PageTable = () => {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - surveyPages.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - surveyPages?.length) : 0;
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -139,9 +159,9 @@ const PageTable = () => {
                 ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 ?.map((row, index) => {
                   const isItemSelected =
-                    rowId &&
-                    rowId[index] !== undefined &&
-                    selected?.includes(rowId[index])
+                    row.number &&
+                    row.number !== undefined &&
+                    selected?.includes(row.number)
                       ? true
                       : false;
                   const labelId = `enhanced-table-checkbox-${index}`;
@@ -164,7 +184,7 @@ const PageTable = () => {
                       <TableCell padding="checkbox">
                         <Checkbox
                           onClick={(event) => {
-                            handleClick(event, rowId[index]);
+                            handleClick(event, row.number);
                             if (!isItemSelected) {
                               setSurveyIds([...surveyIds, row._id]);
                             } else {
