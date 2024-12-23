@@ -39,9 +39,6 @@ const surveyPagesSlice = createSlice({
     setPageId: (state, action: PayloadAction<ISetPageId>) => {
       state.pageId = action.payload.pageId;
     },
-    getSinglePage: (state, action) => {
-      state.singlePage = action.payload.singlePage;
-    },
     handleCurrentPage: (state, action: PayloadAction<IHandleCurrentPage>) => {
       state.currentPage = action.payload.currentPage;
     },
@@ -63,7 +60,6 @@ export const {
   increaseFirstPage,
   increaseLastPage,
   setPageId,
-  getSinglePage,
   handleCurrentPage,
   handleVoted,
   handleVotedStars,

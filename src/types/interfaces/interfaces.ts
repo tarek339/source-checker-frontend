@@ -1,6 +1,6 @@
 export interface IPages {
   _id: string;
-  id?: number;
+  number: number;
   title: string;
   url: string;
   note: string;
