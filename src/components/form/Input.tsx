@@ -46,6 +46,7 @@ const Input = ({
         style={{
           borderColor: hasError ? "#ff0000" : "",
           boxShadow: hasError ? "0px 0px 0px 1px #ff0000 inset" : "",
+          paddingRight: icon ? "40px" : "",
         }}
         value={value}
         disabled={disabled}

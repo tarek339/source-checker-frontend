@@ -17,14 +17,13 @@ import { useDispatches, useRequests, useSelectors } from "../../../../../hooks";
 import axios from "axios";
 import { IPages } from "../../../../../types/interfaces/interfaces";
 import ViewsModal from "../ViewsModal";
-import "../../../../../../public/table.css";
+import "/public/table.css";
 
 const PageTable = () => {
   const [selected, setSelected] = useState<readonly number[]>([]);
   const [page, setPage] = useState(0);
   const [dense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  // const [rowId, setRowId] = useState<readonly number[]>([]);
   const [surveyIds, setSurveyIds] = useState<string[]>([]);
   const [pageId, setPageId] = useState("");
   const [rowsInPage, setRowsInPage] = useState(0);
@@ -32,11 +31,6 @@ const PageTable = () => {
   const { survey, surveyPages } = useSelectors();
   const { dispatchSurvey, openViewsModal } = useDispatches();
   const { fetchSurvey } = useRequests();
-
-  // useEffect(() => {
-  //   const newId = surveyPages?.map((page) => page.number);
-  //   setRowId(newId);
-  // }, [surveyPages]);
 
   useEffect(() => {
     // Calculate the starting index of the current page
