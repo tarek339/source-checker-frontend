@@ -23,7 +23,7 @@ import {
   useRequests,
 } from "../../hooks";
 
-const AddPages = () => {
+const PagesOverview = () => {
   const { openModal, dispatchSideBar, resetSBPages } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
@@ -134,4 +134,4 @@ const AddPages = () => {
   );
 };
 
-export default AddPages;
+export default PagesOverview;

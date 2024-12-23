@@ -18,9 +18,13 @@ const PageForm = ({
   inputValue,
   urlValue,
   textAreaValue,
+  titleIcon,
+  urlIcon,
   onChangeTitle,
   onChangeUrl,
   onChangeTextArea,
+  onClickTitleIcon,
+  onClickUrlIcon,
 }: IPageForm) => {
   const { t } = useTranslations();
   const { loading } = useSelectors();
@@ -37,7 +41,9 @@ const PageForm = ({
         hasError={titleError}
         value={inputValue}
         disabled={loading ? true : false}
+        icon={titleIcon}
         onChange={onChangeTitle}
+        onClickIcon={onClickTitleIcon}
       />
 
       <Input
@@ -49,7 +55,9 @@ const PageForm = ({
         hasError={urlError}
         value={urlValue}
         disabled={loading ? true : false}
+        icon={urlIcon}
         onChange={onChangeUrl}
+        onClickIcon={onClickUrlIcon}
       />
 
       <InputMessage

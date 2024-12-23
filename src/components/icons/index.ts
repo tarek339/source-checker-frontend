@@ -22,6 +22,7 @@ import ZoomIn from "./ZoomIn";
 import Dot from "./Dot";
 import Edit from "./Edit";
 import Home from "./Home";
+import Close from "./Close";
 
 export {
   Cancel,
@@ -48,4 +49,5 @@ export {
   Dot,
   Edit,
   Home,
+  Close,
 };
