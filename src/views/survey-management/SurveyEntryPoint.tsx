@@ -26,6 +26,7 @@ const style: React.CSSProperties = {
   alignItems: "center",
   fontSize: "18px",
   cursor: "pointer",
+  backgroundColor: "transparent",
 };
 
 const SurveyEntryPoint = () => {
@@ -57,11 +58,7 @@ const SurveyEntryPoint = () => {
 
   return (
     <ContentContainer>
-      <ErrorModal
-        onClick={handleSubmit}
-        errTitle="Verbindungsfehler"
-        errMsg="Umfrage konnte nicht angelegt werden. Bitte versuche es später nochmal."
-      />
+      <ErrorModal />
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
@@ -77,7 +74,6 @@ const SurveyEntryPoint = () => {
               style={{
                 ...style,
                 borderColor: isHoveredAdd ? "grey" : "darkgrey",
-                backgroundColor: "transparent",
                 color: isHoveredAdd ? "grey" : "darkgrey",
               }}>
               <IoAddOutline
@@ -95,7 +91,6 @@ const SurveyEntryPoint = () => {
               style={{
                 ...style,
                 borderColor: isHoveredNew ? "grey" : "darkgrey",
-                backgroundColor: "transparent",
                 color: isHoveredNew ? "grey" : "darkgrey",
               }}>
               <FiArrowUp

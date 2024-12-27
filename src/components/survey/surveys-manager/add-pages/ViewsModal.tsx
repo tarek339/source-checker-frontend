@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
-import {
-  useBreakPoints,
-  useDispatches,
-  useScroll,
-  useSelectors,
-} from "../../../../hooks";
+import { useBreakPoints, useDispatches, useSelectors } from "../../../../hooks";
 import Flex from "../../../containers/Flex";
-import ChangeViewsModal from "../../../containers/ChangeViewsModal";
 import { IPages } from "../../../../types/interfaces/interfaces";
 import EmptyData from "./EmptyData";
 import Screenshot from "../../../ScreenShot";
@@ -15,11 +9,11 @@ import OpenGraphView from "../../../OpenGraphView";
 import SubTitle from "../../../fonts/SubTitle";
 import { IViewsModal } from "../../../../types/interfaces/components";
 import { IconButton } from "@mui/material";
+import { Modal } from "../../..";
 
 const ViewsModal = ({ pageId }: IViewsModal) => {
   const { viewsModal, surveyPages, survey } = useSelectors();
   const { closeViewsModal } = useDispatches();
-  const { handleScroll } = useScroll();
   const { windowWidth } = useBreakPoints();
 
   const [filteredPage, setFilteredPage] = useState<IPages>();
@@ -31,12 +25,20 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
     }
   }, [pageId, surveyPages]);
 
-  useEffect(() => {
-    handleScroll();
-  }, [viewsModal]);
-
   return (
-    <ChangeViewsModal isVisible={viewsModal} setIsVisible={closeViewsModal}>
+    <Modal
+      open={viewsModal}
+      onClose={closeViewsModal}
+      style={{
+        overflowY: windowWidth < 1200 ? "scroll" : "auto",
+        height: windowWidth < 1200 ? "80vh" : "auto",
+        width:
+          windowWidth > 1440
+            ? "1400px"
+            : windowWidth < 1200
+            ? "min-content"
+            : "98%",
+      }}>
       <Flex direction={"column"} gap={"10px"}>
         <Flex direction={"row"} justify="space-between" align="center">
           <SubTitle title={"Wähle eine neue Ansicht"} />
@@ -138,7 +140,7 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
           )}
         </Flex>
       </Flex>
-    </ChangeViewsModal>
+    </Modal>
   );
 };
 
