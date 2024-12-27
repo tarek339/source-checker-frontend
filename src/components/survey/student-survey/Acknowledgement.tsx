@@ -1,15 +1,26 @@
-import { useSelectors, useStars, useTranslations } from "../../../hooks";
+import {
+  useRequests,
+  useSelectors,
+  useStars,
+  useTranslations,
+} from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
 import Title from "../../fonts/Title";
 import Flex from "../../containers/Flex";
 import FramerMotion from "../../containers/FramerMotion";
 import SubCard from "../../containers/SubCard";
 import Thumbnail from "../survery-summary/Thumbnail";
+import { useEffect } from "react";
 
 const Acknowledgement = () => {
   const { t } = useTranslations();
   const { student, surveyPages } = useSelectors();
   const { fiveStars, fourStars, oneStar, threeStars, twoStars } = useStars();
+  const { fetchSurveyByToken } = useRequests();
+
+  useEffect(() => {
+    fetchSurveyByToken();
+  }, []);
 
   return (
     <FramerMotion>

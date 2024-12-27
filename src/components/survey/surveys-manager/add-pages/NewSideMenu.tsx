@@ -1,25 +1,25 @@
+import { useDispatch } from "react-redux";
 import {
-  useSelectors,
-  useDispatches,
   useBreakPoints,
+  useDispatches,
+  useSelectors,
   useTranslations,
 } from "../../../../hooks";
-import OpenGraphView from "../../../OpenGraphView";
-import SubTitle from "../../../fonts/SubTitle";
-import Flex from "../../../containers/Flex";
-import SideBar from "../../../containers/SideBar";
-import { Cancel, Desktop, Generate, Mobile } from "../../../icons";
-import EmptyData from "./EmptyData";
-import Screenshot from "../../../ScreenShot";
+import SideDrawer from "../../../containers/SideDrawer";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import {
   increaseFirstPage,
   increaseLastPage,
 } from "../../../../hooks/redux/slices";
 import { IconButton } from "@mui/material";
+import Flex from "../../../containers/Flex";
+import SubTitle from "../../../fonts/SubTitle";
+import { Cancel, Mobile, Desktop, Generate } from "../../../icons";
+import OpenGraphView from "../../../OpenGraphView";
+import Screenshot from "../../../ScreenShot";
+import EmptyData from "./EmptyData";
 
-const SideMenu = () => {
+const NewSideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
     useSelectors();
   const { dispatchSideBar } = useDispatches();
@@ -36,7 +36,10 @@ const SideMenu = () => {
   }, [dispatch, surveyPages]);
 
   return (
-    <SideBar collapsed={sideBar} toggled={sideBar}>
+    <SideDrawer
+      anchor="right"
+      open={sideBar}
+      toggleDrawer={() => dispatchSideBar(false)}>
       <Flex
         direction={"row"}
         gap={"5px"}
@@ -158,8 +161,8 @@ const SideMenu = () => {
             );
           })}
       </>
-    </SideBar>
+    </SideDrawer>
   );
 };
 
-export default SideMenu;
+export default NewSideMenu;

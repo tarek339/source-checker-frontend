@@ -3,7 +3,6 @@ import {
   MdHome,
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
-  MdOutlineCancel,
   MdOutlineCheckCircle,
 } from "react-icons/md";
 import { RiStarSFill } from "react-icons/ri";
@@ -41,14 +40,6 @@ const sx: React.CSSProperties = {
 };
 
 const rows = [
-  createData(
-    <MdOutlineCancel />,
-    "MdOutlineCancel",
-    "Material Design icons",
-    "https://google.github.io/material-design-icons/",
-    "Copyright (c) Material Design icons by Google (Material Symbols)",
-    "https://www.apache.org/licenses/LICENSE-2.0"
-  ),
   createData(
     <MdOutlineCheckCircle />,
     "MdOutlineCheckCircle",

@@ -20,6 +20,7 @@ import {
   Thumbnail,
 } from "../../components";
 import { Average, Star } from "../../components/icons";
+import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
 
 const SurveySummary = () => {
   const { fetchSurvey } = useRequests();
@@ -164,4 +165,4 @@ const SurveySummary = () => {
   );
 };
 
-export default SurveySummary;
+export default withSurveyAuthPages(SurveySummary);

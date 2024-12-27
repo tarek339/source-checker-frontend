@@ -127,6 +127,10 @@ label {
   color: #ff0000;
 }
 
+.input-error {
+  color: #ff0000;
+}
+
 .sub-card::-webkit-scrollbar,
 .hide-scroll-bar::-webkit-scrollbar {
   display: none;

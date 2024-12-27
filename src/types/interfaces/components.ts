@@ -16,9 +16,8 @@ export interface IInput {
   value: string;
   placeHolder?: string;
   disabled?: boolean;
-  icon?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-  onClickIcon?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  onClear?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 export interface ITextArea {
@@ -131,8 +130,6 @@ export interface IPageForm {
   inputValue: string;
   urlValue: string;
   textAreaValue: string;
-  titleIcon: boolean;
-  urlIcon: boolean;
   onChangeTitle: React.ChangeEventHandler<HTMLInputElement> | undefined;
   onChangeUrl: React.ChangeEventHandler<HTMLInputElement> | undefined;
   onChangeTextArea: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;

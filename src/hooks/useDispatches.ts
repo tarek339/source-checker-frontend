@@ -23,19 +23,32 @@ import {
   setPageId,
   handleQrCode,
   handleViewsModal,
+  removeSurvey,
+  addAdmin,
+  removeAdmin,
+  removeStudent,
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
-import { IPages, IStudent, ISurvey } from "../types/interfaces/interfaces";
+import {
+  IAdmin,
+  IPages,
+  IStudent,
+  ISurvey,
+} from "../types/interfaces/interfaces";
 import useSelectors from "./useSelectors";
 
 const useDispatches = () => {
   const dispatch = useDispatch();
   const { firstSideBarPages, lastSideBarPages } = useSelectors();
 
+  const dispatchAdmin = (admin: IAdmin) => dispatch(addAdmin({ admin }));
+  const discardAdmin = () => dispatch(removeAdmin());
+
   const enableEN = () => dispatch(handleTranslation({ locale: Locale.en }));
   const enableGE = () => dispatch(handleTranslation({ locale: Locale.de }));
 
   const dispatchSurvey = (survey: ISurvey) => dispatch(addSurvey({ survey }));
+  const discardSurvey = () => dispatch(removeSurvey());
   const dispatchPages = (pages: IPages[]) =>
     dispatch(addSurveyPages({ pages: pages }));
 
@@ -75,6 +88,7 @@ const useDispatches = () => {
 
   const dispatchStudent = (student: IStudent) =>
     dispatch(addStudent({ student }));
+  const discardStudent = () => dispatch(removeStudent());
 
   const setCurrentPage = (currentPage: number) =>
     dispatch(handleCurrentPage({ currentPage }));
@@ -115,6 +129,10 @@ const useDispatches = () => {
     closeQrCodeModal,
     openViewsModal,
     closeViewsModal,
+    discardSurvey,
+    dispatchAdmin,
+    discardAdmin,
+    discardStudent,
   };
 };
 

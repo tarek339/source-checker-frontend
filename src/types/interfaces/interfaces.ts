@@ -60,3 +60,8 @@ export interface IStudent {
   participated: boolean;
   stars: number;
 }
+
+export interface IAdmin {
+  _id: string;
+  surveyId: string;
+}

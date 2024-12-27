@@ -2,15 +2,21 @@ import ButtonContainer from "../../containers/ButtonContainer";
 import Flex from "../../containers/Flex";
 import Modal from "../../containers/Modal";
 import Span from "../../fonts/Span";
-import { useDispatches, useSelectors } from "../../../hooks";
+import { useDispatches, useScroll, useSelectors } from "../../../hooks";
 import { Alert } from "../../icons";
 import SubTitle from "../../fonts/SubTitle";
 import { Button } from "../..";
 import { INoteModal } from "../../../types/interfaces/components";
+import { useEffect } from "react";
 
 const NoteModal = ({ onClick }: INoteModal) => {
   const { closeModal } = useDispatches();
   const { modal } = useSelectors();
+  const { handleScroll } = useScroll();
+
+  useEffect(() => {
+    handleScroll();
+  }, [modal]);
 
   return (
     <Modal isVisible={modal} setIsVisible={closeModal}>

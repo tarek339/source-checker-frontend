@@ -5,7 +5,6 @@ import {
   SurveyEntryPoint,
   StudentSurveyAuth,
   SurveyControl,
-  SurveyProfile,
   LogInSurvey,
   PagesOverview,
   StudentRatingWidget,
@@ -15,36 +14,34 @@ import {
   PrivacyPolicy,
   LicenseNotes,
   Imprint,
+  SurveyProfile,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
-import { AppContent, Flex, Footer, Header, ScrollToTop } from "./components";
-import { useSelectors, useTranslations } from "./hooks";
+import { AppContent, Flex, Footer } from "./components";
+import { useRequests } from "./hooks";
+import { useEffect } from "react";
 
 function App() {
-  const { t } = useTranslations();
-  const { mainPage } = useSelectors();
+  const { fetchSurvey, fetchSingleStudent } = useRequests();
+
+  useEffect(() => {
+    fetchSurvey();
+    fetchSingleStudent();
+  }, []);
 
   return (
     <AppContent>
-      <>{mainPage ? null : <Header title={t("common.sourceChecker")} />}</>
-      <ScrollToTop />
       <Flex direction={"column"} height="90vh" justify="space-between">
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Authentication />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/licence-notes" element={<LicenseNotes />} />
-            <Route path="/imprint" element={<Imprint />} />
             <Route
-              path="/surveys-manager/choose-action"
+              path="/surveys-manager/authentication"
               element={<SurveyEntryPoint />}
             />
+            <Route path="/surveys-manager/log-in" element={<LogInSurvey />} />
             <Route
-              path="/surveys-manager/choose-survey"
-              element={<LogInSurvey />}
-            />
-            <Route
-              path="/surveys-manager/save-survey/:id"
+              path="/surveys-manager/survey-profile/:id"
               element={<SurveyProfile />}
             />
             <Route
@@ -52,6 +49,8 @@ function App() {
               element={<PagesOverview />}
             />
             <Route path="/survey-control/:id" element={<SurveyControl />} />
+            <Route path="/survey-summary/:id" element={<SurveySummary />} />
+            <Route path="/survey-ranking/:id" element={<PagesRanking />} />
             <Route
               path="/student-survey-authentication"
               element={<StudentSurveyAuth />}
@@ -61,8 +60,9 @@ function App() {
               path="/student-survey/:id/student-id/:studentId"
               element={<StudentRatingWidget />}
             />
-            <Route path="/survey-summary/:id" element={<SurveySummary />} />
-            <Route path="/survey-ranking/:id" element={<PagesRanking />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/licence-notes" element={<LicenseNotes />} />
+            <Route path="/imprint" element={<Imprint />} />
           </Routes>
         </AnimatePresence>
         <Footer />

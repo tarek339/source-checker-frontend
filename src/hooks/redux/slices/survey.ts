@@ -6,7 +6,7 @@ import {
 
 const initialState: InitialSurveyState = {
   survey: null,
-  created: false,
+  loading: true,
 };
 
 const surveySlice = createSlice({
@@ -15,9 +15,11 @@ const surveySlice = createSlice({
   reducers: {
     addSurvey: (state, action: PayloadAction<IAddSurvey>) => {
       state.survey = action.payload.survey;
+      state.loading = false;
     },
     removeSurvey: (state) => {
       state.survey = null;
+      state.loading = false;
     },
   },
 });

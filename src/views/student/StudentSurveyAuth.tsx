@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Card,
   Flex,
@@ -22,7 +22,7 @@ const StudentSurveyAuth = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const [surveyId, setSurveyId] = useState("");
-  const { setMainPage, dispatchSurvey } = useDispatches();
+  const { dispatchSurvey } = useDispatches();
   const { emptyInput, incorrectType, fetchIDError } = useInputErrors();
   const navigate = useNavigate();
 
@@ -49,9 +49,6 @@ const StudentSurveyAuth = () => {
     }
   };
 
-  useEffect(() => {
-    setMainPage(false);
-  }, []);
   return (
     <ContentContainer maxWidth={900}>
       <Card>
@@ -77,6 +74,12 @@ const StudentSurveyAuth = () => {
               value={surveyId}
               onChange={(e) => {
                 setSurveyId(e.target.value);
+                setIdErrMsg(null);
+                setIdTypeErrMsg(null);
+                setFetchErrMsg(null);
+              }}
+              onClear={() => {
+                setSurveyId("");
                 setIdErrMsg(null);
                 setIdTypeErrMsg(null);
                 setFetchErrMsg(null);

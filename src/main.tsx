@@ -9,6 +9,21 @@ import axios from "axios";
 
 axios.defaults.baseURL = import.meta.env.VITE_AXIOS_BASE_URL;
 
+axios.interceptors.request.use((request) => {
+  const token = sessionStorage.getItem("token");
+  const studentToken = sessionStorage.getItem("student-token");
+
+  if (token) {
+    request.headers.Authorization = token;
+  }
+
+  if (studentToken) {
+    request.headers.Authorization = studentToken;
+  }
+
+  return request;
+});
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <BrowserRouter>

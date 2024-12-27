@@ -6,6 +6,7 @@ import {
 
 const initialState: InitialStudentState = {
   student: null,
+  loading: true,
 };
 
 const studentSlice = createSlice({
@@ -14,9 +15,11 @@ const studentSlice = createSlice({
   reducers: {
     addStudent: (state, action: PayloadAction<IAddStudent>) => {
       state.student = action.payload.student;
+      state.loading = false;
     },
     removeStudent: (state) => {
       state.student = null;
+      state.loading = false;
     },
   },
 });

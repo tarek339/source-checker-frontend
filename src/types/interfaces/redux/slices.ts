@@ -1,12 +1,20 @@
-import { IPages, IStudent, ISurvey } from "../interfaces";
+import { IAdmin, IPages, IStudent, ISurvey } from "../interfaces";
 
 export interface InitialSurveyState {
   survey: ISurvey | null;
-  created: boolean;
+  loading: boolean;
 }
 
 export interface IAddSurvey {
   survey: ISurvey;
+}
+
+export interface InitialAdminState {
+  admin: IAdmin | null;
+}
+
+export interface IAddAdmin {
+  admin: IAdmin;
 }
 
 export interface InitalStateSideBarPage {
@@ -16,6 +24,7 @@ export interface InitalStateSideBarPage {
 
 export interface InitialStudentState {
   student: IStudent | null;
+  loading: boolean;
 }
 
 export interface IAddStudent {

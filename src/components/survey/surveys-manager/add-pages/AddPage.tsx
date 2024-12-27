@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import axios from "axios";
 import PageForm from "./PageForm";
 import PageModal from "./PageModal";
@@ -6,7 +6,6 @@ import {
   useSelectors,
   useDispatches,
   useTranslations,
-  useRequests,
   useInputErrors,
 } from "../../../../hooks";
 
@@ -14,16 +13,14 @@ const combinedUrlRegex = /^(https:\/\/|http:\/\/|www\.)[^\s/$.?#].[^\s]*$/;
 
 const AddPage = () => {
   const { survey, loading } = useSelectors();
-  const { dispatchLoading, dispatchPages, closeModal } = useDispatches();
+  const { dispatchLoading, dispatchPages, closeModal, dispatchSurvey } =
+    useDispatches();
   const { t } = useTranslations();
-  const { fetchSurvey } = useRequests();
   const { urlTypeError, emptyInput } = useInputErrors();
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [note, setNote] = useState("");
-  const [titleIcon, setTitleIcon] = useState(false);
-  const [urlIcon, seturlIcon] = useState(false);
   const [titleErrorMessage, setTitleErrorMessage] =
     useState<JSX.Element | null>(null);
   const [urlErrorMessage, setUrlErrorMessage] = useState<JSX.Element | null>(
@@ -63,8 +60,8 @@ const AddPage = () => {
             note,
           },
         });
-        dispatchPages(res.data.survey.page);
-        fetchSurvey();
+        dispatchPages(res.data.survey.pages);
+        dispatchSurvey(res.data.survey);
         setTitle("");
         setUrl("");
         setNote("");
@@ -80,15 +77,6 @@ const AddPage = () => {
     }
   };
 
-  useEffect(() => {
-    if (!title) {
-      setTitleIcon(false);
-    }
-    if (!url) {
-      seturlIcon(false);
-    }
-  }, [title, url]);
-
   return (
     <PageModal title={t("addPages.createPage")}>
       <PageForm
@@ -101,21 +89,24 @@ const AddPage = () => {
         onChangeTitle={(e: ChangeEvent<HTMLInputElement>) => {
           setTitle(e.target.value);
           setTitleErrorMessage(null);
-          setTitleIcon(true);
         }}
         onChangeUrl={(e: ChangeEvent<HTMLInputElement>) => {
           setUrl(e.target.value);
           setUrlErrorMessage(null);
           setIsUrl(null);
-          seturlIcon(true);
         }}
         onChangeTextArea={(e: ChangeEvent<HTMLTextAreaElement>) =>
           setNote(e.target.value)
         }
-        titleIcon={titleIcon}
-        urlIcon={urlIcon}
-        onClickTitleIcon={() => setTitle("")}
-        onClickUrlIcon={() => setUrl("")}
+        onClickTitleIcon={() => {
+          setTitle("");
+          setTitleErrorMessage(null);
+        }}
+        onClickUrlIcon={() => {
+          setUrl("");
+          setUrlErrorMessage(null);
+          setIsUrl(null);
+        }}
       />
     </PageModal>
   );

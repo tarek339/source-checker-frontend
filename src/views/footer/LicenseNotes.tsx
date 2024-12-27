@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useDispatches } from "../../hooks";
 import { FramerMotion, ContentContainer, Title, Flex } from "../../components";
 import {
   GeneralInfo,
@@ -12,12 +10,6 @@ import {
 } from "../../components/footer/license-notes";
 
 const LicenseNotes = () => {
-  const { setMainPage } = useDispatches();
-
-  useEffect(() => {
-    setMainPage(false);
-  }, [setMainPage]);
-
   return (
     <FramerMotion>
       <ContentContainer
