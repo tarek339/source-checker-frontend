@@ -30,14 +30,9 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
       open={viewsModal}
       onClose={closeViewsModal}
       style={{
-        overflowY: windowWidth < 1200 ? "scroll" : "auto",
+        overflowY: windowWidth < 1024 ? "scroll" : "auto",
         height: windowWidth < 1200 ? "80vh" : "auto",
-        width:
-          windowWidth > 1440
-            ? "1400px"
-            : windowWidth < 1200
-            ? "min-content"
-            : "98%",
+        width: windowWidth > 1440 ? "1400px" : "95%",
       }}>
       <Flex direction={"column"} gap={"10px"}>
         <Flex direction={"row"} justify="space-between" align="center">
@@ -49,10 +44,11 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
         </Flex>
         <Flex
           key={filteredPage?._id}
-          direction={windowWidth > 1200 ? "row" : "column"}
+          direction={windowWidth > 1024 ? "row" : "column"}
           gap={"20px"}
           style={{
             paddingTop: "20px",
+            margin: "0 auto",
           }}>
           {filteredPage?.mobileScreenshot === "" ? (
             <EmptyData

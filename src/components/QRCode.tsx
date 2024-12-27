@@ -5,7 +5,7 @@ const QrCode = ({ value, onClick, size, cursor }: IQRCode) => {
   return (
     <QRCodeCanvas
       onClick={onClick}
-      size={!size ? 150 : size}
+      size={size}
       value={value}
       style={{ cursor: cursor }}
     />

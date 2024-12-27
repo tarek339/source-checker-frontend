@@ -1,7 +1,7 @@
 import ButtonContainer from "../../containers/ButtonContainer";
 import Flex from "../../containers/Flex";
 import Span from "../../fonts/Span";
-import { useDispatches, useSelectors } from "../../../hooks";
+import { useBreakPoints, useDispatches, useSelectors } from "../../../hooks";
 import { Alert } from "../../icons";
 import SubTitle from "../../fonts/SubTitle";
 import { Button, Modal } from "../..";
@@ -10,9 +10,13 @@ import { INoteModal } from "../../../types/interfaces/components";
 const NoteModal = ({ onClick }: INoteModal) => {
   const { closeModal } = useDispatches();
   const { modal } = useSelectors();
+  const { windowWidth } = useBreakPoints();
 
   return (
-    <Modal open={modal} onClose={closeModal}>
+    <Modal
+      open={modal}
+      onClose={closeModal}
+      style={{ width: windowWidth <= 883 ? "95%" : "838.84px" }}>
       <Flex direction={"row"} gap={"10px"} align="flex-start">
         <Alert />
         <Flex direction={"column"} gap={"5px"}>

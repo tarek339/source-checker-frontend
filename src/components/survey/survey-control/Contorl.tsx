@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import { Copy, ZoomIn } from "../../icons";
 import QrCode from "../../QRCode";
 import moment from "moment";
-import QrCodeComp from "./QrCodeComp";
+import QrCodeModal from "./QrCodeModal";
 
 const Contorl = () => {
   const { windowWidth } = useBreakPoints();
@@ -123,7 +123,7 @@ const Contorl = () => {
         </Flex>
 
         <Flex direction={"column"} gap={"15px"}>
-          <QrCodeComp />
+          <QrCodeModal />
           <Flex
             direction={windowWidth > 400 ? "row" : "column-reverse"}
             gap={"20px"}>
