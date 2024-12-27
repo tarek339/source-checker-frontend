@@ -1,7 +1,7 @@
 import { ImCancelCircle } from "react-icons/im";
 
 interface ICancel {
-  onClick: React.MouseEventHandler<SVGElement> | undefined;
+  onClick?: React.MouseEventHandler<SVGElement> | undefined;
 }
 
 const Cancel = ({ onClick }: ICancel) => {

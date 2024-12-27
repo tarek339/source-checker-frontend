@@ -43,8 +43,8 @@ const ViewsModal = ({ pageId }: IViewsModal) => {
         <Flex direction={"row"} justify="space-between" align="center">
           <SubTitle title={"Wähle eine neue Ansicht"} />
 
-          <IconButton>
-            <Cancel onClick={closeViewsModal} />
+          <IconButton onClick={closeViewsModal}>
+            <Cancel />
           </IconButton>
         </Flex>
         <Flex
