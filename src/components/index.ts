@@ -1,7 +1,6 @@
 import Divider from "./Divider";
 import Input from "./form/Input";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
-import SideMenu from "./survey/surveys-manager/add-pages/SideMenu";
 import LoadingPulse from "./LoadingPulse";
 import Card from "./containers/Card";
 import Header from "./Header";
@@ -43,6 +42,7 @@ import RegisterUserName from "./survey/student-survey/RegisterUserName";
 import DeleteSurveyModal from "./survey/surveys-manager/DeleteSurveyModal";
 import RatingInfo from "./survey/surveys-manager/RatingInfo";
 import ErrorModal from "./survey/surveys-manager/ErrorModal";
+import SideMenu from "./survey/surveys-manager/add-pages/SideMenu";
 
 export {
   Footer,

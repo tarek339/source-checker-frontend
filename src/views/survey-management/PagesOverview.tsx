@@ -13,6 +13,7 @@ import {
   ButtonContainer,
   Button,
   PageTable,
+  SideMenu,
 } from "../../components";
 import {
   useDispatches,
@@ -21,7 +22,6 @@ import {
   useSelectors,
 } from "../../hooks";
 import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
-import NewSideMenu from "../../components/survey/surveys-manager/add-pages/NewSideMenu";
 
 const PagesOverview = () => {
   const { openModal, dispatchSideBar, resetSBPages } = useDispatches();
@@ -53,7 +53,7 @@ const PagesOverview = () => {
 
   return (
     <ContentContainer style={{ position: "relative" }}>
-      <NewSideMenu />
+      <SideMenu />
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
