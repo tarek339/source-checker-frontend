@@ -3,6 +3,7 @@ import { FramerMotion } from "../components";
 import { useDispatches, useTranslations } from "../hooks";
 import imgSrc from "../assets/images/title-img.jpg";
 import { useEffect } from "react";
+import withUnAuthPages from "../hoc/withUnAuthPages";
 
 const Authentication = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Authentication = () => {
 
   useEffect(() => {
     setMainPage(true);
-  }, [setMainPage]);
+  }, []);
 
   return (
     <FramerMotion>
@@ -25,12 +26,18 @@ const Authentication = () => {
               <div className="auth-buttons">
                 <button
                   className="student-button"
-                  onClick={() => navigate("/student-survey-authentication")}>
+                  onClick={() => {
+                    setMainPage(false);
+                    navigate("/student-survey-authentication");
+                  }}>
                   {t("auth.studentButton")}
                 </button>
                 <button
                   className="teacher-button"
-                  onClick={() => navigate("/surveys-manager/choose-action")}>
+                  onClick={() => {
+                    setMainPage(false);
+                    navigate("/surveys-manager/authentication");
+                  }}>
                   {t("auth.teacherButton")}
                 </button>
               </div>
@@ -49,4 +56,4 @@ const Authentication = () => {
   );
 };
 
-export default Authentication;
+export default withUnAuthPages(Authentication);

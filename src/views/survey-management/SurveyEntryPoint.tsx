@@ -1,6 +1,6 @@
 import { IoAddOutline } from "react-icons/io5";
 import { FiArrowUp } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useBreakPoints, useDispatches, useTranslations } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import {
@@ -13,6 +13,7 @@ import {
   ErrorModal,
 } from "../../components";
 import axios from "axios";
+import withUnAuthPages from "../../hoc/withUnAuthPages";
 
 const style: React.CSSProperties = {
   border: "2px dashed lightgray",
@@ -33,17 +34,8 @@ const SurveyEntryPoint = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const navigate = useNavigate();
-  const {
-    dispatchLoading,
-    setMainPage,
-    dispatchSurvey,
-    openModal,
-    closeModal,
-  } = useDispatches();
-
-  useEffect(() => {
-    setMainPage(false);
-  }, [setMainPage]);
+  const { dispatchLoading, dispatchSurvey, openModal, closeModal } =
+    useDispatches();
 
   const handleSubmit = async () => {
     try {
@@ -53,10 +45,11 @@ const SurveyEntryPoint = () => {
         freeUserNames: false,
       });
       dispatchSurvey(res.data.survey);
+      sessionStorage.setItem("token", res.data.token);
       dispatchLoading(false);
-      navigate(`/surveys-manager/save-survey/${res.data.survey._id}`);
+      navigate(`/surveys-manager/survey-profile/${res.data.survey._id}`);
       closeModal();
-    } catch (err: unknown) {
+    } catch (error) {
       dispatchLoading(false);
       openModal();
     }
@@ -77,36 +70,40 @@ const SurveyEntryPoint = () => {
             direction={windowWidth <= 619 ? "column" : "row"}
             gap={"20px"}
             style={{ marginTop: "1em" }}>
-            <div
+            <button
               onClick={handleSubmit}
               onMouseEnter={() => setIsHoveredAdd(true)}
               onMouseLeave={() => setIsHoveredAdd(false)}
               style={{
                 ...style,
-                borderColor: isHoveredAdd ? "darkgray" : "lightgray",
+                borderColor: isHoveredAdd ? "grey" : "darkgrey",
+                backgroundColor: "transparent",
+                color: isHoveredAdd ? "grey" : "darkgrey",
               }}>
               <IoAddOutline
                 fontSize="64px"
-                color={isHoveredAdd ? "darkgray" : "lightgray"}
+                color={isHoveredAdd ? "grey" : "darkgrey"}
               />
-              <p>{t("chooseAction.newSurvey")}</p>
-            </div>
-            <div
+              {t("chooseAction.newSurvey")}
+            </button>
+            <button
               onClick={() => {
-                navigate("/surveys-manager/choose-survey");
+                navigate("/surveys-manager/log-in");
               }}
               onMouseEnter={() => setIsHoveredNew(true)}
               onMouseLeave={() => setIsHoveredNew(false)}
               style={{
                 ...style,
-                borderColor: isHoveredNew ? "darkgray" : "lightgray",
+                borderColor: isHoveredNew ? "grey" : "darkgrey",
+                backgroundColor: "transparent",
+                color: isHoveredNew ? "grey" : "darkgrey",
               }}>
               <FiArrowUp
                 fontSize="64px"
-                color={isHoveredNew ? "darkgray" : "lightgray"}
+                color={isHoveredNew ? "grey" : "darkgrey"}
               />
-              <p>{t("chooseAction.existingSurvey")}</p>
-            </div>
+              {t("chooseAction.existingSurvey")}
+            </button>
           </Flex>
         </FramerMotion>
       </Card>
@@ -114,4 +111,4 @@ const SurveyEntryPoint = () => {
   );
 };
 
-export default SurveyEntryPoint;
+export default withUnAuthPages(SurveyEntryPoint);

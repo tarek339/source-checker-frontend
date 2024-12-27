@@ -1,11 +1,18 @@
-import { MdOutlineCancel } from "react-icons/md";
+import { ImCancelCircle } from "react-icons/im";
 
 interface ICancel {
-  onClick?: React.MouseEventHandler<SVGElement> | undefined;
+  onClick: React.MouseEventHandler<SVGElement> | undefined;
 }
 
 const Cancel = ({ onClick }: ICancel) => {
-  return <MdOutlineCancel color="#17181d" fontSize="48px" onClick={onClick} />;
+  return (
+    <ImCancelCircle
+      color="#17181d"
+      cursor="pointer"
+      onClick={onClick}
+      size={26}
+    />
+  );
 };
 
 export default Cancel;

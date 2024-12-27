@@ -17,7 +17,7 @@ const ErrorModal = ({ onClick, errTitle, errMsg }: IErrorModal) => {
 
   useEffect(() => {
     handleScroll();
-  }, [handleScroll, modal]);
+  }, [modal]);
 
   return (
     <Modal isVisible={modal} setIsVisible={closeModal}>

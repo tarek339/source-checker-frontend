@@ -4,7 +4,7 @@ import {
   IoArrowBackSharp,
   IoArrowForwardSharp,
 } from "react-icons/io5";
-import { IoMdArrowRoundBack } from "react-icons/io";
+import { IoIosCloseCircleOutline, IoMdArrowRoundBack } from "react-icons/io";
 import { BiLoaderAlt } from "react-icons/bi";
 import { FiArrowUp } from "react-icons/fi";
 import Link from "../../fonts/Link";
@@ -101,6 +101,20 @@ const rows = [
   createData(
     <IoAddOutline />,
     "IoAddOutline",
+    "Ionicons",
+    "https://ionic.io/ionicons",
+
+    <span style={style}>
+      Copyright (c) 2015-present Ionic{" "}
+      <a target="_blank" href="http://ionic.io/">
+        http://ionic.io/
+      </a>
+    </span>,
+    "https://opensource.org/license/mit"
+  ),
+  createData(
+    <IoIosCloseCircleOutline />,
+    "IoIosCloseCircleOutline",
     "Ionicons",
     "https://ionic.io/ionicons",
 

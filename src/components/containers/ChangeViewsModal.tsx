@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { IChangeViewsModal } from "../../types/interfaces/components";
+import { useBreakPoints } from "../../hooks";
 
 const ChangeViewsModal = ({
   setIsVisible,
@@ -7,6 +8,8 @@ const ChangeViewsModal = ({
   children,
   style,
 }: IChangeViewsModal) => {
+  const { windowWidth } = useBreakPoints();
+
   useEffect(() => {
     const modal = document.getElementById("viewsModal");
     window.onclick = function (event) {
@@ -15,6 +18,7 @@ const ChangeViewsModal = ({
       }
     };
   }, [isVisible, setIsVisible]);
+
   return (
     <div
       id="viewsModal"
@@ -25,6 +29,8 @@ const ChangeViewsModal = ({
       <div
         className="modal-children"
         style={{
+          overflowY: windowWidth < 1200 ? "scroll" : "auto",
+          height: windowWidth < 1200 ? "80vh" : "auto",
           ...style,
         }}>
         {children}

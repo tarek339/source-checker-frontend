@@ -20,6 +20,7 @@ import {
 } from "../../hooks";
 import { Arrow, Star } from "../../components/icons";
 import { useNavigate } from "react-router-dom";
+import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
 
 const PagesRanking = () => {
   const { surveyPages, survey, isSort } = useSelectors();
@@ -178,4 +179,4 @@ const PagesRanking = () => {
   );
 };
 
-export default PagesRanking;
+export default withSurveyAuthPages(PagesRanking);

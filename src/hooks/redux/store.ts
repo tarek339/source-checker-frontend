@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
+  adminReducer,
   loadingReducer,
   mainPageReducer,
   modalReducer,
@@ -32,6 +33,7 @@ export const store = configureStore({
     sliceNums: sliceNumsReducer,
     qrCode: qrCodeReducer,
     viewsModal: viewsModalReducer,
+    admin: adminReducer,
   },
 });
 

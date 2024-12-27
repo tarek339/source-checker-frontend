@@ -1,39 +1,44 @@
 import axios from "axios";
 import SubTitle from "../../fonts/SubTitle";
-import Card from "../../containers/Card";
 import Flex from "../../containers/Flex";
-import ContentContainer from "../../containers/ContentContainer";
 import FormContainer from "../../form/FormContainer";
 import Input from "../../form/Input";
 import {
   useBreakPoints,
   useDispatches,
   useInputErrors,
-  useRequests,
   useSelectors,
   useTranslations,
 } from "../../../hooks";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../..";
 
 const RegisterUserName = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
-  const { dispatchStudent } = useDispatches();
+  const { dispatchStudent, dispatchSurvey, discardSurvey } = useDispatches();
   const { survey } = useSelectors();
-  const { fetchSurvey } = useRequests();
   const { emptyInput, studentExists } = useInputErrors();
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const [freeUserName, setFreeUserName] = useState("");
   const [inputError, setInputError] = useState<JSX.Element | null>(null);
   const [userExistsMsg, setUserExistsMsg] = useState<JSX.Element | null>(null);
 
-  useEffect(() => {
-    if (survey === null) {
-      fetchSurvey();
+  const fetchSurvey = async () => {
+    try {
+      const res = await axios.get(`/student/fetch-students-survey/${id}`);
+      dispatchSurvey(res.data.survey);
+    } catch (error) {
+      discardSurvey();
+      console.error((error as Error).message);
     }
+  };
+
+  useEffect(() => {
+    fetchSurvey();
   }, []);
 
   const handleSubmit = async () => {
@@ -46,6 +51,7 @@ const RegisterUserName = () => {
         freeUserName: !survey?.freeUserNames ? "" : freeUserName,
         surveyId: survey?._id,
       });
+      sessionStorage.setItem("student-token", res.data.token);
       dispatchStudent(res.data.student);
       setFreeUserName("");
       navigate(
@@ -66,44 +72,42 @@ const RegisterUserName = () => {
   }, [survey]);
 
   return (
-    <ContentContainer maxWidth={900}>
-      <Card>
-        <SubTitle title={t("chooseSurvey.surveyData")} />
-        <FormContainer
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
+    <>
+      <SubTitle title={t("chooseSurvey.surveyData")} />
+      <FormContainer
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+        style={{
+          maxWidth: "400px",
+          margin: "0 auto",
+          paddingTop: "2em",
+        }}
+        gap={"20px"}>
+        <Input
+          label={`${t("common.freeName")}*`}
+          name={"surveyID"}
+          htmlFor={"surveyID"}
+          placeHolder="Max Musterman"
+          error={inputError ? inputError : userExistsMsg}
+          hasError={inputError ? inputError : userExistsMsg}
+          value={freeUserName}
+          onChange={(e) => {
+            setFreeUserName(e.target.value);
+            setUserExistsMsg(null);
+            setInputError(null);
           }}
-          style={{
-            maxWidth: "400px",
-            margin: "0 auto",
-            paddingTop: "2em",
-          }}
-          gap={"20px"}>
-          <Input
-            label={`${t("common.freeName")}*`}
-            name={"surveyID"}
-            htmlFor={"surveyID"}
-            placeHolder="Max Musterman"
-            error={inputError ? inputError : userExistsMsg}
-            hasError={inputError ? inputError : userExistsMsg}
-            value={freeUserName}
-            onChange={(e) => {
-              setFreeUserName(e.target.value);
-              setUserExistsMsg(null);
-              setInputError(null);
-            }}
-          />
-          {windowWidth > 425 ? (
-            <Flex direction={"row"} width="100%" justify="flex-end">
-              <Button type="submit" title={t("button.register")} />
-            </Flex>
-          ) : (
+        />
+        {windowWidth > 425 ? (
+          <Flex direction={"row"} width="100%" justify="flex-end">
             <Button type="submit" title={t("button.register")} />
-          )}
-        </FormContainer>
-      </Card>
-    </ContentContainer>
+          </Flex>
+        ) : (
+          <Button type="submit" title={t("button.register")} />
+        )}
+      </FormContainer>
+    </>
   );
 };
 

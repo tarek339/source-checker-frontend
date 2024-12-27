@@ -18,8 +18,6 @@ const PageForm = ({
   inputValue,
   urlValue,
   textAreaValue,
-  titleIcon,
-  urlIcon,
   onChangeTitle,
   onChangeUrl,
   onChangeTextArea,
@@ -41,9 +39,8 @@ const PageForm = ({
         hasError={titleError}
         value={inputValue}
         disabled={loading ? true : false}
-        icon={titleIcon}
         onChange={onChangeTitle}
-        onClickIcon={onClickTitleIcon}
+        onClear={onClickTitleIcon}
       />
 
       <Input
@@ -55,9 +52,8 @@ const PageForm = ({
         hasError={urlError}
         value={urlValue}
         disabled={loading ? true : false}
-        icon={urlIcon}
         onChange={onChangeUrl}
-        onClickIcon={onClickUrlIcon}
+        onClear={onClickUrlIcon}
       />
 
       <InputMessage
@@ -90,6 +86,10 @@ const PageForm = ({
               t("button.add")
             )
           }
+          style={{
+            backgroundColor: loading ? "#0000001f" : "#2835c3",
+            boxShadow: loading ? "none" : "",
+          }}
         />
       </ButtonContainer>
     </FormContainer>

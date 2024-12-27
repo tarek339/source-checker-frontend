@@ -8,15 +8,16 @@ import {
 } from "../../components";
 import { socket } from "../../socket";
 import { useParams } from "react-router-dom";
+import withStudentAuthPages from "../../hoc/withStudentAuthPages";
 
 const StudentRatingWidget = () => {
   const { isStarted, student } = useSelectors();
-  const { fetchSurvey, fetchSingleStudent } = useRequests();
+  const { fetchSingleStudent, fetchSurveyByToken } = useRequests();
   const { setSurveyStatus, setCurrentPage } = useDispatches();
   const { id } = useParams();
 
   useEffect(() => {
-    fetchSurvey();
+    fetchSurveyByToken();
   }, []);
 
   useEffect(() => {
@@ -60,4 +61,4 @@ const StudentRatingWidget = () => {
   );
 };
 
-export default StudentRatingWidget;
+export default withStudentAuthPages(StudentRatingWidget);

@@ -14,11 +14,12 @@ import {
 import { useTranslations, useInputErrors, useDispatches } from "../../hooks";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import withUnAuthPages from "../../hoc/withUnAuthPages";
 
 const LogInSurvey = () => {
   const { t } = useTranslations();
   const { emptyInput, incorrectType, fetchError } = useInputErrors();
-  const { dispatchLoading } = useDispatches();
+  const { dispatchLoading, dispatchSurvey } = useDispatches();
   const navigate = useNavigate();
 
   const [surveyId, setSurveyId] = useState("");
@@ -41,7 +42,9 @@ const LogInSurvey = () => {
       if (!surveyId || !surveyPin) return;
       dispatchLoading(true);
       const res = await axios.post("/survey/fetch", { surveyId, surveyPin });
-      navigate(`/surveys-manager/save-survey/${res.data.survey._id}`);
+      dispatchSurvey(res.data.survey);
+      sessionStorage.setItem("token", res.data.token);
+      navigate(`/surveys-manager/survey-profile/${res.data.survey._id}`);
       dispatchLoading(false);
     } catch (error) {
       setFetchErrMsg(fetchError);
@@ -89,6 +92,12 @@ const LogInSurvey = () => {
                   setFetchErrMsg(null);
                   setIdTypeErrMsg(null);
                 }}
+                onClear={() => {
+                  setSurveyId("");
+                  setIDErrMsg(null);
+                  setFetchErrMsg(null);
+                  setIdTypeErrMsg(null);
+                }}
               />
               <Input
                 type="password"
@@ -117,6 +126,12 @@ const LogInSurvey = () => {
                   setFetchErrMsg(null);
                   setPinTypeErrMsg(null);
                 }}
+                onClear={() => {
+                  setSurveyPin("");
+                  setPINErrMsg(null);
+                  setFetchErrMsg(null);
+                  setPinTypeErrMsg(null);
+                }}
               />
               <Divider />
               <Flex direction={"column"} gap={"15px"}>
@@ -135,4 +150,4 @@ const LogInSurvey = () => {
   );
 };
 
-export default LogInSurvey;
+export default withUnAuthPages(LogInSurvey);

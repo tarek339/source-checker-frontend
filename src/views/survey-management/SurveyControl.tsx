@@ -14,23 +14,18 @@ import {
   useTranslations,
   useBreakPoints,
   useSelectors,
-  useRequests,
   useDispatches,
 } from "../../hooks";
 import { socket } from "../../socket";
+import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
 
 const SurveyControl = () => {
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { survey } = useSelectors();
-  const { fetchSurvey } = useRequests();
   const { setCurrentPage } = useDispatches();
   const { id } = useParams();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetchSurvey();
-  }, []);
 
   useEffect(() => {
     socket.on("surveyPageNumber", (surveyInfo) => {
@@ -75,4 +70,4 @@ const SurveyControl = () => {
   );
 };
 
-export default SurveyControl;
+export default withSurveyAuthPages(SurveyControl);

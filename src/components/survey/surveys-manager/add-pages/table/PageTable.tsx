@@ -27,10 +27,9 @@ const PageTable = () => {
   const [surveyIds, setSurveyIds] = useState<string[]>([]);
   const [pageId, setPageId] = useState("");
   const [rowsInPage, setRowsInPage] = useState(0);
-
-  const { survey, surveyPages } = useSelectors();
-  const { dispatchSurvey, openViewsModal } = useDispatches();
   const { fetchSurvey } = useRequests();
+  const { survey, surveyPages } = useSelectors();
+  const { openViewsModal } = useDispatches();
 
   useEffect(() => {
     // Calculate the starting index of the current page
@@ -98,9 +97,7 @@ const PageTable = () => {
     await axios.post(`/survey/delete-page/${survey?._id}`, { surveyIds });
     setSurveyIds([]);
     setSelected([]);
-    const res = await axios.get(`/survey/get-profile/${survey?._id}`);
     fetchSurvey();
-    dispatchSurvey(res.data.survey);
   };
 
   const selectPage = async (pageId: string) => {

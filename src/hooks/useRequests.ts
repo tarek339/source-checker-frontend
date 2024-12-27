@@ -4,17 +4,35 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 const useRequests = () => {
-  const { dispatchSurvey, dispatchPages, dispatchStudent } = useDispatches();
-  const { id, studentId } = useParams();
+  const {
+    dispatchSurvey,
+    dispatchPages,
+    dispatchStudent,
+    discardSurvey,
+    discardStudent,
+  } = useDispatches();
+  const { id } = useParams();
   const [students, setStudents] = useState([]);
 
   const fetchSurvey = async () => {
     try {
-      const res = await axios.get(`/survey/get-profile/${id}`);
+      const res = await axios.get(`/survey/get-profile`);
       dispatchSurvey(res.data.survey);
       dispatchPages(res.data.survey.pages);
     } catch (error) {
-      console.log(error);
+      discardSurvey();
+      console.error((error as Error).message);
+    }
+  };
+
+  const fetchSurveyByToken = async () => {
+    try {
+      const res = await axios.get(`/student/fetch-students-survey`);
+      dispatchSurvey(res.data.survey);
+      dispatchPages(res.data.survey.pages);
+    } catch (error) {
+      discardSurvey();
+      console.error((error as Error).message);
     }
   };
 
@@ -23,16 +41,18 @@ const useRequests = () => {
       const res = await axios.get(`/student/fetch-students/${id}`);
       setStudents(res.data.students);
     } catch (error) {
-      console.log(error);
+      setStudents([]);
+      console.error((error as Error).message);
     }
   };
 
   const fetchSingleStudent = async () => {
     try {
-      const res = await axios.get(`/student/fetch-single-student/${studentId}`);
+      const res = await axios.get(`/student/fetch-single-student`);
       dispatchStudent(res.data.student);
     } catch (error) {
-      console.log(error);
+      discardStudent();
+      console.error((error as Error).message);
     }
   };
 
@@ -42,6 +62,7 @@ const useRequests = () => {
     fetchSingleStudent,
     students,
     setStudents,
+    fetchSurveyByToken,
   };
 };
 

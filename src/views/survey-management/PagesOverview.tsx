@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ContentContainer,
-  SideMenu,
   Title,
   Card,
   FramerMotion,
@@ -20,21 +19,17 @@ import {
   useTranslations,
   useBreakPoints,
   useSelectors,
-  useRequests,
 } from "../../hooks";
+import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
+import NewSideMenu from "../../components/survey/surveys-manager/add-pages/NewSideMenu";
 
 const PagesOverview = () => {
   const { openModal, dispatchSideBar, resetSBPages } = useDispatches();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { survey, surveyPages } = useSelectors();
-  const { fetchSurvey } = useRequests();
   const navigate = useNavigate();
   const [viewsSelected, setViewsSelected] = useState(false);
-
-  useEffect(() => {
-    fetchSurvey();
-  }, []);
 
   useEffect(() => {
     surveyPages?.find((element) => {
@@ -58,7 +53,7 @@ const PagesOverview = () => {
 
   return (
     <ContentContainer style={{ position: "relative" }}>
-      <SideMenu />
+      <NewSideMenu />
       <Title title={t("survey.createManagement")} />
       <Card>
         <FramerMotion>
@@ -102,7 +97,7 @@ const PagesOverview = () => {
               <Button
                 error
                 onClick={() =>
-                  navigate(`/surveys-manager/save-survey/${survey?._id}`)
+                  navigate(`/surveys-manager/survey-profile/${survey?._id}`)
                 }
                 title={t("button.back")}
               />
@@ -134,4 +129,4 @@ const PagesOverview = () => {
   );
 };
 
-export default PagesOverview;
+export default withSurveyAuthPages(PagesOverview);

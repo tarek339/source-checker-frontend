@@ -25,7 +25,7 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
     closeModal,
   } = useDispatches();
   const { voted, votedStars, stars, modal, currentPage } = useSelectors();
-  const { fetchSurvey } = useRequests();
+  const { fetchSurveyByToken } = useRequests();
   const { windowWidth } = useBreakPoints();
   const prevPageRef = useRef(currentPage);
 
@@ -43,8 +43,11 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
       studentId,
     });
     dispatchSurvey(res.data.survey);
-    fetchSurvey();
   };
+
+  useEffect(() => {
+    fetchSurveyByToken();
+  }, []);
 
   useEffect(() => {
     if (

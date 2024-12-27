@@ -35,6 +35,7 @@ import {
 } from "./sliceNums";
 import { handleQrCode, qrCodeReducer } from "./qrCode";
 import { viewsModalReducer, handleViewsModal } from "./viewsModal";
+import { adminReducer, addAdmin, removeAdmin } from "./admin";
 
 export {
   handleTranslation,
@@ -62,6 +63,9 @@ export {
   handleIsSort,
   handleQrCode,
   handleViewsModal,
+  addAdmin,
+  removeAdmin,
+  adminReducer,
   viewsModalReducer,
   sliceNumsReducer,
   studenReducer,

@@ -1,4 +1,3 @@
-import Cancel from "./Cancel";
 import Check from "./Check";
 import Alert from "./Alert";
 import Loading from "./Loading";
@@ -23,9 +22,9 @@ import Dot from "./Dot";
 import Edit from "./Edit";
 import Home from "./Home";
 import Close from "./Close";
+import Cancel from "./Cancel";
 
 export {
-  Cancel,
   Check,
   Alert,
   Loading,
@@ -50,4 +49,5 @@ export {
   Edit,
   Home,
   Close,
+  Cancel,
 };
