@@ -12,7 +12,7 @@ const PageModal = ({ children, title }: IPageModal) => {
     <Modal
       open={modal}
       onClose={closeModal}
-      style={{ width: windowWidth <= 500 ? "100%" : "600px" }}>
+      style={{ width: windowWidth <= 635 ? "95%" : "600px" }}>
       <Flex direction={"column"} gap={"10px"}>
         <h3>{title}</h3>
         {children}

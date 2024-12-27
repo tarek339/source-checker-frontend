@@ -1,5 +1,5 @@
 import Flex from "../../containers/Flex";
-import { useSelectors, useDispatches } from "../../../hooks";
+import { useSelectors, useDispatches, useBreakPoints } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
 import ButtonContainer from "../../containers/ButtonContainer";
 import Span from "../../fonts/Span";
@@ -9,9 +9,15 @@ import { Button, Modal } from "../..";
 const StandbyMessage = () => {
   const { modal } = useSelectors();
   const { closeModal } = useDispatches();
+  const { windowWidth } = useBreakPoints();
 
   return (
-    <Modal open={modal} onClose={closeModal} style={{ maxWidth: "600px" }}>
+    <Modal
+      open={modal}
+      onClose={closeModal}
+      style={{
+        width: windowWidth <= 635 ? "95%" : "600px",
+      }}>
       <Flex direction={"row"} gap={"10px"} align="flex-start">
         <Check />
         <Flex direction={"column"} gap={"15px"}>

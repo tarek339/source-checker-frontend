@@ -3,7 +3,7 @@ import { IButtonContainer } from "../../types/interfaces/components";
 
 const ButtonContainer = ({ children, style }: IButtonContainer) => {
   const { windowWidth } = useBreakPoints();
-  const maxWidth = windowWidth <= 500;
+  const maxWidth = windowWidth <= 512;
 
   return (
     <div
