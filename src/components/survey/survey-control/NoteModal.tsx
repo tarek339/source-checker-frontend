@@ -1,25 +1,18 @@
 import ButtonContainer from "../../containers/ButtonContainer";
 import Flex from "../../containers/Flex";
-import Modal from "../../containers/Modal";
 import Span from "../../fonts/Span";
-import { useDispatches, useScroll, useSelectors } from "../../../hooks";
+import { useDispatches, useSelectors } from "../../../hooks";
 import { Alert } from "../../icons";
 import SubTitle from "../../fonts/SubTitle";
-import { Button } from "../..";
+import { Button, Modal } from "../..";
 import { INoteModal } from "../../../types/interfaces/components";
-import { useEffect } from "react";
 
 const NoteModal = ({ onClick }: INoteModal) => {
   const { closeModal } = useDispatches();
   const { modal } = useSelectors();
-  const { handleScroll } = useScroll();
-
-  useEffect(() => {
-    handleScroll();
-  }, [modal]);
 
   return (
-    <Modal isVisible={modal} setIsVisible={closeModal}>
+    <Modal open={modal} onClose={closeModal}>
       <Flex direction={"row"} gap={"10px"} align="flex-start">
         <Alert />
         <Flex direction={"column"} gap={"5px"}>

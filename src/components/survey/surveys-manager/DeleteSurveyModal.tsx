@@ -1,21 +1,14 @@
 import axios from "axios";
 import { Button, ButtonContainer, Flex, Modal, Span, SubTitle } from "../..";
-import {
-  useDispatches,
-  useScroll,
-  useSelectors,
-  useTranslations,
-} from "../../../hooks";
+import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "../../icons";
-import { useEffect } from "react";
 
 const DeleteSurveyModal = () => {
   const { survey, modal } = useSelectors();
   const { closeModal, discardSurvey } = useDispatches();
   const { t } = useTranslations();
   const navigate = useNavigate();
-  const { handleScroll } = useScroll();
 
   const deleteSurvey = async () => {
     await axios.delete(`/survey/delete/${survey?._id}`);
@@ -25,12 +18,8 @@ const DeleteSurveyModal = () => {
     closeModal();
   };
 
-  useEffect(() => {
-    handleScroll();
-  }, [modal]);
-
   return (
-    <Modal isVisible={modal} setIsVisible={closeModal}>
+    <Modal open={modal} onClose={closeModal}>
       <Flex direction={"row"} gap={"10px"} align="flex-start">
         <Alert />
         <Flex direction={"column"} gap={"5px"} justify="flex-start">

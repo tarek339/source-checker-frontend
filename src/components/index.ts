@@ -16,8 +16,7 @@ import AddPage from "./survey/surveys-manager/add-pages/AddPage";
 import NoPages from "./survey/surveys-manager/add-pages/NoPages";
 import FormContainer from "./form/FormContainer";
 import ButtonContainer from "./containers/ButtonContainer";
-import ErrorModal from "./survey/surveys-manager/ErrorModal";
-import Modal from "./containers/Modal";
+import ModalComponent from "./containers/Modal";
 import SurveyProfileData from "./survey/surveys-manager/SurveyProfileData";
 import AppContent from "./AppContent";
 import CurrentPage from "./survey/survey-control/CurrentPage";
@@ -43,6 +42,7 @@ import PageTable from "./survey/surveys-manager/add-pages/table/PageTable";
 import RegisterUserName from "./survey/student-survey/RegisterUserName";
 import DeleteSurveyModal from "./survey/surveys-manager/DeleteSurveyModal";
 import RatingInfo from "./survey/surveys-manager/RatingInfo";
+import ErrorModal from "./survey/surveys-manager/ErrorModal";
 
 export {
   Footer,
@@ -65,8 +65,7 @@ export {
   NoPages,
   FormContainer,
   ButtonContainer,
-  ErrorModal,
-  Modal,
+  ModalComponent as Modal,
   SurveyProfileData,
   CurrentPage,
   SurveyData,
@@ -90,4 +89,5 @@ export {
   RegisterUserName,
   DeleteSurveyModal,
   RatingInfo,
+  ErrorModal,
 };

@@ -1,27 +1,17 @@
-import Modal from "../../containers/Modal";
 import Flex from "../../containers/Flex";
-import { useEffect } from "react";
-import { useSelectors, useDispatches, useScroll } from "../../../hooks";
+import { useSelectors, useDispatches } from "../../../hooks";
 import SubTitle from "../../fonts/SubTitle";
 import ButtonContainer from "../../containers/ButtonContainer";
 import Span from "../../fonts/Span";
 import { Check } from "../../icons";
-import { Button } from "../..";
+import { Button, Modal } from "../..";
 
 const StandbyMessage = () => {
   const { modal } = useSelectors();
-  const { handleScroll } = useScroll();
   const { closeModal } = useDispatches();
 
-  useEffect(() => {
-    handleScroll();
-  }, [modal]);
-
   return (
-    <Modal
-      isVisible={modal}
-      setIsVisible={closeModal}
-      style={{ maxWidth: "600px" }}>
+    <Modal open={modal} onClose={closeModal} style={{ maxWidth: "600px" }}>
       <Flex direction={"row"} gap={"10px"} align="flex-start">
         <Check />
         <Flex direction={"column"} gap={"15px"}>

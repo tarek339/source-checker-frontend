@@ -1,10 +1,5 @@
 import { IPages } from "./interfaces";
-import {
-  IHandleFirst,
-  IHandleLast,
-  IHandleModal,
-  IHandleViewsModal,
-} from "./redux/slices";
+import { IHandleFirst, IHandleLast, IHandleViewsModal } from "./redux/slices";
 
 export interface IInput {
   type?: string;
@@ -32,43 +27,18 @@ export interface ITextArea {
 }
 
 export interface IModal {
-  children: JSX.Element | JSX.Element[];
-  isVisible?: boolean;
-  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  children: React.ReactNode;
+  open: boolean;
+  onClose:
+    | ((event: object, reason: "backdropClick" | "escapeKeyDown") => void)
+    | undefined;
   style?: React.CSSProperties;
 }
 
-export interface IQrCodeModal {
-  children: JSX.Element | JSX.Element[];
-  isVisible?: boolean;
-  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  style?: React.CSSProperties;
-}
-
-export interface IChangeViewsModal {
-  children: JSX.Element | JSX.Element[];
-  isVisible?: boolean;
-  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  style?: React.CSSProperties;
-}
-
-export interface IModals {
-  children: JSX.Element | JSX.Element[];
-  isOpen: boolean;
-  onClose: () => {
-    payload: IHandleModal;
-    type: "modal/handleModal";
-  };
-}
 export interface ISideBar {
   children: JSX.Element | JSX.Element[];
   collapsed: boolean;
   toggled: boolean;
-}
-
-export interface IModalContent {
-  url: string;
-  header: string;
 }
 
 export interface ISwitchToggle {
@@ -92,9 +62,7 @@ export interface ITable {
 }
 
 export interface IErrorModal {
-  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  errTitle: string | undefined;
-  errMsg: string | undefined;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 export interface IScreenShot {
