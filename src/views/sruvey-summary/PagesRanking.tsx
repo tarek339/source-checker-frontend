@@ -19,19 +19,20 @@ import {
   useTranslations,
 } from "../../hooks";
 import { Arrow, Star } from "../../components/icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
 
 const PagesRanking = () => {
-  const { surveyPages, survey, isSort } = useSelectors();
+  const { isSort, surveyPages } = useSelectors();
   const { fetchSurvey } = useRequests();
   const { windowWidth } = useBreakPoints();
   const { setFirst, setLast, setIsSort } = useDispatches();
   const { t } = useTranslations();
-  const navigate = useNavigate();
   const { handleScreenshot, screenshotRef } = useScreenshot();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  const [deg, setDeg] = useState(270);
+  const [degree, setDegree] = useState(270);
   const [hovered, setHovered] = useState<number | null>(null);
 
   const handleMouseEnter = (row: number) => {
@@ -47,9 +48,9 @@ const PagesRanking = () => {
 
   useEffect(() => {
     if (isSort) {
-      setDeg(270);
-    } else setDeg(90);
-  }, [isSort, deg]);
+      setDegree(270);
+    } else setDegree(90);
+  }, [isSort, degree]);
 
   return (
     <ContentContainer>
@@ -93,7 +94,7 @@ const PagesRanking = () => {
                         onClick={() => {
                           setLast(i + 1);
                           setFirst(i);
-                          navigate(`/survey-summary/${survey?._id}`);
+                          navigate(`/survey-summary/${id}`);
                         }}>
                         <Flex
                           direction={"row"}
@@ -166,7 +167,7 @@ const PagesRanking = () => {
                 <Arrow
                   fontSize={31}
                   onClick={() => setIsSort(!isSort)}
-                  deg={deg}
+                  deg={degree}
                 />
               </Flex>
             ) : (

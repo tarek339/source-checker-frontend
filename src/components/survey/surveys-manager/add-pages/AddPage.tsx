@@ -53,13 +53,16 @@ const AddPage = () => {
           return;
         }
         dispatchLoading(true);
-        const res = await axios.put(`/survey/complete/${survey?.surveyId}`, {
-          page: {
-            title,
-            url,
-            note,
-          },
-        });
+        const res = await axios.put(
+          `/survey/add-page-to-survey/${survey?.surveyId}`,
+          {
+            page: {
+              title,
+              url,
+              note,
+            },
+          }
+        );
         dispatchPages(res.data.survey.pages);
         dispatchSurvey(res.data.survey);
         setTitle("");

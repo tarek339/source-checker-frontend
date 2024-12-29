@@ -27,26 +27,28 @@ const Header = ({ title }: IHeader) => {
         direction={"row"}
         justify="flex-start"
         align="center"
-        width="100%"
         style={{ cursor: "pointer" }}
-        onMouseEnter={() => setOnHover(true)}
-        onMouseLeave={() => setOnHover(false)}
-        onClick={() => {
-          sessionStorage.removeItem("token");
-          navigate("/");
-        }}
         gap="5px">
-        <Home color={!onHover ? "#fbfcff" : "#31e981"} />
-
-        <Title
-          style={{
-            color: !onHover ? "#fbfcff" : "#31e981",
-            letterSpacing: "1px",
-            padding: "0px",
-            transition: "color 0.2s ease",
-          }}
-          title={title}
-        />
+        <Flex
+          direction="row"
+          gap="3px"
+          onMouseEnter={() => setOnHover(true)}
+          onMouseLeave={() => setOnHover(false)}
+          onClick={() => {
+            localStorage.removeItem("token");
+            navigate("/");
+          }}>
+          <Home color={!onHover ? "#fbfcff" : "#31e981"} />
+          <Title
+            style={{
+              color: !onHover ? "#fbfcff" : "#31e981",
+              letterSpacing: "1px",
+              padding: "0px",
+              transition: "color 0.2s ease",
+            }}
+            title={title}
+          />
+        </Flex>
       </Flex>
       <Flex
         direction={"row-reverse"}

@@ -24,7 +24,7 @@ import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
 
 const SurveySummary = () => {
   const { fetchSurvey } = useRequests();
-  const { surveyPages, first, last, isSort } = useSelectors();
+  const { first, last, isSort, surveyPages } = useSelectors();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
   const { fiveStars, fourStars, oneStar, threeStars, twoStars } = useStars();

@@ -28,7 +28,7 @@ const Input = ({
               style={{
                 position: "absolute",
                 right: 0,
-                bottom: "-3px",
+                bottom: "-2.5px",
               }}>
               <IconButton onClick={onClear}>
                 <Close size={28} color="" />

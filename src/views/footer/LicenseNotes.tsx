@@ -17,8 +17,9 @@ const LicenseNotes = () => {
           paddingLeft: "10px",
           paddingRight: "10px",
         }}>
-        <Title title={"Lizenzhinweise"} />
+        <Title style={{ padding: "0px" }} title={"Lizenzhinweise"} />
         <Title
+          style={{ padding: "0px" }}
           title={
             "License Information for this website and used icons on this website"
           }

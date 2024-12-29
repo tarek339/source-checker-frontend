@@ -47,11 +47,11 @@ const RegisterUserName = () => {
         setInputError(emptyInput);
         return false;
       }
-      const res = await axios.post("/student/register-free-user-name", {
+      const res = await axios.post("/student/register-student", {
         freeUserName: !survey?.freeUserNames ? "" : freeUserName,
         surveyId: survey?._id,
       });
-      sessionStorage.setItem("student-token", res.data.token);
+      localStorage.setItem("student-token", res.data.token);
       dispatchStudent(res.data.student);
       setFreeUserName("");
       navigate(

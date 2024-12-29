@@ -48,7 +48,7 @@ const SurveyProfile = () => {
               <Button error onClick={openModal} title={t("button.delete")} />
               <Button
                 onClick={() =>
-                  navigate(`/surveys-manager/add-pages/${survey?._id}`)
+                  navigate(`/surveys-manager/pages-overview/${survey?._id}`)
                 }
                 title={t("button.continue")}
               />

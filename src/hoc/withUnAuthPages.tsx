@@ -10,15 +10,14 @@ const withUnAuthPages = (Component: ComponentType) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-      const surveyId = survey?._id;
-      if (survey && !surveyLoading && !student && !studenLoading) {
-        setMainPage(false);
-        return navigate(`/surveys-manager/survey-profile/${survey._id}`);
-      }
+      // if (survey && !surveyLoading && !student && !studenLoading) {
+      //   setMainPage(false);
+      //   return navigate(`/surveys-manager/survey-profile/${survey._id}`);
+      // }
       if (student && !studenLoading && survey && !surveyLoading) {
         setMainPage(false);
         return navigate(
-          `/student-survey/${surveyId}/student-id/${student._id}`
+          `/student-survey/${survey?._id}/student-id/${student._id}`
         );
       }
     }, [navigate, studenLoading, student, survey, surveyLoading]);
