@@ -12,6 +12,8 @@ const sx: React.CSSProperties = {
   fontSize: "12px",
   textTransform: "none",
   border: "1px solid darkgray",
+  backgroundColor: "lightgrey",
+  fontWeight: 600,
 };
 
 const BasicTable = ({ header, minWidth, children }: BasicTableProps) => {

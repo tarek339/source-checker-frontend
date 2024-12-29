@@ -16,7 +16,7 @@ const useRequests = () => {
 
   const fetchSurvey = async () => {
     try {
-      const res = await axios.get(`/survey/get-profile`);
+      const res = await axios.get(`/survey/get-survey-profile`);
       dispatchSurvey(res.data.survey);
       dispatchPages(res.data.survey.pages);
     } catch (error) {

@@ -45,7 +45,7 @@ function App() {
               element={<SurveyProfile />}
             />
             <Route
-              path="/surveys-manager/add-pages/:id"
+              path="/surveys-manager/pages-overview/:id"
               element={<PagesOverview />}
             />
             <Route path="/survey-control/:id" element={<SurveyControl />} />

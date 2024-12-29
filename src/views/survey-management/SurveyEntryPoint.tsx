@@ -41,12 +41,12 @@ const SurveyEntryPoint = () => {
   const handleSubmit = async () => {
     try {
       dispatchLoading(true);
-      const res = await axios.post("/survey/create", {
+      const res = await axios.post("/survey/create-new-survey", {
         anonymousResults: false,
         freeUserNames: false,
       });
       dispatchSurvey(res.data.survey);
-      sessionStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", res.data.token);
       dispatchLoading(false);
       navigate(`/surveys-manager/survey-profile/${res.data.survey._id}`);
       closeModal();

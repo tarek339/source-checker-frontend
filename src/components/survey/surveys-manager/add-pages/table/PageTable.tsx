@@ -94,7 +94,9 @@ const PageTable = () => {
   };
 
   const onDelete = async () => {
-    await axios.post(`/survey/delete-page/${survey?._id}`, { surveyIds });
+    await axios.post(`/survey/delete-survey-page/${survey?._id}`, {
+      surveyIds,
+    });
     setSurveyIds([]);
     setSelected([]);
     fetchSurvey();

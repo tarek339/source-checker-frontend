@@ -44,7 +44,7 @@ const SurveyControl = () => {
           <Back
             style={{ paddingTop: "7px" }}
             onClick={() =>
-              navigate(`/surveys-manager/add-pages/${survey?._id}`)
+              navigate(`/surveys-manager/pages-overview/${survey?._id}`)
             }
           />
           <SubTitle

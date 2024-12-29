@@ -40,7 +40,7 @@ const SurveyProfileData = () => {
 
   const editFreeUsernames = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await axios.put(`survey/edit-freeUserNames/${survey?._id}`, {
+    await axios.put(`survey/edit-free-user-names/${survey?._id}`, {
       freeUserNames,
     });
     fetchSurvey();
@@ -48,7 +48,7 @@ const SurveyProfileData = () => {
 
   const editAnonymousResults = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await axios.put(`survey/edit-anonymousResults/${survey?._id}`, {
+    await axios.put(`survey/edit-anonymous-results/${survey?._id}`, {
       anonymousResults,
     });
     fetchSurvey();
