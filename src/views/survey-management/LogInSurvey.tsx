@@ -46,7 +46,7 @@ const LogInSurvey = () => {
         surveyPin,
       });
       dispatchSurvey(res.data.survey);
-      localStorage.setItem("token", res.data.token);
+      sessionStorage.setItem("token", res.data.token);
       navigate(`/surveys-manager/survey-profile/${res.data.survey._id}`);
       dispatchLoading(false);
     } catch (error) {

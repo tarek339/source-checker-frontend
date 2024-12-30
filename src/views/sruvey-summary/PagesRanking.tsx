@@ -8,7 +8,6 @@ import {
   Span,
   SubTitle,
   Thumbnail,
-  Title,
 } from "../../components";
 import {
   useBreakPoints,
@@ -18,12 +17,12 @@ import {
   useSelectors,
   useTranslations,
 } from "../../hooks";
-import { Arrow, Star } from "../../components/icons";
+import { Arrow, Back, Star } from "../../components/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
 
 const PagesRanking = () => {
-  const { isSort, surveyPages } = useSelectors();
+  const { isSort, surveyPages, survey } = useSelectors();
   const { fetchSurvey } = useRequests();
   const { windowWidth } = useBreakPoints();
   const { setFirst, setLast, setIsSort } = useDispatches();
@@ -53,10 +52,19 @@ const PagesRanking = () => {
   }, [isSort, degree]);
 
   return (
-    <ContentContainer>
-      <Title title={"Ranking"} />
-      <Card style={{ paddingTop: "30px" }}>
-        <FramerMotion>
+    <FramerMotion>
+      <ContentContainer style={{ paddingLeft: "20px", paddingRight: "20px" }}>
+        <Flex
+          direction={"row"}
+          align="center"
+          style={{ marginBottom: "1em", marginLeft: "1em" }}>
+          <Back
+            style={{ paddingTop: "7px" }}
+            onClick={() => navigate(`/survey-control/${survey?._id}`)}
+          />
+          <SubTitle style={{ fontSize: "31px" }} title={`Ranking`} />
+        </Flex>
+        <Card>
           <div ref={screenshotRef as MutableRefObject<never>}>
             <SubTitle
               title={t("surveySummaray.ranking")}
@@ -174,9 +182,9 @@ const PagesRanking = () => {
               <></>
             )}
           </Flex>
-        </FramerMotion>
-      </Card>
-    </ContentContainer>
+        </Card>
+      </ContentContainer>
+    </FramerMotion>
   );
 };
 

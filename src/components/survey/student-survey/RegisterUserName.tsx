@@ -51,7 +51,7 @@ const RegisterUserName = () => {
         freeUserName: !survey?.freeUserNames ? "" : freeUserName,
         surveyId: survey?._id,
       });
-      localStorage.setItem("student-token", res.data.token);
+      sessionStorage.setItem("student-token", res.data.token);
       dispatchStudent(res.data.student);
       setFreeUserName("");
       navigate(

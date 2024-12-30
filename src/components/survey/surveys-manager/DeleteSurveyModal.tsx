@@ -18,7 +18,7 @@ const DeleteSurveyModal = () => {
 
   const deleteSurvey = async () => {
     await axios.delete(`/survey/delete-survey/${survey?._id}`);
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     discardSurvey();
     navigate("/surveys-manager/authentication");
     closeModal();

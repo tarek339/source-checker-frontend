@@ -16,6 +16,7 @@ import { Copy, ZoomIn } from "../../icons";
 import QrCode from "../../QRCode";
 import moment from "moment";
 import QrCodeModal from "./QrCodeModal";
+import { useNavigate } from "react-router-dom";
 
 const Contorl = () => {
   const { windowWidth } = useBreakPoints();
@@ -29,8 +30,11 @@ const Contorl = () => {
     openQrCodeModal,
   } = useDispatches();
   const { fetchSurvey } = useRequests();
+  const navigate = useNavigate();
 
   const [noStars, setNoStars] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   const startSurvey = async () => {
     try {
@@ -67,9 +71,6 @@ const Contorl = () => {
       console.log(error);
     }
   };
-
-  const [copied, setCopied] = useState(false);
-  const [hovered, setHovered] = useState(false);
 
   const copyToClipboard = () => {
     const link = survey?.link;
@@ -111,9 +112,9 @@ const Contorl = () => {
           <>
             {!survey?.isStarted && !noStars ? (
               <LinkButton
-                url={`${import.meta.env.VITE_CLIENT_URL}/survey-ranking/${
-                  survey?._id
-                }`}
+                onClick={() => {
+                  navigate(`/survey-ranking/${survey?._id}`);
+                }}
                 title={"Ergebnisse"}
               />
             ) : (
