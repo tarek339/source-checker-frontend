@@ -43,6 +43,7 @@ import DeleteSurveyModal from "./survey/surveys-manager/DeleteSurveyModal";
 import RatingInfo from "./survey/surveys-manager/RatingInfo";
 import ErrorModal from "./survey/surveys-manager/ErrorModal";
 import SideMenu from "./survey/surveys-manager/add-pages/SideMenu";
+import ScrollToTop from "./ScrollToTop";
 
 export {
   Footer,
@@ -90,4 +91,5 @@ export {
   DeleteSurveyModal,
   RatingInfo,
   ErrorModal,
+  ScrollToTop,
 };
