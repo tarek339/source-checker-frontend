@@ -35,7 +35,7 @@ const Header = ({ title }: IHeader) => {
           onMouseEnter={() => setOnHover(true)}
           onMouseLeave={() => setOnHover(false)}
           onClick={() => {
-            localStorage.removeItem("token");
+            sessionStorage.removeItem("token");
             navigate("/");
           }}>
           <Home color={!onHover ? "#fbfcff" : "#31e981"} />

@@ -296,8 +296,8 @@ export interface IThumbnail {
 }
 
 export interface ILinkButton {
-  url: string;
   title: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 export interface ISection {

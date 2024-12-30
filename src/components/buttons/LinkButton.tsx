@@ -1,10 +1,9 @@
 import { ILinkButton } from "../../types/interfaces/components";
 
-const LinkButton = ({ url, title }: ILinkButton) => {
+const LinkButton = ({ onClick, title }: ILinkButton) => {
   return (
-    <a
-      href={url}
-      target="_blank"
+    <button
+      onClick={onClick}
       style={{
         backgroundColor: "#31e981",
         color: "#2835c3",
@@ -21,7 +20,7 @@ const LinkButton = ({ url, title }: ILinkButton) => {
         alignItems: "center",
       }}>
       {title}
-    </a>
+    </button>
   );
 };
 

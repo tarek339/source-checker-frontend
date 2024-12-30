@@ -46,7 +46,7 @@ const SurveyEntryPoint = () => {
         freeUserNames: false,
       });
       dispatchSurvey(res.data.survey);
-      localStorage.setItem("token", res.data.token);
+      sessionStorage.setItem("token", res.data.token);
       dispatchLoading(false);
       navigate(`/surveys-manager/survey-profile/${res.data.survey._id}`);
       closeModal();

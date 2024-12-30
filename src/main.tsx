@@ -10,8 +10,8 @@ import axios from "axios";
 axios.defaults.baseURL = import.meta.env.VITE_AXIOS_BASE_URL;
 
 axios.interceptors.request.use((request) => {
-  const token = localStorage.getItem("token");
-  const studentToken = localStorage.getItem("student-token");
+  const token = sessionStorage.getItem("token");
+  const studentToken = sessionStorage.getItem("student-token");
 
   if (token) {
     request.headers.Authorization = token;

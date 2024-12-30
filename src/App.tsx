@@ -49,8 +49,8 @@ function App() {
               element={<PagesOverview />}
             />
             <Route path="/survey-control/:id" element={<SurveyControl />} />
-            <Route path="/survey-summary/:id" element={<SurveySummary />} />
             <Route path="/survey-ranking/:id" element={<PagesRanking />} />
+            <Route path="/survey-summary/:id" element={<SurveySummary />} />
             <Route
               path="/student-survey-authentication"
               element={<StudentSurveyAuth />}
