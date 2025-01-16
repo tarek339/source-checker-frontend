@@ -1,17 +1,18 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
-  IAddSurveyPages,
-  IHandleCurrentPage,
-  IHandleStars,
-  IHandleVoted,
-  IHandleVotedStars,
-  ISetPageId,
-  IncreaseFirstPage,
-  IncreaseLastPage,
-  InitialStateSurvey,
+  AddSurveyPagesAction,
+  HandleCurrentPageAction,
+  HandleStarsAction,
+  HandleVotedAction,
+  HandleVotedStarsAction,
+  SetPageIdAction,
+  IncreaseFirstPageAction,
+  IncreaseLastPageAction,
+  InitialStateSurveyPages,
+  GetPageIdAction,
 } from "../../../types/interfaces/redux/slices";
 
-const initialState: InitialStateSurvey = {
+const initialState: InitialStateSurveyPages = {
   pages: [],
   sideBarFirstPage: 0,
   sideBarLastPage: 1,
@@ -27,29 +28,44 @@ const surveyPagesSlice = createSlice({
   name: "pages",
   initialState,
   reducers: {
-    addSurveyPages: (state, action: PayloadAction<IAddSurveyPages>) => {
+    addSurveyPages: (state, action: PayloadAction<AddSurveyPagesAction>) => {
       state.pages = action.payload.pages;
     },
-    increaseFirstPage: (state, action: PayloadAction<IncreaseFirstPage>) => {
+    increaseFirstPage: (
+      state,
+      action: PayloadAction<IncreaseFirstPageAction>
+    ) => {
       state.sideBarFirstPage = action.payload.sideBarFirstPage;
     },
-    increaseLastPage: (state, action: PayloadAction<IncreaseLastPage>) => {
+    increaseLastPage: (
+      state,
+      action: PayloadAction<IncreaseLastPageAction>
+    ) => {
       state.sideBarLastPage = action.payload.sideBarLastPage;
     },
-    setPageId: (state, action: PayloadAction<ISetPageId>) => {
+    setPageId: (state, action: PayloadAction<SetPageIdAction>) => {
       state.pageId = action.payload.pageId;
     },
-    handleCurrentPage: (state, action: PayloadAction<IHandleCurrentPage>) => {
+    handleCurrentPage: (
+      state,
+      action: PayloadAction<HandleCurrentPageAction>
+    ) => {
       state.currentPage = action.payload.currentPage;
     },
-    handleVoted: (state, action: PayloadAction<IHandleVoted>) => {
+    handleVoted: (state, action: PayloadAction<HandleVotedAction>) => {
       state.voted = action.payload.voted;
     },
-    handleVotedStars: (state, action: PayloadAction<IHandleVotedStars>) => {
+    handleVotedStars: (
+      state,
+      action: PayloadAction<HandleVotedStarsAction>
+    ) => {
       state.votedStars = action.payload.votedStars;
     },
-    handleStars: (state, action: PayloadAction<IHandleStars>) => {
+    handleStars: (state, action: PayloadAction<HandleStarsAction>) => {
       state.stars = action.payload.stars;
+    },
+    getPageId: (state, action: PayloadAction<GetPageIdAction>) => {
+      state.pageId = action.payload.pageId;
     },
   },
 });
@@ -64,4 +80,5 @@ export const {
   handleVoted,
   handleVotedStars,
   handleStars,
+  getPageId,
 } = surveyPagesSlice.actions;

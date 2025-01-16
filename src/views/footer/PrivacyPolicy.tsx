@@ -1,9 +1,4 @@
-import {
-  FramerMotion,
-  ContentContainer,
-  Flex,
-  SubTitle,
-} from "../../components";
+import { FramerMotion, SubTitle, Grid } from "../../components";
 import {
   PrivacyInfo,
   ContactData,
@@ -11,24 +6,22 @@ import {
   Cookies,
   RightAffected,
   SurveyData,
+  Session,
 } from "../../components/footer/data-privacy";
 
 const PrivacyPolicy = () => {
   return (
     <FramerMotion>
-      <ContentContainer
-        maxWidth={1200}
-        style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-        <Flex direction={"column"} gap={"50px"}>
-          <PrivacyInfo />
-          <SubTitle title={"Datenschutz"} />
-          <ContactData />
-          <Protocol />
-          <SurveyData />
-          <Cookies />
-          <RightAffected />
-        </Flex>
-      </ContentContainer>
+      <Grid spacing={4} column gutters>
+        <PrivacyInfo />
+        <SubTitle title={"Datenschutz"} />
+        <ContactData />
+        <Protocol />
+        <SurveyData />
+        <Cookies />
+        <Session />
+        <RightAffected />
+      </Grid>
     </FramerMotion>
   );
 };

@@ -21,7 +21,7 @@ const EnhancedTableToolbar = ({
         <Typography
           sx={{ flex: "1 1 100%" }}
           color="inherit"
-          variant="subtitle1"
+          variant="h6"
           component="div">
           {numSelected} ausgewählt
         </Typography>

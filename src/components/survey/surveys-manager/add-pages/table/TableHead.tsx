@@ -55,7 +55,7 @@ const EnhancedTableHead = ({
             sx={{
               textTransform: "none",
               fontSize: "16px",
-              fontWeight: "bold",
+              fontWeight: 600,
             }}
             key={i}
             padding={"normal"}>

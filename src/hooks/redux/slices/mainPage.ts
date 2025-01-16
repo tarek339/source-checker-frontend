@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IHandleMainPage } from "../../../types/interfaces/redux/slices";
+import { HandleMainPageAction } from "../../../types/interfaces/redux/slices";
 
 const mainPageSlice = createSlice({
   name: "mainPage",
@@ -7,7 +7,7 @@ const mainPageSlice = createSlice({
     mainPage: false,
   },
   reducers: {
-    handlePage: (state, action: PayloadAction<IHandleMainPage>) => {
+    handlePage: (state, action: PayloadAction<HandleMainPageAction>) => {
       state.mainPage = action.payload.mainPage;
     },
   },

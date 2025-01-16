@@ -1,8 +1,8 @@
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
 import BasicTable from "./Table";
 import { TableBody, TableCell, TableRow } from "@mui/material";
-import Link from "../../fonts/Link";
+import Grid from "../../mui/Grid";
+import Text from "../../mui/Text";
+import { Link } from "../..";
 
 function createData(
   name: string,
@@ -134,13 +134,6 @@ const rows = [
     "https://opensource.org/license/mit"
   ),
   createData(
-    "react-simple-star-rating",
-    "https://github.com/awran5/react-simple-star-rating#readme",
-    "https://github.com/awran5/react-simple-star-rating#readme",
-    "MIT license",
-    "https://opensource.org/license/mit"
-  ),
-  createData(
     "react-spinners",
     "https://www.davidhu.io/react-spinners/",
     "https://github.com/davidhu2000/react-spinners",
@@ -256,39 +249,35 @@ const rows = [
 
 const Dependencies = () => {
   return (
-    <section>
-      <Flex direction={"column"} gap={"10px"}>
-        <div>
-          <Span title={"V."} />
-          <Span
-            title={
-              "Required dependencies that are used at application runtime."
-            }
-          />
-        </div>
-        <BasicTable
-          header={["Name", "Website", "GitHub", "License", "License text"]}
-          minWidth={1400}>
-          <TableBody>
-            {rows.map((row, i) => (
-              <TableRow key={i}>
-                <TableCell sx={sx}>{row.name}</TableCell>
-                <TableCell sx={sx}>
-                  <Link url={row.website} title={row.website} />
-                </TableCell>
-                <TableCell sx={sx}>
-                  <Link url={row.gitHub} title={row.gitHub} />
-                </TableCell>
-                <TableCell sx={sx}>{row.license}</TableCell>
-                <TableCell sx={sx}>
-                  <Link url={row.licensetext} title={row.licensetext} />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </BasicTable>
-      </Flex>
-    </section>
+    <Grid column width={"100%"}>
+      <div>
+        <Text text={"V."} />
+        <Text
+          text={"Required dependencies that are used at application runtime."}
+        />
+      </div>
+      <BasicTable
+        header={["Name", "Website", "GitHub", "License", "License text"]}
+        minWidth={1500}>
+        <TableBody>
+          {rows.map((row, i) => (
+            <TableRow key={i}>
+              <TableCell sx={sx}>{row.name}</TableCell>
+              <TableCell sx={sx}>
+                <Link xs href={row.website} title={row.website} />
+              </TableCell>
+              <TableCell sx={sx}>
+                <Link xs href={row.gitHub} title={row.gitHub} />
+              </TableCell>
+              <TableCell sx={sx}>{row.license}</TableCell>
+              <TableCell sx={sx}>
+                <Link xs href={row.licensetext} title={row.licensetext} />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </BasicTable>
+    </Grid>
   );
 };
 

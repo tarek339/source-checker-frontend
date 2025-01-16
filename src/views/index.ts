@@ -12,9 +12,12 @@ import PagesRanking from "./sruvey-summary/PagesRanking";
 import PrivacyPolicy from "./footer/PrivacyPolicy";
 import LicenseNotes from "./footer/LicenseNotes";
 import Imprint from "./footer/Imprint";
+import NotFound from "./NotFound";
+import Footer from "./footer/Footer";
 
 export {
   Authentication,
+  Footer,
   StudentRatingWidget,
   SurveyControl,
   SurveyEntryPoint,
@@ -28,4 +31,5 @@ export {
   PrivacyPolicy,
   LicenseNotes,
   Imprint,
+  NotFound,
 };

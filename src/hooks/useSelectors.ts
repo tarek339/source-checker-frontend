@@ -3,7 +3,6 @@ import { RootState } from "./redux/store";
 
 const useSelectors = () => {
   const locale = useSelector((state: RootState) => state.translation.locale);
-  const admin = useSelector((state: RootState) => state.admin.admin);
   const survey = useSelector((state: RootState) => state.survey.survey);
   const surveyLoading = useSelector((state: RootState) => state.survey.loading);
 
@@ -18,9 +17,8 @@ const useSelectors = () => {
   );
   const modal = useSelector((state: RootState) => state.modal.isVisible);
   const qrCode = useSelector((state: RootState) => state.qrCode.isVisible);
-  const viewsModal = useSelector(
-    (state: RootState) => state.viewsModal.isVisible
-  );
+
+  const changeView = useSelector((state: RootState) => state.changeView.open);
   const loading = useSelector((state: RootState) => state.loading.loading);
   const onSubmit = useSelector((state: RootState) => state.submit.submit);
   const sideBar = useSelector((state: RootState) => state.sideBar.open);
@@ -74,11 +72,10 @@ const useSelectors = () => {
     last,
     isSort,
     qrCode,
-    viewsModal,
-    admin,
     loading,
     surveyLoading,
     studenLoading,
+    changeView,
   };
 };
 

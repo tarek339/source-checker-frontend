@@ -2,13 +2,14 @@ import { MdHome } from "react-icons/md";
 
 interface IHome {
   color?: string;
+  size?: number;
   onClick?: React.MouseEventHandler<SVGElement> | undefined;
 }
-const Home = ({ color, onClick }: IHome) => {
+const Home = ({ color, size, onClick }: IHome) => {
   return (
     <MdHome
       color={color}
-      size={48}
+      size={size}
       onClick={onClick}
       style={{ transition: "color 0.2s ease" }}
     />

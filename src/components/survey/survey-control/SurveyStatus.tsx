@@ -5,11 +5,12 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import SubTitle from "../../fonts/SubTitle";
-import Flex from "../../containers/Flex";
-import SubCard from "../../containers/SubCard";
-import Span from "../../fonts/Span";
-import { IStudent } from "../../../types/interfaces/interfaces";
+import SubTitle from "../../mui/SubTitle";
+import { StudentProps } from "../../../types/interfaces/interfaces";
+import Grid from "../../mui/Grid";
+import { Card, Text } from "../..";
+import { Status } from "../../icons";
+import { colors } from "../../../assets/theme/colors";
 
 const SurveyStatus = () => {
   const { windowWidth } = useBreakPoints();
@@ -17,10 +18,10 @@ const SurveyStatus = () => {
   const { survey } = useSelectors();
   const { fetchStudents, students } = useRequests();
 
-  const [currentStudents, setCurrentStudents] = useState<IStudent[]>([]);
-  const [participatedStudents, setParticipatedStudents] = useState<IStudent[]>(
-    []
-  );
+  const [currentStudents, setCurrentStudents] = useState<StudentProps[]>([]);
+  const [participatedStudents, setParticipatedStudents] = useState<
+    StudentProps[]
+  >([]);
 
   useEffect(() => {
     fetchStudents();
@@ -33,60 +34,49 @@ const SurveyStatus = () => {
   }, []);
 
   useEffect(() => {
-    const filteredStudents = students.filter((student: IStudent) => {
+    const filteredStudents = students.filter((student: StudentProps) => {
       return student.participated === false;
     });
     setCurrentStudents(filteredStudents);
   }, [students]);
 
   useEffect(() => {
-    const filteredStudents = students.filter((student: IStudent) => {
+    const filteredStudents = students.filter((student: StudentProps) => {
       return student.participated === true;
     });
     setParticipatedStudents(filteredStudents);
   }, [students]);
 
-  const status = (
-    <div
-      style={{
-        backgroundColor: survey?.isStarted ? "#2834c2" : "#ff0000",
-        color: survey?.isStarted ? "#31e981" : "#fff",
-        borderRadius: "4px",
-        fontSize: "18px",
-        fontWeight: "bold",
-        textTransform: "uppercase",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100px",
-        transition: "background-color 0.3s, color 0.5s",
-      }}>
-      {survey?.isStarted ? t("common.active") : t("common.unActive")}
-    </div>
-  );
-
   return (
-    <SubCard width={windowWidth < 880 ? "100%" : `${100 / 3}%`}>
-      <Flex direction={"column"} gap={"15px"}>
-        <>
-          <SubTitle title={t("common.surveyStatus")} />
-          <Flex direction={"row"} gap={"5px"}>
-            <Span title={`Status:`} fontWeight={600} />
-            {status}
-          </Flex>
-          <Span
-            title={`${t("common.studentQuantity")}: ${currentStudents.length}`}
-            fontWeight={600}
-          />
-          <Span
-            title={`${t("common.studentsParticipated")}: ${
-              participatedStudents.length
-            }`}
-            fontWeight={600}
-          />
-        </>
-      </Flex>
-    </SubCard>
+    <Card width={windowWidth < 890 ? "100%" : `${100 / 3}%`}>
+      <Grid column width={"100%"}>
+        <SubTitle title={t("common.surveyStatus")} />
+        <Grid spacing={1} width={"100%"}>
+          <Text text={`Status:`} bold />
+          <Status
+            backgroundColor={
+              survey?.isStarted ? colors.primary.main : colors.desctructed.main
+            }
+            color={
+              survey?.isStarted
+                ? colors.secondary.main
+                : colors.typography.white
+            }>
+            <>{survey?.isStarted ? t("common.active") : t("common.unActive")}</>
+          </Status>
+        </Grid>
+        <Text
+          text={`${t("common.studentQuantity")}: ${currentStudents.length}`}
+          bold
+        />
+        <Text
+          text={`${t("common.studentsParticipated")}: ${
+            participatedStudents.length
+          }`}
+          bold
+        />
+      </Grid>
+    </Card>
   );
 };
 

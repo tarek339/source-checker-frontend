@@ -2,12 +2,13 @@ import { MutableRefObject, useEffect, useState } from "react";
 import {
   Button,
   Card,
-  ContentContainer,
-  Flex,
   FramerMotion,
-  Span,
+  Grid,
   SubTitle,
+  SummaryTable,
+  Text,
   Thumbnail,
+  Title,
 } from "../../components";
 import {
   useBreakPoints,
@@ -15,18 +16,26 @@ import {
   useRequests,
   useScreenshot,
   useSelectors,
-  useTranslations,
 } from "../../hooks";
-import { Arrow, Back, Star } from "../../components/icons";
+import { Arrow, Back } from "../../components/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
+import { Rating, TableBody, TableCell, TableRow } from "@mui/material";
+import { colors } from "../../assets/theme/colors";
+
+const sx: React.CSSProperties = {
+  fontSize: "22px",
+  fontWeight: 600,
+  textTransform: "none",
+  cursor: "pointer",
+  border: "none",
+};
 
 const PagesRanking = () => {
   const { isSort, surveyPages, survey } = useSelectors();
   const { fetchSurvey } = useRequests();
   const { windowWidth } = useBreakPoints();
-  const { setFirst, setLast, setIsSort } = useDispatches();
-  const { t } = useTranslations();
+  const { setFirst, setLast, setIsSort, fetchPageId } = useDispatches();
   const { handleScreenshot, screenshotRef } = useScreenshot();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -53,48 +62,45 @@ const PagesRanking = () => {
 
   return (
     <FramerMotion>
-      <ContentContainer style={{ paddingLeft: "20px", paddingRight: "20px" }}>
-        <Flex
-          direction={"row"}
-          align="center"
-          style={{ marginBottom: "1em", marginLeft: "1em" }}>
+      <Grid column gutters>
+        <Grid flexStart alignCenter width={"100%"} spacing={1}>
           <Back
-            style={{ paddingTop: "7px" }}
+            size={40}
             onClick={() => navigate(`/survey-control/${survey?._id}`)}
           />
-          <SubTitle style={{ fontSize: "31px" }} title={`Ranking`} />
-        </Flex>
+          <Title title={`Ranking`} />
+        </Grid>
+
         <Card>
-          <div ref={screenshotRef as MutableRefObject<never>}>
+          <div
+            ref={screenshotRef as MutableRefObject<never>}
+            style={{
+              marginBottom: "32px",
+            }}>
             <SubTitle
-              title={t("surveySummaray.ranking")}
-              style={{ paddingBottom: "0.5em", textAlign: "center" }}
+              title={"Bewertung der Seiten"}
+              marginBottom="32px"
+              center
             />
-            <Flex
-              direction={"column"}
-              gap={"10px"}
-              style={{ margin: "0 auto", maxWidth: "430px" }}>
-              <Flex direction={"column"} style={{}}>
+
+            <SummaryTable header={[`Titel`, `Thumbnail`, `Durchschnitt`]} right>
+              <TableBody>
                 {surveyPages
-                  ?.slice()
+                  .slice()
                   .sort((a, b) =>
                     isSort
-                      ? b.starsArray.reduce((acc, crr) => acc + crr.stars, 0) -
-                        a.starsArray.reduce((acc, crr) => acc + crr.stars, 0)
+                      ? b.starsArray?.reduce((acc, crr) => acc + crr.stars, 0) -
+                        a.starsArray?.reduce((acc, crr) => acc + crr.stars, 0)
                       : 0
                   )
                   .map((page, i) => {
                     return (
-                      <Flex
+                      <TableRow
                         key={i}
-                        direction={windowWidth >= 570 ? "row" : "column"}
-                        align="center"
-                        justify={"space-between"}
-                        style={{
-                          borderBottom: "2px solid #2835c3",
-                          padding: "20px 4px 20px 10px",
-                          cursor: "pointer",
-                          backgroundColor: hovered === i ? "#2835c320" : "",
+                        sx={{
+                          borderBottom: `2px solid ${colors.primary.main}`,
+                          backgroundColor:
+                            hovered === i ? colors.table.tableRow.hover : "",
                           transition: "background-color 0.3s",
                         }}
                         onMouseEnter={() => handleMouseEnter(i)}
@@ -102,25 +108,13 @@ const PagesRanking = () => {
                         onClick={() => {
                           setLast(i + 1);
                           setFirst(i);
-                          navigate(`/survey-summary/${id}`);
+                          fetchPageId(page._id);
+                          navigate(`/survey-summary/${id}/${page._id}`);
                         }}>
-                        <Flex
-                          direction={"row"}
-                          width="80%"
-                          justify="space-between"
-                          align="center">
-                          <Flex direction={"row"} gap={"5px"}>
-                            <Span
-                              fontSize={22}
-                              title={`${i + 1}.`}
-                              fontWeight={600}
-                            />
-                            <Span
-                              fontSize={22}
-                              title={page.title}
-                              fontWeight={600}
-                            />
-                          </Flex>
+                        <TableCell sx={sx}>
+                          {i + 1}. {page.title}
+                        </TableCell>
+                        <TableCell sx={sx}>
                           <Thumbnail
                             url={
                               page.isMobileView
@@ -135,55 +129,70 @@ const PagesRanking = () => {
                                 : null
                             }
                           />
-                        </Flex>
-
-                        <Flex
-                          direction={"row"}
-                          align="center"
-                          style={{ paddingLeft: "5px" }}>
-                          <Span
-                            fontSize={22}
-                            fontWeight={600}
-                            title={page.starsArray
+                        </TableCell>
+                        <TableCell sx={sx}>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-end",
+                              gap: "5px",
+                            }}>
+                            {page.starsArray
                               .reduce((acc, crr) => {
                                 return acc + crr.stars / page.starsArray.length;
                               }, 0)
                               .toFixed(2)}
-                          />
-                          <Star />
-                        </Flex>
-                      </Flex>
+                            <Rating
+                              value={
+                                +page.starsArray
+                                  .reduce((acc, crr) => {
+                                    return (
+                                      acc + crr.stars / page.starsArray.length
+                                    );
+                                  }, 0)
+                                  .toFixed(2)
+                              }
+                              max={1}
+                              readOnly
+                              size="large"
+                            />
+                          </div>
+                        </TableCell>
+                      </TableRow>
                     );
                   })}
-              </Flex>
-            </Flex>
+              </TableBody>
+            </SummaryTable>
           </div>
-          <Flex
-            flexWrap="wrap"
-            justify="center"
-            gap="20px"
-            align="center"
-            style={{ marginTop: "2em" }}>
+
+          <Grid
+            direction={windowWidth <= 415 ? "column" : "row"}
+            alignEnd
+            between
+            width={"100%"}
+            noMargin>
             <Button
+              fullWidth={windowWidth <= 415 ? true : false}
               onClick={handleScreenshot}
-              title={windowWidth >= 540 ? "Ergebnisse speichern" : "speichern"}
+              title={windowWidth >= 545 ? "Ergebnisse speichern" : "speichern"}
             />
 
             {surveyPages.length > 1 ? (
-              <Flex direction={"row"} gap={"10px"}>
-                <Span fontSize={22} title={"Sortieren"} fontWeight={600} />
+              <Grid spacing={1} alignCenter noMargin>
+                <Text text={"Sortieren"} bold />
                 <Arrow
                   fontSize={31}
                   onClick={() => setIsSort(!isSort)}
                   deg={degree}
                 />
-              </Flex>
+              </Grid>
             ) : (
               <></>
             )}
-          </Flex>
+          </Grid>
         </Card>
-      </ContentContainer>
+      </Grid>
     </FramerMotion>
   );
 };

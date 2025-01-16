@@ -23,6 +23,9 @@ import Edit from "./Edit";
 import Home from "./Home";
 import Close from "./Close";
 import Cancel from "./Cancel";
+import ArrowUp from "./ArrowUp";
+import Add from "./Add";
+import Status from "./Status";
 
 export {
   Check,
@@ -50,4 +53,7 @@ export {
   Home,
   Close,
   Cancel,
+  ArrowUp,
+  Add,
+  Status,
 };

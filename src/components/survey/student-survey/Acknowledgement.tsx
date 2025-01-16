@@ -1,22 +1,37 @@
+import { useRequests, useSelectors, useTranslations } from "../../../hooks";
+import { useEffect, useState } from "react";
 import {
-  useRequests,
-  useSelectors,
-  useStars,
-  useTranslations,
-} from "../../../hooks";
-import SubTitle from "../../fonts/SubTitle";
-import Title from "../../fonts/Title";
-import Flex from "../../containers/Flex";
-import FramerMotion from "../../containers/FramerMotion";
-import SubCard from "../../containers/SubCard";
-import Thumbnail from "../survery-summary/Thumbnail";
-import { useEffect } from "react";
+  Card,
+  FramerMotion,
+  Grid,
+  SubTitle,
+  SummaryTable,
+  Thumbnail,
+  Title,
+} from "../..";
+import { Rating, TableBody, TableCell, TableRow } from "@mui/material";
+import { colors } from "../../../assets/theme/colors";
+
+const sx: React.CSSProperties = {
+  fontSize: "22px",
+  fontWeight: 600,
+  textTransform: "none",
+  borderBottom: `1px solid ${colors.primary.main}`,
+};
 
 const Acknowledgement = () => {
   const { t } = useTranslations();
   const { student, surveyPages } = useSelectors();
-  const { fiveStars, fourStars, oneStar, threeStars, twoStars } = useStars();
   const { fetchSurveyByToken } = useRequests();
+
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const handleMouseEnter = (row: number) => {
+    setHovered(row);
+  };
+  const handleMouseLeave = () => {
+    setHovered(null);
+  };
 
   useEffect(() => {
     fetchSurveyByToken();
@@ -24,27 +39,37 @@ const Acknowledgement = () => {
 
   return (
     <FramerMotion>
-      <Flex direction={"column"}>
-        <Title title={t("studentSurvey.thankYou")} />
-        <SubCard style={{ marginLeft: "20px", marginRight: "20px" }}>
-          <Flex direction={"column"} gap={"20px"} align="center">
-            <Flex direction={"row"} justify="center">
-              <SubTitle title={t("studentSurvey.ratedInfo")} />
-            </Flex>
+      <Grid column gutters>
+        <Title title={t("studentSurvey.thankYou")} marginBottom="16px" />
 
-            <Flex
-              style={{ margin: "0 auto" }}
-              direction={"column"}
-              gap={"15px"}>
-              <>
-                {surveyPages.map((page) => {
-                  return page.starsArray.map((obj, i) => {
-                    if (obj.userNumber === student?.userNumber.toString()) {
-                      return (
-                        <Flex key={i} direction={"row"} gap={"10px"}>
+        <Card>
+          <SubTitle
+            title={t("studentSurvey.ratedInfo")}
+            marginBottom="16px"
+            center
+          />
+
+          <SummaryTable header={null}>
+            <TableBody>
+              {surveyPages?.map((page, i) => {
+                return page.starsArray.map((obj) => {
+                  if (obj.userNumber === student?.userNumber.toString()) {
+                    return (
+                      <TableRow
+                        key={i}
+                        sx={{
+                          borderBottom: `2px solid ${colors.primary.main}`,
+                          backgroundColor:
+                            hovered === i ? colors.table.tableRow.hover : "",
+                          transition: "background-color 0.3s",
+                        }}
+                        onMouseEnter={() => handleMouseEnter(i)}
+                        onMouseLeave={handleMouseLeave}>
+                        <TableCell sx={sx}>
+                          {i + 1}. {page.title}
+                        </TableCell>
+                        <TableCell sx={sx}>
                           <Thumbnail
-                            height="40px"
-                            width="60px"
                             url={
                               page.isMobileView
                                 ? page.mobileScreenshot
@@ -58,37 +83,37 @@ const Acknowledgement = () => {
                                 : null
                             }
                           />
-                          <SubTitle title={page.title} />
-                          <SubTitle
-                            title={
-                              obj.stars === 5
-                                ? fiveStars
-                                : obj.stars === 4
-                                ? fourStars
-                                : obj.stars === 3
-                                ? threeStars
-                                : obj.stars === 2
-                                ? twoStars
-                                : oneStar
-                            }
-                          />
-                        </Flex>
-                      );
-                    }
-                  });
-                })}
-              </>
-            </Flex>
+                        </TableCell>
+                        <TableCell
+                          sx={{
+                            ...sx,
+                            textAlign: "right",
+                          }}>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-end",
+                            }}>
+                            <Rating value={obj.stars} readOnly size="large" />
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  }
+                });
+              })}
+            </TableBody>
+          </SummaryTable>
 
-            <Flex direction={"column"}>
-              <SubTitle
-                style={{ color: "#5cb85c" }}
-                title={t("studentSurvey.savedInfo")}
-              />
-            </Flex>
-          </Flex>
-        </SubCard>
-      </Flex>
+          <SubTitle
+            title={t("studentSurvey.savedInfo")}
+            color={colors.typography.info}
+            marginTop="16px"
+            center
+          />
+        </Card>
+      </Grid>
     </FramerMotion>
   );
 };

@@ -1,8 +1,8 @@
 import { TableBody, TableCell, TableRow } from "@mui/material";
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
 import BasicTable from "./Table";
-import Link from "../../fonts/Link";
+import Grid from "../../mui/Grid";
+import Text from "../../mui/Text";
+import { Link } from "../..";
 
 function createData(
   name: string,
@@ -180,39 +180,37 @@ const rows = [
 
 const DevDependencies = () => {
   return (
-    <section>
-      <Flex direction={"column"} gap={"10px"}>
-        <div>
-          <Span title={"VI."} />
-          <Span
-            title={
-              "Required dev dependencies that are used for the development mode."
-            }
-          />
-        </div>
-        <BasicTable
-          minWidth={1700}
-          header={["Name", "Website", "GitHub", "License", "License Text"]}>
-          <TableBody>
-            {rows.map((row, i) => (
-              <TableRow key={i}>
-                <TableCell sx={sx}>{row.name}</TableCell>
-                <TableCell sx={sx}>
-                  <Link url={row.website} title={row.website} />
-                </TableCell>
-                <TableCell sx={sx}>
-                  <Link url={row.gitHub} title={row.gitHub} />
-                </TableCell>
-                <TableCell sx={sx}>{row.license}</TableCell>
-                <TableCell sx={sx}>
-                  <Link url={row.licensetext} title={row.licensetext} />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </BasicTable>
-      </Flex>
-    </section>
+    <Grid column width={"100%"}>
+      <div>
+        <Text text={"VI."} />
+        <Text
+          text={
+            "Required dev dependencies that are used for the development mode."
+          }
+        />
+      </div>
+      <BasicTable
+        minWidth={1700}
+        header={["Name", "Website", "GitHub", "License", "License Text"]}>
+        <TableBody>
+          {rows.map((row, i) => (
+            <TableRow key={i}>
+              <TableCell sx={sx}>{row.name}</TableCell>
+              <TableCell sx={sx}>
+                <Link xs href={row.website} title={row.website} />
+              </TableCell>
+              <TableCell sx={sx}>
+                <Link xs href={row.gitHub} title={row.gitHub} />
+              </TableCell>
+              <TableCell sx={sx}>{row.license}</TableCell>
+              <TableCell sx={sx}>
+                <Link xs href={row.licensetext} title={row.licensetext} />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </BasicTable>
+    </Grid>
   );
 };
 

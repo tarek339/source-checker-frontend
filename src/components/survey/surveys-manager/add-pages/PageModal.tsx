@@ -1,9 +1,8 @@
-import { Modal } from "../../..";
+import { Grid, Modal, SubTitle } from "../../..";
 import { useSelectors, useDispatches, useBreakPoints } from "../../../../hooks";
-import { IPageModal } from "../../../../types/interfaces/components";
-import Flex from "../../../containers/Flex";
+import { PageModalProps } from "../../../../types/interfaces/components";
 
-const PageModal = ({ children, title }: IPageModal) => {
+const PageModal = ({ children, title }: PageModalProps) => {
   const { modal } = useSelectors();
   const { closeModal } = useDispatches();
   const { windowWidth } = useBreakPoints();
@@ -13,10 +12,10 @@ const PageModal = ({ children, title }: IPageModal) => {
       open={modal}
       onClose={closeModal}
       style={{ width: windowWidth <= 635 ? "95%" : "600px" }}>
-      <Flex direction={"column"} gap={"10px"}>
-        <h3>{title}</h3>
+      <Grid column>
+        <SubTitle title={title} />
         {children}
-      </Flex>
+      </Grid>
     </Modal>
   );
 };

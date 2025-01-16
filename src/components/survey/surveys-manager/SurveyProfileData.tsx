@@ -4,9 +4,9 @@ import { FaCheck } from "react-icons/fa6";
 import { useTranslations, useSelectors, useRequests } from "../../../hooks";
 import { Yes, No } from "../../icons";
 import SurveyProp from "./SurveyProp";
-import Span from "../../fonts/Span";
-import { Divider, Flex, FormContainer, SwitchButton } from "../..";
+import { Form, Grid, SwitchButton, Divider, Text } from "../..";
 import axios from "axios";
+import { colors } from "../../../assets/theme/colors";
 
 const SurveyProfileData = () => {
   const { t } = useTranslations();
@@ -55,28 +55,23 @@ const SurveyProfileData = () => {
   };
 
   return (
-    <>
+    <Grid column width={"100%"} spacing={3}>
       <SurveyProp
         header={t("saveSurvey.chooseName")}
         secondChild={t("newSurvey.labelTextOne")}
         child={
-          <Flex direction={"row"} align="center">
-            <FormContainer
-              onSubmit={editFreeUsernames}
-              style={{ paddingBottom: "4px" }}>
+          <Grid spacing={1} nowrap alignCenter>
+            <Form onSubmit={editFreeUsernames}>
               <SwitchButton
-                label={""}
                 toggled={freeUserNames!}
                 onClick={() => {
                   setFreeUserNames(!freeUserNames);
                 }}
-                ifOnText={""}
-                ifOffText={""}
                 type="submit"
               />
-            </FormContainer>
-            {survey?.freeUserNames ? <Yes /> : <No />}
-          </Flex>
+            </Form>
+            <div>{survey?.freeUserNames ? <Yes /> : <No />}</div>
+          </Grid>
         }
       />
       <Divider />
@@ -85,83 +80,85 @@ const SurveyProfileData = () => {
         header={t("newSurvey.anonymous")}
         secondChild={t("newSurvey.labelTextTwo")}
         child={
-          <Flex direction={"row"} align="center">
-            <FormContainer
-              onSubmit={editAnonymousResults}
-              style={{ paddingBottom: "4px" }}>
+          <Grid spacing={1} nowrap alignCenter>
+            <Form onSubmit={editAnonymousResults}>
               <SwitchButton
-                label={""}
                 toggled={anonymousResults!}
                 onClick={() => {
                   setAnonymousResults(!anonymousResults);
                 }}
-                ifOnText={""}
-                ifOffText={""}
                 type="submit"
               />
-            </FormContainer>
-            {survey?.anonymousResults ? <Yes /> : <No />}
-          </Flex>
+            </Form>
+            <div>{survey?.anonymousResults ? <Yes /> : <No />}</div>
+          </Grid>
         }
       />
       <Divider />
 
       <SurveyProp
         header={t("newSurvey.surveyType")}
-        child={<Span title={t("newSurvey.rating")} />}
+        child={<Text text={t("newSurvey.rating")} />}
       />
 
       <Divider />
 
       <SurveyProp
         header={t("newSurvey.resultsType")}
-        child={<Span title={t("newSurvey.rating")} />}
+        child={<Text text={t("newSurvey.rating")} />}
       />
       <Divider />
 
       <div>
         <SurveyProp
           header={t("common.surveyID")}
-          child={<Span title={survey?.surveyId ?? ""} />}
+          child={<Text text={survey?.surveyId ?? ""} />}
         />
-        <Flex direction={"column"}>
-          <Flex direction={"row"} gap={"3px"}>
-            <Span
-              color="#ff0000"
-              fontSize={16}
-              title={t("saveSurvey.secondInfo")}
+        <Grid column spacing={1}>
+          <div>
+            <Grid spacing={1} nowrap>
+              <Text
+                text={t("saveSurvey.secondInfo")}
+                color={colors.desctructed.main}
+                small
+              />
+              <div>
+                {copied ? (
+                  <FaCheck color={colors.desctructed.main} fontSize="20px" />
+                ) : (
+                  <FaRegCopy
+                    color={colors.desctructed.main}
+                    fontSize="20px"
+                    onClick={copyToClipboard}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  />
+                )}
+              </div>
+            </Grid>
+
+            <Text
+              text={t("saveSurvey.thirdInfo")}
+              color={colors.desctructed.main}
+              small
             />
-            <div>
-              {copied ? (
-                <FaCheck color="#ff0000" fontSize="20px" />
-              ) : (
-                <FaRegCopy
-                  color="#ff0000"
-                  fontSize="20px"
-                  onClick={copyToClipboard}
-                  style={{
-                    cursor: "pointer",
-                  }}
-                />
-              )}
-            </div>
-          </Flex>
-          <Span
-            color="#ff0000"
-            fontSize={16}
-            title={t("saveSurvey.thirdInfo")}
-          />
-          <Span color="#ff0000" fontSize={16} title={t("saveSurvey.info")} />
-        </Flex>
+            <Text
+              text={t("saveSurvey.info")}
+              color={colors.desctructed.main}
+              small
+            />
+          </div>
+        </Grid>
       </div>
 
       <Divider />
 
       <SurveyProp
         header={t("common.surveyPIN")}
-        child={<Span title={survey?.surveyPin ?? ""} />}
+        child={<Text text={survey?.surveyPin ?? ""} />}
       />
-    </>
+    </Grid>
   );
 };
 

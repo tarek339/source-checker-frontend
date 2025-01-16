@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./assets/styles/App.css";
 import {
   Authentication,
   SurveyEntryPoint,
@@ -15,9 +14,11 @@ import {
   LicenseNotes,
   Imprint,
   SurveyProfile,
+  NotFound,
+  Footer,
 } from "./views";
 import { AnimatePresence } from "framer-motion";
-import { AppContent, Flex, Footer } from "./components";
+import { AppContent, Grid } from "./components";
 import { useRequests } from "./hooks";
 import { useEffect } from "react";
 
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <AppContent>
-      <Flex direction={"column"} height="90vh" justify="space-between">
+      <Grid column maxedWidth height={"90vh"} between nowrap>
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Authentication />} />
@@ -50,7 +51,10 @@ function App() {
             />
             <Route path="/survey-control/:id" element={<SurveyControl />} />
             <Route path="/survey-ranking/:id" element={<PagesRanking />} />
-            <Route path="/survey-summary/:id" element={<SurveySummary />} />
+            <Route
+              path="/survey-summary/:id/:pageID"
+              element={<SurveySummary />}
+            />
             <Route
               path="/student-survey-authentication"
               element={<StudentSurveyAuth />}
@@ -63,10 +67,11 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/licence-notes" element={<LicenseNotes />} />
             <Route path="/imprint" element={<Imprint />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
         <Footer />
-      </Flex>
+      </Grid>
     </AppContent>
   );
 }

@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
-  IHandleFirst,
-  IHandleIsSort,
-  IHandleLast,
+  HandleFirstAction,
+  IHandleIsSortAction,
+  IHandleLastAction,
   InitialStateSliceNumsSlice,
 } from "../../../types/interfaces/redux/slices";
 
@@ -16,13 +16,13 @@ const sliceNumsSlice = createSlice({
   name: "sliceNums",
   initialState,
   reducers: {
-    handleFirst: (state, action: PayloadAction<IHandleFirst>) => {
+    handleFirst: (state, action: PayloadAction<HandleFirstAction>) => {
       state.first = action.payload.first;
     },
-    handleLast: (state, action: PayloadAction<IHandleLast>) => {
+    handleLast: (state, action: PayloadAction<IHandleLastAction>) => {
       state.last = action.payload.last;
     },
-    handleIsSort: (state, action: PayloadAction<IHandleIsSort>) => {
+    handleIsSort: (state, action: PayloadAction<IHandleIsSortAction>) => {
       state.isSort = action.payload.isSort;
     },
   },

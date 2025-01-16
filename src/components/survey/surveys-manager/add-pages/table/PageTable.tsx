@@ -15,9 +15,8 @@ import EnhancedTableHead from "./TableHead";
 import EnhancedTableToolbar from "./TableToolbar";
 import { useDispatches, useRequests, useSelectors } from "../../../../../hooks";
 import axios from "axios";
-import { IPages } from "../../../../../types/interfaces/interfaces";
-import ViewsModal from "../ViewsModal";
-import "/public/table.css";
+import { PagesProps } from "../../../../../types/interfaces/interfaces";
+import ChangeView from "../ChangeView";
 
 const PageTable = () => {
   const [selected, setSelected] = useState<readonly number[]>([]);
@@ -29,7 +28,7 @@ const PageTable = () => {
   const [rowsInPage, setRowsInPage] = useState(0);
   const { fetchSurvey } = useRequests();
   const { survey, surveyPages } = useSelectors();
-  const { openViewsModal } = useDispatches();
+  const { dispatchChangeView } = useDispatches();
 
   useEffect(() => {
     // Calculate the starting index of the current page
@@ -104,12 +103,12 @@ const PageTable = () => {
 
   const selectPage = async (pageId: string) => {
     try {
-      surveyPages.filter((page: IPages) => {
+      surveyPages.filter((page: PagesProps) => {
         if (page._id === pageId) {
           setPageId(page._id);
         }
       });
-      openViewsModal();
+      dispatchChangeView(true);
     } catch (error) {
       console.log(error);
     }
@@ -119,12 +118,16 @@ const PageTable = () => {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - surveyPages?.length) : 0;
 
+  const sx = {
+    fontSize: "1rem",
+  };
+
   return (
-    <Box sx={{ width: "100%" }}>
-      <ViewsModal pageId={pageId} />
+    <Box sx={{ width: "100%", marginTop: "16px" }}>
+      <ChangeView pageId={pageId} />
+
       <Paper
         sx={{
-          width: "100%",
           boxShadow:
             "0 3px 7px 0 rgba(0, 0, 0, 0.13), 0 1px 2px 0 rgba(0, 0, 0, 0.11)",
           border: "1px solid #f5f5f5",
@@ -210,11 +213,12 @@ const PageTable = () => {
                         sx={{
                           textTransform: "capitalize",
                           paddingLeft: "16px",
+                          ...sx,
                         }}>
                         {row.title}
                       </TableCell>
 
-                      <TableCell sx={{ textTransform: "none" }}>
+                      <TableCell sx={{ textTransform: "none", ...sx }}>
                         {row?.isMobileView
                           ? "Mobile"
                           : row?.isMobileView === false
@@ -235,10 +239,9 @@ const PageTable = () => {
                             size="small"
                             sx={{
                               cursor: "pointer",
-                              fontSize: "12px",
                               padding: "0px",
                               "& .MuiChip-label": {
-                                fontSize: "12px",
+                                ...sx,
                               },
                             }}
                           />
@@ -271,6 +274,16 @@ const PageTable = () => {
           labelDisplayedRows={({ from, to, count }) =>
             `${from} - ${to} von ${count}`
           }
+          sx={{
+            "& .MuiTablePagination-selectLabel, .MuiTablePagination-input, .MuiTablePagination-displayedRows, .MuiTablePagination-actions":
+              {
+                ...sx,
+              },
+            // "& .MuiSvgIcon-root": {
+            //   height: "28px",
+            //   width: "28px",
+            // },
+          }}
         />
       </Paper>
     </Box>

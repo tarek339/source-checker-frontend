@@ -1,12 +1,13 @@
-import { IThumbnail } from "../../../types/interfaces/components";
+import { ThumbnailProps } from "../../../types/interfaces/components";
 
-const Thumbnail = ({ url, height, width }: IThumbnail) => {
+const Thumbnail = ({ url, height, width, overflowY }: ThumbnailProps) => {
   return (
     <div
       style={{
-        overflowY: "scroll",
+        overflowY: !overflowY ? "scroll" : overflowY,
         width: !width ? "80px" : width,
         height: !height ? "60px" : height,
+        scrollbarWidth: "thin",
       }}>
       <img
         src={url ? (Array.isArray(url) ? url[0] : url) : ""}

@@ -1,26 +1,22 @@
-import Span from "../../../fonts/Span";
-import Flex from "../../../containers/Flex";
+import { colors } from "../../../../assets/theme/colors";
+import { EmptyDataProps } from "../../../../types/interfaces/components";
+import Grid from "../../../mui/Grid";
+import Text from "../../../mui/Text";
 
-export interface IEmptyData {
-  title: string;
-  width: string;
-  height: string;
-}
-
-const EmptyData = ({ title, width, height }: IEmptyData) => {
+const EmptyData = ({ title, width, height }: EmptyDataProps) => {
   return (
-    <Flex
-      direction={"row"}
-      align="center"
-      justify="center"
+    <Grid
+      alignCenter
+      center
+      noMargin
+      gutters
       style={{
         width: width,
         height: height,
-        padding: "10px",
-        border: "2px dashed lightgrey",
+        border: `3px dashed ${colors.border.secondary}`,
       }}>
-      <Span title={title} fontSize={20} fontWeight={600} />
-    </Flex>
+      <Text text={title} center />
+    </Grid>
   );
 };
 

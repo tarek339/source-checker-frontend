@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
-  IAddStudent,
-  InitialStudentState,
+  AddStudentAction,
+  InitialStateStudent,
 } from "../../../types/interfaces/redux/slices";
 
-const initialState: InitialStudentState = {
+const initialState: InitialStateStudent = {
   student: null,
   loading: true,
 };
@@ -13,7 +13,7 @@ const studentSlice = createSlice({
   name: "student",
   initialState,
   reducers: {
-    addStudent: (state, action: PayloadAction<IAddStudent>) => {
+    addStudent: (state, action: PayloadAction<AddStudentAction>) => {
       state.student = action.payload.student;
       state.loading = false;
     },

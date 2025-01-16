@@ -1,4 +1,3 @@
-import { Rating } from "react-simple-star-rating";
 import {
   useBreakPoints,
   useDispatches,
@@ -7,13 +6,13 @@ import {
   useTranslations,
 } from "../../../hooks";
 import axios from "axios";
-import { IStarRating } from "../../../types/interfaces/components";
+import { StarRatingProps } from "../../../types/interfaces/components";
 import { useEffect, useRef } from "react";
-import Flex from "../../containers/Flex";
 import StandbyMessage from "./StandbyMessage";
-import { Button } from "../..";
+import { Button, Grid } from "../..";
+import { Rating } from "@mui/material";
 
-const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
+const StarRating = ({ surveyId, pageId, studentId }: StarRatingProps) => {
   const { t } = useTranslations();
 
   const {
@@ -60,42 +59,43 @@ const StarRating = ({ surveyId, pageId, studentId }: IStarRating) => {
   }, [currentPage, modal, closeModal]);
 
   return (
-    <Flex
-      direction={"row"}
-      gap={"20px"}
-      align="center"
-      justify={windowWidth <= 430 ? "center" : "flex-start"}
-      width="100%"
-      style={{ marginBottom: windowWidth <= 430 ? "10px" : "0px" }}>
+    <Grid
+      alignCenter
+      justifyContent={windowWidth <= 430 ? "center" : "flex-start"}
+      width="100%">
       <>
         <StandbyMessage />
-        <Flex
+        <Grid
+          spacing={1}
           direction={windowWidth <= 430 ? "column" : "row"}
-          align="center"
-          gap={windowWidth <= 430 ? "20px" : "20px"}>
+          width={"100%"}
+          alignCenter
+          nowrap>
           <Rating
-            className="react-simple-star-rating"
-            initialValue={!voted ? stars : votedStars}
-            onClick={handleRating}
-            SVGstyle={{ paddingTop: "7px" }}
-            size={50}
-            disableFillHover={voted ? true : false}
-            readonly={voted ? true : false}
-            allowHover={voted ? false : true}
-            transition={true}
+            name="simple-controlled"
+            defaultValue={stars}
+            value={votedStars}
+            onChange={(_event, newValue) => {
+              handleRating(newValue ?? 0);
+            }}
+            readOnly={voted}
+            max={5}
+            sx={{
+              fontSize: "2.5rem",
+            }}
           />
           <>
             {stars > 0 && !voted ? (
               <Button
-                style={{ width: "100%" }}
+                fullWidth={windowWidth <= 430 ? true : false}
                 onClick={handleSubmit}
                 title={t("button.submit")}
               />
             ) : null}
           </>
-        </Flex>
+        </Grid>
       </>
-    </Flex>
+    </Grid>
   );
 };
 

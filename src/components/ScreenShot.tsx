@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useDispatches, useSelectors } from "../hooks";
-import { IScreenShot } from "../types/interfaces/components";
-import Flex from "./containers/Flex";
-import { Button } from ".";
+import { ScreenShotProps } from "../types/interfaces/components";
+import { Button, Grid } from ".";
+import { colors } from "../assets/theme/colors";
 
 const Screenshot = ({
   title,
@@ -14,8 +14,8 @@ const Screenshot = ({
   height,
   icon,
   gap,
-}: IScreenShot) => {
-  const { dispatchSideBar, dispatchSurvey, dispatchPages, closeViewsModal } =
+}: ScreenShotProps) => {
+  const { dispatchSideBar, dispatchChangeView, dispatchSurvey, dispatchPages } =
     useDispatches();
   const { lastSideBarPages } = useSelectors();
   const { surveyPages } = useSelectors();
@@ -30,7 +30,7 @@ const Screenshot = ({
       if (res.data.survey) {
         dispatchSurvey(res.data.survey);
         dispatchPages(res.data.survey.pages);
-        closeViewsModal();
+        dispatchChangeView(false);
       }
       if (surveyPages.length === lastSideBarPages) {
         dispatchSideBar(false);
@@ -41,16 +41,21 @@ const Screenshot = ({
   };
 
   return (
-    <Flex direction={"column"} gap={"20px"}>
-      <Flex direction={"row"} justify="flex-start">
-        <Button gap={gap!} icon={icon} onClick={chooseView} title={title} />
-      </Flex>
+    <Grid column width={"100%"}>
+      <Grid flexStart width={"100%"}>
+        <Button
+          gap={gap!}
+          startIcon={icon}
+          onClick={chooseView}
+          title={title}
+        />
+      </Grid>
       <div
         id="capture"
         style={{
           width: width,
           height: height,
-          border: "1px solid transparent",
+          border: "none",
           marginBottom: "10px",
         }}>
         <img
@@ -58,14 +63,14 @@ const Screenshot = ({
             maxWidth: "100%",
             height: "auto",
             display: "block",
-            border: "2px solid #d5d5d5",
+            border: `1.5px solid ${colors.border.secondary}`,
             objectFit: "cover",
             objectPosition: "top",
           }}
           src={url}
         />
       </div>
-    </Flex>
+    </Grid>
   );
 };
 

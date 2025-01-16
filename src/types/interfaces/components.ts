@@ -1,32 +1,32 @@
-import { IPages } from "./interfaces";
-import { IHandleFirst, IHandleLast, IHandleViewsModal } from "./redux/slices";
+import { PagesProps } from "./interfaces";
+import {
+  HandleFirstAction,
+  IHandleLastAction,
+  HandleViewsModalAction,
+} from "./redux/slices";
 
-export interface IInput {
+export interface InputProps {
+  htmlFor: string;
   type?: string;
   label: string;
-  name: string;
-  htmlFor: string;
-  error: JSX.Element | string | null;
-  hasError: JSX.Element | string | null;
+  palceholder?: string;
+  error: boolean;
+  errorMessage?: string | JSX.Element | null;
   value: string;
-  placeHolder?: string;
   disabled?: boolean;
-  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-  onClear?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  onClear: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
-export interface ITextArea {
-  label: string;
-  name: string;
+export interface TextAreaProps {
   htmlFor: string;
-  error: JSX.Element | null;
-  hasError: JSX.Element | null;
+  label: string;
   value: string;
-  disabled?: boolean;
+  disabled: boolean;
   onChange: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
 }
 
-export interface IModal {
+export interface ModalProps {
   children: React.ReactNode;
   open: boolean;
   onClose:
@@ -35,37 +35,11 @@ export interface IModal {
   style?: React.CSSProperties;
 }
 
-export interface ISideBar {
-  children: JSX.Element | JSX.Element[];
-  collapsed: boolean;
-  toggled: boolean;
+export interface ErrorModalProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
-export interface ISwitchToggle {
-  label: string;
-  labelText?: string;
-  checked: boolean;
-  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
-  ifOnText: string;
-  ifOffText: string;
-  htmlFor: string;
-}
-
-export interface ITable {
-  headers: string[] | null;
-  propsChildren: JSX.Element[] | JSX.Element;
-  first: number;
-  last: number;
-  setFirst: (value: React.SetStateAction<number>) => void | undefined;
-  setLast: (value: React.SetStateAction<number>) => void | undefined;
-  property: IPages[];
-}
-
-export interface IErrorModal {
-  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
-}
-
-export interface IScreenShot {
+export interface ScreenShotProps {
   title: string;
   width: string;
   id: string | undefined;
@@ -76,28 +50,30 @@ export interface IScreenShot {
   icon: JSX.Element;
   gap?: string;
   closeModal?: () => {
-    payload: IHandleViewsModal;
+    payload: HandleViewsModalAction;
     type: "viewsModal/handleViewsModal";
   };
 }
 
-export interface ILoadingPulse {
+export interface LoadingPulseProps {
   color: string;
   size: number;
 }
 
-export interface ILoadingSpinner {
+export interface LoadingSpinnerProps {
   color: string;
   size: number;
 }
 
-export interface IPageForm {
+export interface PageFormProps {
   onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
-  titleError: string | JSX.Element | null;
-  urlError: string | JSX.Element | null;
   inputValue: string;
   urlValue: string;
   textAreaValue: string;
+  titleError: boolean;
+  urlError: boolean;
+  titleErrorMessage: string;
+  urlErrorMessage: string;
   onChangeTitle: React.ChangeEventHandler<HTMLInputElement> | undefined;
   onChangeUrl: React.ChangeEventHandler<HTMLInputElement> | undefined;
   onChangeTextArea: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
@@ -105,98 +81,99 @@ export interface IPageForm {
   onClickUrlIcon: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
-export interface IQRCode {
+export interface QRCodeProps {
   size?: number;
   value: string;
   onClick?: React.MouseEventHandler<HTMLCanvasElement> | undefined;
   cursor?: string;
 }
 
-export interface IHeader {
+export interface HeaderProps {
   title: string;
 }
 
-export interface ICard {
+export interface BasicCardProps {
   children: JSX.Element[] | JSX.Element;
-  style?: React.CSSProperties;
-}
-
-export interface IContentContainer {
-  children: JSX.Element[] | JSX.Element;
-  style?: React.CSSProperties;
-  maxWidth?: number;
-  marginTop?: number;
-}
-
-export interface IAppContainer {
-  children: JSX.Element[] | JSX.Element;
-}
-
-export interface ISubCard {
-  children: JSX.Element | JSX.Element[];
   width?: string;
-  style?: React.CSSProperties;
-  height?: string;
 }
 
-export interface IFlex {
+export interface AppContainerProps {
   children: JSX.Element[] | JSX.Element;
+}
+
+export interface GridPorps {
   direction?: "row" | "column" | "column-reverse" | "row-reverse";
-  flexWrap?: "wrap" | "nowrap" | "wrap-reverse";
-  gap?: string;
-  justify?:
+  children: JSX.Element[] | JSX.Element;
+  spacing?: number;
+  column?: boolean;
+  columnReverse?: boolean;
+  rowReverse?: boolean;
+  maxWidth?: number;
+  maxedWidth?: boolean;
+  noMargin?: boolean;
+  justifyContent?:
     | "flex-start"
-    | "flex-end"
     | "center"
+    | "flex-end"
     | "space-between"
     | "space-around"
-    | "space-evenly";
-  align?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "stretch"
-    | "baseline"
-    | "initial"
-    | "inherit";
-  width?: string;
-  height?: string;
+    | "space-evenly"
+    | "stretch";
+  flexStart?: boolean;
+  center?: boolean;
+  flexEnd?: boolean;
+  between?: boolean;
   style?: React.CSSProperties;
+  width?: number | string;
+  height?: number | string;
+  minHeight?: number | string;
+  maxHeight?: number | string;
+  gutters?: boolean;
+  padding?: boolean;
+  alignItems?: "flex-start" | "center" | "flex-end" | "stretch" | "baseline";
+  alignStart?: boolean;
+  alignCenter?: boolean;
+  alignEnd?: boolean;
+  alignStretch?: boolean;
+  justifyItems?: "flex-start" | "center" | "flex-end" | "stretch" | "baseline";
+  wrap?: "wrap" | "nowrap" | "wrap-reverse";
+  nowrap?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement> | undefined;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement> | undefined;
 }
 
-export interface IButtonContainer {
-  children: JSX.Element | JSX.Element[];
-  style?: React.CSSProperties;
+export interface GridItemProps {
+  children: JSX.Element[] | JSX.Element;
+  size?: number;
 }
 
-export interface IFormContainer {
+export interface FormProps {
   onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
   children: JSX.Element | JSX.Element[];
-  gap?: string;
-  style?: React.CSSProperties;
-  maxWidth?: number;
-  margin?: string;
-  paddingTop?: string;
 }
 
-export interface ISubTitle {
+export interface SubTitleProps {
   title: string | JSX.Element;
-  style?: React.CSSProperties;
+  color?: string;
+  marginBottom?: string;
+  marginTop?: string;
+  center?: boolean;
+  small?: boolean;
 }
 
-export interface IFramerMotion {
+export interface FramerMotionProps {
   children: JSX.Element | JSX.Element[];
 }
 
-export interface ITitle {
+export interface TitleProps {
   title: string;
-  style?: React.CSSProperties;
+  marginBottom?: string;
+  color?: string;
+  variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
-export interface IOpenGraphView {
+export interface OpenGraphViewProps {
   pageID: string;
   openGraphView: boolean;
   ogTitle: string;
@@ -206,7 +183,7 @@ export interface IOpenGraphView {
   gap: string;
 }
 
-export interface ISpan {
+export interface SpanProps {
   title: string | React.ReactNode;
   onClick?: () => void;
   style?: React.CSSProperties;
@@ -220,49 +197,45 @@ export interface ISpan {
   icon?: JSX.Element;
 }
 
-export interface IScreenShotHolder {
+export interface ScreenShotHolderProps {
   src: string;
 }
 
-export interface IOpenGraphHolder {
+export interface OpenGraphHolderProps {
   ogTitle: string;
   ogImage: string | string[] | null;
   ogDescription: string;
   url: string;
 }
 
-export interface IStarRating {
+export interface StarRatingProps {
   pageId: string;
   surveyId: string;
   studentId: string;
 }
 
-export interface IPageModal {
+export interface PageModalProps {
   children: JSX.Element;
   title: string;
 }
 
-export interface IResult {
-  sumStars: number[] | undefined;
-  credible: JSX.Element;
-  trustworthy: JSX.Element;
-  questionable: JSX.Element;
-  doubtful: JSX.Element;
-  unbelievable: JSX.Element;
+export interface ResultProps {
   first: number;
   last: number;
-  property: IPages[];
+  nextId: string;
+  prevId: string;
+  property: PagesProps[];
   setFirst: (first: number) => {
-    payload: IHandleFirst;
+    payload: HandleFirstAction;
     type: "sliceNums/handleFirst";
   };
   setLast: (last: number) => {
-    payload: IHandleLast;
+    payload: IHandleLastAction;
     type: "sliceNums/handleLast";
   };
 }
 
-export interface ISectionChild {
+export interface SectionChildProps {
   text: string | JSX.Element;
   color?: string;
   minWidth?: string;
@@ -271,17 +244,11 @@ export interface ISectionChild {
   style?: React.CSSProperties;
 }
 
-export interface ISectionHolder {
-  page: IPages;
-  starsArrayLength: number;
-  credible: JSX.Element;
-  trustworthy: JSX.Element;
-  questionable: JSX.Element;
-  doubtful: JSX.Element;
-  unbelievable: JSX.Element;
+export interface SectionHolderProps {
+  page: PagesProps;
 }
 
-export interface ILink {
+export interface LinkProps {
   url: string;
   title: string;
   fontWeight?: number;
@@ -289,18 +256,26 @@ export interface ILink {
   color?: string;
 }
 
-export interface IThumbnail {
+export interface ThumbnailProps {
   url: string | string[] | null;
   width?: string;
   height?: string;
+  overflowY?:
+    | "visible"
+    | "hidden"
+    | "clip"
+    | "scroll"
+    | "auto"
+    | "initial"
+    | "inherit";
 }
 
-export interface ILinkButton {
+export interface LinkButtonProps {
   title: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
-export interface ISection {
+export interface SectionProps {
   title: string;
   subTitle?: string;
   mappedTitle?: React.ReactNode;
@@ -309,41 +284,48 @@ export interface ISection {
 export interface IIBack {
   onClick?: React.MouseEventHandler<SVGElement>;
   style?: React.CSSProperties;
+  size?: number;
 }
 
-export interface ITextSmall {
+export interface TextSmallProps {
   text: string | JSX.Element;
   uppercase?: boolean;
   bold?: boolean;
 }
 
-export interface INoteModal {
+export interface NoteModalProps {
   onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
-export interface IButton {
+export interface ButtonProps {
   title: string | JSX.Element;
   type?: "submit" | "button" | "reset" | undefined;
   error?: boolean;
-  icon?: JSX.Element;
+  fullWidth?: boolean;
+  startIcon?: JSX.Element;
+  endIcon?: JSX.Element;
   gap?: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   style?: React.CSSProperties;
 }
 
-export interface IIconsListing {
-  children: JSX.Element[] | JSX.Element | undefined;
-}
-
-export interface IViewsModal {
+export interface ViewsModalProps {
   pageId: string;
 }
 
 export interface BasicTableProps {
-  header: string[];
+  header: string[] | JSX.Element[];
   children: JSX.Element;
   minWidth: number;
+}
+
+export interface SummaryTableProps {
+  header: string[] | JSX.Element[] | null;
+  children: JSX.Element;
+  flexEnd?: boolean;
+  size?: "small" | "medium";
+  right?: boolean;
 }
 
 export interface EnhancedTableHeadProps {
@@ -355,4 +337,84 @@ export interface EnhancedTableHeadProps {
 export interface EnhancedTableToolbarProps {
   numSelected: number;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface ActionButtonProps {
+  onClick:
+    | React.MouseEventHandler<HTMLButtonElement>
+    | React.MouseEventHandler<HTMLButtonElement>
+    | undefined;
+  onMouseEnter: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  onMouseLeave: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  borderColor: string;
+  color: string;
+  icon: JSX.Element | undefined;
+  title: string;
+}
+
+export interface EmptyDataProps {
+  title: string;
+  width: string;
+  height: string;
+}
+
+export interface SideDrawerProps {
+  open: boolean;
+  toggleDrawer:
+    | ((event: object, reason: "backdropClick" | "escapeKeyDown") => void)
+    | undefined;
+  children: JSX.Element | JSX.Element[];
+  anchor: "left" | "top" | "right" | "bottom" | undefined;
+}
+
+export interface BtnProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  title?: string;
+}
+
+export interface SwitchButtonProps {
+  label?: string;
+  labelText?: string;
+  toggled: boolean;
+  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  ifOnText?: string;
+  ifOffText?: string;
+  type?: "submit" | "button";
+}
+
+export interface UlListProps {
+  children: JSX.Element | JSX.Element[];
+}
+
+export interface ListItemProps {
+  children: string | number;
+}
+
+export interface BasicLinkProps {
+  href: string;
+  title?: string;
+  mail?: boolean;
+  bold?: boolean;
+  small?: boolean;
+  xs?: boolean;
+}
+
+export interface TextProps {
+  text: string | number | JSX.Element;
+  bold?: boolean;
+  color?: string;
+  pointer?: boolean;
+  underline?: boolean;
+  small?: boolean;
+  uppercase?: boolean;
+  center?: boolean;
+  body2?: boolean;
+  style?: React.CSSProperties;
+  onMouseEnter?: React.MouseEventHandler<HTMLSpanElement> | undefined;
+  onMouseLeave?: React.MouseEventHandler<HTMLSpanElement> | undefined;
+  onClick?: React.MouseEventHandler<HTMLSpanElement> | undefined;
+}
+
+export interface BasicDividerProps {
+  borderWidth?: number;
 }

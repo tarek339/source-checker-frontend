@@ -1,60 +1,101 @@
-import { IconButton } from "@mui/material";
-import { IInput } from "../../types/interfaces/components";
-import Flex from "../containers/Flex";
+import {
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+} from "@mui/material";
+import Grid from "../mui/Grid";
 import { Close } from "../icons";
+import { InputProps } from "../../types/interfaces/components";
+import Text from "../mui/Text";
+import { colors } from "../../assets/theme/colors";
+
+const sx = {
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "4px",
+    "& fieldset": {
+      border: colors.border.main,
+    },
+    "&:hover:not(.Mui-focused):not(.Mui-error) fieldset": {
+      borderColor: "lightgrey",
+    },
+    "&:hover:not(.Mui-focused):not(.Mui-error)": {
+      backgroundColor: colors.background.hover,
+    },
+    "&.Mui-focused fieldset": {
+      border: `2px solid ${colors.primary.main}`,
+    },
+    "&.Mui-error fieldset": {
+      border: `2px solid ${colors.desctructed.main}`,
+    },
+    "&.Mui-error": {
+      color: colors.desctructed.main,
+    },
+  },
+};
 
 const Input = ({
+  htmlFor,
   type,
   label,
-  name,
-  htmlFor,
+  palceholder,
   error,
-  hasError,
+  errorMessage,
   value,
-  placeHolder,
   disabled,
   onChange,
   onClear,
-}: IInput) => {
+}: InputProps) => {
   return (
-    <Flex direction={"column"} gap={"3px"}>
-      <label style={{ color: hasError ? "#ff0000" : "" }} htmlFor={htmlFor}>
-        {label}
-      </label>
-      <Flex direction="row" style={{ position: "relative" }}>
-        <>
-          {value && (
-            <div
-              style={{
-                position: "absolute",
-                right: 0,
-                bottom: "-2.5px",
-              }}>
-              <IconButton onClick={onClear}>
-                <Close size={28} color="" />
-              </IconButton>
-            </div>
-          )}
-        </>
-        <input
-          className={hasError ? "input-error" : ""}
-          type={!type ? "text" : type}
-          name={name}
-          placeholder={placeHolder}
-          id={htmlFor}
-          style={{
-            borderColor: hasError ? "#ff0000" : "",
-            boxShadow: hasError ? "0px 0px 0px 1px #ff0000 inset" : "",
-            width: "100%",
-            paddingRight: "40px",
+    <Grid column width={"100%"} spacing={1}>
+      <FormControl size="small" variant="outlined" sx={sx}>
+        <InputLabel
+          error={error}
+          sx={{
+            fontWeight: 500,
+            color: colors.typography.label,
+            "&.Mui-focused": {
+              color: colors.primary.main,
+              fontWeight: 600,
+            },
+            "&.Mui-error": {
+              color: colors.desctructed.main,
+              fontWeight: 500,
+            },
           }}
+          htmlFor={htmlFor}>
+          {label}
+        </InputLabel>
+        <OutlinedInput
+          id={htmlFor}
+          type={type}
+          placeholder={palceholder}
           value={value}
           disabled={disabled}
+          error={error}
           onChange={onChange}
+          endAdornment={
+            value && (
+              <InputAdornment position="end">
+                <IconButton onClick={onClear}>
+                  <Close size={28} color={colors.typography.label} />
+                </IconButton>
+              </InputAdornment>
+            )
+          }
+          label={label}
         />
-      </Flex>
-      <>{error}</>
-    </Flex>
+      </FormControl>
+      <Text
+        text={errorMessage ?? ""}
+        color={colors.desctructed.main}
+        style={{
+          paddingLeft: 5,
+        }}
+        small
+      />
+    </Grid>
   );
 };
 

@@ -1,7 +1,7 @@
-import { ILoadingPulse } from "../types/interfaces/components";
+import { LoadingPulseProps } from "../types/interfaces/components";
 import { PulseLoader } from "react-spinners";
 
-const LoadingPulse = ({ color, size }: ILoadingPulse) => {
+const LoadingPulse = ({ color, size }: LoadingPulseProps) => {
   return (
     <div
       style={{

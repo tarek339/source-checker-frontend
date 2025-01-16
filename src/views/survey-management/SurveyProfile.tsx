@@ -1,16 +1,18 @@
-import { useDispatches, useSelectors, useTranslations } from "../../hooks";
 import {
-  ContentContainer,
+  useBreakPoints,
+  useDispatches,
+  useSelectors,
+  useTranslations,
+} from "../../hooks";
+import {
   Card,
   FramerMotion,
-  Flex,
   SubTitle,
-  Divider,
-  ButtonContainer,
   SurveyProfileData,
   Title,
   Button,
   RatingInfo,
+  Grid,
 } from "../../components";
 import { useNavigate } from "react-router-dom";
 import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
@@ -20,43 +22,40 @@ const SurveyProfile = () => {
   const { t } = useTranslations();
   const { survey } = useSelectors();
   const { openModal } = useDispatches();
+  const { windowWidth } = useBreakPoints();
 
   const navigate = useNavigate();
 
   return (
-    <ContentContainer>
-      <Title title={t("survey.createManagement")} />
-      <Card>
-        <FramerMotion>
-          <DeleteSurveyModal />
-          <Flex
-            direction={"column"}
-            gap={"20px"}
-            style={{
-              margin: "0 auto",
-              maxWidth: "1000px",
-            }}>
+    <FramerMotion>
+      <DeleteSurveyModal />
+
+      <Grid column gutters>
+        <Title title={t("survey.createManagement")} />
+        <Card>
+          <Grid column>
             <SubTitle title={t("saveSurvey.saveSurvey")} />
-
             <RatingInfo />
-
             <SurveyProfileData />
 
-            <Divider />
-
-            <ButtonContainer>
-              <Button error onClick={openModal} title={t("button.delete")} />
-              <Button
-                onClick={() =>
-                  navigate(`/surveys-manager/pages-overview/${survey?._id}`)
-                }
-                title={t("button.continue")}
-              />
-            </ButtonContainer>
-          </Flex>
-        </FramerMotion>
-      </Card>
-    </ContentContainer>
+            <div style={{ marginTop: 10 }}>
+              <Grid
+                width={"100%"}
+                between
+                direction={windowWidth <= 500 ? "column-reverse" : "row"}>
+                <Button error onClick={openModal} title={t("button.delete")} />
+                <Button
+                  onClick={() =>
+                    navigate(`/surveys-manager/pages-overview/${survey?._id}`)
+                  }
+                  title={t("button.continue")}
+                />
+              </Grid>
+            </div>
+          </Grid>
+        </Card>
+      </Grid>
+    </FramerMotion>
   );
 };
 

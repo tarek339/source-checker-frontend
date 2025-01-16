@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { InitialStateSideBar } from "../../../types/interfaces/redux/slices";
+import { HandleStateSideBarAction } from "../../../types/interfaces/redux/slices";
 
 const sideBarSlice = createSlice({
   name: "sideBar",
@@ -7,7 +7,7 @@ const sideBarSlice = createSlice({
     open: false,
   },
   reducers: {
-    handleSideBar: (state, action: PayloadAction<InitialStateSideBar>) => {
+    handleSideBar: (state, action: PayloadAction<HandleStateSideBarAction>) => {
       state.open = action.payload.open;
     },
   },

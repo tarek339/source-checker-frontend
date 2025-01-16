@@ -1,20 +1,21 @@
-import { Button } from "../../..";
+import { Button, Form, Grid, Input } from "../../..";
+import { colors } from "../../../../assets/theme/colors";
 import {
   useTranslations,
   useSelectors,
   useDispatches,
+  useBreakPoints,
 } from "../../../../hooks";
-import { IPageForm } from "../../../../types/interfaces/components";
+import { PageFormProps } from "../../../../types/interfaces/components";
 import LoadingPulse from "../../../LoadingPulse";
-import ButtonContainer from "../../../containers/ButtonContainer";
-import FormContainer from "../../../form/FormContainer";
-import Input from "../../../form/Input";
-import InputMessage from "../../../form/InputMessage";
+import TextArea from "../../../form/TextArea";
 
 const PageForm = ({
   onSubmit,
   titleError,
+  titleErrorMessage,
   urlError,
+  urlErrorMessage,
   inputValue,
   urlValue,
   textAreaValue,
@@ -23,51 +24,50 @@ const PageForm = ({
   onChangeTextArea,
   onClickTitleIcon,
   onClickUrlIcon,
-}: IPageForm) => {
+}: PageFormProps) => {
   const { t } = useTranslations();
   const { loading } = useSelectors();
   const { closeModal } = useDispatches();
+  const { windowWidth } = useBreakPoints();
 
   return (
-    <FormContainer onSubmit={onSubmit} gap={"15px"}>
+    <Form onSubmit={onSubmit}>
       <Input
-        label={`${t("common.pageTitle")}*`}
-        placeHolder="Titel..."
-        name={"title"}
         htmlFor={"title"}
+        label={`${t("common.pageTitle")}*`}
+        palceholder="Titel"
         error={titleError}
-        hasError={titleError}
         value={inputValue}
-        disabled={loading ? true : false}
         onChange={onChangeTitle}
         onClear={onClickTitleIcon}
+        errorMessage={titleErrorMessage}
       />
 
       <Input
-        label={`${t("common.pageUrl")}*`}
-        placeHolder="https://www.beispielwebseite.de/123456..."
-        name={"url"}
         htmlFor={"url"}
+        label={`${t("common.pageUrl")}*`}
+        palceholder="https://wwww.example.com"
         error={urlError}
-        hasError={urlError}
         value={urlValue}
         disabled={loading ? true : false}
         onChange={onChangeUrl}
         onClear={onClickUrlIcon}
+        errorMessage={urlErrorMessage}
       />
 
-      <InputMessage
-        label={t("common.note")}
-        name={"note"}
+      <TextArea
+        label={"Notizen"}
         htmlFor={"note"}
-        error={null}
-        hasError={null}
         value={textAreaValue}
         disabled={loading ? true : false}
         onChange={onChangeTextArea}
       />
 
-      <ButtonContainer>
+      <Grid
+        spacing={1}
+        width={"100%"}
+        between
+        direction={windowWidth <= 500 ? "column-reverse" : "row"}>
         <Button
           error
           onClick={() => {
@@ -75,24 +75,26 @@ const PageForm = ({
           }}
           title={t("button.back")}
         />
-
         <Button
           type="submit"
           disabled={loading ? true : false}
           title={
             loading ? (
-              <LoadingPulse color={"#fff"} size={10} />
+              <LoadingPulse color={colors.button.main} size={10} />
             ) : (
               t("button.add")
             )
           }
           style={{
-            backgroundColor: loading ? "#0000001f" : "#2835c3",
+            backgroundColor: loading
+              ? colors.button.disabled
+              : colors.primary.main,
+            color: loading ? colors.button.secondary : colors.button.main,
             boxShadow: loading ? "none" : "",
           }}
         />
-      </ButtonContainer>
-    </FormContainer>
+      </Grid>
+    </Form>
   );
 };
 

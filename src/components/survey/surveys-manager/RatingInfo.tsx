@@ -1,35 +1,38 @@
 import { FaCircleDot } from "react-icons/fa6";
 import { useTranslations } from "../../../hooks";
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
+import Grid from "../../mui/Grid";
+import Text from "../../mui/Text";
+import SubTitle from "../../mui/SubTitle";
+import { colors } from "../../../assets/theme/colors";
 
 const RatingInfo = () => {
   const { t } = useTranslations();
   return (
-    <Flex
-      direction={"row"}
-      gap={"10px"}
-      justify="flex-start"
+    <Grid
+      spacing={1}
+      nowrap
       style={{
-        border: "1.5px solid rgb(40, 53, 195, 0.2)",
-        color: "#2835c3",
-        backgroundColor: "rgb(40, 53, 195, 0.05)",
-        padding: "15px 20px",
+        border: `1.5px solid ${colors.border.info}`,
+        backgroundColor: colors.background.info,
       }}>
-      <Flex
-        direction={"row"}
-        justify="flex-start"
-        align="flex-start"
-        style={{
-          paddingTop: "6px",
-        }}>
-        <FaCircleDot />
-      </Flex>
-      <div style={{ color: "#2835c3" }}>
-        <Span title={"Bewertung"} fontSize={18} fontWeight={600} />
-        <Span title={t("newSurvey.ratingText")} fontSize={16} />
+      <div style={{ padding: "15px 0px 0px 10px" }}>
+        <FaCircleDot color={colors.primary.main} />
       </div>
-    </Flex>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "5px",
+          padding: "10px 10px 10px 0px",
+        }}>
+        <SubTitle title={"Bewertung"} small color={colors.primary.main} />
+        <Text
+          text={t("newSurvey.ratingText")}
+          color={colors.primary.main}
+          small
+        />
+      </div>
+    </Grid>
   );
 };
 

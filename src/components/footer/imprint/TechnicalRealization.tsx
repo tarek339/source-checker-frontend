@@ -1,13 +1,13 @@
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
-import SubTitle from "../../fonts/SubTitle";
+import Grid from "../../mui/Grid";
+import SubTitle from "../../mui/SubTitle";
+import Text from "../../mui/Text";
 
 const TechnicalRealization = () => {
   return (
-    <Flex direction={"column"} gap={"10px"}>
+    <Grid column width={"100%"}>
       <SubTitle title={"Technische Umsetzung"} />
-      <Span title={"Tarek Jassine"} />
-    </Flex>
+      <Text text={"Tarek Jassine"} />
+    </Grid>
   );
 };
 

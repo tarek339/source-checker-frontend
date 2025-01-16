@@ -4,30 +4,18 @@ import { useState } from "react";
 import { useBreakPoints, useDispatches, useTranslations } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import {
-  Card,
-  Flex,
   FramerMotion,
   SubTitle,
   Title,
-  ContentContainer,
   ErrorModal,
+  Grid,
+  GridItem,
+  Card,
+  ActionButton,
 } from "../../components";
 import axios from "axios";
 import withUnAuthPages from "../../hoc/withUnAuthPages";
-
-const style: React.CSSProperties = {
-  border: "2px dashed lightgray",
-  borderRadius: "10px",
-  height: "230px",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  fontSize: "18px",
-  cursor: "pointer",
-  backgroundColor: "transparent",
-};
+import { colors } from "../../assets/theme/colors";
 
 const SurveyEntryPoint = () => {
   const [isHoveredNew, setIsHoveredNew] = useState(false);
@@ -57,52 +45,78 @@ const SurveyEntryPoint = () => {
   };
 
   return (
-    <ContentContainer>
-      <ErrorModal />
-      <Title title={t("survey.createManagement")} />
-      <Card>
-        <FramerMotion>
-          <SubTitle title={t("chooseAction.header")} />
-          <Flex
-            direction={windowWidth <= 619 ? "column" : "row"}
-            gap={"20px"}
-            style={{ marginTop: "1em" }}>
-            <button
-              onClick={handleSubmit}
-              onMouseEnter={() => setIsHoveredAdd(true)}
-              onMouseLeave={() => setIsHoveredAdd(false)}
-              style={{
-                ...style,
-                borderColor: isHoveredAdd ? "grey" : "darkgrey",
-                color: isHoveredAdd ? "grey" : "darkgrey",
-              }}>
-              <IoAddOutline
-                fontSize="64px"
-                color={isHoveredAdd ? "grey" : "darkgrey"}
-              />
-              {t("chooseAction.newSurvey")}
-            </button>
-            <button
-              onClick={() => {
-                navigate("/surveys-manager/log-in");
-              }}
-              onMouseEnter={() => setIsHoveredNew(true)}
-              onMouseLeave={() => setIsHoveredNew(false)}
-              style={{
-                ...style,
-                borderColor: isHoveredNew ? "grey" : "darkgrey",
-                color: isHoveredNew ? "grey" : "darkgrey",
-              }}>
-              <FiArrowUp
-                fontSize="64px"
-                color={isHoveredNew ? "grey" : "darkgrey"}
-              />
-              {t("chooseAction.existingSurvey")}
-            </button>
-          </Flex>
-        </FramerMotion>
-      </Card>
-    </ContentContainer>
+    <FramerMotion>
+      <ErrorModal onClick={handleSubmit} />
+
+      <Grid column gutters>
+        <Title title={t("survey.createManagement")} />
+        <Card>
+          <Grid column>
+            <SubTitle title={t("chooseAction.header")} />
+            <Grid width={"100%"}>
+              <GridItem size={windowWidth < 600 ? 12 : 6}>
+                <ActionButton
+                  onClick={handleSubmit}
+                  onMouseEnter={() => setIsHoveredAdd(true)}
+                  onMouseLeave={() => setIsHoveredAdd(false)}
+                  borderColor={
+                    isHoveredAdd
+                      ? colors.typography.hover
+                      : colors.typography.secondary
+                  }
+                  color={
+                    isHoveredAdd
+                      ? colors.typography.hover
+                      : colors.typography.secondary
+                  }
+                  icon={
+                    <IoAddOutline
+                      fontSize="64px"
+                      color={
+                        isHoveredAdd
+                          ? colors.typography.hover
+                          : colors.typography.secondary
+                      }
+                    />
+                  }
+                  title={t("chooseAction.newSurvey")}
+                />
+              </GridItem>
+              <GridItem size={windowWidth < 600 ? 12 : 6}>
+                <ActionButton
+                  onClick={() => {
+                    navigate("/surveys-manager/log-in");
+                  }}
+                  onMouseEnter={() => setIsHoveredNew(true)}
+                  onMouseLeave={() => setIsHoveredNew(false)}
+                  borderColor={
+                    isHoveredNew
+                      ? colors.typography.hover
+                      : colors.typography.secondary
+                  }
+                  color={
+                    isHoveredNew
+                      ? colors.typography.hover
+                      : colors.typography.secondary
+                  }
+                  icon={
+                    <FiArrowUp
+                      fontSize="64px"
+                      color={
+                        isHoveredNew
+                          ? colors.typography.hover
+                          : colors.typography.secondary
+                      }
+                    />
+                  }
+                  title={t("chooseAction.existingSurvey")}
+                />
+              </GridItem>
+            </Grid>
+          </Grid>
+        </Card>
+      </Grid>
+    </FramerMotion>
   );
 };
 

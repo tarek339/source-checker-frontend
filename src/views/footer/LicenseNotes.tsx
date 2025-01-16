@@ -1,4 +1,4 @@
-import { FramerMotion, ContentContainer, Title, Flex } from "../../components";
+import { FramerMotion, Title, Grid } from "../../components";
 import {
   GeneralInfo,
   Mit,
@@ -12,28 +12,21 @@ import {
 const LicenseNotes = () => {
   return (
     <FramerMotion>
-      <ContentContainer
-        style={{
-          paddingLeft: "10px",
-          paddingRight: "10px",
-        }}>
-        <Title style={{ padding: "0px" }} title={"Lizenzhinweise"} />
+      <Grid spacing={4} column gutters>
+        <Title title={"Lizenzhinweise"} />
         <Title
-          style={{ padding: "0px" }}
           title={
             "License Information for this website and used icons on this website"
           }
         />
-        <Flex direction={"column"} gap={"30px"}>
-          <GeneralInfo />
-          <Mit />
-          <Apache />
-          <Ccby />
-          <Isc />
-          <Dependencies />
-          <DevDependencies />
-        </Flex>
-      </ContentContainer>
+        <GeneralInfo />
+        <Mit />
+        <Apache />
+        <Ccby />
+        <Isc />
+        <Dependencies />
+        <DevDependencies />
+      </Grid>
     </FramerMotion>
   );
 };

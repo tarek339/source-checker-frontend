@@ -1,62 +1,43 @@
-import Flex from "../../containers/Flex";
-import Link from "../../fonts/Link";
-import Span from "../../fonts/Span";
+import { Link } from "../..";
+import Grid from "../../mui/Grid";
+import Text from "../../mui/Text";
 
 const ContactData = () => {
   return (
-    <Flex direction={"column"} gap={"25px"}>
-      <Flex direction={"column"} gap={"20px"}>
-        <Flex direction={"column"} gap={"10px"}>
-          <Span fontSize={18} title={"Kontaktdaten des Verantwortlichen"} />
-          <Span
-            fontSize={18}
-            title={`Verantwortlich im Sinne der Datenschutzgrundverordnung und anderer nationaler 
+    <Grid column width={"100%"}>
+      <Grid column width={"100%"}>
+        <Text bold text={"Kontaktdaten des Verantwortlichen"} />
+
+        <Text
+          text={`Verantwortlich im Sinne der Datenschutzgrundverordnung und anderer nationaler 
           Datenschutzgesetze der EU-Mitgliedstaaten sowie sonstiger datenschutzrechtlicher Bestimmungen ist die:`}
-          />
-        </Flex>
-        <div>
-          <Span fontSize={18} title={"HOOU GmbH"} />
-          <Span
-            fontSize={18}
-            title={
-              "Vertreten durch den Geschäftsführer Prof. Dr. Sönke Knutzen"
-            }
-          />
-          <Span fontSize={18} title={"Am Irrgarten 3-6"} />
-          <Span fontSize={18} title={"D-21073 Hamburg"} />
-        </div>
-      </Flex>
+        />
 
-      <Flex direction={"column"} gap={"10px"}>
-        <Span title={"Kontaktdaten der Datenschutzbeauftragten:"} />
         <div>
-          <Span fontSize={18} title={"Datenschutzbeauftragte des MMKH"} />
-          <Span
-            fontSize={18}
-            title={
-              "Vertreten durch den Geschäftsführer Prof. Dr. Sönke Knutzen"
-            }
+          <Text text={"HOOU GmbH"} />
+          <Text
+            text={"Vertreten durch den Geschäftsführer Prof. Dr. Sönke Knutzen"}
           />
-          <Span fontSize={18} title={"Saarlandstraße 30"} />
-          <Span fontSize={18} title={"D-22303 Hamburg"} />
+          <Text text={"Am Irrgarten 3-6"} />
+          <Text text={"D-21073 Hamburg"} />
         </div>
-      </Flex>
+      </Grid>
 
-      <Span
-        title={
-          <>
-            <Span fontSize={18} title={"E-Mail: "} />
-            &nbsp;
-            <Link
-              url={"mailto:dsb@mmkh.de"}
-              title={"dsb@mmkh.de"}
-              fontWeight={0}
-              fontSize={18}
-            />
-          </>
-        }
-      />
-    </Flex>
+      <Grid column width={"100%"}>
+        <Text bold text={"Kontaktdaten der Datenschutzbeauftragten:"} />
+        <div>
+          <Text text={"Datenschutzbeauftragte des MMKH"} />
+          <Text
+            text={"Vertreten durch den Geschäftsführer Prof. Dr. Sönke Knutzen"}
+          />
+          <Text text={"Saarlandstraße 30"} />
+          <Text text={"D-22303 Hamburg"} />
+        </div>
+      </Grid>
+
+      <Text text={"E-Mail: "} />
+      <Link href={"mailto:dsb@mmkh.de"} mail />
+    </Grid>
   );
 };
 

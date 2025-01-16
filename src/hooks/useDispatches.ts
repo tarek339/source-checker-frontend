@@ -22,18 +22,15 @@ import {
   increaseLastPage,
   setPageId,
   handleQrCode,
-  handleViewsModal,
   removeSurvey,
-  addAdmin,
-  removeAdmin,
   removeStudent,
+  handleChangeView,
 } from "./redux/slices";
 import { Locale } from "../types/interfaces/redux/slices";
 import {
-  IAdmin,
-  IPages,
-  IStudent,
-  ISurvey,
+  PagesProps,
+  StudentProps,
+  SurveyProps,
 } from "../types/interfaces/interfaces";
 import useSelectors from "./useSelectors";
 
@@ -41,24 +38,19 @@ const useDispatches = () => {
   const dispatch = useDispatch();
   const { firstSideBarPages, lastSideBarPages } = useSelectors();
 
-  const dispatchAdmin = (admin: IAdmin) => dispatch(addAdmin({ admin }));
-  const discardAdmin = () => dispatch(removeAdmin());
-
   const enableEN = () => dispatch(handleTranslation({ locale: Locale.en }));
   const enableGE = () => dispatch(handleTranslation({ locale: Locale.de }));
 
-  const dispatchSurvey = (survey: ISurvey) => dispatch(addSurvey({ survey }));
+  const dispatchSurvey = (survey: SurveyProps) =>
+    dispatch(addSurvey({ survey }));
   const discardSurvey = () => dispatch(removeSurvey());
-  const dispatchPages = (pages: IPages[]) =>
+  const dispatchPages = (pages: PagesProps[]) =>
     dispatch(addSurveyPages({ pages: pages }));
 
   const openModal = () => dispatch(handleModal({ isVisible: true }));
   const closeModal = () => dispatch(handleModal({ isVisible: false }));
   const openQrCodeModal = () => dispatch(handleQrCode({ isVisible: true }));
   const closeQrCodeModal = () => dispatch(handleQrCode({ isVisible: false }));
-  const openViewsModal = () => dispatch(handleViewsModal({ isVisible: true }));
-  const closeViewsModal = () =>
-    dispatch(handleViewsModal({ isVisible: false }));
 
   const dispatchLoading = (loading: boolean) =>
     dispatch(handleLoading({ loading: loading }));
@@ -68,6 +60,8 @@ const useDispatches = () => {
 
   const dispatchSideBar = (open: boolean) =>
     dispatch(handleSideBar({ open: open }));
+  const dispatchChangeView = (open: boolean) =>
+    dispatch(handleChangeView({ open }));
 
   const incFirstSBPage = () =>
     dispatch(increaseFirstPage(firstSideBarPages + 1));
@@ -86,7 +80,7 @@ const useDispatches = () => {
   const setCoundDownStatus = (countDownDone: boolean) =>
     dispatch(handleCountDown({ countDownDone: countDownDone }));
 
-  const dispatchStudent = (student: IStudent) =>
+  const dispatchStudent = (student: StudentProps) =>
     dispatch(addStudent({ student }));
   const discardStudent = () => dispatch(removeStudent());
 
@@ -127,12 +121,9 @@ const useDispatches = () => {
     resetSBPages,
     openQrCodeModal,
     closeQrCodeModal,
-    openViewsModal,
-    closeViewsModal,
     discardSurvey,
-    dispatchAdmin,
-    discardAdmin,
     discardStudent,
+    dispatchChangeView,
   };
 };
 

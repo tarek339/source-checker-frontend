@@ -1,13 +1,13 @@
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
-import SubTitle from "../../fonts/SubTitle";
+import Grid from "../../mui/Grid";
+import SubTitle from "../../mui/SubTitle";
+import Text from "../../mui/Text";
 
 const Contact = () => {
   return (
-    <Flex direction={"column"} gap={"10px"}>
+    <Grid column width={"100%"}>
       <SubTitle title={"Kontakt für allgemeine Fragen oder Feedback:"} />
-      <Span title={"E-Mail: fiete.stegers[at]haw-hamburg.de"} />
-    </Flex>
+      <Text text={"E-Mail: fiete.stegers[at]haw-hamburg.de"} />
+    </Grid>
   );
 };
 

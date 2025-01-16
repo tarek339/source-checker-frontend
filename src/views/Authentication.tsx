@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { FramerMotion } from "../components";
+import { FramerMotion, StudentButton, Text, Title } from "../components";
 import { useDispatches, useTranslations } from "../hooks";
 import imgSrc from "../assets/images/title-img.jpg";
 import { useEffect } from "react";
 import withUnAuthPages from "../hoc/withUnAuthPages";
+import TeacherButton from "../components/buttons/TeacherButton";
+import { colors } from "../assets/theme/colors";
 
 const Authentication = () => {
   const navigate = useNavigate();
@@ -20,30 +22,30 @@ const Authentication = () => {
         <div className="authentication-container">
           <div className="auth-section-container">
             <div className="auth-section">
-              <h1>{t("common.sourceChecker")}</h1>
-              <h1 style={{ color: "#2834c2" }}>{t("auth.question")}</h1>
+              <Title variant="h1" title={t("common.sourceChecker")} />
+              <Title
+                variant="h1"
+                title={t("auth.question")}
+                color={colors.primary.main}
+              />
 
               <div className="auth-buttons">
-                <button
-                  className="student-button"
+                <StudentButton
+                  title={t("auth.studentButton")}
                   onClick={() => {
                     setMainPage(false);
                     navigate("/student-survey-authentication");
-                  }}>
-                  {t("auth.studentButton")}
-                </button>
-                <button
-                  className="teacher-button"
+                  }}
+                />
+                <TeacherButton
+                  title={t("auth.teacherButton")}
                   onClick={() => {
                     setMainPage(false);
                     navigate("/surveys-manager/authentication");
-                  }}>
-                  {t("auth.teacherButton")}
-                </button>
+                  }}
+                />
               </div>
-              <p style={{ fontSize: "21px", fontWeight: 400 }}>
-                {t("auth.mainText")}
-              </p>
+              <Text body2 text={t("auth.mainText")} />
             </div>
           </div>
 
