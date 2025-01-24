@@ -1,5 +1,5 @@
-import Text from "../../mui/Text";
 import Grid from "../../mui/Grid";
+import Text from "../../Text";
 
 const SurveyData = () => {
   return (

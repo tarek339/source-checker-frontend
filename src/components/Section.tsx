@@ -1,6 +1,6 @@
 import { SectionProps } from "../types/interfaces/components";
-import SubTitle from "./mui/SubTitle";
-import Text from "./mui/Text";
+import SubTitle from "./SubTitle";
+import Text from "./Text";
 
 const Section = ({ title, subTitle, mappedTitle }: SectionProps) => {
   return (

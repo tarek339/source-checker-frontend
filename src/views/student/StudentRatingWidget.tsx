@@ -50,9 +50,11 @@ const StudentRatingWidget = () => {
 
   return (
     <div>
-      {!isStarted && student?.participated && student.stars > 0 ? (
+      {!isStarted && student?.participated ? (
         <Acknowledgement />
-      ) : !isStarted && !student?.participated ? (
+      ) : !isStarted &&
+        !student?.participated &&
+        Number(student?.stars) === 0 ? (
         <Grid column gutters>
           <StandbyStatus />
         </Grid>

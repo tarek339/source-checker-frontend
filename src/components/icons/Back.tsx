@@ -1,9 +1,8 @@
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { IIBack } from "../../types/interfaces/components";
-
+import { IoArrowBackSharp } from "react-icons/io5";
 const Back = ({ onClick, style, size }: IIBack) => {
   return (
-    <IoMdArrowRoundBack
+    <IoArrowBackSharp
       size={size}
       cursor="pointer"
       onClick={onClick}

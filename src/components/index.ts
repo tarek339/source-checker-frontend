@@ -3,10 +3,9 @@ import Input from "./form/Input";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
 import LoadingPulse from "./LoadingPulse";
 import Header from "./Header";
-import SubTitle from "./mui/SubTitle";
 import FramerMotion from "./FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
-import Title from "./mui/Title";
+import Title from "./Title";
 import AddPage from "./survey/surveys-manager/add-pages/AddPage";
 import NoPages from "./survey/surveys-manager/add-pages/NoPages";
 import Form from "./form/Form";
@@ -39,11 +38,13 @@ import ActionButton from "./survey/surveys-manager/ActionButton";
 import SummaryButton from "./buttons/SummaryButton";
 import BasicTable from "./footer/license-notes/Table";
 import SummaryTable from "./survey/survery-summary/SummaryTable";
-import Text from "./mui/Text";
+import Text from "./Text";
 import UlList from "./mui/List";
 import UlListItem from "./mui/ListItem";
 import StudentButton from "./buttons/StudentButton";
 import TeacherButton from "./buttons/TeacherButton";
+import SubTitle from "./SubTitle";
+import StandbyMessage from "./survey/student-survey/StandbyMessage";
 
 export {
   BasicDivider as Divider,
@@ -92,4 +93,5 @@ export {
   UlListItem as ListItem,
   StudentButton,
   TeacherButton,
+  StandbyMessage,
 };

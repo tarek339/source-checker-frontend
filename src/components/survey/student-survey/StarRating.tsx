@@ -8,8 +8,7 @@ import {
 import axios from "axios";
 import { StarRatingProps } from "../../../types/interfaces/components";
 import { useEffect, useRef } from "react";
-import StandbyMessage from "./StandbyMessage";
-import { Button, Grid } from "../..";
+import { Button, Grid, StandbyMessage } from "../..";
 import { Rating } from "@mui/material";
 
 const StarRating = ({ surveyId, pageId, studentId }: StarRatingProps) => {
@@ -23,6 +22,7 @@ const StarRating = ({ surveyId, pageId, studentId }: StarRatingProps) => {
     openModal,
     closeModal,
   } = useDispatches();
+
   const { voted, votedStars, stars, modal, currentPage } = useSelectors();
   const { fetchSurveyByToken } = useRequests();
   const { windowWidth } = useBreakPoints();

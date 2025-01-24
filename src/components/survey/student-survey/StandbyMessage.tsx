@@ -1,11 +1,19 @@
 import { useSelectors, useDispatches, useBreakPoints } from "../../../hooks";
 import { Check } from "../../icons";
 import { Button, Grid, Modal, SubTitle, Text } from "../..";
+import { useEffect, useState } from "react";
 
 const StandbyMessage = () => {
-  const { modal } = useSelectors();
+  const { modal, surveyPages, currentPage } = useSelectors();
   const { closeModal } = useDispatches();
   const { windowWidth } = useBreakPoints();
+  const [lastPage, setLastPage] = useState(false);
+
+  useEffect(() => {
+    if (currentPage === surveyPages.length) {
+      setLastPage(true);
+    }
+  }, [currentPage, surveyPages.length]);
 
   return (
     <Modal
@@ -16,13 +24,15 @@ const StandbyMessage = () => {
       }}>
       <Grid flexStart width={"100%"} nowrap alignStart>
         <Check />
-        <Grid column>
-          <Grid column>
-            <SubTitle title={"Bitte warte"} />
-            <Text
-              text={"Einen Moment bitte, gleich kommt das nächste Beispiel."}
-            />
-          </Grid>
+        <Grid column width={"100%"} noMargin>
+          <SubTitle title={"Bitte warte"} />
+          <Text
+            text={
+              !lastPage
+                ? "Einen Moment bitte, gleich kommt das nächste Beispiel."
+                : "Letzte Seite betwertet, vielen Dank für deine Teilnahme!"
+            }
+          />
           <Grid flexEnd width={"100%"}>
             <Button onClick={closeModal} title={"Okay"} />
           </Grid>

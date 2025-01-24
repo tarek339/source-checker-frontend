@@ -1,7 +1,7 @@
 import { ListItem } from "@mui/material";
-import Text from "./Text";
 import Grid from "./Grid";
 import { ListItemProps } from "../../types/interfaces/components";
+import Text from "../Text";
 
 const UlListItem = ({ children }: ListItemProps) => {
   return (

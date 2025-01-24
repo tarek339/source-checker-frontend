@@ -2,8 +2,7 @@ import { LuCircleSlash2, LuDot } from "react-icons/lu";
 import BasicTable from "./Table";
 import { TableBody, TableCell, TableRow } from "@mui/material";
 import Grid from "../../mui/Grid";
-import Text from "../../mui/Text";
-import { Link } from "../..";
+import { Link, Text } from "../..";
 
 function createData(
   IconVisualized: JSX.Element,

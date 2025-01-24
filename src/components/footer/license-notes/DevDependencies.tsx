@@ -1,8 +1,7 @@
 import { TableBody, TableCell, TableRow } from "@mui/material";
 import BasicTable from "./Table";
 import Grid from "../../mui/Grid";
-import Text from "../../mui/Text";
-import { Link } from "../..";
+import { Link, Text } from "../..";
 
 function createData(
   name: string,

@@ -4,14 +4,13 @@ import {
   IoArrowBackSharp,
   IoArrowForwardSharp,
 } from "react-icons/io5";
-import { IoIosCloseCircleOutline, IoMdArrowRoundBack } from "react-icons/io";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import { BiLoaderAlt } from "react-icons/bi";
 import { FiArrowUp } from "react-icons/fi";
 import { TableBody, TableCell, TableRow } from "@mui/material";
 import BasicTable from "./Table";
 import Grid from "../../mui/Grid";
-import Text from "../../mui/Text";
-import { Link } from "../..";
+import { Link, Text } from "../..";
 
 function createData(
   IconVisualized: JSX.Element,
@@ -55,20 +54,7 @@ const rows = [
     </span>,
     "https://opensource.org/license/mit"
   ),
-  createData(
-    <IoMdArrowRoundBack />,
-    "IoMdArrowRoundBack",
-    "Ionicons",
-    "https://ionic.io/ionicons",
 
-    <span style={style}>
-      Copyright (c) 2015-present Ionic{" "}
-      <a target="_blank" href="http://ionic.io/">
-        http://ionic.io/
-      </a>
-    </span>,
-    "https://opensource.org/license/mit"
-  ),
   createData(
     <IoArrowBackSharp />,
     "IoArrowBackSharp",

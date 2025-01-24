@@ -1,6 +1,5 @@
-import { Link } from "../..";
+import { Link, Text } from "../..";
 import Grid from "../../mui/Grid";
-import Text from "../../mui/Text";
 
 const ContactData = () => {
   return (

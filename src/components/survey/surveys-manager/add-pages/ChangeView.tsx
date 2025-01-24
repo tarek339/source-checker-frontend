@@ -2,14 +2,14 @@ import { IconButton } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSelectors, useDispatches, useBreakPoints } from "../../../../hooks";
 import { PagesProps } from "../../../../types/interfaces/interfaces";
-import SideDrawer from "../../../mui/SideDrawer";
-import SubTitle from "../../../mui/SubTitle";
 import { Cancel, Mobile, Desktop, Generate } from "../../../icons";
 import OpenGraphView from "../../../OpenGraphView";
 import Screenshot from "../../../ScreenShot";
 import EmptyData from "./EmptyData";
 import Grid from "../../../mui/Grid";
 import { ViewsModalProps } from "../../../../types/interfaces/components";
+import SubTitle from "../../../SubTitle";
+import SideDrawer from "../../../mui/SideDrawer";
 
 const ChangeView = ({ pageId }: ViewsModalProps) => {
   const { changeView, survey, surveyPages } = useSelectors();

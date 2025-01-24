@@ -1,26 +1,24 @@
-import { Typography } from "@mui/material";
-import { SubTitleProps } from "../../types/interfaces/components";
+import { SubTitleProps } from "../types/interfaces/components";
 
 const SubTitle = ({
   title,
-  color,
+  style,
   marginBottom,
-  center,
   marginTop,
-  small,
+  center,
+  color,
 }: SubTitleProps) => {
   return (
-    <Typography
-      variant="h3"
+    <h3
       style={{
-        color: color,
+        ...style,
         marginBottom: marginBottom,
         marginTop: marginTop,
         textAlign: center ? "center" : "left",
-        fontSize: small ? "18px" : "",
+        color: color,
       }}>
       {title}
-    </Typography>
+    </h3>
   );
 };
 

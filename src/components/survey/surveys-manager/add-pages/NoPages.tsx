@@ -1,8 +1,8 @@
 import { useTranslations } from "../../../../hooks";
-import SubTitle from "../../../mui/SubTitle";
-import Text from "../../../mui/Text";
 import Grid from "../../../mui/Grid";
 import { colors } from "../../../../assets/theme/colors";
+import SubTitle from "../../../SubTitle";
+import Text from "../../../Text";
 
 const NoPages = () => {
   const { t } = useTranslations();

@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
 import { PagesProps } from "../../../types/interfaces/interfaces";
-import SubTitle from "../../mui/SubTitle";
 import OpenGraphHolder from "./OpenGraphHolder";
 import ScreenShotHolder from "./ScreenShotHolder";
 import StarRating from "./StarRating";
 import axios from "axios";
 import FramerMotion from "../../FramerMotion";
 import Grid from "../../mui/Grid";
+import SubTitle from "../../SubTitle";
 
 const SurveyStart = () => {
   const { student, surveyPages, survey, currentPage } = useSelectors();

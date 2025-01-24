@@ -1,7 +1,6 @@
 import { useBreakPoints, useDispatches, useSelectors } from "../../../hooks";
 import { Alert } from "../../icons";
-import SubTitle from "../../mui/SubTitle";
-import { Button, Grid, Modal, Text } from "../..";
+import { Button, Grid, Modal, SubTitle, Text } from "../..";
 import { NoteModalProps } from "../../../types/interfaces/components";
 
 const NoteModal = ({ onClick }: NoteModalProps) => {
@@ -16,9 +15,8 @@ const NoteModal = ({ onClick }: NoteModalProps) => {
       style={{ width: windowWidth <= 883 ? "95%" : "838.84px" }}>
       <Grid flexStart width={"100%"} nowrap alignStart>
         <Alert />
-        <Grid column>
+        <Grid column noMargin width={"100%"}>
           <SubTitle title={"Achtung"} />
-
           <div>
             <Text text={"Du startest einen neuen Durchgang."} />
             <Text

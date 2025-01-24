@@ -1,7 +1,6 @@
 import { SurveyDataProp } from "../../../types/interfaces/interfaces";
 import Grid from "../../mui/Grid";
-
-import Text from "../../mui/Text";
+import Text from "../../Text";
 
 const SurveyProp = ({ header, child, secondChild, filter }: SurveyDataProp) => {
   return (

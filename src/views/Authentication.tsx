@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { FramerMotion, StudentButton, Text, Title } from "../components";
+import { FramerMotion, StudentButton } from "../components";
 import { useDispatches, useTranslations } from "../hooks";
 import imgSrc from "../assets/images/title-img.jpg";
 import { useEffect } from "react";
@@ -22,13 +22,10 @@ const Authentication = () => {
         <div className="authentication-container">
           <div className="auth-section-container">
             <div className="auth-section">
-              <Title variant="h1" title={t("common.sourceChecker")} />
-              <Title
-                variant="h1"
-                title={t("auth.question")}
-                color={colors.primary.main}
-              />
-
+              <h1>{t("common.sourceChecker")}</h1>
+              <h1 style={{ color: colors.primary.main }}>
+                {t("auth.question")}
+              </h1>
               <div className="auth-buttons">
                 <StudentButton
                   title={t("auth.studentButton")}
@@ -45,7 +42,7 @@ const Authentication = () => {
                   }}
                 />
               </div>
-              <Text body2 text={t("auth.mainText")} />
+              <p style={{ fontSize: "1.25rem" }}>{t("auth.mainText")}</p>
             </div>
           </div>
 

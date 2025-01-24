@@ -1,6 +1,5 @@
-import Text from "../../mui/Text";
 import Grid from "../../mui/Grid";
-import { List, ListItem } from "../..";
+import { List, ListItem, Text } from "../..";
 
 const Protocol = () => {
   return (
