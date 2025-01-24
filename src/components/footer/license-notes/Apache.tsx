@@ -10,8 +10,7 @@ import { GrZoomIn } from "react-icons/gr";
 import BasicTable from "./Table";
 import { TableBody, TableCell, TableRow } from "@mui/material";
 import Grid from "../../mui/Grid";
-import Text from "../../mui/Text";
-import { Link } from "../..";
+import { Link, Text } from "../..";
 
 function createData(
   IconVisualized: JSX.Element,

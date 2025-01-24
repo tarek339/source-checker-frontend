@@ -1,4 +1,4 @@
-import { Button, Card, Grid, SummaryButton, Text } from "../..";
+import { Button, Card, Grid, SubTitle, SummaryButton, Text } from "../..";
 import {
   useBreakPoints,
   useDispatches,
@@ -6,7 +6,6 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import SubTitle from "../../mui/SubTitle";
 import axios from "axios";
 import NoteModal from "./NoteModal";
 import { useEffect, useState } from "react";
@@ -14,6 +13,7 @@ import moment from "moment";
 import QrCodeModal from "./QrCodeModal";
 import { useNavigate } from "react-router-dom";
 import { colors } from "../../../assets/theme/colors";
+import { FaRegCopy } from "react-icons/fa";
 
 const Contorl = () => {
   const { windowWidth } = useBreakPoints();
@@ -134,27 +134,46 @@ const Contorl = () => {
               ).format("DD.MM.YYYY")}`}
               bold
             />
-            <Text
-              text={copied ? "Kopiert" : "Schülerlink"}
-              color={hoveredUrl ? colors.primary.hover : colors.primary.main}
-              underline={hoveredUrl}
-              pointer
-              bold
-              onMouseEnter={() => setHoveredUrl(true)}
-              onMouseLeave={() => setHoveredUrl(false)}
-              onClick={copyToClipboard}
-              // icon={<Copy color={hovered ? "#000c9a" : "#2835c3"} />}
-            />
-            <Text
-              text={"QR-Code"}
-              color={hoveredQrCode ? colors.primary.hover : colors.primary.main}
-              underline={hoveredQrCode}
-              pointer
-              bold
-              onMouseEnter={() => setHoveredQrCode(true)}
-              onMouseLeave={() => setHoveredQrCode(false)}
-              onClick={openQrCodeModal}
-            />
+
+            <Grid column spacing={1} noMargin nowrap>
+              <Text text={"Schülerlink"} />
+              <div>
+                <Text
+                  text={
+                    copied ? (
+                      "Kopiert"
+                    ) : (
+                      <span>
+                        <FaRegCopy />
+                        Link
+                      </span>
+                    )
+                  }
+                  color={
+                    hoveredUrl ? colors.primary.hover : colors.primary.main
+                  }
+                  underline={hoveredUrl}
+                  pointer
+                  bold
+                  onMouseEnter={() => setHoveredUrl(true)}
+                  onMouseLeave={() => setHoveredUrl(false)}
+                  onClick={copyToClipboard}
+                />
+                <Text text={"oder"} />
+                <Text
+                  text={"QR-Code"}
+                  color={
+                    hoveredQrCode ? colors.primary.hover : colors.primary.main
+                  }
+                  underline={hoveredQrCode}
+                  pointer
+                  bold
+                  onMouseEnter={() => setHoveredQrCode(true)}
+                  onMouseLeave={() => setHoveredQrCode(false)}
+                  onClick={openQrCodeModal}
+                />
+              </div>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

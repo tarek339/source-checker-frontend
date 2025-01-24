@@ -1,6 +1,6 @@
 import Grid from "../../mui/Grid";
-import Title from "../../mui/Title";
-import Text from "../../mui/Text";
+import Text from "../../Text";
+import Title from "../../Title";
 
 const ImprintInformation = () => {
   return (

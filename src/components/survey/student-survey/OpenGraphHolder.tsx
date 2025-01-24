@@ -1,9 +1,7 @@
 import { OpenGraphHolderProps } from "../../../types/interfaces/components";
 import { useEffect, useState } from "react";
 import Grid from "../../mui/Grid";
-import SubTitle from "../../mui/SubTitle";
-import Text from "../../mui/Text";
-import { Card } from "../..";
+import { Card, SubTitle, Text } from "../..";
 
 const OpenGraphHolder = ({
   ogTitle,

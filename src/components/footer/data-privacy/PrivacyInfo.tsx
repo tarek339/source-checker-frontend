@@ -1,7 +1,5 @@
 import Grid from "../../mui/Grid";
-import Title from "../../mui/Title";
-import Text from "../../mui/Text";
-import { Link } from "../..";
+import { Link, Text, Title } from "../..";
 
 const PrivacyInfo = () => {
   return (

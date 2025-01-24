@@ -7,6 +7,7 @@ import {
   Button,
   Grid,
   Input,
+  Title,
 } from "../../components";
 import { useDispatches, useTranslations } from "../../hooks";
 import axios from "axios";
@@ -56,9 +57,10 @@ const StudentSurveyAuth = () => {
   return (
     <FramerMotion>
       <Grid column gutters>
-        <SubTitle title={t("studentSurvey.joinSurvey")} />
+        <Title title={"Umfrage beitreten"} />
         <Card>
           <Grid column maxWidth={400}>
+            <SubTitle title={t("studentSurvey.joinSurvey")} />
             <Form onSubmit={handleSubmit}>
               <Input
                 htmlFor={"surveyID"}

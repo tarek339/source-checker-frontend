@@ -154,12 +154,12 @@ export interface FormProps {
 }
 
 export interface SubTitleProps {
-  title: string | JSX.Element;
-  color?: string;
+  title: string;
+  style?: React.CSSProperties;
   marginBottom?: string;
-  marginTop?: string;
   center?: boolean;
-  small?: boolean;
+  color?: string;
+  marginTop?: string;
 }
 
 export interface FramerMotionProps {
@@ -170,7 +170,6 @@ export interface TitleProps {
   title: string;
   marginBottom?: string;
   color?: string;
-  variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
 export interface OpenGraphViewProps {

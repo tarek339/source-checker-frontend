@@ -271,8 +271,11 @@ const PageTable = () => {
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
-          labelDisplayedRows={({ from, to, count }) =>
-            `${from} - ${to} von ${count}`
+          // labelDisplayedRows={({ from, to, count }) =>
+          //   `${from} - ${to} von ${count}`
+          // }
+          labelDisplayedRows={({ page, count }) =>
+            `Seite ${page + 1} von ${Math.ceil(count / rowsPerPage)}`
           }
           sx={{
             "& .MuiTablePagination-selectLabel, .MuiTablePagination-input, .MuiTablePagination-displayedRows, .MuiTablePagination-actions":

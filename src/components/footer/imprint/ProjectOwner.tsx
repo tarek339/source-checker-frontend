@@ -1,6 +1,6 @@
 import Grid from "../../mui/Grid";
-import SubTitle from "../../mui/SubTitle";
-import Text from "../../mui/Text";
+import SubTitle from "../../SubTitle";
+import Text from "../../Text";
 
 const ProjectOwner = () => {
   return (

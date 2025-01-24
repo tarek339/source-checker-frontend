@@ -9,6 +9,7 @@ import {
   Grid,
   SubTitle,
   Input,
+  Title,
 } from "../../components";
 import { useDispatches, useSelectors, useTranslations } from "../../hooks";
 
@@ -80,9 +81,10 @@ const StudentRegister = () => {
   return (
     <FramerMotion>
       <Grid column gutters>
-        <SubTitle title={"Registrieren"} />
+        <Title title={"Registrieren"} />
         <Card>
           <Grid column maxWidth={400}>
+            <SubTitle title={"Username vergeben"} />
             <Form
               onSubmit={(e) => {
                 e.preventDefault();

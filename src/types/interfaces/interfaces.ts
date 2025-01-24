@@ -15,14 +15,14 @@ export interface PagesProps {
   };
   isOpenGraphView: boolean;
   isSelectedView: boolean;
-  starsArray: [
-    {
-      studentId: string;
-      userName: string;
-      userNumber: string;
-      stars: number;
-    }
-  ];
+  starsArray: StudentStars[];
+}
+
+export interface StudentStars {
+  studentId: string;
+  userName: string;
+  userNumber: string;
+  stars: number;
 }
 
 interface URL {

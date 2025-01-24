@@ -16,7 +16,7 @@ import withUnAuthPages from "../../hoc/withUnAuthPages";
 
 const LogInSurvey = () => {
   const { t } = useTranslations();
-  const { dispatchLoading, dispatchSurvey } = useDispatches();
+  const { dispatchLoading, dispatchSurvey, dispatchPages } = useDispatches();
   const navigate = useNavigate();
 
   const [surveyId, setSurveyId] = useState("");
@@ -59,6 +59,7 @@ const LogInSurvey = () => {
         surveyPin,
       });
       dispatchSurvey(res.data.survey);
+      dispatchPages(res.data.survey.pages);
       sessionStorage.setItem("token", res.data.token);
       navigate(`/surveys-manager/survey-profile/${res.data.survey._id}`);
       dispatchLoading(false);

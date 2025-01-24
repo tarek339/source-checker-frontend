@@ -1,5 +1,5 @@
 import Grid from "../../mui/Grid";
-import Text from "../../mui/Text";
+import Text from "../../Text";
 
 const Session = () => {
   return (

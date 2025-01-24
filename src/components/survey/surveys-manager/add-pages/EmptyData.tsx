@@ -1,7 +1,7 @@
 import { colors } from "../../../../assets/theme/colors";
 import { EmptyDataProps } from "../../../../types/interfaces/components";
 import Grid from "../../../mui/Grid";
-import Text from "../../../mui/Text";
+import Text from "../../../Text";
 
 const EmptyData = ({ title, width, height }: EmptyDataProps) => {
   return (

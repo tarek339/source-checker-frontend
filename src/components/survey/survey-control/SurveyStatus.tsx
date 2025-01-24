@@ -5,10 +5,9 @@ import {
   useSelectors,
   useTranslations,
 } from "../../../hooks";
-import SubTitle from "../../mui/SubTitle";
 import { StudentProps } from "../../../types/interfaces/interfaces";
 import Grid from "../../mui/Grid";
-import { Card, Text } from "../..";
+import { Card, SubTitle, Text } from "../..";
 import { Status } from "../../icons";
 import { colors } from "../../../assets/theme/colors";
 
@@ -62,7 +61,7 @@ const SurveyStatus = () => {
                 ? colors.secondary.main
                 : colors.typography.white
             }>
-            <>{survey?.isStarted ? t("common.active") : t("common.unActive")}</>
+            <>{survey?.isStarted ? t("common.active") : "inaktiv"}</>
           </Status>
         </Grid>
         <Text

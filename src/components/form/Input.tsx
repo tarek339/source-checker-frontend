@@ -8,8 +8,8 @@ import {
 import Grid from "../mui/Grid";
 import { Close } from "../icons";
 import { InputProps } from "../../types/interfaces/components";
-import Text from "../mui/Text";
 import { colors } from "../../assets/theme/colors";
+import Text from "../Text";
 
 const sx = {
   "& .MuiOutlinedInput-root": {

@@ -1,6 +1,5 @@
 import Grid from "../../mui/Grid";
-import Text from "../../mui/Text";
-import { List, ListItem } from "../..";
+import { List, ListItem, Text } from "../..";
 
 const RightAffected = () => {
   return (

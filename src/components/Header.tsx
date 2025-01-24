@@ -3,7 +3,7 @@ import { HeaderProps } from "../types/interfaces/components";
 import { useState } from "react";
 import { Home } from "./icons";
 import { useBreakPoints } from "../hooks";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Toolbar } from "@mui/material";
 import { colors } from "../assets/theme/colors";
 
 const Header = ({ title }: HeaderProps) => {
@@ -32,11 +32,13 @@ const Header = ({ title }: HeaderProps) => {
           letterSpacing: "1px",
           fontSize: windowWidth <= 320 ? "1.5em" : "2em",
           fontWeight: 600,
-          gap: "3px",
           width: "min-content",
+          display: "flex",
+          alignItems: "center",
+          gap: "3px",
         }}>
         <Home size={windowWidth <= 320 ? 36 : 40} />
-        <Typography variant="caption">{title}</Typography>
+        {title}
       </Toolbar>
     </AppBar>
   );

@@ -12,12 +12,12 @@ import {
   increaseLastPage,
 } from "../../../../hooks/redux/slices";
 import { IconButton } from "@mui/material";
-import SubTitle from "../../../mui/SubTitle";
 import { Cancel, Mobile, Desktop, Generate } from "../../../icons";
 import OpenGraphView from "../../../OpenGraphView";
 import Screenshot from "../../../ScreenShot";
 import EmptyData from "./EmptyData";
 import Grid from "../../../mui/Grid";
+import SubTitle from "../../../SubTitle";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
@@ -43,9 +43,13 @@ const SideMenu = () => {
       <Grid alignCenter flexStart width={"100%"} nowrap maxedWidth>
         <Grid flexStart alignCenter width={"100%"} maxedWidth>
           <SubTitle title={t("addPages.sideBar.header")} />
-          <SubTitle
-            title={`${lastSideBarPages.toString()}/${surveyPages?.length}`}
-          />
+          <>
+            {surveyPages
+              ?.slice(firstSideBarPages, lastSideBarPages)
+              .map((page, i) => (
+                <SubTitle key={i} title={page.title} />
+              ))}
+          </>
         </Grid>
         <IconButton onClick={() => dispatchSideBar(false)}>
           <Cancel />

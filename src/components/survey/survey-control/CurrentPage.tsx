@@ -5,8 +5,7 @@ import {
   useTranslations,
 } from "../../../hooks";
 import { PagesProps } from "../../../types/interfaces/interfaces";
-import SubTitle from "../../mui/SubTitle";
-import { Button, Card, Grid, Link, Text, Thumbnail } from "../..";
+import { Button, Card, Grid, Link, SubTitle, Text, Thumbnail } from "../..";
 import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
 import axios from "axios";
 import { useParams } from "react-router-dom";

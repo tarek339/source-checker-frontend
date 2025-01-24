@@ -38,7 +38,7 @@ const DeleteSurveyModal = () => {
       }}>
       <Grid flexStart width={"100%"} nowrap alignStart>
         <Alert />
-        <Grid column>
+        <Grid column noMargin width={"100%"}>
           <SubTitle
             title={`${
               t("common.survey") + " " + "ID:" + " " + survey?.surveyId
