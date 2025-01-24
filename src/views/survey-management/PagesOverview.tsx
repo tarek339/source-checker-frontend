@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  ContentContainer,
   Title,
   Card,
   FramerMotion,
   SubTitle,
   AddPage,
-  Flex,
   NoPages,
-  Divider,
-  ButtonContainer,
   Button,
   PageTable,
   SideMenu,
+  Grid,
 } from "../../components";
 import {
   useDispatches,
@@ -52,48 +49,38 @@ const PagesOverview = () => {
   }, []);
 
   return (
-    <ContentContainer style={{ position: "relative" }}>
-      <SideMenu />
-      <Title title={t("survey.createManagement")} />
-      <Card>
-        <FramerMotion>
-          <SubTitle title={t("addPages.header")} />
-          <AddPage />
-          <Flex
-            direction={"column"}
-            gap={"25px"}
-            justify="center"
-            style={{
-              maxWidth: "700px",
-              margin: "0 auto",
-              position: "relative",
-              paddingTop: "1em",
-            }}>
-            {survey && survey?.pages && survey?.pages?.length > 0 ? (
-              <PageTable />
-            ) : (
-              <NoPages />
-            )}
+    <FramerMotion>
+      <Grid column gutters>
+        <SideMenu />
 
-            <Flex
-              direction={windowWidth >= 530 ? "row" : "column"}
-              gap={windowWidth < 530 ? "10px" : "0px"}
-              justify="space-between"
-              align={windowWidth >= 530 ? "center" : "stretch"}
-              style={{
-                borderRadius: "4px",
-                marginTop: "2em",
-              }}>
-              <SubTitle
-                style={{ paddingTop: "0px" }}
-                title={t("addPages.addPages")}
-              />
+        <AddPage />
+
+        <Title title={t("survey.createManagement")} />
+
+        <Card>
+          <SubTitle title={t("addPages.header")} marginBottom="16px" />
+
+          <Grid column width={windowWidth <= 1000 ? "100%" : "80%"} spacing={4}>
+            <>
+              {survey && survey?.pages && survey?.pages?.length > 0 ? (
+                <PageTable />
+              ) : (
+                <NoPages />
+              )}
+            </>
+
+            <Grid
+              direction={windowWidth >= 500 ? "row" : "column"}
+              width={"100%"}
+              between>
+              <SubTitle title={t("addPages.addPages")} />
               <Button title={t("addPages.button")} onClick={openModal} />
-            </Flex>
+            </Grid>
 
-            <Divider />
-
-            <ButtonContainer>
+            <Grid
+              width={"100%"}
+              between
+              direction={windowWidth <= 500 ? "column-reverse" : "row"}>
               <Button
                 error
                 onClick={() =>
@@ -121,11 +108,11 @@ const PagesOverview = () => {
                   />
                 )}
               </>
-            </ButtonContainer>
-          </Flex>
-        </FramerMotion>
-      </Card>
-    </ContentContainer>
+            </Grid>
+          </Grid>
+        </Card>
+      </Grid>
+    </FramerMotion>
   );
 };
 

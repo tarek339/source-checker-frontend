@@ -1,63 +1,62 @@
-import { useSelectors, useBreakPoints } from "../../../hooks";
-import { ISectionHolder } from "../../../types/interfaces/components";
-import Flex from "../../containers/Flex";
-import SectionChild from "./SectionChild";
+import { Rating, TableBody, TableCell, TableRow } from "@mui/material";
+import { useSelectors } from "../../../hooks";
+import { SectionHolderProps } from "../../../types/interfaces/components";
+import SummaryTable from "./SummaryTable";
+import { useState } from "react";
+import { colors } from "../../../assets/theme/colors";
 
-const SectionHolder = ({
-  page,
-  credible,
-  trustworthy,
-  questionable,
-  doubtful,
-  unbelievable,
-}: ISectionHolder) => {
+const SectionHolder = ({ page }: SectionHolderProps) => {
+  const [hovered, setHovered] = useState<number | null>(null);
   const { survey } = useSelectors();
-  const { windowWidth } = useBreakPoints();
+
+  const handleMouseEnter = (row: number) => {
+    setHovered(row);
+  };
+  const handleMouseLeave = () => {
+    setHovered(null);
+  };
+
+  const sx: React.CSSProperties = {
+    fontSize: "22px",
+    fontWeight: 600,
+    textTransform: "none",
+    border: "none",
+  };
 
   return (
-    <>
-      {page.starsArray
-        ?.slice()
-        .sort((a, b) => b.stars - a.stars)
-        .map((obj, i) => {
-          return (
-            <Flex
-              key={i}
-              direction={windowWidth >= 470 ? "row" : "column"}
-              gap={windowWidth >= 470 ? "70px" : "0px"}
-              align="center"
-              justify={"space-between"}
-              style={{
-                borderBottom: "2px solid #2835c3",
-                padding: "5px 5px 5px 10px",
-                transition: "background-color 0.3s",
-              }}>
-              <SectionChild
-                style={{ paddingTop: "1.5px", textTransform: "capitalize" }}
-                text={
-                  survey?.freeUserNames && !survey?.anonymousResults
+    <SummaryTable header={["User", "Rating"]} size="medium">
+      <TableBody>
+        {page?.starsArray
+          ?.slice()
+          .sort((a, b) => b.stars - a.stars)
+          .map((obj, i) => {
+            return (
+              <TableRow
+                key={i}
+                sx={{
+                  borderBottom: `2px solid ${colors.primary.main}`,
+                  backgroundColor:
+                    hovered === i ? colors.table.tableRow.hover : "",
+                  transition: "background-color 0.3s",
+                }}
+                onMouseEnter={() => handleMouseEnter(i)}
+                onMouseLeave={handleMouseLeave}>
+                <TableCell sx={sx}>
+                  {i + 1}.{" "}
+                  {survey?.freeUserNames && !survey?.anonymousResults
                     ? obj.userName
-                    : (survey?.freeUserNames && survey?.anonymousResults) ||
-                      (!survey?.freeUserNames && survey?.anonymousResults)
-                    ? `Person ${i + 1}`
-                    : obj.userNumber
-                }
-              />
-              {obj.stars === 5 ? (
-                <SectionChild text={credible} />
-              ) : obj.stars === 4 ? (
-                <SectionChild text={trustworthy} />
-              ) : obj.stars === 3 ? (
-                <SectionChild text={questionable} />
-              ) : obj.stars === 2 ? (
-                <SectionChild text={doubtful} />
-              ) : (
-                <SectionChild text={unbelievable} />
-              )}
-            </Flex>
-          );
-        })}
-    </>
+                    : obj.userNumber}
+                </TableCell>
+                <TableCell sx={sx}>
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <Rating value={obj.stars} readOnly size="large" />
+                  </div>
+                </TableCell>
+              </TableRow>
+            );
+          })}
+      </TableBody>
+    </SummaryTable>
   );
 };
 

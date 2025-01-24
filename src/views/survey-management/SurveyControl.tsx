@@ -2,12 +2,11 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   FramerMotion,
-  ContentContainer,
-  Flex,
-  SubTitle,
   CurrentPage,
   Contorl,
   SurveyStatus,
+  Grid,
+  Title,
 } from "../../components";
 import { Back } from "../../components/icons";
 import {
@@ -37,35 +36,26 @@ const SurveyControl = () => {
 
   return (
     <FramerMotion>
-      <ContentContainer
-        maxWidth={1150}
-        style={{ paddingLeft: "20px", paddingRight: "20px" }}>
-        <Flex direction={"row"} align="center">
+      <Grid column gutters>
+        <Grid flexStart alignCenter width={"100%"} spacing={1}>
           <Back
-            style={{ paddingTop: "7px" }}
+            size={40}
             onClick={() =>
               navigate(`/surveys-manager/pages-overview/${survey?._id}`)
             }
           />
-          <SubTitle
-            style={{ fontSize: "31px" }}
-            title={`${t("common.surveyID")}: ${survey?.surveyId}`}
-          />
-        </Flex>
-        <Flex
-          direction={"column"}
-          gap={"20px"}
-          width="100%"
-          style={{
-            marginTop: "1em",
-          }}>
-          <CurrentPage />
-          <Flex direction={windowWidth < 880 ? "column" : "row"} gap={"20px"}>
-            <Contorl />
-            <SurveyStatus />
-          </Flex>
-        </Flex>
-      </ContentContainer>
+          <Title title={`${t("common.surveyID")}: ${survey?.surveyId}`} />
+        </Grid>
+
+        <CurrentPage />
+        <Grid
+          width={"100%"}
+          direction={windowWidth < 890 ? "column" : "row"}
+          nowrap>
+          <Contorl />
+          <SurveyStatus />
+        </Grid>
+      </Grid>
     </FramerMotion>
   );
 };

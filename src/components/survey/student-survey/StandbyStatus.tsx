@@ -1,9 +1,6 @@
 import { useSelectors, useTranslations } from "../../../hooks";
-import SubTitle from "../../fonts/SubTitle";
-import Flex from "../../containers/Flex";
-import FramerMotion from "../../containers/FramerMotion";
-import SubCard from "../../containers/SubCard";
-import Span from "../../fonts/Span";
+import { Card, FramerMotion, Grid, SubTitle, Text } from "../..";
+import { colors } from "../../../assets/theme/colors";
 
 const StandbyStatus = () => {
   const { t } = useTranslations();
@@ -17,32 +14,29 @@ const StandbyStatus = () => {
 
   return (
     <FramerMotion>
-      <Flex direction={"column"} gap={"20px"} align="center" justify="center">
-        <SubCard
-          style={{ marginTop: "1em", marginLeft: "20px", marginRight: "20px" }}>
-          <Flex direction={"column"} gap={"20px"}>
-            <Flex direction={"column"} gap={"15px"}>
-              <SubTitle
-                title={`${t("common.hello")} ${
-                  user?.charAt(0).toUpperCase() + slicedUser!
-                }, ${t("studentSurvey.welcome")}`}
-              />
-              <Flex direction={"column"} gap={"5px"}>
-                <Span title={t("surveyControl.introText.first")} />
-                <Span title={t("surveyControl.introText.second")} />
-                <Span title={t("surveyControl.introText.third")} />
-                <Span title={t("surveyControl.introText.fourth")} />
-              </Flex>
-            </Flex>
-            <Flex direction={"row"} justify="center">
-              <SubTitle
-                style={{ color: "#ff0000" }}
-                title={t("studentSurvey.notStartedInfo")}
-              />
-            </Flex>
-          </Flex>
-        </SubCard>
-      </Flex>
+      <Grid column width={"100%"}>
+        <Card>
+          <Grid column width={"100%"}>
+            <SubTitle
+              title={`${t("common.hello")} ${
+                user?.charAt(0).toUpperCase() + slicedUser!
+              }, ${t("studentSurvey.welcome")}`}
+            />
+            <div>
+              <Text text={t("surveyControl.introText.first")} />
+              <Text text={t("surveyControl.introText.second")} />
+              <Text text={t("surveyControl.introText.third")} />
+              <Text text={t("surveyControl.introText.fourth")} />
+            </div>
+
+            <SubTitle
+              title={t("studentSurvey.notStartedInfo")}
+              color={colors.desctructed.main}
+              center
+            />
+          </Grid>
+        </Card>
+      </Grid>
     </FramerMotion>
   );
 };

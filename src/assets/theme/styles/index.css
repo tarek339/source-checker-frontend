@@ -1,0 +1,45 @@
+@import "./authentication.css";
+@import "./toggle.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #f5f5f5;
+}
+
+/* table select */
+.css-n3ooln-MuiButtonBase-root-MuiMenuItem-root-MuiTablePagination-menuItem.Mui-selected,
+.css-wlsqrd-MuiButtonBase-root-MuiMenuItem-root-MuiTablePagination-menuItem.Mui-selected,
+.css-1ryc1pl.Mui-selected,
+.css-v84xzy.Mui-selected {
+  background-color: rgb(40, 53, 195, 0.08) !important;
+  font-size: 1rem !important;
+}
+
+.css-n3ooln-MuiButtonBase-root-MuiMenuItem-root-MuiTablePagination-menuItem,
+.css-wlsqrd-MuiButtonBase-root-MuiMenuItem-root-MuiTablePagination-menuItem,
+.css-1ryc1pl,
+.css-v84xzy {
+  font-size: 1rem !important;
+}
+
+.css-1tktgsa-MuiPaper-root-MuiPopover-paper-MuiMenu-paper.MuiMenu-paper,
+.css-d1xm6m,
+.css-81kwad {
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.13), 0 1px 2px 0 rgba(0, 0, 0, 0.11) !important;
+}
+
+/* opne modal effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

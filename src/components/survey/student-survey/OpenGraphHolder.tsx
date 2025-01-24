@@ -1,15 +1,16 @@
-import { IOpenGraphHolder } from "../../../types/interfaces/components";
-import SubTitle from "../../fonts/SubTitle";
-import Flex from "../../containers/Flex";
-import SubCard from "../../containers/SubCard";
+import { OpenGraphHolderProps } from "../../../types/interfaces/components";
 import { useEffect, useState } from "react";
+import Grid from "../../mui/Grid";
+import SubTitle from "../../mui/SubTitle";
+import Text from "../../mui/Text";
+import { Card } from "../..";
 
 const OpenGraphHolder = ({
   ogTitle,
   ogImage,
   ogDescription,
   url,
-}: IOpenGraphHolder) => {
+}: OpenGraphHolderProps) => {
   const [newUrl, setNewUrl] = useState(url);
 
   function getFirstHalfOfString(url: string) {
@@ -27,10 +28,10 @@ const OpenGraphHolder = ({
   }, [url]);
 
   return (
-    <SubCard>
-      <Flex direction={"column"} gap={"10px"} justify="center">
+    <Card>
+      <Grid column center>
         <SubTitle title={ogTitle} />
-        <span>URL: {newUrl.replace(newUrl, newUrl + "...")}</span>
+        <Text text={`URL: ${newUrl.replace(newUrl, newUrl + "...")}`} />
         <img
           style={{
             width: "100%",
@@ -39,9 +40,9 @@ const OpenGraphHolder = ({
           src={ogImage as string}
           alt=""
         />
-        <p>{ogDescription}</p>
-      </Flex>
-    </SubCard>
+        <Text text={ogDescription} />
+      </Grid>
+    </Card>
   );
 };
 

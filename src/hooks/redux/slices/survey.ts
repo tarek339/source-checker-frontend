@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
-  IAddSurvey,
-  InitialSurveyState,
+  AddSurveyAction,
+  InitialStateSurvey,
 } from "../../../types/interfaces/redux/slices";
 
-const initialState: InitialSurveyState = {
+const initialState: InitialStateSurvey = {
   survey: null,
   loading: true,
 };
@@ -13,7 +13,7 @@ const surveySlice = createSlice({
   name: "survey",
   initialState,
   reducers: {
-    addSurvey: (state, action: PayloadAction<IAddSurvey>) => {
+    addSurvey: (state, action: PayloadAction<AddSurveyAction>) => {
       state.survey = action.payload.survey;
       state.loading = false;
     },

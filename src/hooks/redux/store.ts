@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
-  adminReducer,
+  changeViewReducer,
   loadingReducer,
   mainPageReducer,
   modalReducer,
@@ -14,7 +14,6 @@ import {
   surveyPagesReducer,
   surveyReducer,
   translationsReducer,
-  viewsModalReducer,
 } from "./slices";
 
 export const store = configureStore({
@@ -32,8 +31,7 @@ export const store = configureStore({
     student: studenReducer,
     sliceNums: sliceNumsReducer,
     qrCode: qrCodeReducer,
-    viewsModal: viewsModalReducer,
-    admin: adminReducer,
+    changeView: changeViewReducer,
   },
 });
 

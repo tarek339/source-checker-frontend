@@ -4,6 +4,7 @@ import Protocol from "./Protocol";
 import SurveyData from "./SurveyData";
 import Cookies from "./Cookies";
 import RightAffected from "./RightAffected";
+import Session from "./Session";
 
 export {
   ContactData,
@@ -12,4 +13,5 @@ export {
   SurveyData,
   Cookies,
   RightAffected,
+  Session,
 };

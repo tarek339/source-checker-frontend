@@ -1,45 +1,58 @@
 import { useState } from "react";
 import {
   Card,
-  Divider,
-  Flex,
-  FormContainer,
+  Form,
   FramerMotion,
-  Input,
   SubTitle,
   Title,
-  ContentContainer,
   Button,
+  Grid,
+  Input,
 } from "../../components";
-import { useTranslations, useInputErrors, useDispatches } from "../../hooks";
+import { useTranslations, useDispatches } from "../../hooks";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import withUnAuthPages from "../../hoc/withUnAuthPages";
 
 const LogInSurvey = () => {
   const { t } = useTranslations();
-  const { emptyInput, incorrectType, fetchError } = useInputErrors();
   const { dispatchLoading, dispatchSurvey } = useDispatches();
   const navigate = useNavigate();
 
   const [surveyId, setSurveyId] = useState("");
   const [surveyPin, setSurveyPin] = useState("");
-  const [IDErrMsg, setIDErrMsg] = useState<JSX.Element | null>(null);
-  const [PINErrMsg, setPINErrMsg] = useState<JSX.Element | null>(null);
-  const [fetchErrMsg, setFetchErrMsg] = useState<JSX.Element | null>(null);
-  const [idTypeErrMsg, setIdTypeErrMsg] = useState<JSX.Element | null>(null);
-  const [pinTypeErrMsg, setPinTypeErrMsg] = useState<JSX.Element | null>();
+
+  const [idError, setIdError] = useState(false);
+  const [pinError, setPinError] = useState(false);
+  const [idErrorMessage, setIdErrorMessage] = useState("");
+  const [pinErrorMessage, setPinErrorMessage] = useState("");
+  const [fetchErrorMessage, setFetchErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
-      !surveyId ? setIDErrMsg(emptyInput) : null;
-      !surveyPin ? setPINErrMsg(emptyInput) : null;
-      surveyId.match(/[A-Z|a-z|ü|é]/i) ? setIdTypeErrMsg(incorrectType) : null;
-      surveyPin.match(/[A-Z|a-z|ü|é]/i)
-        ? setPinTypeErrMsg(incorrectType)
-        : null;
-      if (!surveyId || !surveyPin) return;
+
+      if (!surveyId) {
+        setIdError(true);
+        setIdErrorMessage("Pflichtfeld");
+        return;
+      }
+      if (!surveyPin) {
+        setPinError(true);
+        setPinErrorMessage("Pflichtfeld");
+        return;
+      }
+      if (surveyId.match(/[A-Z|a-z|ü|é]/i)) {
+        setIdError(true);
+        setIdErrorMessage("Ungültige Eingabe - nur Zahlen erlaubt");
+        return;
+      }
+      if (surveyPin.match(/[A-Z|a-z|ü|é]/i)) {
+        setPinError(true);
+        setPinErrorMessage("Ungültige Eingabe - nur Zahlen erlaubt");
+        return;
+      }
+
       dispatchLoading(true);
       const res = await axios.post("/survey/log-in-survey", {
         surveyId,
@@ -50,106 +63,79 @@ const LogInSurvey = () => {
       navigate(`/surveys-manager/survey-profile/${res.data.survey._id}`);
       dispatchLoading(false);
     } catch (error) {
-      setFetchErrMsg(fetchError);
+      setIdError(true);
+      setPinError(true);
+      if (axios.isAxiosError(error) && error.response) {
+        setFetchErrorMessage(error.response.data.errorMessage);
+      }
+      console.log((error as Error).message);
     }
   };
 
   return (
-    <ContentContainer>
-      <Title title={t("survey.createManagement")} />
-      <Card>
-        <FramerMotion>
-          <SubTitle title={t("chooseSurvey.surveyData")} />
-          <Flex
-            direction={"column"}
-            gap={"15px"}
-            style={{
-              margin: "0 auto",
-              maxWidth: "400px",
-              paddingTop: "30px",
-            }}>
-            <FormContainer onSubmit={handleSubmit} gap={"15px"}>
+    <FramerMotion>
+      <Grid column gutters>
+        <Title title={t("survey.createManagement")} />
+
+        <Card>
+          <Grid column maxWidth={400}>
+            <SubTitle title={"Umfragedaten eingeben"} />
+            <Form onSubmit={handleSubmit}>
               <Input
+                htmlFor={"id"}
                 label={`${t("common.surveyID")}*`}
-                name={surveyId}
-                htmlFor={"survey-id"}
-                placeHolder="z. Bsp. 1234..."
-                error={
-                  IDErrMsg
-                    ? IDErrMsg
-                    : idTypeErrMsg
-                    ? idTypeErrMsg
-                    : fetchErrMsg
-                }
-                hasError={
-                  IDErrMsg
-                    ? IDErrMsg
-                    : idTypeErrMsg
-                    ? idTypeErrMsg
-                    : fetchErrMsg
-                }
+                palceholder="123456"
+                error={idError}
                 value={surveyId}
                 onChange={(e) => {
                   setSurveyId(e.target.value);
-                  setIDErrMsg(null);
-                  setFetchErrMsg(null);
-                  setIdTypeErrMsg(null);
+                  setIdError(false);
+                  setIdErrorMessage("");
+                  setFetchErrorMessage("");
                 }}
                 onClear={() => {
                   setSurveyId("");
-                  setIDErrMsg(null);
-                  setFetchErrMsg(null);
-                  setIdTypeErrMsg(null);
+                  setIdError(false);
+                  setIdErrorMessage("");
+                  setFetchErrorMessage("");
                 }}
+                errorMessage={idErrorMessage || fetchErrorMessage}
               />
               <Input
-                type="password"
+                htmlFor={"pin"}
                 label={`${t("common.surveyPIN")}*`}
-                name={surveyPin}
-                htmlFor={"survey-pin"}
-                placeHolder="z. Bsp. 1234..."
-                error={
-                  PINErrMsg
-                    ? PINErrMsg
-                    : pinTypeErrMsg
-                    ? pinTypeErrMsg
-                    : fetchErrMsg
-                }
-                hasError={
-                  PINErrMsg
-                    ? PINErrMsg
-                    : pinTypeErrMsg
-                    ? pinTypeErrMsg
-                    : fetchErrMsg
-                }
+                palceholder="123456"
+                type="password"
+                error={pinError}
                 value={surveyPin}
                 onChange={(e) => {
                   setSurveyPin(e.target.value);
-                  setPINErrMsg(null);
-                  setFetchErrMsg(null);
-                  setPinTypeErrMsg(null);
+                  setPinError(false);
+                  setPinErrorMessage("");
+                  setFetchErrorMessage("");
                 }}
                 onClear={() => {
                   setSurveyPin("");
-                  setPINErrMsg(null);
-                  setFetchErrMsg(null);
-                  setPinTypeErrMsg(null);
+                  setPinError(false);
+                  setPinErrorMessage("");
+                  setFetchErrorMessage("");
                 }}
+                errorMessage={pinErrorMessage || fetchErrorMessage}
               />
-              <Divider />
-              <Flex direction={"column"} gap={"15px"}>
+
+              <Grid column width={"100%"} spacing={1}>
                 <Button type="submit" title={t("button.callUp")} />
                 <Button
                   error
-                  onClick={() => navigate(-1)}
+                  onClick={() => navigate("/surveys-manager/authentication")}
                   title={t("button.back")}
                 />
-              </Flex>
-            </FormContainer>
-          </Flex>
-        </FramerMotion>
-      </Card>
-    </ContentContainer>
+              </Grid>
+            </Form>
+          </Grid>
+        </Card>
+      </Grid>
+    </FramerMotion>
   );
 };
 

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IHandleModal } from "../../../types/interfaces/redux/slices";
+import { HandleModalAction } from "../../../types/interfaces/redux/slices";
 
 const modalSlice = createSlice({
   name: "modal",
@@ -7,7 +7,7 @@ const modalSlice = createSlice({
     isVisible: false,
   },
   reducers: {
-    handleModal: (state, action: PayloadAction<IHandleModal>) => {
+    handleModal: (state, action: PayloadAction<HandleModalAction>) => {
       state.isVisible = action.payload.isVisible;
     },
   },

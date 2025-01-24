@@ -7,12 +7,13 @@ import {
   TableCell,
 } from "@mui/material";
 import { BasicTableProps } from "../../../types/interfaces/components";
+import { colors } from "../../../assets/theme/colors";
 
 const sx: React.CSSProperties = {
   fontSize: "12px",
   textTransform: "none",
-  border: "1px solid darkgray",
-  backgroundColor: "lightgrey",
+  border: `1px solid ${colors.border.tableBorder}`,
+  backgroundColor: colors.table.header,
   fontWeight: 600,
 };
 
@@ -22,6 +23,7 @@ const BasicTable = ({ header, minWidth, children }: BasicTableProps) => {
       sx={{
         boxShadow: "none",
         borderRadius: "0px",
+        scrollbarWidth: "thin",
       }}
       component={Paper}>
       <Table

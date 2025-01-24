@@ -1,4 +1,4 @@
-import { FramerMotion, ContentContainer, Flex } from "../../components";
+import { FramerMotion, Grid } from "../../components";
 import {
   ImprintInformation,
   RightsOwner,
@@ -11,18 +11,14 @@ import {
 const Imprint = () => {
   return (
     <FramerMotion>
-      <ContentContainer
-        maxWidth={1200}
-        style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-        <Flex direction={"column"} gap={"70px"}>
-          <ImprintInformation />
-          <RightsOwner />
-          <LegalForm />
-          <ProjectOwner />
-          <TechnicalRealization />
-          <Contact />
-        </Flex>
-      </ContentContainer>
+      <Grid column gutters spacing={4}>
+        <ImprintInformation />
+        <RightsOwner />
+        <LegalForm />
+        <ProjectOwner />
+        <TechnicalRealization />
+        <Contact />
+      </Grid>
     </FramerMotion>
   );
 };

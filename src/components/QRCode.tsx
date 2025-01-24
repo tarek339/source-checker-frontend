@@ -1,7 +1,7 @@
 import { QRCodeCanvas } from "qrcode.react";
-import { IQRCode } from "../types/interfaces/components";
+import { QRCodeProps } from "../types/interfaces/components";
 
-const QrCode = ({ value, onClick, size, cursor }: IQRCode) => {
+const QrCode = ({ value, onClick, size, cursor }: QRCodeProps) => {
   return (
     <QRCodeCanvas
       onClick={onClick}

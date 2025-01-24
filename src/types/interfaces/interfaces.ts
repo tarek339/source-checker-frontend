@@ -1,4 +1,4 @@
-export interface IPages {
+export interface PagesProps {
   _id: string;
   number: number;
   title: string;
@@ -29,7 +29,7 @@ interface URL {
   url: string;
 }
 
-export interface ISurvey {
+export interface SurveyProps {
   _id: string;
   anonymousResults: boolean;
   freeUserNames: boolean;
@@ -38,30 +38,25 @@ export interface ISurvey {
   selectedSurveysOption: string;
   selectedResultsOption: string;
   surveyNumber: number;
-  pages: IPages[];
+  pages: PagesProps[];
   link: string;
   validUntil: string;
   isStarted: boolean;
   pageNum: number;
 }
 
-export interface ISurveyProp {
+export interface SurveyDataProp {
   header: string;
   child: string | number | boolean | JSX.Element | undefined;
-  secondChild?: JSX.Element | string;
+  secondChild?: string;
   filter?: number;
 }
 
-export interface IStudent {
+export interface StudentProps {
   _id: string;
   freeUserName: string;
   userNumber: string;
   isNameRegistered: boolean;
   participated: boolean;
   stars: number;
-}
-
-export interface IAdmin {
-  _id: string;
-  surveyId: string;
 }

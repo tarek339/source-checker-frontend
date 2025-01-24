@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IHandleQrCode } from "../../../types/interfaces/redux/slices";
+import { HandleQrCodeProps } from "../../../types/interfaces/redux/slices";
 
 const qrCodeSlice = createSlice({
   name: "qrCode",
@@ -7,7 +7,7 @@ const qrCodeSlice = createSlice({
     isVisible: false,
   },
   reducers: {
-    handleQrCode: (state, action: PayloadAction<IHandleQrCode>) => {
+    handleQrCode: (state, action: PayloadAction<HandleQrCodeProps>) => {
       state.isVisible = action.payload.isVisible;
     },
   },

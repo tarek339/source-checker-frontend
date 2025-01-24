@@ -5,10 +5,11 @@ const Yes = () => {
   return (
     <div
       style={{
+        fontFamily: "Work Sans, Helvetica, Arial, Lucida Grande, sans-serif",
         backgroundColor: "#2834c2",
         color: "#31e981",
         borderRadius: "4px",
-        fontSize: "18px",
+        fontSize: "20px",
         fontWeight: "bold",
         textTransform: "uppercase",
         width: "60px",

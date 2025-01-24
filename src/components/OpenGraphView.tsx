@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useDispatches, useSelectors } from "../hooks";
-import Flex from "./containers/Flex";
-import { IOpenGraphView } from "../types/interfaces/components";
-import { Button } from ".";
+import { OpenGraphViewProps } from "../types/interfaces/components";
+import { Button, Grid, SubTitle, Text } from ".";
 
 const OpenGraphView = ({
   pageID,
@@ -12,9 +11,9 @@ const OpenGraphView = ({
   ogDescription,
   gap,
   icon,
-}: IOpenGraphView) => {
+}: OpenGraphViewProps) => {
   const { survey, surveyPages, lastSideBarPages } = useSelectors();
-  const { dispatchSurvey, dispatchPages, dispatchSideBar, closeViewsModal } =
+  const { dispatchSurvey, dispatchChangeView, dispatchPages, dispatchSideBar } =
     useDispatches();
 
   const chooseView = async () => {
@@ -27,7 +26,7 @@ const OpenGraphView = ({
       if (res.data.survey) {
         dispatchSurvey(res.data.survey);
         dispatchPages(res.data.survey.pages);
-        closeViewsModal();
+        dispatchChangeView(false);
       }
       if (surveyPages.length === lastSideBarPages) {
         dispatchSideBar(false);
@@ -38,24 +37,21 @@ const OpenGraphView = ({
   };
 
   return (
-    <Flex
-      direction={"column"}
-      gap={"15px"}
-      style={{ height: "600px", maxWidth: "600px" }}>
-      <Flex direction={"row"} justify="flex-start">
+    <Grid column maxHeight={600} maxWidth={600} nowrap>
+      <Grid flexStart width={"100%"}>
         <Button
           gap={gap!}
-          icon={icon}
+          startIcon={icon}
           onClick={chooseView}
           title={"Open-Graph"}
         />
-      </Flex>
+      </Grid>
       <div>
-        <h3>{ogTitle}</h3>
+        <SubTitle title={ogTitle} />
         <img style={{ maxWidth: "100%", height: "auto" }} src={url} alt="" />
-        <p>{ogDescription}</p>
+        <Text text={ogDescription} />
       </div>
-    </Flex>
+    </Grid>
   );
 };
 

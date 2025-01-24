@@ -1,6 +1,6 @@
 import { useSelectors, useDispatches, useBreakPoints } from "../../../hooks";
 import QrCode from "../../QRCode";
-import { Button, Flex, Modal } from "../..";
+import { Button, Grid, Modal } from "../..";
 
 const QrCodeModal = () => {
   const { qrCode } = useSelectors();
@@ -13,16 +13,16 @@ const QrCodeModal = () => {
       open={qrCode}
       onClose={closeQrCodeModal}
       style={{ width: windowWidth < 395 ? "90%" : "" }}>
-      <Flex justify="center" width="100%" gap="10px">
-        <Flex direction="column" gap="10px">
+      <Grid center>
+        <Grid column>
           <QrCode
             size={windowWidth > 395 ? 300 : windowWidth - 100}
             value={survey?.link ?? ""}
           />
 
           <Button title={"OK"} onClick={closeQrCodeModal} />
-        </Flex>
-      </Flex>
+        </Grid>
+      </Grid>
     </Modal>
   );
 };

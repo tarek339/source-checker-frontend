@@ -4,164 +4,188 @@ import {
   useDispatches,
   useRequests,
   useSelectors,
-  useStars,
   useTranslations,
 } from "../../hooks";
-import { IPages } from "../../types/interfaces/interfaces";
+import { PagesProps } from "../../types/interfaces/interfaces";
 import {
   Card,
-  Flex,
   FramerMotion,
-  SubTitle,
   Title,
-  ContentContainer,
+  Grid,
+  SummaryTable,
+  Thumbnail,
   SectionHolder,
   Result,
-  Thumbnail,
 } from "../../components";
-import { Average, Star } from "../../components/icons";
+import { Average, Back } from "../../components/icons";
 import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
+import { useNavigate, useParams } from "react-router-dom";
+import { Rating, TableBody, TableCell, TableRow } from "@mui/material";
+
+const sx: React.CSSProperties = {
+  fontSize: "22px",
+  fontWeight: 600,
+  textTransform: "none",
+  border: "none",
+};
 
 const SurveySummary = () => {
   const { fetchSurvey } = useRequests();
-  const { first, last, isSort, surveyPages } = useSelectors();
+  const { first, last, surveyPages, survey, pageId, isSort } = useSelectors();
   const { t } = useTranslations();
   const { windowWidth } = useBreakPoints();
-  const { fiveStars, fourStars, oneStar, threeStars, twoStars } = useStars();
-  const { setFirst, setLast } = useDispatches();
+  const { pageID } = useParams();
+  const { setFirst, setLast, fetchPageId } = useDispatches();
+  const navigate = useNavigate();
 
   const [sumStars, setSumStars] = useState<number[]>([0]);
+  const [page, setPage] = useState<PagesProps>();
+  const [nextId, setNextId] = useState("");
+  const [prevId, setprevId] = useState("");
 
   useEffect(() => {
     fetchSurvey();
   }, []);
 
   useEffect(() => {
+    fetchPageId(pageID ?? "");
+  }, [pageId]);
+
+  useEffect(() => {
     const sum = surveyPages
-      ?.slice()
-      .sort((a, b) =>
-        isSort
-          ? b.starsArray.reduce((acc, crr) => acc + crr.stars, 0) -
-            a.starsArray.reduce((acc, crr) => acc + crr.stars, 0)
-          : 0
-      )
-      .slice(first, last)
-      .map((page: IPages) => {
+      .filter((page) => page._id === pageId)
+      .map((page: PagesProps) => {
+        setPage(page);
         return page.starsArray.reduce((acc, crr) => {
           return acc + crr.stars;
         }, 0);
       });
     setSumStars(sum);
-  }, [surveyPages, first, last, isSort]);
+  }, [surveyPages, pageId]);
+
+  useEffect(() => {
+    const filteredIDs = surveyPages
+      .slice()
+      .sort((a, b) =>
+        isSort
+          ? b.starsArray?.reduce((acc, crr) => acc + crr.stars, 0) -
+            a.starsArray?.reduce((acc, crr) => acc + crr.stars, 0)
+          : 0
+      )
+      .map((page: PagesProps) => page._id);
+    const currentIndex = filteredIDs.indexOf(pageId);
+    const nextIndex = currentIndex + 1;
+    const prevIndex = currentIndex - 1;
+
+    if (nextIndex < filteredIDs.length) {
+      setNextId(filteredIDs[nextIndex]);
+    }
+    if (prevIndex < filteredIDs.length) {
+      setprevId(filteredIDs[prevIndex]);
+    }
+  }, [surveyPages, pageId, isSort]);
 
   return (
-    <ContentContainer>
-      <Title title={t("surveySummaray.title")} />
-      <Card style={{ paddingTop: "30px" }}>
-        <FramerMotion>
-          <Flex direction={"column"} gap={"30px"}>
-            <Flex
+    <FramerMotion>
+      <Grid column gutters>
+        <Grid flexStart alignCenter width={"100%"} spacing={1}>
+          <Back
+            size={40}
+            onClick={() => navigate(`/survey-ranking/${survey?._id}`)}
+          />
+          <Title title={t("surveySummaray.title")} />
+        </Grid>
+
+        <Card>
+          <Grid spacing={4} column>
+            <Grid
               direction={windowWidth > 690 ? "row" : "column"}
-              align={windowWidth < 691 ? "center" : "flex-start"}
-              gap={"20px"}>
+              spacing={windowWidth > 690 ? 2 : 4}
+              alignStart
+              between
+              nowrap
+              noMargin>
               <>
-                {surveyPages.slice(first, last).map((page) => {
-                  return (
-                    <Thumbnail
-                      width={windowWidth < 691 ? "294px" : "50%"}
-                      height={windowWidth < 691 ? "165px" : "250px"}
-                      url={
-                        page.isMobileView
-                          ? page.mobileScreenshot
-                          : page.isMobileView === false
-                          ? page.mobileScreenshot
-                          : page.isMobileView === null && page.isOpenGraphView
-                          ? page.openGraph.ogImage?.map(
-                              (img: { url: string }) => img.url
-                            )
-                          : null
-                      }
-                    />
-                  );
-                })}
+                {surveyPages
+                  .filter((page) => page._id === pageId)
+                  .map((page) => {
+                    return (
+                      <Thumbnail
+                        width={"50%"}
+                        height={windowWidth < 691 ? "250px" : "250px"}
+                        overflowY={
+                          page.isMobileView && !page.isOpenGraphView
+                            ? "scroll"
+                            : !page.isMobileView && !page.isOpenGraphView
+                            ? "scroll"
+                            : "hidden"
+                        }
+                        url={
+                          page.isMobileView
+                            ? page.mobileScreenshot
+                            : page.isMobileView === false
+                            ? page.mobileScreenshot
+                            : page.isMobileView === null && page.isOpenGraphView
+                            ? page.openGraph.ogImage?.map(
+                                (img: { url: string }) => img.url
+                              )
+                            : null
+                        }
+                      />
+                    );
+                  })}
               </>
-              <Flex direction={"column"} gap={"30px"}>
-                <>
-                  {surveyPages
-                    ?.slice()
-                    .sort((a, b) =>
-                      isSort
-                        ? b.starsArray.reduce(
-                            (acc, crr) => acc + crr.stars,
-                            0
-                          ) -
-                          a.starsArray.reduce((acc, crr) => acc + crr.stars, 0)
-                        : 0
-                    )
-                    .slice(first, last)
-                    .map((page, index) => {
-                      const averageRating =
-                        sumStars![index] / page.starsArray.length;
-                      return (
-                        <Flex
-                          key={index}
-                          direction={"column"}
-                          style={{
-                            margin: "0 auto",
-                          }}>
-                          <Flex
-                            direction={windowWidth >= 470 ? "row" : "column"}
-                            gap={"20px"}
-                            align={windowWidth >= 470 ? "center" : "flex-start"}
-                            height="100%"
-                            style={{
-                              marginBottom: "1em",
-                            }}>
-                            <SubTitle title={`${page.title}`} />
-                            <Flex direction={"row"} gap={"10px"} align="center">
-                              <Average />
-                              <Flex direction={"row"}>
-                                <SubTitle
-                                  title={
-                                    averageRating?.toFixed(2).toString() ?? ""
-                                  }
+              <Grid column noMargin width={"100%"}>
+                <SummaryTable header={null}>
+                  <TableBody>
+                    {surveyPages
+                      .filter((page) => page._id === pageId)
+                      .map((page, index) => {
+                        const averageRating =
+                          sumStars![index] / page.starsArray.length;
+                        return (
+                          <TableRow>
+                            <TableCell sx={sx}>{page.title}</TableCell>
+                            <TableCell sx={sx}>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "5px",
+                                }}>
+                                <Average />
+                                {averageRating?.toFixed(2).toString() ?? ""}
+                                <Rating
+                                  value={+averageRating?.toFixed(2)}
+                                  precision={0.5}
+                                  readOnly
+                                  size="large"
                                 />
-                                <Star />
-                              </Flex>
-                            </Flex>
-                          </Flex>
-                          <SectionHolder
-                            page={page}
-                            starsArrayLength={page.starsArray.length}
-                            credible={fiveStars}
-                            trustworthy={fourStars}
-                            questionable={threeStars}
-                            doubtful={twoStars}
-                            unbelievable={oneStar}
-                          />
-                        </Flex>
-                      );
-                    })}
-                </>
-              </Flex>
-            </Flex>
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
+                  </TableBody>
+                </SummaryTable>
+
+                <SectionHolder page={page!} />
+              </Grid>
+            </Grid>
+
             <Result
-              sumStars={sumStars}
-              credible={fiveStars}
-              trustworthy={fourStars}
-              questionable={threeStars}
-              doubtful={twoStars}
-              unbelievable={oneStar}
               first={first}
               last={last}
               setFirst={setFirst}
               setLast={setLast}
               property={surveyPages}
+              nextId={nextId}
+              prevId={prevId}
             />
-          </Flex>
-        </FramerMotion>
-      </Card>
-    </ContentContainer>
+          </Grid>
+        </Card>
+      </Grid>
+    </FramerMotion>
   );
 };
 

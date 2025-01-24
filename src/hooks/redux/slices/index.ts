@@ -9,6 +9,7 @@ import {
   handleCurrentPage,
   handleVoted,
   handleVotedStars,
+  getPageId,
   handleStars,
 } from "./surveyPages";
 import { translationsReducer } from "./translations";
@@ -34,8 +35,7 @@ import {
   handleIsSort,
 } from "./sliceNums";
 import { handleQrCode, qrCodeReducer } from "./qrCode";
-import { viewsModalReducer, handleViewsModal } from "./viewsModal";
-import { adminReducer, addAdmin, removeAdmin } from "./admin";
+import { changeViewReducer, handleChangeView } from "./changeView";
 
 export {
   handleTranslation,
@@ -62,11 +62,9 @@ export {
   handleLast,
   handleIsSort,
   handleQrCode,
-  handleViewsModal,
-  addAdmin,
-  removeAdmin,
-  adminReducer,
-  viewsModalReducer,
+  handleChangeView,
+  getPageId,
+  changeViewReducer,
   sliceNumsReducer,
   studenReducer,
   surveyControllerReducer,

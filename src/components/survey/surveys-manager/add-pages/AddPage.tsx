@@ -6,7 +6,6 @@ import {
   useSelectors,
   useDispatches,
   useTranslations,
-  useInputErrors,
 } from "../../../../hooks";
 
 const combinedUrlRegex = /^(https:\/\/|http:\/\/|www\.)[^\s/$.?#].[^\s]*$/;
@@ -16,42 +15,36 @@ const AddPage = () => {
   const { dispatchLoading, dispatchPages, closeModal, dispatchSurvey } =
     useDispatches();
   const { t } = useTranslations();
-  const { urlTypeError, emptyInput } = useInputErrors();
 
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [note, setNote] = useState("");
-  const [titleErrorMessage, setTitleErrorMessage] =
-    useState<JSX.Element | null>(null);
-  const [urlErrorMessage, setUrlErrorMessage] = useState<JSX.Element | null>(
-    null
-  );
-  const [isUrl, setIsUrl] = useState<JSX.Element | null>(null);
+  const [titleError, setTitleError] = useState(false);
+  const [urlError, setUrlError] = useState(false);
+  const [titleErrorMessage, setTitleErrorMessage] = useState("");
+  const [urlErrorMessage, setUrlErrorMessage] = useState("");
+  const [isUrl, setIsUrl] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       if (!loading) {
         e.preventDefault();
-
-        // empty validation
-        if (!url && !title) {
-          setTitleErrorMessage(emptyInput);
-          setUrlErrorMessage(emptyInput);
-          return;
-        }
         if (!title) {
-          setTitleErrorMessage(emptyInput);
-          return;
+          setTitleError(true);
+          setTitleErrorMessage("Pflichtfeld");
         }
         if (!url) {
-          setUrlErrorMessage(emptyInput);
-          return;
+          setUrlError(true);
+          setUrlErrorMessage("Pflichtfeld");
         }
-        // url validation
         if (!url.match(combinedUrlRegex)) {
-          setIsUrl(urlTypeError);
+          setUrlError(true);
+          setIsUrl("Ungültige URL");
           return;
         }
+        if (!url && !title) return;
+        if (!url || !title) return;
+
         dispatchLoading(true);
         const res = await axios.put(
           `/survey/add-page-to-survey/${survey?.surveyId}`,
@@ -84,31 +77,37 @@ const AddPage = () => {
     <PageModal title={t("addPages.createPage")}>
       <PageForm
         onSubmit={handleSubmit}
-        titleError={titleErrorMessage}
-        urlError={urlErrorMessage ? urlErrorMessage : isUrl}
+        titleErrorMessage={titleErrorMessage}
+        titleError={titleError}
+        urlErrorMessage={urlErrorMessage ? urlErrorMessage : isUrl}
+        urlError={urlError}
         inputValue={title}
         urlValue={url}
         textAreaValue={note}
         onChangeTitle={(e: ChangeEvent<HTMLInputElement>) => {
           setTitle(e.target.value);
-          setTitleErrorMessage(null);
+          setTitleError(false);
+          setTitleErrorMessage("");
         }}
         onChangeUrl={(e: ChangeEvent<HTMLInputElement>) => {
           setUrl(e.target.value);
-          setUrlErrorMessage(null);
-          setIsUrl(null);
+          setUrlError(false);
+          setUrlErrorMessage("");
+          setIsUrl("");
         }}
         onChangeTextArea={(e: ChangeEvent<HTMLTextAreaElement>) =>
           setNote(e.target.value)
         }
         onClickTitleIcon={() => {
           setTitle("");
-          setTitleErrorMessage(null);
+          setTitleError(false);
+          setTitleErrorMessage("");
         }}
         onClickUrlIcon={() => {
           setUrl("");
-          setUrlErrorMessage(null);
-          setIsUrl(null);
+          setUrlError(false);
+          setUrlErrorMessage("");
+          setIsUrl("");
         }}
       />
     </PageModal>

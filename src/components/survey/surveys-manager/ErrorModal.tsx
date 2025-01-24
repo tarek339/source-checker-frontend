@@ -1,19 +1,10 @@
-import ButtonContainer from "../../containers/ButtonContainer";
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
 import { Alert } from "../../icons";
-import { Button, Modal } from "../..";
-import {
-  useSelectors,
-  useTranslations,
-  useDispatches,
-  useBreakPoints,
-} from "../../../hooks";
-import { IErrorModal } from "../../../types/interfaces/components";
+import { Button, Grid, Modal, SubTitle, Text } from "../..";
+import { useSelectors, useDispatches, useBreakPoints } from "../../../hooks";
+import { ErrorModalProps } from "../../../types/interfaces/components";
 
-const ErrorModal = ({ onClick }: IErrorModal) => {
+const ErrorModal = ({ onClick }: ErrorModalProps) => {
   const { modal } = useSelectors();
-  const { t } = useTranslations();
   const { closeModal } = useDispatches();
   const { windowWidth } = useBreakPoints();
 
@@ -21,22 +12,23 @@ const ErrorModal = ({ onClick }: IErrorModal) => {
     <Modal
       open={modal}
       onClose={closeModal}
-      style={{ width: windowWidth <= 883 ? "95%" : "838.84px" }}>
-      <Flex direction={"row"} gap={"10px"} align="flex-start">
+      style={{ width: windowWidth <= 465.6 ? "95%" : "465.6px" }}>
+      <Grid flexStart width={"100%"} nowrap alignStart>
         <Alert />
-        <Flex direction={"column"} gap={"20px"}>
-          <Span fontSize={20} fontWeight={600} title={"Verbindungsfehler"} />
-          <Span
-            title={
-              "Umfrage konnte nicht angelegt werden. Bitte versuche es später nochmal"
-            }
-          />
-          <ButtonContainer style={{ justifyContent: "flex-end" }}>
-            <Button error onClick={closeModal} title={t("button.cancel")} />
+        <Grid column>
+          <Grid column>
+            <SubTitle title={"Verbindungsfehler"} />
+            <div>
+              <Text text={"Umfrage konnte nicht angelegt werden."} />
+              <Text text={"Bitte versuche es später nochmal."} />
+            </div>
+          </Grid>
+          <Grid width={"100%"} columnReverse>
+            <Button error onClick={closeModal} title={"abbrechen"} />
             <Button onClick={onClick} title={"verbinden"} />
-          </ButtonContainer>
-        </Flex>
-      </Flex>
+          </Grid>
+        </Grid>
+      </Grid>
     </Modal>
   );
 };

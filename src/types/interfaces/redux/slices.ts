@@ -1,20 +1,12 @@
-import { IAdmin, IPages, IStudent, ISurvey } from "../interfaces";
+import { PagesProps, StudentProps, SurveyProps } from "../interfaces";
 
-export interface InitialSurveyState {
-  survey: ISurvey | null;
+export interface InitialStateSurvey {
+  survey: SurveyProps | null;
   loading: boolean;
 }
 
-export interface IAddSurvey {
-  survey: ISurvey;
-}
-
-export interface InitialAdminState {
-  admin: IAdmin | null;
-}
-
-export interface IAddAdmin {
-  admin: IAdmin;
+export interface AddSurveyAction {
+  survey: SurveyProps;
 }
 
 export interface InitalStateSideBarPage {
@@ -22,13 +14,13 @@ export interface InitalStateSideBarPage {
   sideBarLastPage: number;
 }
 
-export interface InitialStudentState {
-  student: IStudent | null;
+export interface InitialStateStudent {
+  student: StudentProps | null;
   loading: boolean;
 }
 
-export interface IAddStudent {
-  student: IStudent;
+export interface AddStudentAction {
+  student: StudentProps;
 }
 
 export enum Locale {
@@ -36,47 +28,51 @@ export enum Locale {
   en = "en",
 }
 
-export interface IHandleTranslation {
+export interface HandleTranslationAction {
   locale: Locale;
 }
 
-export interface IHandleLoading {
+export interface HandleLoadingAction {
   loading: boolean;
 }
 
-export interface IHandleSubmit {
+export interface HandleSubmitAction {
   submit: boolean;
 }
 
-export interface IHandleModal {
+export interface HandleModalAction {
   isVisible: boolean;
 }
 
-export interface IHandleViewsModal {
+export interface HandleViewsModalAction {
   isVisible: boolean;
 }
 
-export interface IHandleQrCode {
+export interface HandleQrCodeProps {
   isVisible: boolean;
 }
 
-export interface InitialStateSurvey {
-  pages: IPages[];
+export interface InitialStateSurveyPages {
+  pages: PagesProps[];
   sideBarFirstPage: number;
   sideBarLastPage: number;
   pageId: string;
-  singlePage: null | IPages;
+  singlePage: null | PagesProps;
   currentPage: number;
   voted: boolean;
   votedStars: number;
   stars: number;
 }
 
-export interface InitialStateSideBar {
+export interface HandleStateSideBarAction {
   open: boolean;
 }
 
-export interface IHandleMainPage {
+export interface HandleChangeViewStateAction {
+  open: boolean;
+}
+
+export interface HandleMainPageAction {
   mainPage: boolean;
 }
 
@@ -88,35 +84,39 @@ export interface InitialStateCountDownDone {
   countDownDone: boolean;
 }
 
-export interface IHandleCurrentPage {
+export interface HandleCurrentPageAction {
   currentPage: number;
 }
 
-export interface IHandleVoted {
+export interface HandleVotedAction {
   voted: boolean;
 }
 
-export interface IHandleVotedStars {
+export interface HandleVotedStarsAction {
   votedStars: number;
 }
 
-export interface IHandleStars {
+export interface HandleStarsAction {
   stars: number;
 }
 
-export interface IAddSurveyPages {
-  pages: IPages[];
+export interface AddSurveyPagesAction {
+  pages: PagesProps[];
 }
 
-export interface IncreaseFirstPage {
+export interface IncreaseFirstPageAction {
   sideBarFirstPage: number;
 }
 
-export interface IncreaseLastPage {
+export interface IncreaseLastPageAction {
   sideBarLastPage: number;
 }
 
-export interface ISetPageId {
+export interface SetPageIdAction {
+  pageId: string;
+}
+
+export interface GetPageIdAction {
   pageId: string;
 }
 
@@ -126,14 +126,14 @@ export interface InitialStateSliceNumsSlice {
   isSort: boolean;
 }
 
-export interface IHandleFirst {
+export interface HandleFirstAction {
   first: number;
 }
 
-export interface IHandleLast {
+export interface IHandleLastAction {
   last: number;
 }
 
-export interface IHandleIsSort {
+export interface IHandleIsSortAction {
   isSort: boolean;
 }

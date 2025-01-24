@@ -1,12 +1,4 @@
-export interface ISwitchButton {
-  label: string;
-  labelText?: string;
-  toggled: boolean;
-  onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  ifOnText: string;
-  ifOffText: string;
-  type?: "submit" | "button";
-}
+import { SwitchButtonProps } from "../../types/interfaces/components";
 
 const SwitchButton = ({
   ifOffText,
@@ -16,7 +8,7 @@ const SwitchButton = ({
   label,
   labelText,
   type,
-}: ISwitchButton) => {
+}: SwitchButtonProps) => {
   return (
     <div className="switch-holder">
       <label>{label}</label>

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IHandleLoading } from "../../../types/interfaces/redux/slices";
+import { HandleLoadingAction } from "../../../types/interfaces/redux/slices";
 
 const laodingSlice = createSlice({
   name: "loading",
@@ -7,7 +7,7 @@ const laodingSlice = createSlice({
     loading: false,
   },
   reducers: {
-    handleLoading: (state, action: PayloadAction<IHandleLoading>) => {
+    handleLoading: (state, action: PayloadAction<HandleLoadingAction>) => {
       state.loading = action.payload.loading;
     },
   },

@@ -1,24 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-  useBreakPoints,
-  useDispatches,
-  useSelectors,
-  useTranslations,
-} from "../../../hooks";
-import { IPages } from "../../../types/interfaces/interfaces";
-import SubTitle from "../../fonts/SubTitle";
-import Flex from "../../containers/Flex";
+import { useDispatches, useSelectors, useTranslations } from "../../../hooks";
+import { PagesProps } from "../../../types/interfaces/interfaces";
+import SubTitle from "../../mui/SubTitle";
 import OpenGraphHolder from "./OpenGraphHolder";
 import ScreenShotHolder from "./ScreenShotHolder";
 import StarRating from "./StarRating";
 import axios from "axios";
-import FramerMotion from "../../containers/FramerMotion";
+import FramerMotion from "../../FramerMotion";
+import Grid from "../../mui/Grid";
 
 const SurveyStart = () => {
   const { student, surveyPages, survey, currentPage } = useSelectors();
   const { setVotedStars, setVoted, setStars } = useDispatches();
   const { t } = useTranslations();
-  const { windowWidth } = useBreakPoints();
   const [pageId, setPageId] = useState("");
 
   const user = survey?.freeUserNames
@@ -26,7 +20,7 @@ const SurveyStart = () => {
     : `User ${student?.userNumber}`;
 
   useEffect(() => {
-    surveyPages.slice(currentPage - 1, currentPage).map((page: IPages) => {
+    surveyPages.slice(currentPage - 1, currentPage).map((page: PagesProps) => {
       setPageId(page._id);
     });
   }, [surveyPages, currentPage, pageId]);
@@ -60,52 +54,30 @@ const SurveyStart = () => {
 
   return (
     <FramerMotion>
-      <Flex direction={"column"} gap={"20px"}>
-        <Flex direction={"column"} gap={"5px"}>
+      <Grid column width={"100%"}>
+        <Grid column width={"100%"}>
           <SubTitle
-            style={{
-              marginLeft: "20px",
-              marginRight: "20px",
-              fontSize: windowWidth <= 380 ? "22px" : "",
-            }}
             title={`${user?.charAt(0).toUpperCase() + slicedUser!}, ${t(
               "studentSurvey.title"
             )}`}
           />
-          <SubTitle
-            style={{
-              marginLeft: "20px",
-              marginRight: "20px",
-              fontSize: windowWidth <= 380 ? "20px" : "",
-            }}
-            title={"1 - nicht vertrauenswürdig"}
-          />
-          <SubTitle
-            style={{
-              marginLeft: "20px",
-              marginRight: "20px",
-              fontSize: windowWidth <= 380 ? "20px" : "",
-            }}
-            title={"5 - vertrauenswürdig"}
-          />
-        </Flex>
+          <SubTitle title={"1 - nicht vertrauenswürdig"} />
+          <SubTitle title={"5 - vertrauenswürdig"} />
+        </Grid>
+
         <FramerMotion>
-          <Flex direction={"column"} gap={"10px"}>
-            <Flex direction={"row"} style={{ marginLeft: "20px" }}>
-              <StarRating
-                pageId={pageId}
-                surveyId={survey?._id ?? ""}
-                studentId={student?._id ?? ""}
-              />
-            </Flex>
+          <Grid column width={"100%"} spacing={4}>
+            <StarRating
+              pageId={pageId}
+              surveyId={survey?._id ?? ""}
+              studentId={student?._id ?? ""}
+            />
             <>
               {surveyPages
                 .slice(currentPage - 1, currentPage)
-                .map((page: IPages, i: number) => {
+                .map((page: PagesProps, i: number) => {
                   return (
-                    <div
-                      style={{ marginLeft: "20px", marginRight: "20px" }}
-                      key={i}>
+                    <div key={i}>
                       {page.isMobileView ? (
                         <ScreenShotHolder src={page.mobileScreenshot} />
                       ) : page.isMobileView === false ? (
@@ -124,9 +96,9 @@ const SurveyStart = () => {
                   );
                 })}
             </>
-          </Flex>
+          </Grid>
         </FramerMotion>
-      </Flex>
+      </Grid>
     </FramerMotion>
   );
 };

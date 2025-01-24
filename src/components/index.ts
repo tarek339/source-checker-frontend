@@ -1,95 +1,95 @@
-import Divider from "./Divider";
+import BasicDivider from "./mui/Divider";
 import Input from "./form/Input";
 import SurveyProp from "./survey/surveys-manager/SurveyProp";
 import LoadingPulse from "./LoadingPulse";
-import Card from "./containers/Card";
 import Header from "./Header";
-import SubCard from "./containers/SubCard";
-import ContentContainer from "./containers/ContentContainer";
-import Flex from "./containers/Flex";
-import SubTitle from "./fonts/SubTitle";
-import FramerMotion from "./containers/FramerMotion";
+import SubTitle from "./mui/SubTitle";
+import FramerMotion from "./FramerMotion";
 import LoadingSpinner from "./LoadingSpinner";
-import Title from "./fonts/Title";
+import Title from "./mui/Title";
 import AddPage from "./survey/surveys-manager/add-pages/AddPage";
 import NoPages from "./survey/surveys-manager/add-pages/NoPages";
-import FormContainer from "./form/FormContainer";
-import ButtonContainer from "./containers/ButtonContainer";
-import ModalComponent from "./containers/Modal";
+import Form from "./form/Form";
+import ModalComponent from "./mui/Modal";
 import SurveyProfileData from "./survey/surveys-manager/SurveyProfileData";
 import AppContent from "./AppContent";
 import CurrentPage from "./survey/survey-control/CurrentPage";
-import SurveyData from "./survey/survey-control/SurveyData";
 import Contorl from "./survey/survey-control/Contorl";
-import PageControl from "./survey/survey-control/PageControl";
 import SurveyStatus from "./survey/survey-control/SurveyStatus";
 import StandbyStatus from "./survey/student-survey/StandbyStatus";
-import Span from "./fonts/Span";
 import SurveyStart from "./survey/student-survey/SurveyStart";
 import SectionHolder from "./survey/survery-summary/SectionHolder";
 import Result from "./survey/survery-summary/Result";
 import Acknowledgement from "./survey/student-survey/Acknowledgement";
-import Link from "./fonts/Link";
+import BasicLink from "./mui/Link";
 import Thumbnail from "./survey/survery-summary/Thumbnail";
-import LinkButton from "./buttons/LinkButton";
-import Section from "./containers/Section";
+import Section from "./Section";
 import StyledButton from "./buttons/StyledButton";
-import TextSmall from "./fonts/TextSmall";
-import Footer from "./footer/Footer";
 import SwitchButton from "./form/SwitchButton";
 import PageTable from "./survey/surveys-manager/add-pages/table/PageTable";
-import RegisterUserName from "./survey/student-survey/RegisterUserName";
 import DeleteSurveyModal from "./survey/surveys-manager/DeleteSurveyModal";
 import RatingInfo from "./survey/surveys-manager/RatingInfo";
 import ErrorModal from "./survey/surveys-manager/ErrorModal";
 import SideMenu from "./survey/surveys-manager/add-pages/SideMenu";
 import ScrollToTop from "./ScrollToTop";
+import Grid from "./mui/Grid";
+import GridItem from "./mui/GridItem";
+import BasicCard from "./mui/BasicCard";
+import ActionButton from "./survey/surveys-manager/ActionButton";
+import SummaryButton from "./buttons/SummaryButton";
+import BasicTable from "./footer/license-notes/Table";
+import SummaryTable from "./survey/survery-summary/SummaryTable";
+import Text from "./mui/Text";
+import UlList from "./mui/List";
+import UlListItem from "./mui/ListItem";
+import StudentButton from "./buttons/StudentButton";
+import TeacherButton from "./buttons/TeacherButton";
 
 export {
-  Footer,
-  Divider,
+  BasicDivider as Divider,
   Input,
   SurveyProp,
   SideMenu,
   LoadingPulse,
-  Card,
   Header,
-  SubCard,
-  ContentContainer,
-  Flex,
   SubTitle,
   LoadingSpinner,
   FramerMotion,
   Title,
+  Text,
   AppContent,
   AddPage,
   NoPages,
-  FormContainer,
-  ButtonContainer,
+  Form,
   ModalComponent as Modal,
   SurveyProfileData,
   CurrentPage,
-  SurveyData,
   Contorl,
-  PageControl,
   SurveyStatus,
   StandbyStatus,
-  Span,
   SurveyStart,
   SectionHolder,
   Result,
   Acknowledgement,
-  Link,
+  BasicLink as Link,
   Thumbnail,
-  LinkButton,
   Section,
   StyledButton as Button,
-  TextSmall,
   SwitchButton,
   PageTable,
-  RegisterUserName,
   DeleteSurveyModal,
   RatingInfo,
   ErrorModal,
   ScrollToTop,
+  Grid,
+  GridItem,
+  BasicCard as Card,
+  ActionButton,
+  SummaryButton,
+  BasicTable,
+  SummaryTable,
+  UlList as List,
+  UlListItem as ListItem,
+  StudentButton,
+  TeacherButton,
 };

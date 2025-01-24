@@ -1,28 +1,28 @@
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
-import SubTitle from "../../fonts/SubTitle";
+import Grid from "../../mui/Grid";
+import SubTitle from "../../mui/SubTitle";
+import Text from "../../mui/Text";
 
 const RightsOwner = () => {
   return (
-    <Flex direction={"column"} gap={"10px"}>
+    <Grid column width={"100%"}>
       <SubTitle title={"Rechtlich verantwortlich"} />
       <div>
-        <Span
-          title={
+        <Text
+          text={
             "Hochschule für Angewandte Wissenschaften Hamburg (HAW Hamburg)"
           }
         />
-        <Span title={"Berliner Tor 5"} />
-        <Span title={"20099 Hamburg"} />
-        <Span title={"Deutschland"} />
+        <Text text={"Berliner Tor 5"} />
+        <Text text={"20099 Hamburg"} />
+        <Text text={"Deutschland"} />
       </div>
 
       <div>
-        <Span title={"Tel. +49 40 428 75- 0"} />
-        <Span title={"Fax +49 40 428 75 91 49"} />
-        <Span title={"info[at]haw-hamburg.de"} />
+        <Text text={"Tel. +49 40 428 75- 0"} />
+        <Text text={"Fax +49 40 428 75 91 49"} />
+        <Text text={"info[at]haw-hamburg.de"} />
       </div>
-    </Flex>
+    </Grid>
   );
 };
 

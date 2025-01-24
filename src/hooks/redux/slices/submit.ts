@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IHandleSubmit } from "../../../types/interfaces/redux/slices";
+import { HandleSubmitAction } from "../../../types/interfaces/redux/slices";
 
 const submitSlice = createSlice({
   name: "submit",
@@ -7,7 +7,7 @@ const submitSlice = createSlice({
     submit: false,
   },
   reducers: {
-    handleSubmit: (state, action: PayloadAction<IHandleSubmit>) => {
+    handleSubmit: (state, action: PayloadAction<HandleSubmitAction>) => {
       state.submit = action.payload.submit;
     },
   },

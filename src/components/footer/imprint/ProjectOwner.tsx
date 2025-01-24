@@ -1,16 +1,16 @@
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
-import SubTitle from "../../fonts/SubTitle";
+import Grid from "../../mui/Grid";
+import SubTitle from "../../mui/SubTitle";
+import Text from "../../mui/Text";
 
 const ProjectOwner = () => {
   return (
-    <Flex direction={"column"} gap={"10px"}>
+    <Grid spacing={1} column width={"100%"}>
       <SubTitle title={"Projektverantwortlich"} />
-      <Span title={"Fiete Stegers"} />
-      <Span title={"Projekt #UseTheNews / HAW Hamburg"} />
-      <Span title={"Department Information und Medienkommunikation"} />
-      <Span title={"fiete.stegers[at]haw-hamburg.de"} />
-    </Flex>
+      <Text text={"Fiete Stegers"} />
+      <Text text={"Projekt #UseTheNews / HAW Hamburg"} />
+      <Text text={"Department Information und Medienkommunikation"} />
+      <Text text={"fiete.stegers[at]haw-hamburg.de"} />
+    </Grid>
   );
 };
 

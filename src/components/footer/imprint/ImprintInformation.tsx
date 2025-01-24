@@ -1,17 +1,17 @@
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
-import Title from "../../fonts/Title";
+import Grid from "../../mui/Grid";
+import Title from "../../mui/Title";
+import Text from "../../mui/Text";
 
 const ImprintInformation = () => {
   return (
-    <Flex direction={"column"} gap={"10px"}>
-      <Title style={{ padding: "0px" }} title={"Impressum"} />
-      <Span
-        title={
+    <Grid column width={"100%"}>
+      <Title title={"Impressum"} />
+      <Text
+        text={
           "Die Website und OER Quellenchecker ist ein Projekt von #UseTheNews / HAW Hamburg und der Hamburg Open Online University (HOOU@HAW)."
         }
       />
-    </Flex>
+    </Grid>
   );
 };
 

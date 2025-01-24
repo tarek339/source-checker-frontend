@@ -1,16 +1,17 @@
-import { IScreenShotHolder } from "../../../types/interfaces/components";
-import Flex from "../../containers/Flex";
+import { colors } from "../../../assets/theme/colors";
+import { ScreenShotHolderProps } from "../../../types/interfaces/components";
+import Grid from "../../mui/Grid";
 
-const ScreenShotHolder = ({ src }: IScreenShotHolder) => {
+const ScreenShotHolder = ({ src }: ScreenShotHolderProps) => {
   return (
-    <Flex direction={"column"} gap={"20px"}>
+    <Grid column>
       <div
         style={{
           height: "80vh",
           overflowY: "scroll",
           zIndex: 1,
-          backgroundColor: "#fff",
-          boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+          backgroundColor: colors.background.main,
+          boxShadow: colors.shadow.card,
         }}>
         <img
           style={{
@@ -21,7 +22,7 @@ const ScreenShotHolder = ({ src }: IScreenShotHolder) => {
           alt=""
         />
       </div>
-    </Flex>
+    </Grid>
   );
 };
 

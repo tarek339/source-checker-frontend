@@ -1,7 +1,7 @@
 import { MoonLoader } from "react-spinners";
-import { ILoadingSpinner } from "../types/interfaces/components";
+import { LoadingSpinnerProps } from "../types/interfaces/components";
 
-const LoadingSpinner = ({ size, color }: ILoadingSpinner) => {
+const LoadingSpinner = ({ size, color }: LoadingSpinnerProps) => {
   return (
     <div
       style={{

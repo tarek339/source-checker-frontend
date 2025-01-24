@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Button, ButtonContainer, Flex, Modal, Span, SubTitle } from "../..";
+import { Button, Grid, Modal, SubTitle, Text } from "../..";
 import {
   useBreakPoints,
   useDispatches,
@@ -36,24 +36,24 @@ const DeleteSurveyModal = () => {
             ? "95%"
             : "",
       }}>
-      <Flex direction={"row"} gap={"10px"} align="flex-start">
+      <Grid flexStart width={"100%"} nowrap alignStart>
         <Alert />
-        <Flex direction={"column"} gap={"5px"} justify="flex-start">
+        <Grid column>
           <SubTitle
-            style={{ paddingTop: "0px" }}
             title={`${
               t("common.survey") + " " + "ID:" + " " + survey?.surveyId
             } ${t("common.delete")}?`}
           />
-          <Span title={t("saveSurvey.deleteText")} />
-          <Span title={t("saveSurvey.deleteSection")} />
-          <ButtonContainer
-            style={{ paddingTop: "1em", justifyContent: "flex-end" }}>
+          <div>
+            <Text text={t("saveSurvey.deleteText")} />
+            <Text text={t("saveSurvey.deleteSection")} />
+          </div>
+          <Grid spacing={1} width={"100%"} columnReverse>
             <Button error onClick={closeModal} title={t("button.cancel")} />
             <Button onClick={deleteSurvey} title={t("button.delete")} />
-          </ButtonContainer>
-        </Flex>
-      </Flex>
+          </Grid>
+        </Grid>
+      </Grid>
     </Modal>
   );
 };

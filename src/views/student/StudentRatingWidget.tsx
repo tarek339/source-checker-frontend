@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useDispatches, useRequests, useSelectors } from "../../hooks";
 import {
   StandbyStatus,
-  ContentContainer,
   SurveyStart,
   Acknowledgement,
+  Grid,
 } from "../../components";
 import { socket } from "../../socket";
 import { useParams } from "react-router-dom";
@@ -49,15 +49,19 @@ const StudentRatingWidget = () => {
   }, [id]);
 
   return (
-    <ContentContainer>
+    <div>
       {!isStarted && student?.participated && student.stars > 0 ? (
         <Acknowledgement />
       ) : !isStarted && !student?.participated ? (
-        <StandbyStatus />
+        <Grid column gutters>
+          <StandbyStatus />
+        </Grid>
       ) : (
-        <SurveyStart />
+        <Grid column gutters>
+          <SurveyStart />
+        </Grid>
       )}
-    </ContentContainer>
+    </div>
   );
 };
 

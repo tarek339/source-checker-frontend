@@ -5,10 +5,11 @@ const No = () => {
   return (
     <div
       style={{
+        fontFamily: "Work Sans, Helvetica, Arial, Lucida Grande, sans-serif",
         backgroundColor: "#ff0000",
         color: "#FBFCFF",
         borderRadius: "4px",
-        fontSize: "18px",
+        fontSize: "20px",
         fontWeight: "bold",
         textTransform: "uppercase",
         width: "60px",

@@ -1,12 +1,12 @@
-import Flex from "../../containers/Flex";
-import Span from "../../fonts/Span";
+import Grid from "../../mui/Grid";
+import Text from "../../mui/Text";
 
 const Cookies = () => {
   return (
-    <Flex direction={"column"} gap={"15px"}>
-      <Span fontSize={18} title={"Cookies"} />
-      <Span fontSize={16} title={"Diese Website verwendet keine Cookies."} />
-    </Flex>
+    <Grid column width={"100%"}>
+      <Text bold text={"Cookies"} />
+      <Text text={"Diese Website verwendet keine Cookies."} />
+    </Grid>
   );
 };
 
