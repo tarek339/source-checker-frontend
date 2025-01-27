@@ -9,7 +9,6 @@ import {
   Title,
   ErrorModal,
   Grid,
-  GridItem,
   Card,
   ActionButton,
 } from "../../components";
@@ -53,66 +52,68 @@ const SurveyEntryPoint = () => {
         <Card>
           <Grid column>
             <SubTitle title={t("chooseAction.header")} />
-            <Grid width={"100%"}>
-              <GridItem size={windowWidth < 600 ? 12 : 6}>
-                <ActionButton
-                  onClick={handleSubmit}
-                  onMouseEnter={() => setIsHoveredAdd(true)}
-                  onMouseLeave={() => setIsHoveredAdd(false)}
-                  borderColor={
-                    isHoveredAdd
-                      ? colors.typography.hover
-                      : colors.typography.secondary
-                  }
-                  color={
-                    isHoveredAdd
-                      ? colors.typography.hover
-                      : colors.typography.secondary
-                  }
-                  icon={
-                    <IoAddOutline
-                      fontSize="64px"
-                      color={
-                        isHoveredAdd
-                          ? colors.typography.hover
-                          : colors.typography.secondary
-                      }
-                    />
-                  }
-                  title={t("chooseAction.newSurvey")}
-                />
-              </GridItem>
-              <GridItem size={windowWidth < 600 ? 12 : 6}>
-                <ActionButton
-                  onClick={() => {
-                    navigate("/surveys-manager/log-in");
-                  }}
-                  onMouseEnter={() => setIsHoveredNew(true)}
-                  onMouseLeave={() => setIsHoveredNew(false)}
-                  borderColor={
-                    isHoveredNew
-                      ? colors.typography.hover
-                      : colors.typography.secondary
-                  }
-                  color={
-                    isHoveredNew
-                      ? colors.typography.hover
-                      : colors.typography.secondary
-                  }
-                  icon={
-                    <FiArrowUp
-                      fontSize="64px"
-                      color={
-                        isHoveredNew
-                          ? colors.typography.hover
-                          : colors.typography.secondary
-                      }
-                    />
-                  }
-                  title={t("chooseAction.existingSurvey")}
-                />
-              </GridItem>
-            </Grid>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: windowWidth < 600 ? "column" : "row",
+                justifyContent: "space-between",
+                gap: "1rem",
+              }}>
+              <ActionButton
+                onClick={handleSubmit}
+                onMouseEnter={() => setIsHoveredAdd(true)}
+                onMouseLeave={() => setIsHoveredAdd(false)}
+                borderColor={
+                  isHoveredAdd
+                    ? colors.typography.hover
+                    : colors.typography.secondary
+                }
+                color={
+                  isHoveredAdd
+                    ? colors.typography.hover
+                    : colors.typography.secondary
+                }
+                icon={
+                  <IoAddOutline
+                    fontSize="64px"
+                    color={
+                      isHoveredAdd
+                        ? colors.typography.hover
+                        : colors.typography.secondary
+                    }
+                  />
+                }
+                title={t("chooseAction.newSurvey")}
+              />
+              <ActionButton
+                onClick={() => {
+                  navigate("/surveys-manager/log-in");
+                }}
+                onMouseEnter={() => setIsHoveredNew(true)}
+                onMouseLeave={() => setIsHoveredNew(false)}
+                borderColor={
+                  isHoveredNew
+                    ? colors.typography.hover
+                    : colors.typography.secondary
+                }
+                color={
+                  isHoveredNew
+                    ? colors.typography.hover
+                    : colors.typography.secondary
+                }
+                icon={
+                  <FiArrowUp
+                    fontSize="64px"
+                    color={
+                      isHoveredNew
+                        ? colors.typography.hover
+                        : colors.typography.secondary
+                    }
+                  />
+                }
+                title={t("chooseAction.existingSurvey")}
+              />
+            </div>
           </Grid>
         </Card>
       </Grid>
