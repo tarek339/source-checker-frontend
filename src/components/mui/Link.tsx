@@ -8,7 +8,7 @@ const BasicLink = ({ href, title, bold, mail, small, xs }: BasicLinkProps) => {
       variant="body1"
       underline="none"
       fontWeight={bold ? 600 : 400}
-      target="_blank"
+      target={mail ? "_self" : "_blank"}
       sx={{
         "&.MuiLink-root": {
           color: colors.primary.main,

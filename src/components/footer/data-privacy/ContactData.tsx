@@ -35,7 +35,7 @@ const ContactData = () => {
       </Grid>
 
       <Text text={"E-Mail: "} />
-      <Link href={"mailto:dsb@mmkh.de"} mail />
+      <Link href={"dsb@mmkh.de"} mail />
     </Grid>
   );
 };

@@ -1,5 +1,5 @@
 import Grid from "../../mui/Grid";
-import { List, ListItem, Text } from "../..";
+import { Link, List, ListItem, Text } from "../..";
 
 const RightAffected = () => {
   return (
@@ -63,9 +63,7 @@ const RightAffected = () => {
             "Wenn Sie von Ihren Betroffenenrechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:"
           }
         />
-        <span style={{ fontSize: "16px" }}>
-          <a href="mailto:info@hoou.de">info@hoou.de</a>
-        </span>
+        <Link href={"info@hoou.de"} mail />
       </Grid>
     </Grid>
   );
