@@ -74,10 +74,6 @@ const StudentRegister = () => {
     }
   }, [survey]);
 
-  useEffect(() => {
-    console.log(survey?.freeUserNames);
-  }, [survey]);
-
   return (
     <FramerMotion>
       <Grid column gutters>

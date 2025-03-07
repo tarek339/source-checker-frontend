@@ -2,6 +2,7 @@ import { useSelectors } from "../hooks";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { ComponentType } from "react";
+import { JSX } from "react";
 
 const withSurveyAuthPages = (Component: ComponentType) => {
   return (props: JSX.IntrinsicAttributes) => {

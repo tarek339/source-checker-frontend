@@ -11,6 +11,7 @@ import { TableBody, TableCell, TableRow } from "@mui/material";
 import BasicTable from "./Table";
 import Grid from "../../mui/Grid";
 import { Link, Text } from "../..";
+import { JSX } from "react";
 
 function createData(
   IconVisualized: JSX.Element,

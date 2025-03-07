@@ -3,7 +3,7 @@ import html2canvas from "html2canvas";
 import { useRef } from "react";
 
 const useScreenshot = () => {
-  const screenshotRef = useRef();
+  const screenshotRef = useRef<HTMLElement | null>(null);
 
   const handleScreenshot = async () => {
     // Get the current element

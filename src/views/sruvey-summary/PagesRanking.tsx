@@ -139,6 +139,7 @@ const PagesRanking = () => {
                               gap: "5px",
                             }}>
                             {page.starsArray
+                              .filter((star) => star.stars !== 0)
                               .reduce((acc, crr) => {
                                 return acc + crr.stars / page.starsArray.length;
                               }, 0)

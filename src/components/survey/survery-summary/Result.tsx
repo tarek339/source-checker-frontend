@@ -35,7 +35,7 @@ const Result = ({
   };
 
   return (
-    <Grid flexEnd width={"100%"} noMargin alignCenter>
+    <Grid flexEnd noMargin alignCenter>
       <Text text={first + 1} bold />
       <Text text={t("common.of")} bold />
       <Text text={property?.length} bold />

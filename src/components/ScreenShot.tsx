@@ -66,7 +66,9 @@ const Screenshot = ({
             border: `1.5px solid ${colors.border.secondary}`,
             objectFit: "cover",
             objectPosition: "top",
+            cursor: "pointer",
           }}
+          onClick={chooseView}
           src={url}
         />
       </div>

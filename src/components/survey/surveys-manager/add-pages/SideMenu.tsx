@@ -1,10 +1,5 @@
 import { useDispatch } from "react-redux";
-import {
-  useBreakPoints,
-  useDispatches,
-  useSelectors,
-  useTranslations,
-} from "../../../../hooks";
+import { useBreakPoints, useDispatches, useSelectors } from "../../../../hooks";
 import SideDrawer from "../../../mui/SideDrawer";
 import { useEffect } from "react";
 import {
@@ -18,13 +13,13 @@ import Screenshot from "../../../ScreenShot";
 import EmptyData from "./EmptyData";
 import Grid from "../../../mui/Grid";
 import SubTitle from "../../../SubTitle";
+import { colors } from "../../../../assets/theme/colors";
 
 const SideMenu = () => {
   const { sideBar, survey, surveyPages, firstSideBarPages, lastSideBarPages } =
     useSelectors();
   const { dispatchSideBar } = useDispatches();
   const { windowWidth } = useBreakPoints();
-  const { t } = useTranslations();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,17 +35,20 @@ const SideMenu = () => {
       anchor="right"
       open={sideBar}
       toggleDrawer={() => dispatchSideBar(false)}>
-      <Grid alignCenter flexStart width={"100%"} nowrap maxedWidth>
-        <Grid flexStart alignCenter width={"100%"} maxedWidth>
-          <SubTitle title={t("addPages.sideBar.header")} />
-          <>
-            {surveyPages
-              ?.slice(firstSideBarPages, lastSideBarPages)
-              .map((page, i) => (
-                <SubTitle key={i} title={page.title} />
-              ))}
-          </>
-        </Grid>
+      <Grid alignStart flexStart width={"100%"} nowrap maxedWidth>
+        <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+          {surveyPages
+            ?.slice(firstSideBarPages, lastSideBarPages)
+            .map((page, i) => (
+              <SubTitle
+                color={colors.typography.main}
+                key={i}
+                title={`Wähle jeweils eine Ansicht ${page.title} aus.`}
+              />
+            ))}
+
+          <SubTitle title={"Mobile, Desktop oder Open Graph."} />
+        </div>
         <IconButton onClick={() => dispatchSideBar(false)}>
           <Cancel />
         </IconButton>

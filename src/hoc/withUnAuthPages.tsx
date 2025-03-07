@@ -2,6 +2,7 @@ import { useDispatches, useSelectors } from "../hooks";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { ComponentType } from "react";
+import { JSX } from "react";
 
 const withUnAuthPages = (Component: ComponentType) => {
   return (props: JSX.IntrinsicAttributes) => {
@@ -20,6 +21,7 @@ const withUnAuthPages = (Component: ComponentType) => {
           `/student-survey/${survey?._id}/student-id/${student._id}`
         );
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navigate, studenLoading, student, survey, surveyLoading]);
 
     return <Component {...props} />;

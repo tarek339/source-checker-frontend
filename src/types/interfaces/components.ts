@@ -4,6 +4,7 @@ import {
   IHandleLastAction,
   HandleViewsModalAction,
 } from "./redux/slices";
+import { JSX } from "react";
 
 export interface InputProps {
   htmlFor: string;

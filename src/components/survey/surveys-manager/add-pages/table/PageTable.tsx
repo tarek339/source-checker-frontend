@@ -263,8 +263,8 @@ const PageTable = () => {
         </TableContainer>
 
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          labelRowsPerPage="Zeile pro Seite"
+          // rowsPerPageOptions={[5, 10, 25]}
+          labelRowsPerPage=""
           component="div"
           count={!surveyPages?.length ? 1 : surveyPages?.length}
           rowsPerPage={rowsPerPage}
@@ -282,10 +282,13 @@ const PageTable = () => {
               {
                 ...sx,
               },
-            // "& .MuiSvgIcon-root": {
-            //   height: "28px",
-            //   width: "28px",
-            // },
+            "& .MuiSvgIcon-root": {
+              height: "28px",
+              width: "28px",
+            },
+            "& .MuiTablePagination-input": {
+              display: "none",
+            },
           }}
         />
       </Paper>

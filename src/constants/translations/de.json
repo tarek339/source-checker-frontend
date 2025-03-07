@@ -59,7 +59,7 @@
     "question": "Welchen Online-Quellen traust du?",
     "teacherButton": "Ich bin Lehrer*in",
     "studentButton": "Ich bin Schüler*in",
-    "mainText": "Quellenchecker ist ein Online-Tool für den Unterricht, bei dem die Schüler*innen über die Glaubwürdigkeit von realen Internet-Inhalten abstimmen. Ein YouTube-Video, ein Instagram-Post oder ein Artikel einer unbekannten Nachrichtenseite - welchen Quellen vertrauen die Jugendlichen, welchen weniger? Das lässt sich mit Quellenchecker spielerisch abfragen. Ziel ist ein leichter Einstieg ins Thema Informations- und Nachrichtenkompetenz und die Auseinandersetzung mit der Glaubwürdigkeit unterschiedlicher Internet-Quellen."
+    "mainText": "Quellenchecker ist ein Online-Tool für den Unterricht, bei dem die Schüler*innen über die Glaubwürdigkeit von realen Internet-Inhalten abstimmen. Ein Artikel einer unbekannten Internet-Seite oder eines großen Nachrichtenportals - welchen Quellen vertrauen die Jugendlichen, welchen weniger? Das lässt sich mit Quellenchecker spielerisch abfragen. Ziel ist ein leichter Einstieg ins Thema Informations- und Nachrichtenkompetenz und die Auseinandersetzung mit der Glaubwürdigkeit unterschiedlicher Internet-Quellen. "
   },
   "input": {
     "select": "Bitte auswählen",
@@ -147,7 +147,7 @@
     }
   },
   "saveSurvey": {
-    "saveSurvey": "Umfrage Übersicht",
+    "saveSurvey": "Umfrage-Übersicht",
     "chooseName": "Freie Nutzernamen",
     "deleteText": "Wollen Sie diese Seite wirklich löschen?",
     "deleteSection": "Alle Daten werden dadurch gelöscht!",
