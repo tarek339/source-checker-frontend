@@ -48,7 +48,12 @@ const OpenGraphView = ({
       </Grid>
       <div>
         <SubTitle title={ogTitle} />
-        <img style={{ maxWidth: "100%", height: "auto" }} src={url} alt="" />
+        <img
+          onClick={chooseView}
+          style={{ maxWidth: "100%", height: "auto", cursor: "pointer" }}
+          src={url}
+          alt=""
+        />
         <Text text={ogDescription} />
       </div>
     </Grid>

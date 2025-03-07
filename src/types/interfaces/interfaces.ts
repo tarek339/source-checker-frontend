@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export interface PagesProps {
   _id: string;
   number: number;

@@ -16,6 +16,7 @@ import {
   Thumbnail,
   SectionHolder,
   Result,
+  Link,
 } from "../../components";
 import { Average, Back } from "../../components/icons";
 import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
@@ -142,7 +143,9 @@ const SurveySummary = () => {
                       .filter((page) => page._id === pageId)
                       .map((page, index) => {
                         const averageRating =
-                          sumStars![index] / page.starsArray.length;
+                          sumStars![index] !== 0
+                            ? sumStars![index] / page.starsArray.length
+                            : 0;
                         return (
                           <TableRow>
                             <TableCell sx={sx}>{page.title}</TableCell>
@@ -173,15 +176,40 @@ const SurveySummary = () => {
               </Grid>
             </Grid>
 
-            <Result
-              first={first}
-              last={last}
-              setFirst={setFirst}
-              setLast={setLast}
-              property={surveyPages}
-              nextId={nextId}
-              prevId={prevId}
-            />
+            <div
+              style={{
+                display: "flex",
+                justifyContent:
+                  windowWidth < 435 ? "flex-end" : "space-between",
+                width: "100%",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "20px",
+              }}>
+              <div>
+                {surveyPages
+                  .filter((page) => page._id === pageId)
+                  .map((page) => {
+                    return (
+                      <Link
+                        href={page.url}
+                        title={t("surveyControl.sourceURL")}
+                        bold
+                      />
+                    );
+                  })}
+              </div>
+
+              <Result
+                first={first}
+                last={last}
+                setFirst={setFirst}
+                setLast={setLast}
+                property={surveyPages}
+                nextId={nextId}
+                prevId={prevId}
+              />
+            </div>
           </Grid>
         </Card>
       </Grid>

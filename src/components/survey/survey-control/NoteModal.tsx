@@ -21,10 +21,9 @@ const NoteModal = ({ onClick }: NoteModalProps) => {
             <Text text={"Du startest einen neuen Durchgang."} />
             <Text
               text={
-                "Wenn du das bestätigst werden die Daten von dem vorherigen Durchlauf gelöscht."
+                "Wenn du das bestätigst, werden die Daten von dem vorherigen Durchlauf gelöscht und die Umfrage wird zurückgesetzt."
               }
             />
-            <Text text={"Zurücksetzen ist nicht möglich."} />
           </div>
 
           <Grid

@@ -33,8 +33,9 @@ const StudentSurveyAuth = () => {
         return;
       }
       if (surveyId.match(/[A-Z|a-z|ü|é]/i)) {
+        console.log("!sdas");
         setIdError(true);
-        setIdErrorMessage("Ungültige Eingabe - nur Zahlen erlaubt");
+        setIdErrorMessage("Ungültige Eingabe - nur Ziffern erlaubt");
         return;
       }
 

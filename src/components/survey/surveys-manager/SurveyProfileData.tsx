@@ -96,19 +96,6 @@ const SurveyProfileData = () => {
       />
       <Divider />
 
-      <SurveyProp
-        header={t("newSurvey.surveyType")}
-        child={<Text text={t("newSurvey.rating")} />}
-      />
-
-      <Divider />
-
-      <SurveyProp
-        header={t("newSurvey.resultsType")}
-        child={<Text text={t("newSurvey.rating")} />}
-      />
-      <Divider />
-
       <div>
         <SurveyProp
           header={t("common.surveyID")}

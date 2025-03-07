@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 interface StatusProps {
   children: JSX.Element;
   backgroundColor?: string;

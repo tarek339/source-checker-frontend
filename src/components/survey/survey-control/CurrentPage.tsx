@@ -9,6 +9,7 @@ import { Button, Card, Grid, Link, SubTitle, Text, Thumbnail } from "../..";
 import { IoArrowBackSharp, IoArrowForwardSharp } from "react-icons/io5";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { colors } from "../../../assets/theme/colors";
 
 const CurrentPage = () => {
   const { windowWidth } = useBreakPoints();
@@ -22,6 +23,7 @@ const CurrentPage = () => {
     closeModal,
   } = useDispatches();
   const { id } = useParams();
+  const { survey } = useSelectors();
 
   const handleCurrentPage = async (pageNum: number) => {
     try {
@@ -114,12 +116,39 @@ const CurrentPage = () => {
                 endIcon={<IoArrowForwardSharp fontSize={"22px"} />}
                 onClick={nextPage}
                 fullWidth
+                disabled={currentPage === surveyPages.length}
+                style={{
+                  backgroundColor:
+                    currentPage === surveyPages.length
+                      ? colors.button.disabled
+                      : colors.primary.main,
+                  boxShadow:
+                    currentPage === surveyPages.length
+                      ? "none"
+                      : colors.shadow.main,
+                  color:
+                    survey?.isStarted && currentPage !== surveyPages.length
+                      ? colors.secondary.main
+                      : colors.typography.white,
+                }}
               />
               <Button
                 title={t("button.back")}
                 startIcon={<IoArrowBackSharp fontSize={"22px"} />}
                 onClick={prevPage}
                 fullWidth
+                disabled={currentPage === 1}
+                style={{
+                  backgroundColor:
+                    currentPage === 1
+                      ? colors.button.disabled
+                      : colors.primary.main,
+                  boxShadow: currentPage === 1 ? "none" : colors.shadow.main,
+                  color:
+                    survey?.isStarted && currentPage !== 1
+                      ? colors.secondary.main
+                      : colors.typography.white,
+                }}
               />
             </Grid>
           </Grid>

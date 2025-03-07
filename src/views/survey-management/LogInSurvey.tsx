@@ -44,12 +44,12 @@ const LogInSurvey = () => {
       }
       if (surveyId.match(/[A-Z|a-z|ü|é]/i)) {
         setIdError(true);
-        setIdErrorMessage("Ungültige Eingabe - nur Zahlen erlaubt");
+        setIdErrorMessage("Ungültige Eingabe - nur Ziffern erlaubt");
         return;
       }
       if (surveyPin.match(/[A-Z|a-z|ü|é]/i)) {
         setPinError(true);
-        setPinErrorMessage("Ungültige Eingabe - nur Zahlen erlaubt");
+        setPinErrorMessage("Ungültige Eingabe - nur Ziffern erlaubt");
         return;
       }
 
