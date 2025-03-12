@@ -6,7 +6,7 @@ import {
   useSelectors,
   useTranslations,
 } from "../../hooks";
-import { PagesProps } from "../../types/interfaces/interfaces";
+import { PagesProps, StudentProps } from "../../types/interfaces/interfaces";
 import {
   Card,
   FramerMotion,
@@ -43,6 +43,9 @@ const SurveySummary = () => {
   const [page, setPage] = useState<PagesProps>();
   const [nextId, setNextId] = useState("");
   const [prevId, setprevId] = useState("");
+  const [filteredZeroStars, setFilteredZeroStars] = useState<StudentProps[]>(
+    []
+  );
 
   useEffect(() => {
     fetchSurvey();
@@ -85,6 +88,21 @@ const SurveySummary = () => {
       setprevId(filteredIDs[prevIndex]);
     }
   }, [surveyPages, pageId, isSort]);
+
+  useEffect(() => {
+    const filterStudents = surveyPages.flatMap((page) => {
+      return page.starsArray
+        .filter((star) => star.stars !== 0)
+        .map((star) => ({
+          ...star,
+          _id: "",
+          freeUserName: "",
+          isNameRegistered: false,
+          participated: false,
+        }));
+    });
+    setFilteredZeroStars(filterStudents);
+  }, []);
 
   return (
     <FramerMotion>
@@ -141,11 +159,7 @@ const SurveySummary = () => {
                   <TableBody>
                     {surveyPages
                       .filter((page) => page._id === pageId)
-                      .map((page, index) => {
-                        const averageRating =
-                          sumStars![index] !== 0
-                            ? sumStars![index] / page.starsArray.length
-                            : 0;
+                      .map((page) => {
                         return (
                           <TableRow>
                             <TableCell sx={sx}>{page.title}</TableCell>
@@ -157,9 +171,15 @@ const SurveySummary = () => {
                                   gap: "5px",
                                 }}>
                                 <Average />
-                                {averageRating?.toFixed(2).toString() ?? ""}
+                                {sumStars.reduce((acc, star) => acc + star, 0) /
+                                  filteredZeroStars.length}
                                 <Rating
-                                  value={+averageRating?.toFixed(2)}
+                                  value={
+                                    sumStars.reduce(
+                                      (acc, star) => acc + star,
+                                      0
+                                    ) / filteredZeroStars.length
+                                  }
                                   precision={0.5}
                                   readOnly
                                   size="large"
