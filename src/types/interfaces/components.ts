@@ -397,6 +397,7 @@ export interface BasicLinkProps {
   bold?: boolean;
   small?: boolean;
   xs?: boolean;
+  sx?: React.CSSProperties;
 }
 
 export interface TextProps {

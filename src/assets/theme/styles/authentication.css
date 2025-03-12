@@ -4,11 +4,37 @@
 }
 
 .authentication-image {
-  width: 40%;
+  width: 30%;
   height: 100vh;
-  background-color: red;
-  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  background-color: transparent;
+  /* clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); */
   position: relative;
+  transform: rotate(20deg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.lernportal-link {
+  background-color: #2835c3;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: large;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 150px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.lernportal-link:hover {
+  background-color: #1420ae;
+  width: 160px;
+  transition: all 0.3s;
+}
+
+.lernportal-link:visited {
+  background-color: #1420ae;
 }
 
 .authentication-image > img {
@@ -68,5 +94,13 @@
   }
   .auth-section-container {
     width: 100%;
+  }
+}
+
+@media (max-width: 1350px) {
+  .authentication-image {
+    transform: rotate(0deg);
+    width: 40%;
+    margin-top: 60px;
   }
 }

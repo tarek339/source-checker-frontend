@@ -29,6 +29,7 @@
    ```
    VITE_AXIOS_BASE_URL=http://localhost:4000
    VITE_CLIENT_URL=http://localhost:5173
+   VITE_CLIENT_LERNPORTAL_URL=url zum lernportal
    ```
 
 ## Produktionsmodus

@@ -2,7 +2,15 @@ import { Link } from "@mui/material";
 import { BasicLinkProps } from "../../types/interfaces/components";
 import { colors } from "../../assets/theme/colors";
 
-const BasicLink = ({ href, title, bold, mail, small, xs }: BasicLinkProps) => {
+const BasicLink = ({
+  href,
+  title,
+  bold,
+  mail,
+  small,
+  xs,
+  sx,
+}: BasicLinkProps) => {
   return (
     <Link
       variant="body1"
@@ -18,6 +26,7 @@ const BasicLink = ({ href, title, bold, mail, small, xs }: BasicLinkProps) => {
             textDecoration: "underline",
           },
         },
+        ...sx,
       }}
       href={mail ? `mailto:${href}` : href}>
       {title || href}

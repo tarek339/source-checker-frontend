@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { FramerMotion, StudentButton } from "../components";
+import { FramerMotion, StudentButton, TeacherButton } from "../components";
 import { useDispatches, useTranslations } from "../hooks";
 import imgSrc from "../assets/images/title-img.jpg";
 import { useEffect } from "react";
 import withUnAuthPages from "../hoc/withUnAuthPages";
-import TeacherButton from "../components/buttons/TeacherButton";
+
 import { colors } from "../assets/theme/colors";
 
 const Authentication = () => {
@@ -43,6 +43,14 @@ const Authentication = () => {
                 />
               </div>
               <p style={{ fontSize: "1.25rem" }}>{t("auth.mainText")}</p>
+
+              <a
+                className="lernportal-link"
+                href={import.meta.env.VITE_CLIENT_LERNPORTAL_URL}
+                target="_blank"
+                rel="noreferrer">
+                Lernportal
+              </a>
             </div>
           </div>
 
