@@ -4,12 +4,12 @@
 }
 
 .authentication-image {
-  width: 30%;
+  width: 40%;
   height: 100vh;
   background-color: transparent;
-  /* clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%); */
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
   position: relative;
-  transform: rotate(20deg);
+  /* transform: rotate(20deg); */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -29,13 +29,13 @@
 
 .lernportal-link:hover {
   background-color: #1420ae;
-  width: 160px;
-  transition: all 0.3s;
+  /* width: 160px; */
+  /* transition: all 0.3s; */
 }
 
-.lernportal-link:visited {
+/* .lernportal-link:visited {
   background-color: #1420ae;
-}
+} */
 
 .authentication-image > img {
   display: block;

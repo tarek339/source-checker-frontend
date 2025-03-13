@@ -90,17 +90,19 @@ const SurveySummary = () => {
   }, [surveyPages, pageId, isSort]);
 
   useEffect(() => {
-    const filterStudents = surveyPages.flatMap((page) => {
-      return page.starsArray
-        .filter((star) => star.stars !== 0)
-        .map((star) => ({
-          ...star,
-          _id: "",
-          freeUserName: "",
-          isNameRegistered: false,
-          participated: false,
-        }));
-    });
+    const filterStudents = surveyPages
+      .filter((page) => page._id === pageId)
+      .flatMap((page) => {
+        return page.starsArray
+          .filter((star) => star.stars !== 0)
+          .map((star) => ({
+            ...star,
+            _id: "",
+            freeUserName: "",
+            isNameRegistered: false,
+            participated: false,
+          }));
+      });
     setFilteredZeroStars(filterStudents);
   }, []);
 
