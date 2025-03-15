@@ -46,6 +46,7 @@ const SurveySummary = () => {
   const [filteredZeroStars, setFilteredZeroStars] = useState<StudentProps[]>(
     []
   );
+  const [calculatedAverage, setCalculatedAverage] = useState(0);
 
   useEffect(() => {
     fetchSurvey();
@@ -104,7 +105,13 @@ const SurveySummary = () => {
           }));
       });
     setFilteredZeroStars(filterStudents);
-  }, []);
+  }, [pageId, surveyPages]);
+
+  useEffect(() => {
+    const calculateAverage =
+      sumStars.reduce((acc, star) => acc + star, 0) / filteredZeroStars.length;
+    setCalculatedAverage(calculateAverage);
+  }, [sumStars, filteredZeroStars]);
 
   return (
     <FramerMotion>
@@ -173,15 +180,9 @@ const SurveySummary = () => {
                                   gap: "5px",
                                 }}>
                                 <Average />
-                                {sumStars.reduce((acc, star) => acc + star, 0) /
-                                  filteredZeroStars.length}
+                                {calculatedAverage.toFixed(2)}
                                 <Rating
-                                  value={
-                                    sumStars.reduce(
-                                      (acc, star) => acc + star,
-                                      0
-                                    ) / filteredZeroStars.length
-                                  }
+                                  value={+calculatedAverage.toFixed(2)}
                                   precision={0.5}
                                   readOnly
                                   size="large"

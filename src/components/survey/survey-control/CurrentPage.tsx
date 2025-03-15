@@ -67,7 +67,7 @@ const CurrentPage = () => {
           between
           nowrap>
           <Grid column width={"100%"}>
-            <div>
+            <>
               {surveyPages
                 .slice(currentPage - 1, currentPage)
                 .map((page: PagesProps, i: number) => {
@@ -90,13 +90,17 @@ const CurrentPage = () => {
                         bold
                       />
                       <Text
+                        style={{
+                          wordBreak: "break-word",
+                          overflowWrap: "break-word",
+                        }}
                         text={`${t("surveyControl.note")}: ${page.note}`}
                         bold
                       />
                     </Grid>
                   );
                 })}
-            </div>
+            </>
 
             <Grid
               spacing={1}

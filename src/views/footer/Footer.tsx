@@ -6,7 +6,7 @@ const Footer = () => {
   const { t } = useTranslations();
 
   return (
-    <div style={{ marginTop: "2em" }}>
+    <div style={{ marginTop: "-16px" }}>
       <Divider borderWidth={3} />
       <Grid column padding>
         <Grid column spacing={1}>

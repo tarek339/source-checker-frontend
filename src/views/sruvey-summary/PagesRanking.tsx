@@ -139,9 +139,14 @@ const PagesRanking = () => {
                               gap: "5px",
                             }}>
                             {page.starsArray
-                              .filter((star) => star.stars !== 0)
                               .reduce((acc, crr) => {
-                                return acc + crr.stars / page.starsArray.length;
+                                return (
+                                  acc +
+                                  crr.stars /
+                                    page.starsArray.filter(
+                                      (star) => star.stars !== 0
+                                    ).length
+                                );
                               }, 0)
                               .toFixed(2)}
                             <Rating
@@ -149,7 +154,11 @@ const PagesRanking = () => {
                                 +page.starsArray
                                   .reduce((acc, crr) => {
                                     return (
-                                      acc + crr.stars / page.starsArray.length
+                                      acc +
+                                      crr.stars /
+                                        page.starsArray.filter(
+                                          (star) => star.stars !== 0
+                                        ).length
                                     );
                                   }, 0)
                                   .toFixed(2)

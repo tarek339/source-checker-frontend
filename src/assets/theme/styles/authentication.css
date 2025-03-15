@@ -9,8 +9,6 @@
   background-color: transparent;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
   position: relative;
-  /* transform: rotate(20deg); */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .lernportal-link {
@@ -25,17 +23,13 @@
   width: 150px;
   text-align: center;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .lernportal-link:hover {
   background-color: #1420ae;
-  /* width: 160px; */
-  /* transition: all 0.3s; */
+  transition: all 0.3s;
 }
-
-/* .lernportal-link:visited {
-  background-color: #1420ae;
-} */
 
 .authentication-image > img {
   display: block;
@@ -94,13 +88,5 @@
   }
   .auth-section-container {
     width: 100%;
-  }
-}
-
-@media (max-width: 1350px) {
-  .authentication-image {
-    transform: rotate(0deg);
-    width: 40%;
-    margin-top: 60px;
   }
 }
