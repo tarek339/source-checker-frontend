@@ -46,7 +46,7 @@ const Authentication = () => {
 
               <a
                 className="lernportal-link"
-                href={import.meta.env.VITE_CLIENT_LERNPORTAL_URL}
+                href="https://portal.hoou.de/"
                 target="_blank"
                 rel="noreferrer">
                 Lernportal
