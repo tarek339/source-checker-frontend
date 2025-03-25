@@ -6,7 +6,7 @@ const Footer = () => {
   const { t } = useTranslations();
 
   return (
-    <div style={{ marginTop: "-16px" }}>
+    <div>
       <Divider borderWidth={3} />
       <Grid column padding>
         <Grid column spacing={1}>
@@ -22,7 +22,7 @@ const Footer = () => {
                 /{" "}
                 <Link
                   href="https://www.haw-hamburg.de/"
-                  title="HAW Hamburg"
+                  title="HOOU@HAW Hamburg"
                   small
                 />{" "}
                 und der{" "}

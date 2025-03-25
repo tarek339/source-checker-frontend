@@ -11,7 +11,7 @@ const PrivacyInfo = () => {
 
       <Text
         text={
-          "Ein Projekt von #UseTheNews / HAW Hamburg und der Hamburg Open Online University (HOOU@HAW)."
+          "Ein Projekt von #UseTheNews / HOOU@HAW Hamburg und der Hamburg Open Online University (HOOU@HAW)."
         }
       />
     </Grid>

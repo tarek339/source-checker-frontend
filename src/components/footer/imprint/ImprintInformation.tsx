@@ -8,7 +8,7 @@ const ImprintInformation = () => {
       <Title title={"Impressum"} />
       <Text
         text={
-          "Die Website und OER Quellenchecker ist ein Projekt von #UseTheNews / HAW Hamburg und der Hamburg Open Online University (HOOU@HAW)."
+          "Die Website und OER Quellenchecker ist ein Projekt von #UseTheNews / HOOU@HAW Hamburg und der Hamburg Open Online University (HOOU@HAW)."
         }
       />
     </Grid>
