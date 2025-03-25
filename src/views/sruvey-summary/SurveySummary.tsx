@@ -17,11 +17,13 @@ import {
   SectionHolder,
   Result,
   Link,
+  SubTitle,
 } from "../../components";
 import { Average, Back } from "../../components/icons";
 import withSurveyAuthPages from "../../hoc/withSurveyAuthPages";
 import { useNavigate, useParams } from "react-router-dom";
 import { Rating, TableBody, TableCell, TableRow } from "@mui/material";
+import { colors } from "../../assets/theme/colors";
 
 const sx: React.CSSProperties = {
   fontSize: "22px",
@@ -140,7 +142,7 @@ const SurveySummary = () => {
                     return (
                       <Thumbnail
                         width={"50%"}
-                        height={windowWidth < 691 ? "250px" : "250px"}
+                        height={windowWidth < 691 ? "250px" : "500px"}
                         overflowY={
                           page.isMobileView && !page.isOpenGraphView
                             ? "scroll"
@@ -164,38 +166,130 @@ const SurveySummary = () => {
                   })}
               </>
               <Grid column noMargin width={"100%"}>
-                <SummaryTable header={null}>
-                  <TableBody>
+                {windowWidth > 600 ? (
+                  <>
+                    <SummaryTable header={null}>
+                      <TableBody>
+                        {surveyPages
+                          .filter((page) => page._id === pageId)
+                          .map((page) => {
+                            return (
+                              <TableRow>
+                                <TableCell sx={sx}>{page.title}</TableCell>
+                                <TableCell sx={sx}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "5px",
+                                    }}>
+                                    <Average />
+                                    {calculatedAverage.toFixed(2)}
+                                    <Rating
+                                      value={+calculatedAverage.toFixed(2)}
+                                      precision={0.5}
+                                      readOnly
+                                      size="large"
+                                    />
+                                  </div>
+                                </TableCell>
+                              </TableRow>
+                            );
+                          })}
+                      </TableBody>
+                    </SummaryTable>
+
+                    <SectionHolder page={page!} />
+                  </>
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "20px",
+                    }}>
                     {surveyPages
                       .filter((page) => page._id === pageId)
                       .map((page) => {
                         return (
-                          <TableRow>
-                            <TableCell sx={sx}>{page.title}</TableCell>
-                            <TableCell sx={sx}>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "5px",
+                            }}>
+                            <SubTitle title={page.title} />
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "flex-start",
+                                alignItems: "center",
+                                gap: "5px",
+                              }}>
+                              <Average />
+                              <SubTitle title={calculatedAverage.toFixed(2)} />
+                              <Rating
+                                value={+calculatedAverage.toFixed(2)}
+                                precision={0.5}
+                                readOnly
+                                size="large"
+                              />
+                            </div>
+                          </div>
+                        );
+                      })}
+
+                    {surveyPages.flatMap((page) => {
+                      return page.starsArray
+                        ?.slice()
+                        .sort((a, b) => b.stars - a.stars)
+                        .map((obj, i) => (
+                          <div key={i}>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "100%",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                borderBottom: `2px solid ${colors.primary.main}`,
+                                paddingBottom: "10px",
+                                paddingTop: "10px",
+                              }}>
                               <div
                                 style={{
                                   display: "flex",
-                                  alignItems: "center",
                                   gap: "5px",
                                 }}>
+                                <SubTitle title={`${i + 1}.`} />
+                                <SubTitle
+                                  title={
+                                    survey?.freeUserNames &&
+                                    !survey?.anonymousResults
+                                      ? obj.userName
+                                      : obj.userNumber
+                                  }
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "flex-start",
+                                  gap: "5px",
+                                  alignItems: "center",
+                                }}>
                                 <Average />
-                                {calculatedAverage.toFixed(2)}
                                 <Rating
-                                  value={+calculatedAverage.toFixed(2)}
-                                  precision={0.5}
+                                  value={obj.stars}
                                   readOnly
                                   size="large"
                                 />
                               </div>
-                            </TableCell>
-                          </TableRow>
-                        );
-                      })}
-                  </TableBody>
-                </SummaryTable>
-
-                <SectionHolder page={page!} />
+                            </div>
+                          </div>
+                        ));
+                    })}
+                  </div>
+                )}
               </Grid>
             </Grid>
 

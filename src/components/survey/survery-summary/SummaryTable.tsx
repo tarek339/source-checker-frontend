@@ -35,7 +35,11 @@ const SummaryTable = ({
       component={Paper}>
       <Table
         size={!size ? "small" : size}
-        sx={{ minWidth: 500, maxWidth: 500, borderRadius: "0px" }}
+        sx={{
+          minWidth: 500,
+          maxWidth: 550,
+          borderRadius: "0px",
+        }}
         aria-label="simple table">
         <TableHead>
           <TableRow>

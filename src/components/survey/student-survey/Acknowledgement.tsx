@@ -48,7 +48,7 @@ const Acknowledgement = () => {
             center
           />
 
-          <SummaryTable header={null}>
+          <SummaryTable header={["Titel", "Thumbnail", "Sterne"]} right>
             <TableBody>
               {surveyPages?.map((page, i) => {
                 return page.starsArray.map((obj) => {

@@ -155,7 +155,7 @@ export interface FormProps {
 }
 
 export interface SubTitleProps {
-  title: string;
+  title: string | number;
   style?: React.CSSProperties;
   marginBottom?: string;
   center?: boolean;
