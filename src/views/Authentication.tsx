@@ -21,6 +21,7 @@ const Authentication = () => {
       <div className="holder">
         <div className="authentication">
           {/*  */}
+
           <div className="auth-section-container">
             <div className="auth-section">
               <h1>{t("common.sourceChecker")}</h1>
