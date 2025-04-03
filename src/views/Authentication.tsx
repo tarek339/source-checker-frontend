@@ -18,8 +18,9 @@ const Authentication = () => {
 
   return (
     <FramerMotion>
-      <div className="authentication">
-        <div className="authentication-container">
+      <div className="holder">
+        <div className="authentication">
+          {/*  */}
           <div className="auth-section-container">
             <div className="auth-section">
               <h1>{t("common.sourceChecker")}</h1>
@@ -54,9 +55,10 @@ const Authentication = () => {
             </div>
           </div>
 
-          <div className="authentication-image">
-            <img src={imgSrc} alt="main image" />
-          </div>
+          {/* image */}
+        </div>
+        <div className="authentication-image">
+          <img src={imgSrc} alt="main image" />
         </div>
       </div>
     </FramerMotion>
